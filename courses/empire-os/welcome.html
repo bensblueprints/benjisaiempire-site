@@ -1,0 +1,457 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="format-detection" content="telephone=no" />
+
+  <title>You're In. Empire OS Is Yours. | Benji's AI Empire</title>
+  <meta name="description" content="The capstone is yours. Here's the suggested 4-week path through Empire OS â€” module by module, with the working spreadsheets, run-sheets, and templates ready when you are." />
+  <meta name="author" content="Benji Boyce" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <meta name="robots" content="noindex, nofollow" />
+
+  <link rel="canonical" href="https://benjisaiempire.com/courses/empire-os/welcome" />
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://benjisaiempire.com/courses/empire-os/welcome" />
+  <meta property="og:title" content="You're In. Empire OS Is Yours." />
+  <meta property="og:description" content="The capstone is yours. Here's the 4-week path through it." />
+  <meta property="og:image" content="https://benjisaiempire.com/images/og-empire-os.jpg" />
+  <meta property="og:site_name" content="Benji's AI Empire" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="You're In. Empire OS Is Yours." />
+  <meta name="twitter:description" content="The capstone is yours." />
+
+  <!-- Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Benji's AI Empire",
+    "url": "https://benjisaiempire.com",
+    "logo": "https://benjisaiempire.com/images/logo.png"
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Page-specific cinematic touches -->
+  <style>
+    .week-grid {
+      display: grid;
+      gap: var(--space-5);
+      grid-template-columns: 1fr;
+      margin-top: var(--space-6);
+    }
+    @media (min-width: 880px) {
+      .week-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    .week-card {
+      background: var(--bae-black-2);
+      border: 1px solid var(--bae-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      position: relative;
+      transition: border-color 0.2s var(--ease);
+    }
+    .week-card:hover { border-color: var(--bae-gold-line); }
+    .week-card__label {
+      font-family: 'Poppins', sans-serif;
+      font-size: var(--fs-xs);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--bae-gold-bright);
+      margin-bottom: var(--space-3);
+    }
+    .week-card h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: var(--fs-xl);
+      margin-bottom: var(--space-3);
+    }
+    .week-card p {
+      font-size: var(--fs-base);
+      color: var(--bae-gray);
+      margin-bottom: var(--space-4);
+      line-height: 1.55;
+    }
+    .week-card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      margin-bottom: var(--space-4);
+    }
+    .week-card ul li {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-3);
+      font-size: var(--fs-sm);
+      color: var(--bae-white);
+      line-height: 1.5;
+    }
+    .week-card ul li::before {
+      content: '\2022';
+      color: var(--bae-gold-bright);
+      font-weight: 900;
+      flex-shrink: 0;
+    }
+  </style>
+
+  <!-- META PIXEL: fire Purchase event with value=497, currency=USD -->
+  <!-- GA4: fire purchase event with transaction_id, value=497, items=[empire-os] -->
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a href="/" class="nav__logo" aria-label="Benji's AI Empire">
+        <img src="images/logo.png" alt="Benji's AI Empire logo" />
+        <span class="nav__logo-text">
+          <span>BAE</span>
+          <strong>Benji's AI Empire</strong>
+        </span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="#path">4-Week Path</a></li>
+        <li><a href="#cadence">Live Cadence</a></li>
+        <li><a href="#upgrade">Upgrade To Builder</a></li>
+      </ul>
+      <a href="https://benjisaiempire.com/login" class="btn btn-primary nav__cta">Open Course Player</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ============================== -->
+    <!-- HERO                            -->
+    <!-- ============================== -->
+    <section class="hero">
+      <div class="container">
+        <div class="container-narrow text-center" style="margin: 0 auto;">
+
+          <span class="success-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <polyline points="4 13 9 18 20 7" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
+
+          <span class="crown-badge">Capstone unlocked</span>
+          <h1 style="margin-top: 24px;">You're in. The capstone is yours.</h1>
+          <hr class="gold-line" />
+          <p style="margin-bottom: 16px; color: var(--bae-white); font-size: 19px;">
+            <strong>Empire OS</strong> is now in your course library. The Year 1 milestone math
+            spreadsheet, the Launch Week run-sheets, the first-hire role templates &mdash; all yours,
+            lifetime access.
+          </p>
+          <p style="max-width: 60ch; margin: 0 auto;">
+            Receipt + login link just landed in your inbox. Add
+            <strong class="text-gold">benji@advancedmarketing.co</strong> to your contacts so the rest of
+            the Empire onboarding lands in your primary inbox.
+          </p>
+
+          <div class="hero__cta-row mt-7" style="justify-content: center;">
+            <a href="https://benjisaiempire.com/login" class="btn btn-primary btn-large btn-arrow">
+              Open The Course Player
+            </a>
+            <a href="#path" class="btn btn-secondary btn-arrow">See The 4-Week Path</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- 4-WEEK PATH                    -->
+    <!-- ============================== -->
+    <section class="section section--alt" id="path">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">The suggested path</span>
+          <h2>4 weeks. 7 modules. One designed Empire by Day 30.</h2>
+          <hr class="gold-line" />
+          <p>
+            Don't try to consume Empire OS in one sitting &mdash; the material is meta and rewards
+            sleeping on it. Here's the 4-week pace I recommend, with one decision artifact per week.
+            By Day 30 you have your own version of the OS on paper.
+          </p>
+        </div>
+
+        <div class="week-grid">
+
+          <article class="week-card">
+            <div class="week-card__label">Week 1</div>
+            <h3>The thesis &amp; the stack (Modules 1-2)</h3>
+            <p>
+              Sit with the parallel-growth thesis. Open the Year 1 milestone math spreadsheet. Plug your
+              own numbers in. Decide what your tier stack looks like &mdash; do you have an Insider tier?
+              A founder cohort? Where does the gold-crown gravity live in your business?
+            </p>
+            <ul>
+              <li>Watch Modules 1 + 2 (~2 hours)</li>
+              <li>Fill in the milestone math spreadsheet</li>
+              <li>Decide your tier stack (Insider / Builder / Founder analog)</li>
+            </ul>
+            <a href="https://benjisaiempire.com/login#empire-os-module-1">Start Week 1 &rarr;</a>
+          </article>
+
+          <article class="week-card">
+            <div class="week-card__label">Week 2</div>
+            <h3>The content factory (Modules 3-4)</h3>
+            <p>
+              The cadence IS the brand. Pick your two open public streams and your one gated one. Sketch
+              your milestone content moments &mdash; the $X MRR posts you'll publish in the next 12 months.
+              By end of week, you have a calendar.
+            </p>
+            <ul>
+              <li>Watch Modules 3 + 4 (~2 hours)</li>
+              <li>Pick your weekly live cadence (3 shows)</li>
+              <li>Draft the 5-year milestone content map</li>
+            </ul>
+            <a href="https://benjisaiempire.com/login#empire-os-module-3">Continue to Week 2 &rarr;</a>
+          </article>
+
+          <article class="week-card">
+            <div class="week-card__label">Week 3</div>
+            <h3>Launch Week + first hire (Modules 5-6)</h3>
+            <p>
+              Open the Launch Week run-sheets. Pick a quarterly launch window (Q+1) and put it on the
+              calendar. Decide which role you'll hire first when you cross $25K MRR &mdash; editor/VA or
+              cold-call closer? Draft the role description.
+            </p>
+            <ul>
+              <li>Watch Modules 5 + 6 (~2 hours)</li>
+              <li>Block a 5-day Launch Week on the calendar</li>
+              <li>Draft your first-hire role description</li>
+            </ul>
+            <a href="https://benjisaiempire.com/login#empire-os-module-5">Continue to Week 3 &rarr;</a>
+          </article>
+
+          <article class="week-card">
+            <div class="week-card__label">Week 4</div>
+            <h3>The honest brand at scale (Module 7)</h3>
+            <p>
+              Module 7 is the smallest and the most important. Read it twice. Write down what your
+              "what if it doesn't grow?" answer is. Pre-commit publicly to one milestone post you'll
+              publish whether the number is good or bad. That's the brand contract.
+            </p>
+            <ul>
+              <li>Watch Module 7 twice (~90 min)</li>
+              <li>Write your build-in-public commitment letter</li>
+              <li>Publish it &mdash; on a Tuesday, after the live</li>
+            </ul>
+            <a href="https://benjisaiempire.com/login#empire-os-module-7">Finish Week 4 &rarr;</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- LIVE PROGRAMMING CADENCE       -->
+    <!-- ============================== -->
+    <section class="section" id="cadence">
+      <div class="container">
+        <div class="callout">
+          <span class="callout__icon">&#128197;</span>
+          <div>
+            <h3>While you're working through Empire OS &mdash; come watch the live cadence.</h3>
+            <p>
+              The fastest way to internalize Module 3 is to watch the cadence happen in real time. Tuesday
+              Cold Call Live, Thursday Build Day Live, Friday Builder Q&amp;A &mdash; that's the content
+              factory referenced throughout the course. Add all three to your calendar. Watching a few
+              cycles will make the module material click harder than re-reading the notes.
+            </p>
+          </div>
+        </div>
+
+        <div class="next-steps mt-7">
+
+          <div class="next-step">
+            <div class="next-step__num">Tue</div>
+            <h4>Cold Call Live</h4>
+            <p>
+              60-90 minutes on YouTube. Real prospects, real calls, real bookings. Free, no opt-in.
+            </p>
+            <a href="https://www.youtube.com/@benjiboyce" class="btn-ghost" target="_blank" rel="noopener">Watch on YouTube &rarr;</a>
+          </div>
+
+          <div class="next-step">
+            <div class="next-step__num">Thu</div>
+            <h4>Build Day Live</h4>
+            <p>
+              3 hours on YouTube. One client landing page, blank canvas to deployed URL.
+            </p>
+            <a href="/calendar/thursday-build-day-live.ics" class="btn-ghost" download>Add to Calendar &rarr;</a>
+          </div>
+
+          <div class="next-step">
+            <div class="next-step__num">Fri</div>
+            <h4>Builder Q&amp;A Zoom</h4>
+            <p>
+              Builder-only after first 50 founders fill. Live coaching, hot seats, real businesses.
+            </p>
+            <a href="/founders" class="btn-ghost">See Builder Tier &rarr;</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- BUILDER UPGRADE TEASE          -->
+    <!-- ============================== -->
+    <section class="section section--alt" id="upgrade">
+      <div class="container">
+        <div class="upgrade-tease">
+          <span class="crown-badge">Empire Founder</span>
+          <h3 class="mt-3">Empire OS is the capstone. Builder is the home.</h3>
+          <p>
+            You bought Empire OS standalone. That's good. Builder is what makes the OS run &mdash; live
+            Friday Q&amp;A every week, every other Empire course in your library, the Empire Vault for
+            scripts and templates, working files from every Build Day, GHL sub-account at $0.015/min
+            wholesale, and a 24-hour Q&amp;A guarantee in the private Builder channel. Founder rate is
+            $99/mo locked for life &mdash; first 50 only.
+          </p>
+
+          <div class="founder-counter" aria-live="polite">
+            <!-- Replace span text dynamically from GHL custom value: founder_count_remaining -->
+            <span class="founder-count-num" id="founder-count">38</span>
+            <span>of 50 founder spots remaining</span>
+          </div>
+
+          <div class="hero__cta-row mt-5">
+            <a href="https://benjisaiempire.com/checkout/empire-founder-99" class="btn btn-primary btn-large btn-arrow">
+              Upgrade To Builder Founder &mdash; $99/mo
+            </a>
+            <a href="/insider" class="btn btn-secondary btn-arrow">Or step in as Insider for $10/mo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- WHAT TO DO RIGHT NOW           -->
+    <!-- ============================== -->
+    <section class="section" id="next">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">In the next 10 minutes</span>
+          <h2>Three quick moves before you close this tab.</h2>
+          <hr class="gold-line" />
+        </div>
+
+        <div class="next-steps">
+
+          <div class="next-step">
+            <div class="next-step__num">01</div>
+            <h4>Bookmark the course player</h4>
+            <p>
+              Login link is in your receipt email. Save it now &mdash; you'll be back here every week
+              for the next month.
+            </p>
+            <a href="https://benjisaiempire.com/login" class="btn-ghost" target="_blank" rel="noopener">Open Player &rarr;</a>
+          </div>
+
+          <div class="next-step">
+            <div class="next-step__num">02</div>
+            <h4>Download the milestone math spreadsheet</h4>
+            <p>
+              Module 1 sidebar, top resource. Plug your numbers in this week &mdash; the rest of the
+              course is more useful with your real assumptions.
+            </p>
+            <a href="https://benjisaiempire.com/login#empire-os-module-1-resources" class="btn-ghost">Get Spreadsheet &rarr;</a>
+          </div>
+
+          <div class="next-step">
+            <div class="next-step__num">03</div>
+            <h4>Pre-commit publicly</h4>
+            <p>
+              Module 7 ends with a build-in-public commitment letter. Don't wait until Week 4 &mdash;
+              draft your version this week. The public commitment is the work.
+            </p>
+            <a href="mailto:benji@advancedmarketing.co?subject=My%20build-in-public%20commitment" class="btn-ghost">Email Me Yours &rarr;</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- FINAL CTA / CLOSING            -->
+    <!-- ============================== -->
+    <section class="final-cta section--accent" aria-label="Closing">
+      <div class="container-narrow">
+        <span class="eyebrow">A note from Benji</span>
+        <h2>You took the capstone last. That tells me you're the kind of operator I built this for.</h2>
+        <hr class="gold-line" />
+        <p>
+          Most people skip the foundation and buy the capstone. You did the work in reverse &mdash; or you
+          already had the foundation when you got here. Either way, welcome. The cadence is Tuesday,
+          Thursday, Friday. The work is the proof. Build the thing that gets harder for someone else
+          to copy every month.
+        </p>
+        <a href="https://benjisaiempire.com/login" class="btn btn-primary btn-large btn-arrow">Open The Course Player</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="/" class="nav__logo">
+            <img src="images/logo.png" alt="Benji's AI Empire logo" />
+            <span class="nav__logo-text">
+              <span>BAE</span>
+              <strong>Benji's AI Empire</strong>
+            </span>
+          </a>
+          <p>
+            The AI Operating Manual for Real Operators. Cold calls every Tuesday.
+            Client sites every Thursday. Built in public.
+          </p>
+        </div>
+
+        <div class="footer__col">
+          <h5>Empire</h5>
+          <ul>
+            <li><a href="/starter-kit">Starter Kit</a></li>
+            <li><a href="/insider">Empire Insider &mdash; $10/mo</a></li>
+            <li><a href="/founders">Empire Builder &mdash; Founder Rate</a></li>
+            <li><a href="/partners">Software Partners</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h5>Legal</h5>
+          <ul>
+            <li><a href="/privacy">Privacy</a></li>
+            <li><a href="/terms">Terms</a></li>
+            <li><a href="mailto:benji@advancedmarketing.co">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <span>&copy; 2026 Advanced Marketing &middot; Benji's AI Empire. All rights reserved.</span>
+        <span>Built in public from <code>benjisaiempire.com</code></span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

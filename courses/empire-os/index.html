@@ -1,0 +1,858 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="format-detection" content="telephone=no" />
+
+  <title>Empire OS â€” Two Businesses. One Operator. Built In Public. | Benji Boyce</title>
+  <meta name="description" content="The capstone course. The system I'm running to build a real marketing agency to $100K MRR while a community of operators builds alongside. 7 modules. The parallel-growth thesis, the live programming cadence, the 5-year content engine. Take this last." />
+  <meta name="author" content="Benji Boyce" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://benjisaiempire.com/courses/empire-os" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="product" />
+  <meta property="og:url" content="https://benjisaiempire.com/courses/empire-os" />
+  <meta property="og:title" content="Empire OS â€” Two Businesses. One Operator. Built In Public." />
+  <meta property="og:description" content="The capstone. Scale your agency to $1M+ while building it in public. 7 modules. The parallel-growth thesis. $497 one-time, or included in Empire Builder." />
+  <meta property="og:image" content="https://benjisaiempire.com/images/og-empire-os.jpg" />
+  <meta property="og:site_name" content="Benji's AI Empire" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Empire OS â€” The Capstone" />
+  <meta name="twitter:description" content="Two businesses. One operator. Built in public." />
+  <meta name="twitter:image" content="https://benjisaiempire.com/images/og-empire-os.jpg" />
+
+  <!-- Schema.org Course -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "Empire OS â€” Scale Your Agency to $1M+ While Building It In Public",
+    "description": "The capstone course of Benji's AI Empire. Seven modules covering the parallel-growth thesis, the two-tier stack, weekly live programming as content factory, milestone content moments, the 5-day Launch Week run-of-show, hiring your first operator, and the honest operator brand at scale.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Benji's AI Empire",
+      "sameAs": "https://benjisaiempire.com"
+    },
+    "instructor": {
+      "@type": "Person",
+      "name": "Benji Boyce",
+      "jobTitle": "Marketer & Agency Operator"
+    },
+    "hasCourseInstance": {
+      "@type": "CourseInstance",
+      "courseMode": "online",
+      "courseWorkload": "PT7H"
+    },
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "One-time non-member purchase",
+        "price": "497.00",
+        "priceCurrency": "USD",
+        "url": "https://benjisaiempire.com/courses/empire-os"
+      },
+      {
+        "@type": "Offer",
+        "name": "Empire Builder Founder",
+        "price": "99.00",
+        "priceCurrency": "USD",
+        "category": "subscription",
+        "url": "https://benjisaiempire.com/founders"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Page-specific cinematic touches (gold-crown gravity for the capstone) -->
+  <style>
+    .capstone-hero { padding: 144px 0 112px; }
+    .capstone-hero h1 { font-size: clamp(40px, 7vw, 96px); letter-spacing: -0.03em; }
+    .capstone-hero .gold { display: block; }
+
+    /* Year-1 milestone math grid */
+    .milestone-grid {
+      display: grid;
+      gap: var(--space-5);
+      grid-template-columns: 1fr;
+      margin-top: var(--space-7);
+    }
+    @media (min-width: 768px) {
+      .milestone-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .milestone-card {
+      background: linear-gradient(180deg, var(--bae-black-2) 0%, rgba(212, 175, 55, 0.06) 100%);
+      border: 1px solid var(--bae-gold-line);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      text-align: center;
+    }
+    .milestone-card__day {
+      font-family: 'Poppins', sans-serif;
+      font-size: var(--fs-xs);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--bae-gold-bright);
+      margin-bottom: var(--space-3);
+    }
+    .milestone-card__num {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 900;
+      color: var(--bae-white);
+      line-height: 1;
+      margin-bottom: var(--space-3);
+    }
+    .milestone-card__num span { color: var(--bae-gold-bright); }
+    .milestone-card__label {
+      font-size: var(--fs-sm);
+      color: var(--bae-gray);
+      line-height: 1.5;
+    }
+
+    /* Live programming cadence */
+    .cadence {
+      display: grid;
+      gap: var(--space-4);
+      grid-template-columns: 1fr;
+      margin-top: var(--space-6);
+    }
+    @media (min-width: 880px) {
+      .cadence { grid-template-columns: repeat(3, 1fr); }
+    }
+    .cadence-card {
+      background: var(--bae-black-2);
+      border: 1px solid var(--bae-border);
+      border-left: 3px solid var(--bae-gold);
+      border-radius: var(--radius-md);
+      padding: var(--space-5);
+    }
+    .cadence-card__day {
+      font-family: 'Poppins', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: var(--fs-xs);
+      color: var(--bae-gold-bright);
+      margin-bottom: var(--space-2);
+    }
+    .cadence-card h4 {
+      font-family: 'Poppins', sans-serif;
+      font-size: var(--fs-lg);
+      margin-bottom: var(--space-2);
+    }
+    .cadence-card p {
+      font-size: var(--fs-sm);
+      color: var(--bae-gray);
+      margin: 0;
+      line-height: 1.55;
+    }
+
+    /* Launch Week run-of-show */
+    .ros-list {
+      list-style: none;
+      counter-reset: rosday;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      margin-top: var(--space-5);
+    }
+    .ros-list li {
+      counter-increment: rosday;
+      background: var(--bae-black-2);
+      border: 1px solid var(--bae-border);
+      border-radius: var(--radius-md);
+      padding: var(--space-4) var(--space-5);
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: var(--space-4);
+      align-items: center;
+    }
+    .ros-list li::before {
+      content: 'DAY ' counter(rosday);
+      font-family: 'Poppins', sans-serif;
+      font-size: var(--fs-xs);
+      letter-spacing: 0.18em;
+      color: var(--bae-gold-bright);
+      background: var(--bae-black-3);
+      border: 1px solid var(--bae-gold-line);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-weight: 700;
+    }
+    .ros-list strong {
+      color: var(--bae-white);
+      font-family: 'Poppins', sans-serif;
+      letter-spacing: -0.01em;
+    }
+    .ros-list span {
+      color: var(--bae-gray);
+      font-size: var(--fs-sm);
+    }
+  </style>
+
+  <!-- Pixels -->
+  <!-- META PIXEL: insert fbq init + ViewContent -->
+  <!-- GA4: insert gtag config + view_item -->
+</head>
+<body>
+
+  <!-- ============================== -->
+  <!-- HEADER / NAV                   -->
+  <!-- ============================== -->
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a href="/" class="nav__logo" aria-label="Benji's AI Empire â€” Home">
+        <img src="images/logo.png" alt="Benji's AI Empire logo" />
+        <span class="nav__logo-text">
+          <span>BAE</span>
+          <strong>Benji's AI Empire</strong>
+        </span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="#thesis">Parallel Growth</a></li>
+        <li><a href="#modules">Modules</a></li>
+        <li><a href="#cadence">Live Cadence</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+      </ul>
+      <a href="#pricing" class="btn btn-primary nav__cta">Buy Empire OS</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ============================== -->
+    <!-- HERO â€” Capstone treatment      -->
+    <!-- ============================== -->
+    <section class="hero hero--with-image capstone-hero" style="--hero-bg-image: url('images/ben-cinematic-banyan-tree-stussy-tee.jpg');">
+      <div class="container">
+        <div class="hero__inner">
+          <div class="hero__copy">
+            <span class="crown-badge">The Capstone &middot; Empire Founder Material</span>
+            <h1 style="margin-top: 24px;">
+              Two businesses. One operator.
+              <span class="gold">Built in public.</span>
+            </h1>
+            <p class="hero__sub">
+              <strong>Empire OS</strong> is the master course &mdash; the system I'm running to build a
+              real marketing agency to $100K MRR while a community of operators builds alongside. By the
+              end you've designed your own Empire: agency growing alongside community, build-in-public
+              commitment locked, a 5-year content engine running.
+            </p>
+            <div class="hero__cta-row">
+              <a href="#pricing" class="btn btn-primary btn-large btn-arrow">Buy Empire OS &mdash; $497</a>
+              <a href="#modules" class="btn btn-secondary btn-arrow">See The 7 Modules</a>
+            </div>
+            <p class="hero__reassure">
+              7 modules &middot; 7 hours &middot; Capstone &mdash; take this last <span>&middot;</span> No free preview
+            </p>
+          </div>
+
+          <div class="hero__visual">
+            <img src="images/ben-cinematic-banyan-tree-stussy-tee.jpg" alt="Benji Boyce in cinematic operator portrait under a banyan tree, quiet operator energy" loading="eager" fetchpriority="high" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- AUTHORITY BAR                  -->
+    <!-- ============================== -->
+    <section class="authority" aria-label="Track record">
+      <div class="container">
+        <div class="authority__grid">
+          <div class="authority__item">
+            <span class="authority__check">&#10003;</span>
+            <span class="authority__text">15 years in marketing</span>
+          </div>
+          <div class="authority__item">
+            <span class="authority__check">&#10003;</span>
+            <span class="authority__text">$25M+ in e-commerce sales</span>
+          </div>
+          <div class="authority__item">
+            <span class="authority__check">&#10003;</span>
+            <span class="authority__text">2,000+ products launched</span>
+          </div>
+          <div class="authority__item">
+            <span class="authority__check">&#10003;</span>
+            <span class="authority__text">Building both businesses in public</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- THE PARALLEL-GROWTH THESIS     -->
+    <!-- ============================== -->
+    <section class="section" id="thesis">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">The thesis</span>
+          <h2>Agency + community is a 2-business model that de-risks each other.</h2>
+          <hr class="gold-line" />
+          <p>
+            The agency provides <strong>real ongoing case studies</strong>. The community provides
+            <strong>distribution</strong>. Each one is the proof loop for the other. If either one
+            stalls, the other compensates. If both compound, you've built the rare thing in this market:
+            a business that gets harder for competitors to copy every month it's alive.
+          </p>
+        </div>
+
+        <div class="milestone-grid">
+
+          <div class="milestone-card">
+            <div class="milestone-card__day">Day 30</div>
+            <div class="milestone-card__num">~<span>$280K</span></div>
+            <div class="milestone-card__label">Combined annualized run rate &mdash; agency MRR plus community MRR plus course one-time revenue</div>
+          </div>
+
+          <div class="milestone-card">
+            <div class="milestone-card__day">Day 90</div>
+            <div class="milestone-card__num">~<span>$670K</span></div>
+            <div class="milestone-card__label">Both lines compounding &mdash; first 50 founders filled, agency past $25K MRR, ad spend in profit</div>
+          </div>
+
+          <div class="milestone-card">
+            <div class="milestone-card__day">Day 365</div>
+            <div class="milestone-card__num">~<span>$3.2M</span></div>
+            <div class="milestone-card__label">5,000 community members + $100K agency MRR + the 5-year content engine running on autopilot</div>
+          </div>
+
+        </div>
+
+        <p class="text-center mt-7" style="max-width: 60ch; margin-left: auto; margin-right: auto; color: var(--bae-gray-2); font-size: var(--fs-sm);">
+          Year 1 milestone math from <strong>Module 1</strong>. The numbers are projections, not promises.
+          Inside the course I show the spreadsheet, the assumptions, and what breaks if either line stalls.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- 7 MODULES                       -->
+    <!-- ============================== -->
+    <section class="section section--alt" id="modules">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">The 7 modules</span>
+          <h2>The capstone curriculum.</h2>
+          <hr class="gold-line" />
+          <p>
+            Empire OS is meta. It's not a tactical course &mdash; it's the operating system for running
+            both businesses in parallel. Take this <strong>after</strong> Cold Calling 2.0, AI Brand
+            Builder, and AI Marketing Engine. You'll get more out of every minute.
+          </p>
+        </div>
+
+        <div class="kit-grid">
+
+          <article class="kit-card">
+            <div class="kit-card__num">1</div>
+            <h3 class="kit-card__title">The Parallel Growth Thesis</h3>
+            <p class="kit-card__body">
+              Why agency + community is a <strong>2-business model that de-risks each other</strong>.
+              Year 1 milestone math: <strong>0 &rarr; 5,000 community members + $10K &rarr; $100K agency MRR</strong>.
+              Combined annualized run rate: ~$280K Day 30 / ~$670K Day 90 / ~$3.2M Day 365. The
+              spreadsheet, the assumptions, the failure modes.
+            </p>
+          </article>
+
+          <article class="kit-card">
+            <div class="kit-card__num">2</div>
+            <h3 class="kit-card__title">The Two-Tier Stack (Insider / Builder / Founder)</h3>
+            <p class="kit-card__body">
+              <strong>Insider $10/mo</strong> &mdash; entry tier with foundation courses + replays.
+              <strong>Builder $99/$149</strong> &mdash; full vault, weekly Q&amp;A, the Empire Vault.
+              <strong>Founder (first 50)</strong> &mdash; gold crown badge, founders-only channel,
+              $99-locked-for-life. The GHL minute markup mechanic. The pre-50 transition rule.
+            </p>
+          </article>
+
+          <article class="kit-card">
+            <div class="kit-card__num">3</div>
+            <h3 class="kit-card__title">Weekly Live Programming as the Content Factory</h3>
+            <p class="kit-card__body">
+              Tuesday Cold Call Live (the prospecting proof loop). <strong>Empire Weekly</strong> newsletter
+              Wednesday. Thursday Build Day Live (Claude Code in real time). Friday Builder Q&amp;A Zoom.
+              Why two open public streams: top-of-funnel content factory + authority compounding +
+              members feel the gap.
+            </p>
+          </article>
+
+          <article class="kit-card">
+            <div class="kit-card__num">4</div>
+            <h3 class="kit-card__title">Milestone Content Moments (5-Year Engine)</h3>
+            <p class="kit-card__body">
+              <strong>"$15K MRR &mdash; here's the deal that closed it."</strong>
+              "$25K MRR &mdash; first hire." "$50K MRR &mdash; what 6 months of building in public actually
+              looks like." "$100K MRR &mdash; what changed and what I'd do differently." The annual
+              relaunch &mdash; every 90 days, run a 5-day live event.
+            </p>
+          </article>
+
+          <article class="kit-card">
+            <div class="kit-card__num">5</div>
+            <h3 class="kit-card__title">Launch Week Run-of-Show (5-Day Live Event)</h3>
+            <p class="kit-card__body">
+              Mon &mdash; AI Empire Vision Keynote (open founder doors). Tue &mdash; Cold Calling 2.0
+              Masterclass + LIVE COLD CALLS. Wed &mdash; AI Website in 3 Hours (live build). Thu &mdash;
+              Software Partner Showcase. Fri &mdash; AMA + Final Close. Sat-Sun &mdash; final scarcity push,
+              doors close Sunday midnight.
+            </p>
+          </article>
+
+          <article class="kit-card">
+            <div class="kit-card__num">6</div>
+            <h3 class="kit-card__title">Hiring Your First Operator (and Beyond)</h3>
+            <p class="kit-card__body">
+              When to hire (the $25K MRR signal). First-hire role: the editor/VA who runs the
+              Pillar-to-Derivative Cascade. Second hire: the cold call closer who runs the script you
+              trained them on. Building the senior member layer (community moderators with verified-helper badge).
+            </p>
+          </article>
+
+          <article class="kit-card">
+            <div class="kit-card__num">7</div>
+            <h3 class="kit-card__title">The Honest Operator Brand at Scale</h3>
+            <p class="kit-card__body">
+              Why telling the truth about your numbers is, paradoxically, the rare move. Defending
+              build-in-public when revenue dips. The "what if your agency doesn't grow?" answer.
+              The 5-year compound &mdash; <strong>every milestone is a story</strong>.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- LIVE PROGRAMMING CADENCE       -->
+    <!-- ============================== -->
+    <section class="section" id="cadence">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">The week you're walking into</span>
+          <h2>Three live shows. Every week. Forever.</h2>
+          <hr class="gold-line" />
+          <p>
+            The cadence IS the brand. Two open-public streams (Tuesday + Thursday) act as the content
+            factory. One Builder-gated Zoom (Friday) acts as the coaching layer. Module 3 of Empire OS
+            is the production playbook for all three.
+          </p>
+        </div>
+
+        <div class="cadence">
+
+          <div class="cadence-card">
+            <div class="cadence-card__day">Tuesday</div>
+            <h4>Cold Call Live</h4>
+            <p>
+              60-90 minutes. I dial real prospects with real AI prompts on YouTube. Real conversations,
+              real objections, real bookings. The prospecting proof loop. Free, no opt-in.
+            </p>
+          </div>
+
+          <div class="cadence-card">
+            <div class="cadence-card__day">Thursday</div>
+            <h4>Build Day Live</h4>
+            <p>
+              3 hours. I ship a real client landing page in Claude Code, end to end, on YouTube. Wireframe
+              to deployed URL by hour three. Working files drop in the Empire Vault Friday morning.
+            </p>
+          </div>
+
+          <div class="cadence-card">
+            <div class="cadence-card__day">Friday</div>
+            <h4>Builder Q&amp;A Zoom</h4>
+            <p>
+              60-90 minutes. Live coaching. Hot seats. Real Builder businesses. <strong>Builder-only</strong>
+              after first 50 founders fill (Insiders pre-50 get a temporary live pass &mdash; the
+              Pre-50 Transition Rule).
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- LAUNCH WEEK RUN-OF-SHOW PREVIEW -->
+    <!-- ============================== -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">Module 5 preview</span>
+          <h2>The 5-day Launch Week run-of-show.</h2>
+          <hr class="gold-line" />
+          <p>
+            Inside Empire OS Module 5 you get the full per-hour script. Here's the day-level skeleton
+            so you know what you're signing up to run quarterly.
+          </p>
+        </div>
+
+        <ol class="ros-list">
+          <li>
+            <span><strong>AI Empire Vision Keynote</strong> &mdash; open founder doors, the parallel-growth thesis on stage, the year ahead.</span>
+          </li>
+          <li>
+            <span><strong>Cold Calling 2.0 Masterclass</strong> + LIVE COLD CALLS &mdash; the Master Script, plus three real prospects on speaker.</span>
+          </li>
+          <li>
+            <span><strong>AI Website in 3 Hours</strong> &mdash; one live Claude Code build, blank canvas to deployed URL, on stream.</span>
+          </li>
+          <li>
+            <span><strong>Software Partner Showcase</strong> &mdash; the 23-tool stack, member-exclusive promo codes revealed.</span>
+          </li>
+          <li>
+            <span><strong>AMA + Final Close</strong> &mdash; founder-doors closing countdown, last call, rate locks Sunday midnight.</span>
+          </li>
+        </ol>
+
+        <p class="text-center mt-7" style="max-width: 60ch; margin-left: auto; margin-right: auto; color: var(--bae-gray-2); font-size: var(--fs-sm);">
+          Module 5 includes the run-sheet template, the email sequence per day, the sales-call script for
+          each segment, and the post-event survey that determines what you ship in the next 90 days.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- WHO THIS IS FOR                -->
+    <!-- ============================== -->
+    <section class="section" id="who-its-for">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">Honest filter &mdash; capstone gate</span>
+          <h2>This is the LAST course. Take it after the other three.</h2>
+          <hr class="gold-line" />
+        </div>
+
+        <div class="compare">
+          <div class="compare__col">
+            <h3 class="compare__title">Take this when</h3>
+            <ul class="compare__list">
+              <li>You've completed Cold Calling 2.0 (or are running the Master Script live)</li>
+              <li>You've launched a brand using AI Brand Builder (or have one already running)</li>
+              <li>You've shipped at least one funnel using AI Marketing Engine</li>
+              <li>You're at $5K-$15K MRR and asking "what's the system to scale this?"</li>
+              <li>You want to run a community alongside the agency &mdash; or already are</li>
+            </ul>
+          </div>
+
+          <div class="compare__col">
+            <h3 class="compare__title">Wait on this if</h3>
+            <ul class="compare__list">
+              <li class="disabled">You haven't made a single dial yet (start with Cold Calling 2.0)</li>
+              <li class="disabled">You haven't launched a brand or domain (start with AI Brand Builder)</li>
+              <li class="disabled">You haven't shipped a funnel (start with AI Marketing Engine)</li>
+              <li class="disabled">You want quick tactical wins &mdash; this is strategic, not tactical</li>
+              <li class="disabled">You're not ready to commit to building in public</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="callout mt-7">
+          <span class="callout__icon">&#9888;</span>
+          <div>
+            <h3>No free preview module &mdash; capstone is gated.</h3>
+            <p>
+              The other Empire courses have free preview lessons that drive Insider opt-ins. Empire OS
+              doesn't. The material assumes you've done the work in the other three courses. If the gate
+              feels frustrating, the answer is &mdash; honestly &mdash; do the work first. The course will
+              still be here.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- INSTRUCTOR / WHO IS BENJI       -->
+    <!-- ============================== -->
+    <section class="section section--alt" id="instructor">
+      <div class="container">
+        <div class="bio">
+          <img class="bio__photo" src="images/ben-bookshelf-white-tee-headshot.jpg" alt="Benji Boyce headshot" loading="lazy" />
+          <div class="bio__copy">
+            <span class="eyebrow">Your instructor</span>
+            <h2>15 years in marketing. $25M in e&#8209;commerce. Now running both businesses in public.</h2>
+            <p>
+              I'm Benji Boyce. The agency is at <strong>$10K MRR right now</strong> and I'm growing it
+              to $100K MRR in public, in real time. The community starts at zero and goes to 5,000+ in
+              the same window. Every week I show the work on Tuesday, ship the work on Thursday, and
+              coach the work on Friday.
+            </p>
+            <p>
+              Empire OS is the codified version of how I'm doing it. It's not a theoretical course. It's
+              the spreadsheet, the playbook, and the run-sheets I'm using this quarter. If you watch a
+              Tuesday Live or Thursday Live you've already seen the proof &mdash; the course is what's
+              underneath.
+            </p>
+            <p>
+              I wrote a book in 2017 called <em>How to Lose a Million Dollars in 364 Days</em>. The honest
+              operator brand is paid for in part by the years that became that book. This time I'm writing
+              the case study live.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- PRICING                         -->
+    <!-- ============================== -->
+    <section class="section section--accent" id="pricing">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">Two ways in</span>
+          <h2>The capstone, standalone &mdash; or as part of the full Empire.</h2>
+          <hr class="gold-line" />
+          <p>
+            Empire OS is included in the Empire Builder tier with every other course, the Empire Vault,
+            Friday Builder Q&amp;A, and a GoHighLevel sub-account at wholesale calling rates. Or buy it
+            once for $497 if you want the OS without the community layer.
+          </p>
+        </div>
+
+        <div class="compare">
+
+          <div class="compare__col">
+            <h3 class="compare__title">Standalone (Non-Member)</h3>
+            <div class="compare__price">$497 <small>one-time</small></div>
+            <ul class="compare__list">
+              <li>All 7 modules &middot; 7 hours of video</li>
+              <li>The Year 1 milestone math spreadsheet</li>
+              <li>The Launch Week run-of-show templates</li>
+              <li>The first-hire role description templates</li>
+              <li>Lifetime access &middot; future updates included</li>
+              <li class="disabled">No community access</li>
+              <li class="disabled">No Friday Builder Q&amp;A</li>
+              <li class="disabled">No Empire Vault</li>
+              <li class="disabled">No other Empire courses</li>
+            </ul>
+
+            <!-- GHL CHECKOUT EMBED: replace with iframe from GoHighLevel â€” Product: Empire OS $497 one-time -->
+            <div class="form-embed" id="ghl-checkout-empire-os">
+              <strong>GHL CHECKOUT EMBED #1 &middot; Empire OS $497 one-time</strong>
+              Replace this block with the iframe from
+              <code>GHL &gt; Payments &gt; Products &gt; Empire OS ($497 one-time)</code>.<br />
+              Required fields: First Name, Email, Card. Optional: business name.<br />
+              On success: redirect to <code>/courses/empire-os/welcome</code>.
+            </div>
+
+            <a href="https://benjisaiempire.com/checkout/empire-os-497"
+               class="btn btn-secondary btn-block btn-arrow mt-5">
+              Buy Empire OS &mdash; $497
+            </a>
+          </div>
+
+          <div class="compare__col compare__col--accent">
+            <h3 class="compare__title">Empire Builder (Founder)</h3>
+            <div class="compare__price">$99 <small>/mo &middot; locked for life</small></div>
+            <ul class="compare__list">
+              <li><strong>Empire OS included</strong> + every other Empire course</li>
+              <li>Cold Calling 2.0 + AI Brand Builder + AI Marketing Engine</li>
+              <li>Tuesday Cold Call Live + Thursday Build Day working files</li>
+              <li>Friday Builder Q&amp;A Zoom (live coaching)</li>
+              <li>The Empire Vault (every script, prompt, contract, sequence)</li>
+              <li>GoHighLevel sub-account &middot; calling at $0.015/min wholesale</li>
+              <li>24-hour Q&amp;A guarantee &middot; private Builder channel</li>
+              <li>Front-row seat to the agency build $10K &rarr; $100K MRR</li>
+              <li>Founder rate locked for life &middot; first 50 only &middot; then $149/mo</li>
+            </ul>
+
+            <a href="https://benjisaiempire.com/founders"
+               class="btn btn-primary btn-block btn-arrow mt-5">
+              Lock $99/mo Founder Rate &rarr;
+            </a>
+
+            <p class="hero__reassure text-center mt-3">
+              Founder counter live on /founders &middot; spots fill, doors close
+            </p>
+          </div>
+        </div>
+
+        <p class="text-center mt-7" style="max-width: 64ch; margin-left: auto; margin-right: auto; color: var(--bae-gray); font-size: var(--fs-sm);">
+          Already a Builder? Empire OS is already in your library &mdash; <a href="https://benjisaiempire.com/login">log in to start</a>.
+          Already an Insider? Empire OS is <strong>not</strong> available at the 25% Insider discount &mdash; this is the
+          one course gated to Builders or one-time non-member purchase.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- FAQ                             -->
+    <!-- ============================== -->
+    <section class="section" id="faq">
+      <div class="container-narrow">
+        <div class="section__head">
+          <span class="eyebrow">FAQ</span>
+          <h2>Honest answers, before you buy the capstone.</h2>
+          <hr class="gold-line" />
+        </div>
+
+        <div class="faq">
+
+          <div class="faq__item">
+            <details>
+              <summary>Should I really wait until I've done the other three courses?</summary>
+              <div class="faq__answer">
+                <p>Mostly yes. The capstone references concepts from the other courses by name &mdash; the
+                Master Script (from Cold Calling 2.0), the four launch videos (from AI Brand Builder),
+                the funnel stack and Pillar-to-Derivative Cascade (from AI Marketing Engine). You can take
+                Empire OS without them, but you'll be googling terminology. If you're already running an
+                agency and have your own systems, you can probably skip the prerequisites.</p>
+              </div>
+            </details>
+          </div>
+
+          <div class="faq__item">
+            <details>
+              <summary>Why no free preview?</summary>
+              <div class="faq__answer">
+                <p>The other courses have preview lessons because they're recruiting cold traffic into the
+                Insider tier. Empire OS isn't recruiting &mdash; it's the destination, not the gateway.
+                The material is also strategic and meta, which means a single lesson out of context isn't
+                useful the way "watch me build a landing page in 3 hours" is. Honest answer: a preview
+                wouldn't sell more copies, so we don't make one.</p>
+              </div>
+            </details>
+          </div>
+
+          <div class="faq__item">
+            <details>
+              <summary>What's the difference between Empire OS and AI Marketing Engine?</summary>
+              <div class="faq__answer">
+                <p>AI Marketing Engine is the <strong>tactical agency stack</strong> &mdash; how to ship
+                client sites, run the funnel, run the ads, run the automations. Empire OS is the
+                <strong>strategic operating system</strong> &mdash; how to run a community + agency
+                in parallel, the milestone content engine, when to hire, how to defend build-in-public
+                through revenue dips. Different layer of the same business.</p>
+              </div>
+            </details>
+          </div>
+
+          <div class="faq__item">
+            <details>
+              <summary>Will the milestone numbers ($280K / $670K / $3.2M) actually happen?</summary>
+              <div class="faq__answer">
+                <p>They're projections from Module 1, based on the assumptions documented in the spreadsheet
+                inside the course. Inside the course I show what each line item depends on, and what breaks
+                if either business stalls. The numbers are a forecast, not a promise. The honest version:
+                if the agency hits $50K MRR by Day 90 and the community hits 1,500 paid by Day 90, the
+                numbers land. If either one stalls, they don't.</p>
+              </div>
+            </details>
+          </div>
+
+          <div class="faq__item">
+            <details>
+              <summary>What's the refund policy?</summary>
+              <div class="faq__answer">
+                <p>30-day refund. If you've watched the modules and decided it's not for you, email me with
+                your purchase receipt and the refund goes back to your card within 5 business days. The
+                Builder Founder tier is a separate refund policy &mdash; cancel anytime, the next billing
+                doesn't fire, but no refund on already-billed months.</p>
+              </div>
+            </details>
+          </div>
+
+          <div class="faq__item">
+            <details>
+              <summary>Should I buy this standalone or upgrade to Builder?</summary>
+              <div class="faq__answer">
+                <p>If you only want this one course, $497 is cheaper than 5 months of Builder Founder ($495).
+                If you want every other course, the live coaching, the Vault, and the GHL sub-account
+                &mdash; Builder Founder pays back in month 6 and stays the better deal for life.</p>
+              </div>
+            </details>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- FINAL CTA                      -->
+    <!-- ============================== -->
+    <section class="final-cta section--accent" aria-label="Final call to action">
+      <div class="container-narrow">
+        <span class="eyebrow">Last word</span>
+        <h2>Build the thing that gets harder for someone else to copy every month.</h2>
+        <hr class="gold-line" />
+        <p>
+          Two businesses. One operator. Built in public. The capstone is yours when you're ready &mdash;
+          and the door doesn't close. Take the time you need. Then come back and finish.
+        </p>
+        <div class="hero__cta-row" style="justify-content: center;">
+          <a href="#pricing" class="btn btn-primary btn-large btn-arrow">Buy Empire OS &mdash; $497</a>
+          <a href="/founders" class="btn btn-secondary btn-arrow">Or Lock Builder Founder &mdash; $99/mo</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================== -->
+  <!-- FOOTER                         -->
+  <!-- ============================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="/" class="nav__logo">
+            <img src="images/logo.png" alt="Benji's AI Empire logo" />
+            <span class="nav__logo-text">
+              <span>BAE</span>
+              <strong>Benji's AI Empire</strong>
+            </span>
+          </a>
+          <p>
+            The AI Operating Manual for Real Operators. Cold calls every Tuesday.
+            Client sites every Thursday. Built in public.
+          </p>
+        </div>
+
+        <div class="footer__col">
+          <h5>Empire</h5>
+          <ul>
+            <li><a href="/starter-kit">Starter Kit</a></li>
+            <li><a href="/insider">Empire Insider &mdash; $10/mo</a></li>
+            <li><a href="/founders">Empire Builder &mdash; Founder Rate</a></li>
+            <li><a href="/partners">Software Partners</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h5>Legal</h5>
+          <ul>
+            <li><a href="/privacy">Privacy</a></li>
+            <li><a href="/terms">Terms</a></li>
+            <li><a href="mailto:benji@advancedmarketing.co">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <span>&copy; 2026 Advanced Marketing &middot; Benji's AI Empire. All rights reserved.</span>
+        <span>Built in public from <code>benjisaiempire.com</code></span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

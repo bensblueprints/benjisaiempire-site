@@ -1,0 +1,971 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="format-detection" content="telephone=no" />
+
+  <title>The AI Empire Software Partners â€” Tools Builders Use To Compress 30 Days Into 30 Minutes | Benji Boyce</title>
+  <meta name="description" content="Every tool in this directory I personally use or have vetted. Empire Insiders get the public promo codes. Empire Builders get exclusive member-only deals + first access to new partnerships." />
+  <meta name="author" content="Benji Boyce" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://benjisaiempire.com/partners" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://benjisaiempire.com/partners" />
+  <meta property="og:title" content="The AI Empire Software Partners" />
+  <meta property="og:description" content="The tools Builders use to compress 30 days of work into 30 minutes." />
+  <meta property="og:image" content="https://benjisaiempire.com/images/og-partners.jpg" />
+  <meta property="og:site_name" content="Benji's AI Empire" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The AI Empire Software Partners" />
+  <meta name="twitter:description" content="The tools Builders use to compress 30 days of work into 30 minutes." />
+  <meta name="twitter:image" content="https://benjisaiempire.com/images/og-partners.jpg" />
+
+  <!-- Schema.org Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Benji's AI Empire",
+    "url": "https://benjisaiempire.com",
+    "logo": "https://benjisaiempire.com/images/logo.png",
+    "founder": {
+      "@type": "Person",
+      "name": "Benji Boyce",
+      "jobTitle": "Marketer & Agency Operator"
+    }
+  }
+  </script>
+
+  <!-- Schema.org for the Partner Directory -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "The AI Empire Software Partners",
+    "description": "Curated directory of AI, marketing, design, comms, dev, analytics, and productivity tools used inside Benji's AI Empire.",
+    "url": "https://benjisaiempire.com/partners"
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Page-specific styles for partner cards -->
+  <style>
+    /* Category section header */
+    .partner-category {
+      margin-top: var(--space-8);
+    }
+    .partner-category:first-of-type { margin-top: var(--space-6); }
+    .partner-category__head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: var(--space-3);
+      margin-bottom: var(--space-5);
+      padding-bottom: var(--space-3);
+      border-bottom: 1px solid var(--bae-gold-line);
+    }
+    .partner-category__head h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: var(--fs-2xl);
+      letter-spacing: -0.01em;
+      margin: 0;
+    }
+    .partner-category__head .eyebrow {
+      margin: 0;
+      font-size: var(--fs-xs);
+    }
+
+    /* Partner grid */
+    .partner-grid {
+      display: grid;
+      gap: var(--space-5);
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 640px) { .partner-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 980px) { .partner-grid { grid-template-columns: repeat(3, 1fr); } }
+
+    /* Partner card */
+    .partner-card {
+      background: var(--bae-black-2);
+      border: 1px solid var(--bae-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-5);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      transition: border-color 0.2s var(--ease), transform 0.2s var(--ease);
+      position: relative;
+      overflow: hidden;
+    }
+    .partner-card:hover {
+      border-color: var(--bae-gold-line);
+      transform: translateY(-2px);
+    }
+    .partner-card__top {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+    .partner-card__logo {
+      width: 56px;
+      height: 56px;
+      border-radius: var(--radius-md);
+      background: var(--bae-black-3);
+      border: 1px solid var(--bae-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      color: var(--bae-gold-bright);
+      font-size: var(--fs-lg);
+      letter-spacing: -0.02em;
+    }
+    .partner-card__logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: var(--radius-md);
+    }
+    .partner-card__name {
+      font-family: 'Poppins', sans-serif;
+      font-size: var(--fs-lg);
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      color: var(--bae-white);
+      margin: 0;
+      line-height: 1.2;
+    }
+    .partner-card__desc {
+      font-size: var(--fs-sm);
+      color: var(--bae-gray);
+      margin: 0;
+      line-height: 1.5;
+      flex-grow: 1;
+    }
+
+    /* Promo code field â€” visually-styled placeholder */
+    .partner-card__promo {
+      background: var(--bae-black);
+      border: 1px dashed var(--bae-gold-line);
+      border-radius: var(--radius-sm);
+      padding: var(--space-2) var(--space-3);
+      font-family: 'JetBrains Mono', 'Consolas', monospace;
+      font-size: var(--fs-xs);
+      color: var(--bae-gold-bright);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-2);
+    }
+    .partner-card__promo .label {
+      color: var(--bae-gray-2);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-size: 10px;
+    }
+    .partner-card__promo code {
+      background: transparent;
+      padding: 0;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+    }
+    .partner-card__promo--locked {
+      border-style: solid;
+      color: var(--bae-gray-2);
+      background: var(--bae-black);
+    }
+    .partner-card__promo--locked code {
+      color: var(--bae-gray-2);
+    }
+
+    .partner-card__cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+      padding: 12px 16px;
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+      font-size: var(--fs-sm);
+      text-align: center;
+      background: linear-gradient(135deg, var(--bae-gold) 0%, var(--bae-gold-bright) 100%);
+      color: var(--bae-black);
+      transition: transform 0.18s var(--ease), box-shadow 0.18s var(--ease);
+      text-decoration: none;
+    }
+    .partner-card__cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(212, 175, 55, 0.3);
+      color: var(--bae-black);
+    }
+    .partner-card__cta--locked {
+      background: var(--bae-black-3);
+      border: 1px solid var(--bae-gold-line);
+      color: var(--bae-gold-bright);
+    }
+    .partner-card__cta--locked:hover {
+      background: var(--bae-black);
+      color: var(--bae-white);
+      box-shadow: none;
+    }
+
+    .partner-card__notes {
+      font-size: var(--fs-xs);
+      color: var(--bae-gray-2);
+      line-height: 1.5;
+      font-style: italic;
+      border-top: 1px solid var(--bae-border);
+      padding-top: var(--space-3);
+    }
+    .partner-card__notes strong { color: var(--bae-gold-bright); font-style: normal; }
+
+    /* Quick filter pills */
+    .filter-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      justify-content: center;
+      margin-top: var(--space-5);
+    }
+    .filter-pills a {
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--bae-border);
+      background: var(--bae-black-2);
+      color: var(--bae-gray);
+      font-size: var(--fs-sm);
+      font-weight: 600;
+      text-decoration: none;
+      transition: border-color 0.18s var(--ease), color 0.18s var(--ease);
+    }
+    .filter-pills a:hover {
+      border-color: var(--bae-gold);
+      color: var(--bae-white);
+    }
+  </style>
+
+  <!-- Pixels -->
+  <!-- META PIXEL: insert your fbq init snippet here. Fire ViewContent on load. -->
+  <!-- GA4: insert gtag config snippet. Fire OutboundPartnerClick on each partner CTA. -->
+</head>
+<body>
+
+  <!-- ============================== -->
+  <!-- HEADER / NAV (shared)          -->
+  <!-- ============================== -->
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a href="/" class="nav__logo" aria-label="Benji's AI Empire â€” Home">
+        <img src="images/logo.png" alt="Benji's AI Empire logo" />
+        <span class="nav__logo-text">
+          <span>BAE</span>
+          <strong>Benji's AI Empire</strong>
+        </span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="#categories">Categories</a></li>
+        <li><a href="#unlock">Unlock Codes</a></li>
+        <li><a href="#apply">Apply</a></li>
+      </ul>
+      <a href="/insider" class="btn btn-primary nav__cta">Join Insider &mdash; $10/mo</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ============================== -->
+    <!-- HERO                            -->
+    <!-- ============================== -->
+    <section class="hero">
+      <div class="container">
+        <div class="container-narrow text-center" style="margin: 0 auto;">
+          <span class="eyebrow">Software Partners &middot; Curated, Not Affiliate-Spam</span>
+          <h1>
+            Tools Builders use to <span class="gold">compress 30 days</span> of work into 30 minutes.
+          </h1>
+          <hr class="gold-line" />
+          <p class="hero__sub" style="margin-left: auto; margin-right: auto;">
+            Every tool in this directory I personally use or have vetted inside the agency. No tool
+            shows up here just because they have an affiliate program. <strong>Empire Insiders</strong>
+            get the public promo codes. <strong>Empire Builders</strong> unlock the deeper member-only
+            deals + first access to new partnerships.
+          </p>
+
+          <div class="hero__cta-row" style="justify-content:center;">
+            <a href="#categories" class="btn btn-primary btn-large btn-arrow">Browse The Stack</a>
+            <a href="/insider" class="btn btn-secondary btn-arrow">Join Insider To Unlock Codes</a>
+          </div>
+
+          <div class="filter-pills" aria-label="Jump to category">
+            <a href="#cat-ai">AI</a>
+            <a href="#cat-crm">CRM &amp; Funnels</a>
+            <a href="#cat-design">Design</a>
+            <a href="#cat-comms">Comms</a>
+            <a href="#cat-dev">Dev</a>
+            <a href="#cat-analytics">Analytics</a>
+            <a href="#cat-productivity">Productivity</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- HOW THE GATING WORKS           -->
+    <!-- ============================== -->
+    <section class="section section--alt">
+      <div class="container-narrow">
+        <div class="callout">
+          <span class="callout__icon">&#128274;</span>
+          <div>
+            <h3>How the codes work.</h3>
+            <p>
+              Public listings are visible to everyone. <strong>Insiders</strong> ($10/mo) see the public
+              promo codes. <strong>Builders</strong> ($99/mo founder rate, $149 retail) see the deeper
+              exclusive deals &mdash; the ones partners only offer to a closed audience. Inside the
+              member portal the locked cards reveal automatically based on your tier.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- CATEGORY 1 â€” AI                -->
+    <!-- ============================== -->
+    <section class="section" id="categories">
+      <div class="container">
+
+        <div class="partner-category" id="cat-ai">
+          <div class="partner-category__head">
+            <span class="eyebrow">Category 01</span>
+            <h3>AI Writing, Reasoning &amp; Code</h3>
+          </div>
+
+          <div class="partner-grid">
+
+            <article class="partner-card">
+              <div class="partner-card__top">
+                <div class="partner-card__logo" aria-hidden="true">CL</div>
+                <h4 class="partner-card__name">Claude Pro</h4>
+              </div>
+              <p class="partner-card__desc">
+                Anthropic's flagship reasoning model. The Tuesday-Live cold-call prompt scaffolding,
+                the Build Day Live website-shipping workflow, and the 12 prospecting prompts in the
+                Starter Kit all run on Claude.
+              </p>
+              <div class="partner-card__promo">
+                <span class="label">Member code</span>
+                <code>EMPIRE-CLAUDE</code>
+              </div>
+              <a href="https://benjisaiempire.com/partner/claude" class="partner-card__cta" rel="sponsored noopener">Get Claude Pro &rarr;</a>
+              <p class="partner-card__notes">
+                <strong>What I use it for:</strong> all client-site builds, all cold-call prep, all
+                writing that doesn't need to be in my own voice.
+              </p>
+            </article>
+
+            <article class="partner-card">
+              <div class="partner-card__top">
+                <div class="partner-card__logo" aria-hidden="true">CC</div>
+                <h4 class="partner-card__name">Claude Code</h4>
+              </div>
+              <p class="partner-card__desc">
+                Anthropic's terminal coding agent. Every Thursday Build Day Live ships a real client
+                site with Claude Code in three hours flat. The system prompt, brand-extraction prompt,
+                and section-by-section build prompt are in the Starter Kit.
+              </p>
+              <div class="partner-card__promo">
+                <span class="label">Member code</span>
+                <code>EMPIRE-CLAUDECODE</code>
+              </div>
+              <a href="https://benjisaiempire.com/partner/claude-code" class="partner-card__cta" rel="sponsored noopener">Get Claude Code &rarr;</a>
+              <p class="partner-card__notes">
+                <strong>What I use it for:</strong> Thursday Build Day Live, every client site shipped
+                in the agency, the Empire's own funnel pages.
+              </p>
+            </article>
+
+            <article class="partner-card">
+              <div class="partner-card__top">
+                <div class="partner-card__logo" aria-hidden="true">GP</div>
+                <h4 class="partner-card__name">ChatGPT Plus</h4>
+              </div>
+              <p class="partner-card__desc">
+                OpenAI's flagship. Useful for the prompts where Claude is overkill or where I need a
+                quick deep-research pass. Lives next to Claude in the daily workflow.
+              </p>
+              <div class="partner-card__promo partner-card__promo--locked">
+                <span class="label">Builder-only deal</span>
+                <code>JOIN BUILDER TO REVEAL</code>
+              </div>
+              <a href="/founders" class="partner-card__cta partner-card__cta--locked">Become A Builder &rarr;</a>
+              <p class="partner-card__notes">
+                <strong>What I use it for:</strong> deep research, image generation, the occasional
+                second-opinion on a Claude output.
+              </p>
+            </article>
+
+            <article class="partner-card">
+              <div class="partner-card__top">
+                <div class="partner-card__logo" aria-hidden="true">PX</div>
+                <h4 class="partner-card__name">Perplexity Pro</h4>
+              </div>
+              <p class="partner-card__desc">
+                AI-native search with real citations. The first stop for every prospect-research deep-dive
+                before a Tuesday Cold Call Live, and the quickest way to fact-check a claim before it
+                ships in copy.
+              </p>
+              <div class="partner-card__promo">
+                <span class="label">Member code</span>
+                <code>EMPIRE-PPLX</code>
+              </div>
+              <a href="https://benjisaiempire.com/partner/perplexity" class="partner-card__cta" rel="sponsored noopener">Get Perplexity &rarr;</a>
+              <p class="partner-card__notes">
+                <strong>What I use it for:</strong> prospect research, fact-checking, finding the recent
+                public news angle for a cold-call opener.
+              </p>
+            </article>
+
+          </div>
+        </div>
+
+        <!-- ============================== -->
+        <!-- CATEGORY 2 â€” CRM & FUNNELS    -->
+        <!-- ============================== -->
+        <div class="partner-category" id="cat-crm">
+          <div class="partner-category__head">
+            <span class="eyebrow">Category 02</span>
+            <h3>CRM, Funnels &amp; Payments</h3>
+          </div>
+
+          <div class="partner-grid">
+
+            <article class="partner-card">
+              <div class="partner-card__top">
+                <div class="partner-card__logo" aria-hidden="true">GHL</div>
+                <h4 class="partner-card__name">GoHighLevel</h4>
+              </div>
+              <p class="partner-card__desc">
+                The platform the entire Empire runs on &mdash; CRM, calendars, pipelines, automations,
+                forms, funnels, websites, outbound calling. Every Insider gets a sub-account inside our
+                Loopflo white-label at <code>benjisaiempire.com</code>.
+              </p>
+              <div class="partner-card__promo">
+                <span class="label">Bundled into Insider</span>
+                <code>$10/mo Insider includes GHL</code>
+              </div>
+              <a href="/insider" class="partner-card__cta">Join Insider To Get GHL &rarr;</a>
+              <p class="partner-card__notes">
+                <strong>What I use it for:</strong> the entire agency runs on this. CRM, calls,
+                automations, every funnel page. Insiders dial at $0.04/min, Builders at $0.015/min.
+              </p>
+            </article>
+
+            <article class="partner-card">
+              <div class="partner-card__top">
+                <div class="partner-card__logo" aria-hidden="true">St</div>
+                <h4 class="partner-card__name">Stripe</h4>
+              </div>
+              <p class="partner-card__desc">
+                Payment processor for every checkout in the Empire. Transparent fees, real-time
+                webhooks, the cleanest API in payments. No promo code &mdash; just included in every
+                GHL checkout we run.
+              </p>
+              <div class="partner-card__promo">
+                <span class="label">Standard</span>
+                <code>STANDARD STRIPE PRICING</code>
+              </div>
+              <a href="https://stripe.com" class="partner-card__cta" rel="sponsored noopener">Open Stripe &rarr;</a>
+              <p class="partner-card__notes">
+                <strong>What I use it for:</strong> all $10 / $99 / $149 / course one-time checkouts,
+                dunning, and customer subscription management.
+              </p>
+            </article>
+
+            <article class="partner-card">
+              <div class="partner-card__top">
+                <div class="partner-card__logo" aria-hidden="true">Ap</div>
+                <h4 class="partner-card__name">Apollo.io</h4>
+              </div>
+              <p class="partner-card__desc">
+                B2B prospecting database + email automation. Where the Tuesday Cold Call Live dial list
+                comes from after the AI prospecting prompt narrows the universe.
+              </p>
+              <div class="partner-card__promo">
+                <span class="label">Member code</span>
+                <code>EMPIRE-APOLLO</code>
+              </div>
+              <a href="https://benjisaiempire.com/partner/apollo" class="partner-card__cta" rel="sponsored noopener">Get Apollo &rarr;</a>
+              <p class="partner-card__notes">
+                <strong>What I use it for:</strong> Tuesday Cold Call Live dial list, B2B prospect
+                enrichment, email-find for follow-up sequences.
+              </p>
+            </article>
+
+          </div>
+        </div>
+
+        <!-- ============================== -->
+        <!-- CATEGORY 3 â€” DESIGN            -->
+        <!-- ============================== -->
+        <div class="partner-category" id="cat-design">
+          <div class="partner-category__head">
+            <span class="eyebrow">Category 03</span>
+            <h3>Design &amp; Visual</h3>
+          </div>
+
+          <div class="partner-grid">
+
+            <article class="partner-card">
+              <div class="partner-card__top">
+                <div class="partner-card__logo" aria-hidden="true">Cv</div>
+                <h4 class="partner-card__name">Canva Pro</h4>
+              </div>
+              <p class="partner-card__desc">
+                Quick-turn social graphics, ad creatives, and the launch-week thumbnails. Used when
+                Claude Code is overkill and Photoshop is too slow.
+              </p>
+              <div class="partner-card__promo">
+                <span class="label">Member code</span>
+                <code>EMPIRE-CANVA</code>
+              </div>
+              <a href="https://benjisaiempire.com/partner/canva" class="partner-card__cta" rel="sponsored noopener">Get Canva Pro &rarr;</a>
+              <p class="partner-card__notes">
+                <strong>What I use it for:</strong> YouTube thumbnails, IG / TikTok graphics, the
+                Builder-only weekly recap visual.
+              </p>
+            </article>
+
+            <article class="partner-card">
+              <div class="partner-card__top">
+                <div class="partner-card__logo" aria-hidden="true">Fg</div>
+                <h4 class="partner-card__name">Figma</h4>
+              </div>
+              <p class="partner-card__desc">
+                When a build needs a real design pass before going into Claude Code. Used for the
+                $5K+ client engagements where the design system is the deliverable.
+              </p>
+              <div class="partner-card__promo partner-card__promo--locked">
+                <span class="label">Builder-only deal</span>
+                <code>JOIN BUILDER TO REVEAL</code>
+              </div>
+              <a href="/founders" class="partner-card__cta partner-card__cta--locked">Become A Builder &rarr;</a>
+              <p class="partner-card__notes">
+                <strong>What I use it for:</strong> agency design handoffs, brand-system templates,
+                the design pass on AI Brand Builder course assets.
+              </p>
+            </article>
+
+          </div>
+        </div>
+
+        <!-- ============================== -->
+        <!-- CATEGORY 4 â€” COMMS             -->
+        <!-- ============================== -->
+        <div class="partner-category" id="cat-comms">
+          <div class="partner-category__head">
+            <span class="eyebrow">Category 04</span>
+            <h3>Comms &amp; Live Streaming</h3>
+          </div>
+
+          <div class="partner-grid">
+
+            <article class="partner-card">
+              <div class="partner-card__top">
+                <div class="partner-card__logo" aria-hidden="true">SY</div>
+                <h4 class="partner-card__name">Streamyard</h4>
+              </div>
+              <p class="partner-card__desc">
+                Tuesday Cold Call Live and Thursday Build Day Live both run on Streamyard. Multistream
+                to YouTube + Facebook + LinkedIn from one browser tab.
+              </p>
+              <div class="partner-card__promo">
+                <span class="label">Member code</span>
+                <code>EMPIRE-STREAMYARD</code>
+              </div>
+              <a href="https://benjisaiempire.com/partner/streamyard" class="partner-card__cta" rel="sponsored noopener">Get Streamyard &rarr;</a>
+              <p class="partner-card__notes">
+                <strong>What I use it for:</strong> Tuesday Cold Call Live, Thursday Build Day Live,
+                Friday Builder Q&amp;A overflow when Zoom is at capacity.
+              </p>
+            </article>
+
+            <article class="partner-card">
+              <div class="partner-card__top">
+                <div class="partner-card__logo" aria-hidden="true">Zm</div>
+                <h4 class="partner-card__name">Zoom Pro</h4>
+              </div>
+              <p class="partner-card__desc">
+                Friday Builder Q&amp;A runs on Zoom. Hot-seat coaching with screen-share, breakout rooms
+                for paired-up role-plays, recorded for replay later.
+              </p>
+              <div class="partner-card__promo">
+                <span class="label">Standard</span>
+                <code>STANDARD ZOOM PRICING</code>
+              </div>
+              <a href="https://zoom.us" class="partner-card__cta" rel="sponsored noopener">Open Zoom &rarr;</a>
+              <p class="partner-card__notes">
+                <strong>What I use it for:</strong> Friday Builder Q&amp;A, sales calls with new agency
+                clients, mastermind dinners (recorded permission).
+              </p>
+            </article>
+
+          </div>
+        </div>
+
+        <!-- ============================== -->
+        <!-- CATEGORY 5 â€” DEV               -->
+        <!-- ============================== -->
+        <div class="partner-category" id="cat-dev">
+          <div class="partner-category__head">
+            <span class="eyebrow">Category 05</span>
+            <h3>Dev, Hosting &amp; Infra</h3>
+          </div>
+
+          <div class="partner-grid">
+
+            <article class="partner-card">
+              <div class="partner-card__top">
+                <div class="partner-card__logo" aria-hidden="true">CF</div>
+                <h4 class="partner-card__name">Cloudflare Pages</h4>
+              </div>
+              <p class="partner-card__desc">
+                Where every Build Day Live site gets deployed. Free tier covers most client sites.
+                Generous build minutes, fast global CDN, custom domain in five minutes.
+              </p>
+              <div class="partner-card__promo">
+                <span class="label">Free tier covers most sites</span>
+                <code>NO CODE NEEDED</code>
+              </div>
+              <a href="https://pages.cloudflare.com" class="partner-card__cta" rel="sponsored noopener">Open Cloudflare Pages &rarr;</a>
+              <p class="partner-card__notes">
+                <strong>What I use it for:</strong> hosting every Build Day Live site, the Empire's own
+                funnel pages, all agency client sites.
+              </p>
+            </article>
+
+            <article class="partner-card">
+              <div class="partner-card__top">
+                <div class="partner-card__logo" aria-hidden="true">Nl</div>
+                <h4 class="partner-card__name">Netlify</h4>
+              </div>
+              <p class="partner-card__desc">
+                Backup hosting + the fastest "drag-and-drop a folder, get a URL" workflow. Used for
+                quick client previews and the launch-week pop-up sites.
+              </p>
+              <div class="partner-card__promo">
+                <span class="label">Free tier</span>
+                <code>NO CODE NEEDED</code>
+              </div>
+              <a href="https://app.netlify.com/drop" class="partner-card__cta" rel="sponsored noopener">Open Netlify Drop &rarr;</a>
+              <p class="partner-card__notes">
+                <strong>What I use it for:</strong> client preview URLs, launch-week pop-up landing
+                pages, side-by-side A/B tests.
+              </p>
+            </article>
+
+            <article class="partner-card">
+              <div class="partner-card__top">
+                <div class="partner-card__logo" aria-hidden="true">Nc</div>
+                <h4 class="partner-card__name">Namecheap</h4>
+              </div>
+              <p class="partner-card__desc">
+                Domain registrar. Honest pricing, clean UI, no upsells when you check out. Where every
+                client domain in the agency is registered.
+              </p>
+              <div class="partner-card__promo">
+                <span class="label">Member code</span>
+                <code>EMPIRE-NAME</code>
+              </div>
+              <a href="https://benjisaiempire.com/partner/namecheap" class="partner-card__cta" rel="sponsored noopener">Get Namecheap &rarr;</a>
+              <p class="partner-card__notes">
+                <strong>What I use it for:</strong> domain registration, cheap parked domains for
+                campaign tests, transferring legacy client domains.
+              </p>
+            </article>
+
+          </div>
+        </div>
+
+        <!-- ============================== -->
+        <!-- CATEGORY 6 â€” ANALYTICS         -->
+        <!-- ============================== -->
+        <div class="partner-category" id="cat-analytics">
+          <div class="partner-category__head">
+            <span class="eyebrow">Category 06</span>
+            <h3>Analytics &amp; Tracking</h3>
+          </div>
+
+          <div class="partner-grid">
+
+            <article class="partner-card">
+              <div class="partner-card__top">
+                <div class="partner-card__logo" aria-hidden="true">GA</div>
+                <h4 class="partner-card__name">Google Analytics 4</h4>
+              </div>
+              <p class="partner-card__desc">
+                Free analytics. Every page in the Empire fires GA4 events for opt-in, begin-checkout,
+                purchase, and outbound partner clicks.
+              </p>
+              <div class="partner-card__promo">
+                <span class="label">Free</span>
+                <code>STANDARD GA4</code>
+              </div>
+              <a href="https://analytics.google.com" class="partner-card__cta" rel="sponsored noopener">Open GA4 &rarr;</a>
+              <p class="partner-card__notes">
+                <strong>What I use it for:</strong> the source-of-truth attribution layer for the
+                whole funnel architecture.
+              </p>
+            </article>
+
+            <article class="partner-card">
+              <div class="partner-card__top">
+                <div class="partner-card__logo" aria-hidden="true">Mt</div>
+                <h4 class="partner-card__name">Metricool</h4>
+              </div>
+              <p class="partner-card__desc">
+                Cross-platform social analytics + scheduling. Where the Tuesday-Live and Thursday-Build
+                clips get scheduled across YouTube Shorts, IG Reels, TikTok, and X.
+              </p>
+              <div class="partner-card__promo">
+                <span class="label">Member code</span>
+                <code>EMPIRE-METRICOOL</code>
+              </div>
+              <a href="https://benjisaiempire.com/partner/metricool" class="partner-card__cta" rel="sponsored noopener">Get Metricool &rarr;</a>
+              <p class="partner-card__notes">
+                <strong>What I use it for:</strong> scheduling derivative clips from Tuesday + Thursday,
+                cross-platform analytics rollup.
+              </p>
+            </article>
+
+          </div>
+        </div>
+
+        <!-- ============================== -->
+        <!-- CATEGORY 7 â€” PRODUCTIVITY      -->
+        <!-- ============================== -->
+        <div class="partner-category" id="cat-productivity">
+          <div class="partner-category__head">
+            <span class="eyebrow">Category 07</span>
+            <h3>Productivity &amp; Content</h3>
+          </div>
+
+          <div class="partner-grid">
+
+            <article class="partner-card">
+              <div class="partner-card__top">
+                <div class="partner-card__logo" aria-hidden="true">Op</div>
+                <h4 class="partner-card__name">Opus Clip</h4>
+              </div>
+              <p class="partner-card__desc">
+                AI auto-clipper. Tuesday Cold Call Live and Thursday Build Day Live each yield 8-12
+                short-form derivatives via Opus, scheduled out across the week.
+              </p>
+              <div class="partner-card__promo">
+                <span class="label">Member code</span>
+                <code>EMPIRE-OPUS</code>
+              </div>
+              <a href="https://benjisaiempire.com/partner/opus" class="partner-card__cta" rel="sponsored noopener">Get Opus Clip &rarr;</a>
+              <p class="partner-card__notes">
+                <strong>What I use it for:</strong> the pillar-to-derivative cascade &mdash; one Tuesday
+                Live becomes 8 Reels, 4 TikToks, and 12 quote graphics.
+              </p>
+            </article>
+
+            <article class="partner-card">
+              <div class="partner-card__top">
+                <div class="partner-card__logo" aria-hidden="true">WF</div>
+                <h4 class="partner-card__name">Whisper Flow</h4>
+              </div>
+              <p class="partner-card__desc">
+                Voice-to-text for cold-call notes, idea capture, email drafts on the move. Builder-only
+                deal because Whisper Flow runs a closed-audience pricing tier.
+              </p>
+              <div class="partner-card__promo partner-card__promo--locked">
+                <span class="label">Builder-only deal</span>
+                <code>JOIN BUILDER TO REVEAL</code>
+              </div>
+              <a href="/founders" class="partner-card__cta partner-card__cta--locked">Become A Builder &rarr;</a>
+              <p class="partner-card__notes">
+                <strong>What I use it for:</strong> voice-note cold-call recaps, idea capture during
+                walks, dictation for the weekly Empire newsletter draft.
+              </p>
+            </article>
+
+            <article class="partner-card">
+              <div class="partner-card__top">
+                <div class="partner-card__logo" aria-hidden="true">Nt</div>
+                <h4 class="partner-card__name">Notion</h4>
+              </div>
+              <p class="partner-card__desc">
+                The Empire's internal knowledge base + Builder-only working docs. Where every course
+                outline, build-spec, and weekly stand-up gets written before it ships.
+              </p>
+              <div class="partner-card__promo">
+                <span class="label">Member code</span>
+                <code>EMPIRE-NOTION</code>
+              </div>
+              <a href="https://benjisaiempire.com/partner/notion" class="partner-card__cta" rel="sponsored noopener">Get Notion &rarr;</a>
+              <p class="partner-card__notes">
+                <strong>What I use it for:</strong> internal docs, course outlines, the agency client
+                workspace template, weekly stand-up notes.
+              </p>
+            </article>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- BUILDER-ONLY UNLOCK CALLOUT    -->
+    <!-- ============================== -->
+    <section class="section section--alt" id="unlock">
+      <div class="container">
+        <div class="upgrade-tease">
+          <span class="crown-badge">Empire Builder</span>
+          <h3 class="mt-3">Builders get the deals you can't see on this page.</h3>
+          <p>
+            Most partners give Empire Builders an exclusive promo code, free trial extension, or
+            member-only tier. You see them inside the community &mdash; not on the public directory.
+            <strong>Founder rate is $99/mo locked for life</strong>, capped at the first 50. After 50,
+            Builder is $149/mo.
+          </p>
+
+          <div class="founder-counter" aria-live="polite">
+            <span class="founder-count-num" id="founder-count">38</span>
+            <span>of 50 founder spots remaining</span>
+          </div>
+
+          <div class="hero__cta-row mt-5">
+            <a href="/founders" class="btn btn-primary btn-large btn-arrow">
+              Lock Founder Pricing &mdash; $99/mo
+            </a>
+            <a href="/insider" class="btn-ghost btn-arrow">Or join Insider &mdash; $10/mo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- PARTNER APPLICATION            -->
+    <!-- ============================== -->
+    <section class="section" id="apply">
+      <div class="container-narrow">
+        <div class="section__head section__head--left">
+          <span class="eyebrow">Partner application</span>
+          <h2>Are you a software partner who wants on this page?</h2>
+          <hr class="gold-line gold-line--left" />
+          <p>
+            I run Tuesday Cold Call Live and Thursday Build Day Live. Combined, my streams + member
+            community + email list + agency reach a sharp audience of operators, agency owners, and
+            entrepreneurs who actually buy software. If your tool fits the stack, the partner brief
+            is below.
+          </p>
+        </div>
+
+        <ul class="inline-checks mt-5">
+          <li>Your tool is one I'd actually use to ship faster &mdash; not a "passive income" gimmick</li>
+          <li>You can offer Insiders a public promo code and Builders a deeper member-only deal</li>
+          <li>You have a stable affiliate or partner-tracking layer (UTM-based or first-class)</li>
+          <li>You can ship a single 800x800 logo + a 1200x630 OG card for the directory listing</li>
+        </ul>
+
+        <div class="hero__cta-row mt-5">
+          <a href="/partners/apply" class="btn btn-primary btn-large btn-arrow">Apply As A Partner</a>
+          <a href="mailto:partners@advancedmarketing.co?subject=Empire%20Partner%20Application" class="btn btn-secondary btn-arrow">
+            Or email partners@advancedmarketing.co
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- FINAL CTA                      -->
+    <!-- ============================== -->
+    <section class="final-cta section--accent" aria-label="Last word">
+      <div class="container-narrow">
+        <span class="eyebrow">Last word</span>
+        <h2>The stack is the stack. The codes are inside.</h2>
+        <hr class="gold-line" />
+        <p>
+          Public directory is free for everyone. Insiders unlock the public promo codes. Builders unlock
+          the deeper deals. Same $10 / $99 doors as everything else in the Empire.
+        </p>
+        <a href="/insider" class="btn btn-primary btn-large btn-arrow">Join Insider &mdash; $10/mo</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================== -->
+  <!-- FOOTER (shared)                -->
+  <!-- ============================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="/" class="nav__logo">
+            <img src="images/logo.png" alt="Benji's AI Empire logo" />
+            <span class="nav__logo-text">
+              <span>BAE</span>
+              <strong>Benji's AI Empire</strong>
+            </span>
+          </a>
+          <p>
+            The AI Operating Manual for Real Operators. Cold calls every Tuesday.
+            Client sites every Thursday. Built in public.
+          </p>
+        </div>
+
+        <div class="footer__col">
+          <h5>Empire</h5>
+          <ul>
+            <li><a href="/starter-kit">Starter Kit</a></li>
+            <li><a href="/insider">Empire Insider &mdash; $10/mo</a></li>
+            <li><a href="/founders">Empire Builder &mdash; Founder Rate</a></li>
+            <li><a href="/partners">Software Partners</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h5>Legal</h5>
+          <ul>
+            <li><a href="/privacy">Privacy</a></li>
+            <li><a href="/terms">Terms</a></li>
+            <li><a href="mailto:benji@advancedmarketing.co">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <span>&copy; 2026 Advanced Marketing &middot; Benji's AI Empire. All rights reserved.</span>
+        <span>Built in public from <code>benjisaiempire.com</code></span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

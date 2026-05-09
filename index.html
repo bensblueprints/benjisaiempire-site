@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Benji's AI Empire — The Operator's Playbook for Building With AI</title>
+  <meta name="description" content="The cold-call script. The Claude Code design prompts. The 30-Day Empire Challenge. The community where operators ship. Pick a door." />
+  <meta name="theme-color" content="#0a0a0a" />
+  <link rel="canonical" href="https://benjisaiempire.com/" />
+  <link rel="icon" type="image/png" href="/images/favicon.png" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://benjisaiempire.com/" />
+  <meta property="og:title" content="Benji's AI Empire" />
+  <meta property="og:description" content="The operator's playbook for building with AI. Free Starter Kit. 30-day challenges. The Empire community." />
+  <meta property="og:image" content="https://benjisaiempire.com/images/og-home.jpg" />
+  <meta property="og:site_name" content="Benji's AI Empire" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --black:#0a0a0a; --black-2:#111; --black-3:#1a1a1a;
+      --white:#fff; --gray:#9ca3af; --gray-2:#6b7280;
+      --border:#2a2a2a; --gold:#d4af37; --gold-bright:#f0c850;
+      --gold-soft:rgba(212,175,55,.12); --gold-line:rgba(212,175,55,.25);
+      --container:1200px; --narrow:880px;
+      --ease:cubic-bezier(.22,1,.36,1);
+    }
+    html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+    body{
+      font-family:'Inter','Helvetica Neue',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+      background:var(--black); color:var(--white); font-size:16px; line-height:1.55;
+      -webkit-font-smoothing:antialiased; min-height:100vh;
+    }
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%; display:block}
+    .container{width:100%; max-width:var(--container); margin:0 auto; padding:0 24px}
+
+    /* Top bar */
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      background:rgba(10,10,10,.85); backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--border);
+    }
+    .topbar-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      height:64px; max-width:var(--container); margin:0 auto; padding:0 24px;
+    }
+    .logo{
+      font-family:'Bebas Neue','Inter',sans-serif; letter-spacing:.05em;
+      font-weight:700; font-size:20px; color:var(--gold);
+    }
+    .topbar-cta{
+      font-size:13px; font-weight:600; padding:8px 14px;
+      border:1px solid var(--gold-line); color:var(--gold);
+      border-radius:6px; transition:all .2s var(--ease);
+    }
+    .topbar-cta:hover{background:var(--gold-soft); border-color:var(--gold)}
+
+    /* Hero */
+    .hero{padding:96px 0 64px; position:relative; overflow:hidden}
+    .hero::before{
+      content:""; position:absolute; inset:0;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(212,175,55,.08), transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(212,175,55,.05), transparent 50%);
+      pointer-events:none;
+    }
+    .hero-inner{position:relative; max-width:880px}
+    .eyebrow{
+      display:inline-block; font-size:12px; letter-spacing:.18em;
+      text-transform:uppercase; color:var(--gold); padding:6px 12px;
+      border:1px solid var(--gold-line); border-radius:999px;
+      margin-bottom:24px; font-weight:600;
+    }
+    .h1{
+      font-family:'Bebas Neue','Inter',sans-serif;
+      font-size:clamp(40px, 7vw, 80px);
+      line-height:1; letter-spacing:-.01em; font-weight:700;
+      margin-bottom:24px;
+    }
+    .h1 .gold{color:var(--gold)}
+    .lede{
+      font-size:clamp(17px,1.6vw,20px); color:var(--gray);
+      max-width:680px; line-height:1.5; margin-bottom:36px;
+    }
+    .hero-ctas{display:flex; gap:14px; flex-wrap:wrap}
+    .btn{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:14px 22px; border-radius:8px; font-weight:600;
+      font-size:15px; transition:all .2s var(--ease); cursor:pointer;
+      border:1px solid transparent; line-height:1;
+    }
+    .btn-gold{background:var(--gold); color:var(--black); border-color:var(--gold)}
+    .btn-gold:hover{background:var(--gold-bright); transform:translateY(-1px)}
+    .btn-ghost{border-color:var(--border); color:var(--white)}
+    .btn-ghost:hover{border-color:var(--gold); color:var(--gold)}
+
+    /* Section base */
+    section{padding:80px 0}
+    .section-title{
+      font-family:'Bebas Neue','Inter',sans-serif;
+      font-size:clamp(28px,3.6vw,44px); line-height:1.05;
+      letter-spacing:.005em; margin-bottom:12px;
+    }
+    .section-sub{color:var(--gray); margin-bottom:48px; max-width:680px; font-size:17px}
+
+    /* Doors grid */
+    .doors{
+      display:grid; gap:18px;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    }
+    .door{
+      background:var(--black-2); border:1px solid var(--border);
+      border-radius:14px; padding:28px;
+      transition:all .25s var(--ease); display:flex; flex-direction:column;
+      min-height:240px;
+    }
+    .door:hover{
+      border-color:var(--gold-line); transform:translateY(-3px);
+      box-shadow:0 18px 40px -20px rgba(212,175,55,.18);
+    }
+    .door-tag{
+      font-size:11px; font-weight:700; letter-spacing:.14em;
+      text-transform:uppercase; color:var(--gold); margin-bottom:14px;
+    }
+    .door-title{
+      font-family:'Bebas Neue','Inter',sans-serif; font-size:24px;
+      letter-spacing:.01em; margin-bottom:8px; line-height:1.1;
+    }
+    .door-body{color:var(--gray); font-size:15px; flex:1; margin-bottom:16px}
+    .door-cta{
+      color:var(--gold); font-weight:600; font-size:14px;
+      border-top:1px solid var(--border); padding-top:14px;
+    }
+    .door-cta::after{content:" →"; transition:padding .2s var(--ease)}
+    .door:hover .door-cta::after{padding-left:6px}
+
+    /* Tier strip */
+    .tiers{background:var(--black-2); border-top:1px solid var(--border); border-bottom:1px solid var(--border)}
+    .tiers-grid{
+      display:grid; gap:18px;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    }
+    .tier{
+      background:var(--black); border:1px solid var(--border);
+      border-radius:14px; padding:32px 28px; position:relative;
+    }
+    .tier.featured{border-color:var(--gold)}
+    .tier.featured::after{
+      content:"FOUNDER"; position:absolute; top:-12px; left:24px;
+      background:var(--gold); color:var(--black); font-size:10px;
+      font-weight:700; letter-spacing:.16em; padding:4px 10px; border-radius:4px;
+    }
+    .tier-name{
+      font-family:'Bebas Neue','Inter',sans-serif; font-size:22px;
+      letter-spacing:.02em; margin-bottom:6px;
+    }
+    .tier-price{font-size:36px; font-weight:700; margin-bottom:4px}
+    .tier-price small{font-size:14px; color:var(--gray); font-weight:400}
+    .tier-tagline{color:var(--gray); font-size:14px; margin-bottom:20px; min-height:42px}
+    .tier ul{list-style:none; margin-bottom:24px}
+    .tier li{
+      font-size:14px; color:var(--gray); padding:6px 0 6px 22px;
+      position:relative;
+    }
+    .tier li::before{
+      content:"✓"; position:absolute; left:0; color:var(--gold); font-weight:700;
+    }
+    .tier .btn{width:100%; justify-content:center}
+
+    /* Footer */
+    footer{
+      border-top:1px solid var(--border); padding:48px 0 32px;
+      color:var(--gray-2); font-size:13px;
+    }
+    .foot-row{display:flex; justify-content:space-between; flex-wrap:wrap; gap:16px}
+    .foot-row a{color:var(--gray); margin-right:18px}
+    .foot-row a:hover{color:var(--gold)}
+
+    @media (max-width:600px){
+      .hero{padding:64px 0 48px}
+      section{padding:56px 0}
+      .door{padding:22px}
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="logo" href="/">BENJI'S AI EMPIRE</a>
+      <a class="topbar-cta" href="/login">Member Login</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-inner">
+      <span class="eyebrow">The Operator's Playbook</span>
+      <h1 class="h1">Build a real business <span class="gold">with AI</span> — not a pile of demos.</h1>
+      <p class="lede">
+        I'm Benji Boyce. I run an agency. Every Tuesday I cold-call live on YouTube. Every Thursday I ship a real client website with Claude Code, on stream, in 90 minutes. Pick the door that fits where you're at — they all lead to the same room eventually.
+      </p>
+      <div class="hero-ctas">
+        <a class="btn btn-gold" href="/starter-kit/">Get the free Starter Kit →</a>
+        <a class="btn btn-ghost" href="/founders/">Lock a Founder seat</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2 class="section-title">Pick a door.</h2>
+      <p class="section-sub">Free entry points up top, paid programs underneath, courses at the bottom. Everything connects.</p>
+
+      <div class="doors">
+        <a class="door" href="/starter-kit/">
+          <span class="door-tag">Free · Starter Kit</span>
+          <h3 class="door-title">The AI Empire Starter Kit</h3>
+          <p class="door-body">The cold-call script, Claude Code design prompts, AI prospecting prompts, a free seat at the live launch. In your inbox in 60 seconds.</p>
+          <span class="door-cta">Get the Kit</span>
+        </a>
+
+        <a class="door" href="/challenge/">
+          <span class="door-tag">Free · 30 Days</span>
+          <h3 class="door-title">30-Day AI Empire Challenge</h3>
+          <p class="door-body">One email a day for 30 days. Build the foundation of an AI-powered offer — start to finish — with daily prompts, scripts, and accountability.</p>
+          <span class="door-cta">Start the Challenge</span>
+        </a>
+
+        <a class="door" href="/cold-call-30/">
+          <span class="door-tag">Free · 30 Days</span>
+          <h3 class="door-title">30-Day Cold Calling Challenge</h3>
+          <p class="door-body">100 dials. 30 days. The Master Script. The objection map. The Tuesday Live RSVP where I cold-call in front of you so you can copy the cadence.</p>
+          <span class="door-cta">Take the Challenge</span>
+        </a>
+
+        <a class="door" href="/insider/">
+          <span class="door-tag">$10/mo · Insider</span>
+          <h3 class="door-title">Empire Insider</h3>
+          <p class="door-body">Private community, weekly Q&amp;A digest, member-only pricing on every course. The cheapest seat in the room — but you're in the room.</p>
+          <span class="door-cta">Join Insider</span>
+        </a>
+
+        <a class="door" href="/founders/">
+          <span class="door-tag">$99/mo · Founder · 50 seats</span>
+          <h3 class="door-title">Empire Builder — Founder</h3>
+          <p class="door-body">Builder access locked at $99 for life. Every course. The Builder Vault. Friday Q&amp;A Zoom. Gold-crown badge in the community. 50 seats only.</p>
+          <span class="door-cta">Lock a Founder seat</span>
+        </a>
+
+        <a class="door" href="/partners/">
+          <span class="door-tag">Toolkit</span>
+          <h3 class="door-title">Software Partners</h3>
+          <p class="door-body">The 19 tools I actually use. Member-only promo codes, affiliate kickbacks where they exist, brutal honesty where they don't.</p>
+          <span class="door-cta">See the stack</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--black-2); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+    <div class="container">
+      <h2 class="section-title">Courses (one-time)</h2>
+      <p class="section-sub">Buy any one outright. Or get every course included with Builder ($99/mo Founder rate while seats remain).</p>
+
+      <div class="doors">
+        <a class="door" href="/courses/cold-calling/">
+          <span class="door-tag">Course</span>
+          <h3 class="door-title">Cold Calling 2.0 + AI</h3>
+          <p class="door-body">The full system. AI-powered prospecting, the Master Script, objection handling, follow-up cadence. The thing I do live every Tuesday — broken down.</p>
+          <span class="door-cta">See the curriculum</span>
+        </a>
+        <a class="door" href="/courses/brand-builder/">
+          <span class="door-tag">Course</span>
+          <h3 class="door-title">AI Brand Builder</h3>
+          <p class="door-body">From blank page to a brand that converts. Positioning, voice, identity, content — built with AI as a co-pilot, not a crutch.</p>
+          <span class="door-cta">See the curriculum</span>
+        </a>
+        <a class="door" href="/courses/marketing-engine/">
+          <span class="door-tag">Course</span>
+          <h3 class="door-title">AI Marketing Engine</h3>
+          <p class="door-body">The Pillar-to-Derivative Cascade. One Tuesday Live → 14 pieces of content. The full automation stack and the prompts that run it.</p>
+          <span class="door-cta">See the curriculum</span>
+        </a>
+        <a class="door" href="/courses/empire-os/">
+          <span class="door-tag">Course · Builder-only</span>
+          <h3 class="door-title">Empire OS</h3>
+          <p class="door-body">How I run my agency. Systems, hires, finance, fulfillment. The operating manual behind the YouTube. Builder-only access.</p>
+          <span class="door-cta">See the curriculum</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="tiers">
+    <div class="container">
+      <h2 class="section-title">Three tiers. Pick where you're at.</h2>
+      <p class="section-sub">Insider gets you in the room. Founder locks the rate forever. Free gets you started.</p>
+
+      <div class="tiers-grid">
+        <div class="tier">
+          <div class="tier-name">FREE</div>
+          <div class="tier-price">$0<small> /forever</small></div>
+          <p class="tier-tagline">The Starter Kit + the 30-day challenges. No card needed.</p>
+          <ul>
+            <li>AI Empire Starter Kit</li>
+            <li>30-Day Empire Challenge</li>
+            <li>30-Day Cold Calling Challenge</li>
+            <li>Tuesday Live + Thursday Build Day</li>
+          </ul>
+          <a class="btn btn-ghost" href="/starter-kit/">Start free</a>
+        </div>
+
+        <div class="tier">
+          <div class="tier-name">INSIDER</div>
+          <div class="tier-price">$10<small> /month</small></div>
+          <p class="tier-tagline">In the community. Member pricing on every course.</p>
+          <ul>
+            <li>Private Insider community</li>
+            <li>Weekly Q&amp;A digest</li>
+            <li>Member discounts on courses</li>
+            <li>Cancel anytime</li>
+          </ul>
+          <a class="btn btn-ghost" href="/insider/">Join Insider</a>
+        </div>
+
+        <div class="tier featured">
+          <div class="tier-name">BUILDER (FOUNDER)</div>
+          <div class="tier-price">$99<small> /month · locked for life</small></div>
+          <p class="tier-tagline">Every course. The Vault. Friday Q&amp;A Zoom. Gold-crown badge. 50 seats.</p>
+          <ul>
+            <li>All four courses included</li>
+            <li>The Empire Vault (templates + scripts)</li>
+            <li>Friday Builder Q&amp;A Zoom (live)</li>
+            <li>Gold-crown community badge</li>
+            <li>Locked at $99 — never goes up</li>
+          </ul>
+          <a class="btn btn-gold" href="/founders/">Lock my Founder seat</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="foot-row">
+        <div>
+          <a href="/starter-kit/">Starter Kit</a>
+          <a href="/challenge/">Empire Challenge</a>
+          <a href="/cold-call-30/">Cold Call Challenge</a>
+          <a href="/insider/">Insider</a>
+          <a href="/founders/">Founder</a>
+          <a href="/partners/">Partners</a>
+        </div>
+        <div>© <span id="y"></span> Benji's AI Empire · Advanced Marketing</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
