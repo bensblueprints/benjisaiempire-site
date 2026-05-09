@@ -1,321 +1,431 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="format-detection" content="telephone=no" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>You're In — Welcome to Insider | Benji's AI Empire</title>
+<meta name="description" content="Welcome to Insider. Everything I run is now in your account. Three steps to get moving today." />
+<meta name="theme-color" content="#0b0b0c" />
+<meta name="robots" content="noindex,nofollow" />
+<link rel="canonical" href="https://benjisaiempire.com/insider/welcome" />
+<link rel="icon" type="image/png" href="/images/favicon.png" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://benjisaiempire.com/insider/welcome" />
+<meta property="og:title" content="You're In — Welcome to Insider" />
+<meta property="og:description" content="Welcome to Insider. Everything I run is now in your account." />
+<meta property="og:image" content="https://benjisaiempire.com/images/course-marketing-engine.jpg" />
+<meta property="og:site_name" content="Benji's AI Empire" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles/site.css">
+<style id="page-welcome">
+  .wel-main{ background:var(--ink); color:var(--cream); }
+  .wel-wrap{ max-width:var(--container); margin:0 auto; padding:0 clamp(20px,4vw,56px); }
 
-  <title>Welcome To The Empire, Insider | Benji's AI Empire</title>
-  <meta name="description" content="Your Empire Insider account is live. Three things to do in the next 10 minutes — set your phone number, watch the welcome video, and post a hello in the community." />
-  <meta name="author" content="Benji Boyce" />
-  <meta name="theme-color" content="#0a0a0a" />
-  <meta name="robots" content="noindex, nofollow" />
-
-  <link rel="canonical" href="https://benjisaiempire.com/insider/welcome" />
-
-  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-  <link rel="icon" type="image/png" href="images/favicon.png" />
-
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://benjisaiempire.com/insider/welcome" />
-  <meta property="og:title" content="Welcome To The Empire, Insider." />
-  <meta property="og:description" content="You're in. Here's the 10-minute first-day playbook." />
-  <meta property="og:image" content="https://benjisaiempire.com/images/og-insider-welcome.jpg" />
-  <meta property="og:site_name" content="Benji's AI Empire" />
-
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Welcome To The Empire, Insider." />
-  <meta name="twitter:description" content="You're in. Here's the 10-minute first-day playbook." />
-
-  <!-- Schema.org -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Benji's AI Empire",
-    "url": "https://benjisaiempire.com",
-    "logo": "https://benjisaiempire.com/images/logo.png"
+  .wel-eyebrow{
+    font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.28em;
+    text-transform:uppercase; color:var(--gold);
+    display:inline-flex; align-items:center; gap:10px;
   }
-  </script>
+  .wel-eyebrow::before{
+    content:""; width:28px; height:1px; background:var(--gold);
+  }
+  .wel-display{
+    font-family:'Anton',sans-serif; font-weight:400;
+    text-transform:uppercase; letter-spacing:.005em;
+    line-height:.92; color:var(--cream);
+  }
+  .wel-display em{
+    font-family:'Fraunces',serif; font-style:italic; font-weight:500;
+    text-transform:none; letter-spacing:-.01em; color:var(--gold-bright);
+  }
+  .wel-lede{
+    font-family:'Fraunces',serif; font-style:italic; font-weight:300;
+    color:var(--bone); line-height:1.45;
+  }
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet" />
+  /* HERO */
+  .wel-hero{
+    position:relative; isolation:isolate;
+    padding:clamp(72px,9vw,140px) 0 clamp(48px,6vw,96px);
+    border-bottom:1px solid var(--line);
+    overflow:hidden;
+    text-align:center;
+  }
+  .wel-hero::before{
+    content:""; position:absolute; inset:0;
+    background-image:
+      radial-gradient(rgba(244,236,216,.045) 1px, transparent 1px),
+      radial-gradient(rgba(11,11,12,.06) 1px, transparent 1px);
+    background-size:3px 3px, 5px 5px;
+    background-position:0 0, 1px 2px;
+    mix-blend-mode:overlay; pointer-events:none; z-index:0; opacity:.55;
+  }
+  .wel-hero__eyebrow{
+    margin:0 auto 32px;
+    display:inline-flex; gap:14px; align-items:center;
+    font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.3em;
+    text-transform:uppercase; color:var(--gold);
+  }
+  .wel-hero__eyebrow::before, .wel-hero__eyebrow::after{
+    content:""; width:32px; height:1px; background:var(--gold);
+  }
+  .wel-hero__pulse{
+    width:9px; height:9px; border-radius:50%;
+    background:var(--gold); display:inline-block;
+    box-shadow:0 0 0 5px rgba(212,175,55,.18);
+    animation:wel-pulse 2s ease-in-out infinite;
+  }
+  @keyframes wel-pulse{
+    0%,100%{ box-shadow:0 0 0 5px rgba(212,175,55,.18); }
+    50%{ box-shadow:0 0 0 9px rgba(212,175,55,.05); }
+  }
+  .wel-hero__headline{
+    font-size:clamp(72px,11vw,180px);
+    margin:0 0 clamp(24px,2.6vw,36px);
+    position:relative; z-index:1;
+  }
+  .wel-hero__lede{
+    font-size:clamp(20px,1.7vw,26px);
+    max-width:680px; margin:0 auto;
+    position:relative; z-index:1;
+  }
+  .wel-hero__divider{
+    width:80px; height:1px; background:var(--gold); opacity:.6;
+    margin:clamp(32px,3.5vw,48px) auto 0;
+  }
+  .wel-hero__meta{
+    margin-top:24px;
+    font-family:'JetBrains Mono',monospace; font-size:10.5px;
+    letter-spacing:.28em; text-transform:uppercase; color:var(--cream-soft);
+  }
+  .wel-hero__meta strong{ color:var(--gold); font-weight:500; }
 
-  <link rel="stylesheet" href="styles.css" />
+  /* STEPS */
+  .wel-steps{
+    padding:clamp(72px,8vw,120px) 0;
+    border-bottom:1px solid var(--line);
+  }
+  .wel-steps__head{
+    display:grid; grid-template-columns:.9fr 1.1fr;
+    gap:clamp(32px,4vw,64px); align-items:end;
+    padding-bottom:24px; border-bottom:1px solid var(--line);
+    margin-bottom:clamp(40px,4vw,56px);
+  }
+  .wel-steps__title{ font-size:clamp(40px,5vw,72px); margin-top:14px; }
+  .wel-steps__sub{ font-family:'Fraunces',serif; font-style:italic; font-size:17px; color:var(--bone); max-width:480px; }
 
-  <!-- META PIXEL: fire Purchase event with value=10, currency=USD -->
-  <!-- GA4: fire purchase conversion (value=10, currency=USD) -->
+  .wel-step{
+    display:grid; grid-template-columns:140px 1fr auto;
+    gap:clamp(24px,3vw,48px); align-items:center;
+    padding:clamp(28px,3vw,40px) 0;
+    border-top:1px solid var(--line);
+  }
+  .wel-step:last-child{ border-bottom:1px solid var(--line); }
+  .wel-step__num{
+    font-family:'Anton',sans-serif; font-size:clamp(56px,6vw,88px);
+    color:var(--gold); letter-spacing:.005em; line-height:1;
+  }
+  .wel-step__body{ display:flex; flex-direction:column; gap:10px; max-width:62ch; }
+  .wel-step__kicker{
+    font-family:'JetBrains Mono',monospace; font-size:10.5px;
+    letter-spacing:.26em; text-transform:uppercase; color:var(--cream-soft);
+  }
+  .wel-step__title{
+    font-family:'Anton',sans-serif; font-weight:400;
+    font-size:clamp(24px,2.4vw,34px); letter-spacing:.005em;
+    text-transform:uppercase; color:var(--cream); line-height:1.05;
+  }
+  .wel-step__title em{
+    font-family:'Fraunces',serif; font-style:italic; font-weight:500;
+    color:var(--gold-bright); text-transform:none; letter-spacing:-.005em;
+  }
+  .wel-step__desc{
+    font-family:'Manrope',sans-serif; font-size:15px; line-height:1.6;
+    color:var(--cream-soft);
+  }
+  .wel-step__desc a{
+    color:var(--gold); border-bottom:1px solid var(--gold);
+    padding-bottom:1px; transition:color .2s ease, border-color .2s ease;
+  }
+  .wel-step__desc a:hover{ color:var(--gold-bright); border-color:var(--gold-bright); }
+
+  .wel-btn{
+    display:inline-flex; align-items:center; gap:10px;
+    font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.22em;
+    text-transform:uppercase; padding:14px 18px; border-radius:1px;
+    transition:all .2s ease; border:1px solid transparent;
+  }
+  .wel-btn--gold{ background:var(--gold); color:var(--ink); border-color:var(--gold); font-weight:600; }
+  .wel-btn--gold:hover{ background:var(--gold-bright); border-color:var(--gold-bright); transform:translateY(-1px); }
+  .wel-btn--ghost{ background:transparent; color:var(--cream); border-color:var(--line); }
+  .wel-btn--ghost:hover{ border-color:var(--gold); color:var(--gold-bright); }
+  .wel-btn span.arrow{ transition:transform .2s ease; }
+  .wel-btn:hover span.arrow{ transform:translateX(4px); }
+
+  .wel-courses{
+    margin-top:18px;
+    display:flex; flex-wrap:wrap; gap:8px;
+  }
+  .wel-courses a{
+    font-family:'JetBrains Mono',monospace; font-size:10.5px;
+    letter-spacing:.22em; text-transform:uppercase;
+    padding:8px 12px; border:1px solid var(--line); border-radius:1px;
+    color:var(--cream-soft); transition:all .2s ease;
+  }
+  .wel-courses a:hover{ border-color:var(--gold); color:var(--gold-bright); }
+
+  @media (max-width:760px){
+    .wel-step{ grid-template-columns:80px 1fr; }
+    .wel-step .wel-btn{ grid-column:1/-1; justify-self:start; }
+    .wel-steps__head{ grid-template-columns:1fr; }
+  }
+
+  /* CROSS-SELL */
+  .wel-xsell{
+    padding:clamp(56px,6vw,96px) 0;
+    background:var(--ink);
+  }
+  .wel-xsell__inner{
+    display:flex; justify-content:space-between; align-items:center;
+    gap:clamp(24px,3vw,48px); flex-wrap:wrap;
+    border:1px solid var(--line); padding:clamp(28px,3.5vw,52px);
+    background:linear-gradient(135deg,var(--ink) 0%,var(--ink-2) 100%);
+  }
+  .wel-xsell__l{ display:flex; flex-direction:column; gap:8px; max-width:640px; }
+  .wel-xsell__kicker{
+    font-family:'JetBrains Mono',monospace; font-size:10.5px;
+    letter-spacing:.28em; text-transform:uppercase; color:var(--gold);
+  }
+  .wel-xsell__h{
+    font-family:'Anton',sans-serif; font-size:clamp(26px,2.6vw,38px);
+    letter-spacing:.005em; text-transform:uppercase; color:var(--cream); line-height:1.05;
+  }
+  .wel-xsell__h em{ font-family:'Fraunces',serif; font-style:italic; font-weight:500; color:var(--gold-bright); text-transform:none; }
+  .wel-xsell__sub{ font-family:'Fraunces',serif; font-style:italic; font-size:15px; color:var(--bone); max-width:520px; }
+</style>
 </head>
 <body>
+<a class="skip-to-main" href="#main">Skip to main content</a>
 
-  <!-- Header -->
-  <header class="site-header">
-    <nav class="nav" aria-label="Primary">
-      <a href="/" class="nav__logo" aria-label="Benji's AI Empire">
-        <img src="images/logo.png" alt="Benji's AI Empire logo" />
-        <span class="nav__logo-text">
-          <span>BAE</span>
-          <strong>Benji's AI Empire</strong>
-        </span>
-      </a>
-      <ul class="nav__links">
-        <li><a href="#playbook">First 10 Minutes</a></li>
-        <li><a href="#upgrade">Founder Upgrade</a></li>
-        <li><a href="https://benjisaiempire.com/login">Member Portal</a></li>
-      </ul>
-      <a href="https://benjisaiempire.com/login" class="btn btn-primary nav__cta">Open Portal</a>
+<header class="shell-topbar" data-shell="topbar">
+  <div class="shell-topbar__inner">
+    <a class="shell-topbar__brand" href="/" aria-label="Benji's AI Empire — home">
+      <span class="shell-topbar__brand-name">Benji's AI Empire</span>
+      <span class="shell-topbar__brand-sub">Issue 01 &nbsp;·&nbsp; May 2026 &nbsp;·&nbsp; Advanced Marketing</span>
+    </a>
+    <nav class="shell-topbar__center" aria-label="Pricing tiers">
+      <a class="shell-topbar__pill" href="/#pricing">Free</a>
+      <span class="shell-topbar__pill-divider" aria-hidden="true"></span>
+      <a class="shell-topbar__pill" href="/insider/">Insider <em>$10</em></a>
+      <span class="shell-topbar__pill-divider" aria-hidden="true"></span>
+      <a class="shell-topbar__pill" href="/founders/">Wholesale <em>$49</em></a>
     </nav>
-  </header>
+    <div class="shell-topbar__right">
+      <a class="shell-topbar__login" href="/login">Member Login</a>
+      <a class="shell-topbar__cta" href="/courses/cold-calling/">Open Courses</a>
+    </div>
+  </div>
+</header>
 
-  <main>
+<div class="shell-marquee" role="region" aria-label="Proof ticker">
+  <span class="shell-marquee__fade shell-marquee__fade--left" aria-hidden="true"></span>
+  <span class="shell-marquee__fade shell-marquee__fade--right" aria-hidden="true"></span>
+  <div class="shell-marquee__track">
+    <div class="shell-marquee__group" aria-hidden="false">
+      <span class="shell-marquee__item shell-marquee__item--accent">Welcome To Insider</span>
+      <span class="shell-marquee__sep">·</span>
+      <span class="shell-marquee__item shell-marquee__item--accent">Access Provisioned</span>
+      <span class="shell-marquee__sep">·</span>
+      <span class="shell-marquee__item shell-marquee__item--brand">All Four Courses Live</span>
+      <span class="shell-marquee__sep">·</span>
+      <span class="shell-marquee__item shell-marquee__item--brand">Community Open</span>
+      <span class="shell-marquee__sep">·</span>
+      <span class="shell-marquee__item">Friday Q&amp;A Digest</span>
+      <span class="shell-marquee__sep">·</span>
+      <span class="shell-marquee__item">Tuesday Cold Call Live</span>
+      <span class="shell-marquee__sep">·</span>
+      <span class="shell-marquee__item">Thursday Build Day</span>
+      <span class="shell-marquee__sep">·</span>
+    </div>
+    <div class="shell-marquee__group" aria-hidden="true">
+      <span class="shell-marquee__item shell-marquee__item--accent">Welcome To Insider</span>
+      <span class="shell-marquee__sep">·</span>
+      <span class="shell-marquee__item shell-marquee__item--accent">Access Provisioned</span>
+      <span class="shell-marquee__sep">·</span>
+      <span class="shell-marquee__item shell-marquee__item--brand">All Four Courses Live</span>
+      <span class="shell-marquee__sep">·</span>
+      <span class="shell-marquee__item shell-marquee__item--brand">Community Open</span>
+      <span class="shell-marquee__sep">·</span>
+      <span class="shell-marquee__item">Friday Q&amp;A Digest</span>
+      <span class="shell-marquee__sep">·</span>
+      <span class="shell-marquee__item">Tuesday Cold Call Live</span>
+      <span class="shell-marquee__sep">·</span>
+      <span class="shell-marquee__item">Thursday Build Day</span>
+      <span class="shell-marquee__sep">·</span>
+    </div>
+  </div>
+</div>
 
-    <!-- ============================== -->
-    <!-- HERO                            -->
-    <!-- ============================== -->
-    <section class="hero">
-      <div class="container">
-        <div class="container-narrow text-center" style="margin: 0 auto;">
+<main id="main" class="wel-main">
 
-          <span class="success-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <polyline points="4 13 9 18 20 7" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </span>
+  <!-- ═════ HERO ═════ -->
+  <section class="wel-hero" aria-labelledby="wel-hd">
+    <div class="wel-wrap">
+      <span class="wel-hero__eyebrow">
+        <span class="wel-hero__pulse" aria-hidden="true"></span>
+        Tier 02 · Insider · Activated
+      </span>
+      <h1 class="wel-hero__headline wel-display" id="wel-hd">
+        You're <em>in.</em>
+      </h1>
+      <p class="wel-hero__lede wel-lede">
+        Welcome to Insider. Everything I run is now in your inbox and the community.
+        Here's how to start without losing your first hour to clicking around.
+      </p>
+      <div class="wel-hero__divider" aria-hidden="true"></div>
+      <p class="wel-hero__meta">
+        Order <strong>confirmed</strong> &nbsp;·&nbsp; Access <strong>provisioned</strong> &nbsp;·&nbsp; Community invite <strong>sent</strong>
+      </p>
+    </div>
+  </section>
 
-          <span class="crown-badge">Empire Insider</span>
-          <h1 class="mt-3">Welcome to the Empire, <span class="gold">Insider.</span></h1>
-          <hr class="gold-line" />
-          <p style="color: var(--bae-white); font-size: 19px; max-width: 56ch; margin: 0 auto;">
-            Your account is live. Your <strong>GoHighLevel sub-account</strong> is provisioning right now
-            (takes about 60 seconds). Receipt is on its way to your inbox.
-          </p>
+  <!-- ═════ 3-STEP NEXT ═════ -->
+  <section class="wel-steps" aria-labelledby="wel-steps-t">
+    <div class="wel-wrap">
 
-          <div class="hero__cta-row" style="justify-content: center; margin-top: 32px;">
-            <a href="https://benjisaiempire.com/login" class="btn btn-primary btn-large btn-arrow">Open The Member Portal</a>
-            <a href="#playbook" class="btn btn-secondary btn-arrow">First 10 Minutes</a>
-          </div>
-
+      <div class="wel-steps__head">
+        <div>
+          <span class="wel-eyebrow">Next</span>
+          <h2 class="wel-steps__title wel-display" id="wel-steps-t">
+            Three steps, <em>today.</em>
+          </h2>
         </div>
+        <p class="wel-steps__sub">Do these in order and you're shipping by tomorrow morning. No "settle in and explore" — there's nothing to settle into.</p>
       </div>
-    </section>
 
-    <!-- ============================== -->
-    <!-- 3-STEP ONBOARDING              -->
-    <!-- ============================== -->
-    <section class="section" id="playbook">
-      <div class="container">
-        <div class="section__head">
-          <span class="eyebrow">First 10 minutes</span>
-          <h2>Three things to do right now.</h2>
-          <hr class="gold-line" />
-          <p>The single biggest predictor of whether members stick is whether they take their first
-          action in the first day. Here's the three-step warm-up.</p>
-        </div>
+      <div class="wel-steps__list">
 
-        <div class="checklist">
-
-          <div class="checklist__item">
-            <span class="checklist__num">1</span>
-            <div class="checklist__body">
-              <h4>Set your phone number</h4>
-              <p>
-                Log into the member portal. Click <strong>GoHighLevel &rarr; Phone Numbers &rarr; Buy a
-                Number</strong>. Outbound calling is <strong>$0.04/min</strong>, setup takes 60 seconds.
-                This is the dial line you'll use for the 30-Day Cold Calling Challenge.
-              </p>
-              <a href="https://benjisaiempire.com/login" target="_blank" rel="noopener">Set up GHL &rarr;</a>
-            </div>
+        <article class="wel-step">
+          <span class="wel-step__num">01</span>
+          <div class="wel-step__body">
+            <span class="wel-step__kicker">Step One · Inbox</span>
+            <h3 class="wel-step__title">Check your email for the <em>community invite</em></h3>
+            <p class="wel-step__desc">Look for the subject line "You're in — Insider community invite." If it's not in your inbox in 60 seconds, search your promotions tab and mark me as not-spam. The invite link expires in 7 days.</p>
           </div>
-
-          <div class="checklist__item">
-            <span class="checklist__num">2</span>
-            <div class="checklist__body">
-              <h4>Watch the welcome video (3 minutes)</h4>
-              <p>
-                Quick orientation. Where the foundation courses live, how the channels are organized, what
-                the Tuesday and Thursday live cadence looks like, and how to ask a question without it
-                getting lost.
-              </p>
-              <a href="https://benjisaiempire.com/login#welcome-video" target="_blank" rel="noopener">Watch the welcome video &rarr;</a>
-            </div>
-          </div>
-
-          <div class="checklist__item">
-            <span class="checklist__num">3</span>
-            <div class="checklist__body">
-              <h4>Post a hello in #welcome</h4>
-              <p>
-                Two lines: what you do, and the one specific question you want answered this week.
-                Posting in the first 24 hours <strong>doubles</strong> the odds you stay 12+ months.
-                That's the data, not a guess.
-              </p>
-              <a href="https://benjisaiempire.com/login#welcome" target="_blank" rel="noopener">Post your intro &rarr;</a>
-            </div>
-          </div>
-
-          <div class="checklist__item">
-            <span class="checklist__num">4</span>
-            <div class="checklist__body">
-              <h4>Open Cold Calling 2.0 + AI</h4>
-              <p>
-                Inside the foundation course library. Watch the first 12 minutes &mdash; the
-                <strong>30-Second Opener</strong> walkthrough &mdash; before your next email arrives.
-                Print the Master Script PDF and put it next to the phone.
-              </p>
-              <a href="https://benjisaiempire.com/login#cold-calling-2-0" target="_blank" rel="noopener">Open the course &rarr;</a>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================== -->
-    <!-- WHAT'S NEXT                    -->
-    <!-- ============================== -->
-    <section class="section section--alt" aria-label="Coming up this week">
-      <div class="container">
-        <div class="section__head">
-          <span class="eyebrow">This week inside the Empire</span>
-          <h2>Three live moments to plan around.</h2>
-          <hr class="gold-line" />
-        </div>
-
-        <div class="next-steps">
-
-          <div class="next-step">
-            <div class="next-step__num">Tue</div>
-            <h4>Tuesday Cold Call Live</h4>
-            <p>
-              I dial real prospects with the Master Script. Live on YouTube. Bring questions &mdash;
-              I read them between calls.
-            </p>
-            <a href="/calendar/tuesday-cold-call-live.ics" class="btn-ghost" download>Add to Calendar &rarr;</a>
-          </div>
-
-          <div class="next-step">
-            <div class="next-step__num">Thu</div>
-            <h4>Thursday Build Day Live</h4>
-            <p>
-              I ship a real client website with Claude Code, start to finish, in 3 hours. Insiders get
-              the replay archive after.
-            </p>
-            <a href="/calendar/thursday-build-day-live.ics" class="btn-ghost" download>Add to Calendar &rarr;</a>
-          </div>
-
-          <div class="next-step">
-            <div class="next-step__num">Fri</div>
-            <h4>Friday Builder Q&amp;A <span class="text-gold">(pre-50 bonus)</span></h4>
-            <p>
-              Live coaching, hot seats, real businesses. Open to Insiders until founder doors close.
-              After 50 Builders fill, you'll get the replay one week later &mdash; or upgrade to keep live access.
-            </p>
-            <a href="/calendar/friday-builder-q-and-a.ics" class="btn-ghost" download>Add to Calendar &rarr;</a>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================== -->
-    <!-- FOUNDER UPGRADE TEASE          -->
-    <!-- ============================== -->
-    <section class="section" id="upgrade">
-      <div class="container">
-        <div class="upgrade-tease">
-          <span class="crown-badge">Empire Founder</span>
-          <h3 class="mt-3">Want the full vault? Lock $99/mo founder pricing while it's still open.</h3>
-          <p>
-            Builders get the full <strong>Empire Vault</strong> &mdash; every script, prompt, contract,
-            proposal, and ad-copy template I'm running in the agency right now. Plus live <strong>Friday
-            Builder Q&amp;A</strong>, all advanced courses (AI Brand Builder, AI Marketing Engine, Empire
-            OS), 24-hour Q&amp;A guarantee, and calling at <strong>$0.015/min</strong> (62% cheaper than
-            the $0.04 Insider rate). The first 50 lock <strong>$99/month for life</strong>.
-            <strong>After 50, Builder is $149/mo.</strong>
-          </p>
-
-          <div class="founder-counter" aria-live="polite">
-            <!-- Replace text dynamically from GHL custom_value.founder_count_remaining -->
-            <span class="founder-count-num" id="founder-count">38</span>
-            <span>of 50 founder spots remaining</span>
-          </div>
-
-          <div class="hero__cta-row mt-5">
-            <a href="https://benjisaiempire.com/checkout/empire-founder-99" class="btn btn-primary btn-large btn-arrow">
-              Upgrade To Builder Founder &mdash; $99/mo
-            </a>
-            <a href="/founders" class="btn-ghost btn-arrow">See the full Builder stack</a>
-          </div>
-
-          <p class="hero__reassure mt-3" style="text-align: left;">
-            You already locked your $10 Insider rate. Upgrading to Founder simply replaces it &mdash;
-            you don't pay both. <strong>Founder counter only goes one direction.</strong>
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================== -->
-    <!-- FINAL CTA                      -->
-    <!-- ============================== -->
-    <section class="final-cta section--accent" aria-label="Last word">
-      <div class="container-narrow">
-        <span class="eyebrow">Welcome aboard</span>
-        <h2>You're in the Empire. Now go take your first action.</h2>
-        <hr class="gold-line" />
-        <p>The portal is open. Tuesday Cold Call Live is on the calendar. The work is the proof.</p>
-        <a href="https://benjisaiempire.com/login" class="btn btn-primary btn-large btn-arrow">Open The Member Portal</a>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer__grid">
-        <div class="footer__brand">
-          <a href="/" class="nav__logo">
-            <img src="images/logo.png" alt="Benji's AI Empire logo" />
-            <span class="nav__logo-text">
-              <span>BAE</span>
-              <strong>Benji's AI Empire</strong>
-            </span>
+          <a class="wel-btn wel-btn--ghost" href="mailto:?subject=Insider%20Invite">
+            Email tips <span class="arrow">→</span>
           </a>
-          <p>
-            The AI Operating Manual for Real Operators. Cold calls every Tuesday.
-            Client sites every Thursday. Built in public.
-          </p>
-        </div>
+        </article>
 
-        <div class="footer__col">
-          <h5>Empire</h5>
-          <ul>
-            <li><a href="/starter-kit">Starter Kit</a></li>
-            <li><a href="/insider">Empire Insider &mdash; $10/mo</a></li>
-            <li><a href="/founders">Empire Builder &mdash; Founder Rate</a></li>
-            <li><a href="/partners">Software Partners</a></li>
-          </ul>
-        </div>
+        <article class="wel-step">
+          <span class="wel-step__num">02</span>
+          <div class="wel-step__body">
+            <span class="wel-step__kicker">Step Two · The Library</span>
+            <h3 class="wel-step__title">Bookmark <em>the four courses</em></h3>
+            <p class="wel-step__desc">Open all four in tabs, pick the one closest to whatever you're stuck on right now, and start there. Don't try to watch them in order — start with the friction point.</p>
+            <div class="wel-courses" aria-label="Course library">
+              <a href="/courses/cold-calling/">Cold Calling 2.0 + AI</a>
+              <a href="/courses/brand-builder/">AI Brand Builder</a>
+              <a href="/courses/marketing-engine/">AI Marketing Engine</a>
+              <a href="/courses/empire-os/">Empire OS</a>
+            </div>
+          </div>
+          <a class="wel-btn wel-btn--gold" href="/courses/cold-calling/">
+            Start with Cold Calling <span class="arrow">→</span>
+          </a>
+        </article>
 
-        <div class="footer__col">
-          <h5>Legal</h5>
-          <ul>
-            <li><a href="/privacy">Privacy</a></li>
-            <li><a href="/terms">Terms</a></li>
-            <li><a href="mailto:benji@advancedmarketing.co">Contact</a></li>
-          </ul>
-        </div>
-      </div>
+        <article class="wel-step">
+          <span class="wel-step__num">03</span>
+          <div class="wel-step__body">
+            <span class="wel-step__kicker">Step Three · Cadence</span>
+            <h3 class="wel-step__title">Join the <em>Friday Q&amp;A digest</em></h3>
+            <p class="wel-step__desc">Friday I drop the week's wins, the calls I worked, the prompts I shipped, and the ones that flopped. Reply with what you're stuck on by Thursday EOD and I'll cover it. The digest is the heartbeat of the community.</p>
+          </div>
+          <a class="wel-btn wel-btn--ghost" href="/community/friday-digest/">
+            Join the digest <span class="arrow">→</span>
+          </a>
+        </article>
 
-      <div class="footer__bottom">
-        <span>&copy; 2026 Advanced Marketing &middot; Benji's AI Empire. All rights reserved.</span>
-        <span>Built in public from <code>benjisaiempire.com</code></span>
       </div>
     </div>
-  </footer>
+  </section>
+
+  <!-- ═════ CROSS-SELL ═════ -->
+  <section class="wel-xsell" aria-labelledby="wel-xsell-h">
+    <div class="wel-wrap">
+      <div class="wel-xsell__inner">
+        <div class="wel-xsell__l">
+          <span class="wel-xsell__kicker">Tier 03 — Wholesale GHL</span>
+          <h3 class="wel-xsell__h" id="wel-xsell-h">Want wholesale GHL <em>too?</em></h3>
+          <p class="wel-xsell__sub">$49/mo · $0.015/min on minutes · first 100 operators only · stack it on top of Insider if you're running heavy call volume.</p>
+        </div>
+        <a class="wel-btn wel-btn--gold" href="/founders/">
+          See Wholesale GHL <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="shell-footer" data-shell="footer">
+  <div class="shell-footer__inner">
+
+    <div class="shell-footer__grid">
+
+      <div class="shell-footer__col shell-footer__col--brand">
+        <h2 class="shell-footer__brand-name">Benji's AI Empire</h2>
+        <p class="shell-footer__brand-meta">Operator's Playbook &nbsp;·&nbsp; Built In Public</p>
+        <p class="shell-footer__brand-tagline">
+          A weekly dispatch from the build floor — every cold call, every
+          launch, every dollar tracked in the open.
+        </p>
+      </div>
+
+      <div class="shell-footer__col">
+        <h3 class="shell-footer__col-head">Entry Points</h3>
+        <ul class="shell-footer__list">
+          <li><a class="shell-footer__link" href="/starter-kit/">Starter Kit</a></li>
+          <li><a class="shell-footer__link" href="/challenge/">Empire Challenge</a></li>
+          <li><a class="shell-footer__link" href="/cold-call-30/">Cold Calling Challenge</a></li>
+          <li><a class="shell-footer__link" href="/partners/">Software Partners</a></li>
+        </ul>
+      </div>
+
+      <div class="shell-footer__col">
+        <h3 class="shell-footer__col-head">Join</h3>
+        <ul class="shell-footer__list">
+          <li><a class="shell-footer__link" href="/insider/">Insider <span class="shell-footer__link-meta">$10/mo</span></a></li>
+          <li><a class="shell-footer__link" href="/founders/">Wholesale GHL <span class="shell-footer__link-meta">$49/mo</span></a></li>
+          <li><a class="shell-footer__link" href="/login">Member Login</a></li>
+        </ul>
+      </div>
+
+      <div class="shell-footer__col">
+        <h3 class="shell-footer__col-head">Every Week</h3>
+        <ul class="shell-footer__list">
+          <li><a class="shell-footer__link" href="https://youtube.com" target="_blank" rel="noopener">Tuesday Cold Call Live <span class="shell-footer__link-meta">YouTube</span></a></li>
+          <li><a class="shell-footer__link" href="https://youtube.com" target="_blank" rel="noopener">Thursday Build Day <span class="shell-footer__link-meta">YouTube</span></a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="shell-footer__bottom">
+      <div class="shell-footer__bottom-left">
+        <span class="shell-footer__copy">© 2026 &nbsp;<strong>Advanced Marketing</strong></span>
+        <span class="shell-footer__divider" aria-hidden="true"></span>
+        <span>All Rights Reserved</span>
+      </div>
+      <span class="shell-footer__tag">Built In Public Since 2024</span>
+    </div>
+
+  </div>
+</footer>
 
 </body>
 </html>

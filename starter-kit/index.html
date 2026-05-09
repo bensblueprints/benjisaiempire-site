@@ -1,455 +1,442 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="format-detection" content="telephone=no" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Free Tier — Watch Me Cold-Call Live · Benji's AI Empire</title>
+<meta name="description" content="The free tier: every Tuesday cold call live, every Thursday build day live, the full 52-week archive. No email opt-in. The Starter Kit, prompts, scripts, and challenges live in $10 Insider." />
+<meta name="theme-color" content="#0b0b0c" />
+<link rel="canonical" href="https://benjisaiempire.com/starter-kit/" />
+<link rel="icon" type="image/png" href="/images/favicon.png" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://benjisaiempire.com/starter-kit/" />
+<meta property="og:title" content="Free Tier — Watch Me Cold-Call Live" />
+<meta property="og:description" content="Tuesday cold call live. Thursday build day live. Full archive. Free." />
+<meta property="og:image" content="https://benjisaiempire.com/images/streaming-rig.jpg" />
+<meta property="og:site_name" content="Benji's AI Empire" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="preload" as="image" href="/images/streaming-rig.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/styles/site.css" />
+<style>
+  /* PAGE — FREE VIDEOS HUB */
+  .page-wrap { max-width: var(--container); margin: 0 auto; padding: 0 clamp(20px, 4vw, 56px); }
 
-  <title>The AI Empire Starter Kit — 4 Tools I'm Using Right Now to Grow My Agency | Benji Boyce</title>
-  <meta name="description" content="The cold call script I run live every Tuesday. The Claude Code design prompts I use to ship real client websites. The 30-Day Empire Challenge. A free seat at the live launch event. All four — totally free, in your inbox in the next 60 seconds." />
-  <meta name="author" content="Benji Boyce" />
-  <meta name="theme-color" content="#0a0a0a" />
-  <meta name="robots" content="index, follow" />
-
-  <!-- Canonical -->
-  <link rel="canonical" href="https://benjisaiempire.com/starter-kit" />
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-  <link rel="icon" type="image/png" href="images/favicon.png" />
-
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://benjisaiempire.com/starter-kit" />
-  <meta property="og:title" content="The AI Empire Starter Kit — 4 Free Tools From Benji Boyce" />
-  <meta property="og:description" content="The cold call script. The Claude Code design prompts. The 30-Day Empire Challenge. A free seat at the live launch event. Free. In your inbox in 60 seconds." />
-  <meta property="og:image" content="https://benjisaiempire.com/images/og-starter-kit.jpg" />
-  <meta property="og:site_name" content="Benji's AI Empire" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="The AI Empire Starter Kit — 4 Free Tools From Benji Boyce" />
-  <meta name="twitter:description" content="The cold call script. The Claude Code design prompts. The 30-Day Empire Challenge. A free seat at the live launch event." />
-  <meta name="twitter:image" content="https://benjisaiempire.com/images/og-starter-kit.jpg" />
-
-  <!-- Schema.org Organization -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Benji's AI Empire",
-    "url": "https://benjisaiempire.com",
-    "logo": "https://benjisaiempire.com/images/logo.png",
-    "founder": {
-      "@type": "Person",
-      "name": "Benji Boyce",
-      "jobTitle": "Marketer & Agency Operator"
-    },
-    "sameAs": [
-      "https://www.youtube.com/@benjiboyce",
-      "https://www.facebook.com/benjiboyce"
-    ]
+  /* HERO */
+  .free-hero {
+    position: relative;
+    padding: clamp(72px, 10vw, 140px) 0 clamp(56px, 8vw, 112px);
+    border-bottom: 1px solid var(--line);
+    overflow: hidden;
   }
-  </script>
-
-  <!-- Schema.org for the Starter Kit lead magnet -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Offer",
-    "name": "The AI Empire Starter Kit",
-    "description": "Four free tools: the cold call script run live every Tuesday, Claude Code design prompts, the 30-Day Empire Challenge, and a free seat at the live launch event.",
-    "price": "0.00",
-    "priceCurrency": "USD",
-    "url": "https://benjisaiempire.com/starter-kit"
+  .free-hero::before {
+    content: "";
+    position: absolute; inset: 0;
+    background-image:
+      radial-gradient(rgba(244,236,216,.04) 1px, transparent 1px);
+    background-size: 4px 4px;
+    pointer-events: none;
+    opacity: .5;
   }
-  </script>
+  .free-hero__inner { position: relative; display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(40px, 6vw, 88px); align-items: center; }
+  .free-hero__eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: .32em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 28px;
+    display: inline-flex; align-items: center; gap: 14px;
+  }
+  .free-hero__eyebrow::before {
+    content: ""; display: inline-block; width: 32px; height: 1px; background: var(--gold);
+  }
+  .free-hero__headline {
+    font-family: 'Anton', sans-serif; font-weight: 400;
+    font-size: clamp(46px, 6.4vw, 104px); line-height: .9;
+    letter-spacing: -.012em; text-transform: uppercase;
+    color: var(--cream); margin: 0 0 28px;
+  }
+  .free-hero__headline em {
+    font-family: 'Fraunces', serif; font-style: italic; font-weight: 400;
+    color: var(--gold); text-transform: none; letter-spacing: -.02em;
+  }
+  .free-hero__lede {
+    font-family: 'Fraunces', serif; font-weight: 400;
+    font-size: clamp(17px, 1.4vw, 21px); line-height: 1.55;
+    color: var(--bone); max-width: 56ch; margin: 0 0 36px;
+  }
+  .free-hero__cta {
+    display: inline-flex; align-items: center; gap: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; letter-spacing: .26em; text-transform: uppercase;
+    color: var(--ink); background: var(--gold);
+    padding: 18px 28px; border: 1px solid var(--gold);
+    transition: background .2s ease, transform .2s ease;
+  }
+  .free-hero__cta:hover { background: var(--gold-bright); transform: translateY(-2px); }
+  .free-hero__cta::after { content: "→"; font-family: 'Manrope', sans-serif; letter-spacing: 0; }
+  .free-hero__media {
+    position: relative; aspect-ratio: 4 / 5;
+    border: 1px solid var(--line); overflow: hidden;
+    background: var(--ink-2);
+  }
+  .free-hero__media img { width: 100%; height: 100%; object-fit: cover; filter: contrast(1.04) saturate(1.05); }
+  .free-hero__media::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 60%, rgba(11,11,12,.55));
+    pointer-events: none;
+  }
+  .free-hero__caption {
+    position: absolute; bottom: 18px; left: 18px; right: 18px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px; letter-spacing: .26em; text-transform: uppercase;
+    color: var(--cream-soft); display: flex; justify-content: space-between; gap: 16px;
+  }
+  .free-hero__caption span:last-child { color: var(--gold); }
 
-  <!-- Fonts (system stack with Google Fonts as enhancement) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet" />
+  /* THIS WEEK'S LIVES */
+  .lives {
+    padding: clamp(72px, 9vw, 128px) 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .lives__head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; margin-bottom: clamp(40px, 5vw, 72px); flex-wrap: wrap; }
+  .lives__title {
+    font-family: 'Anton', sans-serif; font-weight: 400;
+    font-size: clamp(34px, 4.6vw, 72px); line-height: .92;
+    letter-spacing: -.01em; text-transform: uppercase; color: var(--cream); margin: 0;
+  }
+  .lives__title em { font-family: 'Fraunces', serif; font-style: italic; font-weight: 400; color: var(--gold); text-transform: none; }
+  .lives__meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: .26em; text-transform: uppercase;
+    color: var(--cream-soft);
+  }
+  .lives__grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(20px, 2.6vw, 36px); }
+  .live-card {
+    background: var(--ink-2); border: 1px solid var(--line);
+    padding: clamp(22px, 2.6vw, 36px);
+    display: flex; flex-direction: column; gap: 22px;
+  }
+  .live-card__tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px; letter-spacing: .28em; text-transform: uppercase;
+    color: var(--gold);
+    display: inline-flex; align-items: center; gap: 10px;
+  }
+  .live-card__tag::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--rust); box-shadow: 0 0 0 4px rgba(196,41,46,.18); }
+  .live-card__title {
+    font-family: 'Anton', sans-serif; font-weight: 400;
+    font-size: clamp(26px, 2.4vw, 36px); line-height: 1; text-transform: uppercase;
+    color: var(--cream); margin: 0; letter-spacing: -.005em;
+  }
+  .live-card__when {
+    font-family: 'Fraunces', serif; font-style: italic;
+    font-size: 16px; line-height: 1.5; color: var(--bone); margin: 0;
+  }
+  .yt-embed-slot {
+    aspect-ratio: 16 / 9; background: var(--ink); border: 1px dashed var(--line);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'JetBrains Mono', monospace; font-size: 10.5px;
+    letter-spacing: .26em; text-transform: uppercase; color: var(--cream-soft);
+    position: relative;
+  }
+  .yt-embed-slot::before {
+    content: "▶"; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -130%);
+    color: var(--gold); font-size: 28px; letter-spacing: 0;
+  }
+  .yt-embed-slot::after { content: "Live embed wires here"; }
+  .live-card__caption {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px; letter-spacing: .22em; text-transform: uppercase;
+    color: var(--cream-soft); margin: 0;
+  }
 
-  <link rel="stylesheet" href="styles.css" />
+  /* ARCHIVE */
+  .archive {
+    padding: clamp(72px, 9vw, 128px) 0;
+    border-bottom: 1px solid var(--line);
+    display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(40px, 6vw, 96px);
+    align-items: center;
+  }
+  .archive__num {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(120px, 18vw, 280px); line-height: .85;
+    color: var(--gold); margin: 0; letter-spacing: -.03em;
+  }
+  .archive__sub {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: .3em; text-transform: uppercase;
+    color: var(--cream-soft); display: block; margin-top: 14px;
+  }
+  .archive__copy { display: flex; flex-direction: column; gap: 26px; }
+  .archive__title {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(30px, 3.6vw, 56px); line-height: .95;
+    text-transform: uppercase; color: var(--cream); margin: 0;
+  }
+  .archive__title em { font-family: 'Fraunces', serif; font-style: italic; color: var(--gold); text-transform: none; }
+  .archive__body {
+    font-family: 'Fraunces', serif; font-size: 18px; line-height: 1.6; color: var(--bone);
+    max-width: 52ch; margin: 0;
+  }
+  .archive__btn {
+    align-self: flex-start;
+    display: inline-flex; align-items: center; gap: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: .26em; text-transform: uppercase;
+    color: var(--cream); padding: 16px 24px;
+    border: 1px solid var(--line);
+    transition: border-color .2s ease, color .2s ease;
+  }
+  .archive__btn:hover { border-color: var(--gold); color: var(--gold-bright); }
+  .archive__btn::after { content: "→"; font-family: 'Manrope', sans-serif; letter-spacing: 0; }
 
-  <!-- Pixels: paste before </head> when ready -->
-  <!-- META PIXEL: insert your fbq init snippet here -->
-  <!-- GA4: insert gtag config snippet here -->
+  /* WHAT'S NOT FREE — pull-quote */
+  .notfree {
+    padding: clamp(80px, 10vw, 144px) 0;
+    border-bottom: 1px solid var(--line);
+    text-align: center;
+  }
+  .notfree__rail {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: .3em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 32px;
+    display: inline-flex; align-items: center; gap: 16px;
+  }
+  .notfree__rail::before, .notfree__rail::after { content: ""; width: 36px; height: 1px; background: var(--gold); opacity: .5; }
+  .notfree__quote {
+    font-family: 'Fraunces', serif; font-weight: 400; font-style: italic;
+    font-size: clamp(24px, 3.2vw, 44px); line-height: 1.25;
+    color: var(--cream); max-width: 26ch; margin: 0 auto;
+  }
+  .notfree__quote em { color: var(--gold); font-style: italic; }
+  .notfree__sig {
+    margin-top: 36px; font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px; letter-spacing: .3em; text-transform: uppercase;
+    color: var(--cream-soft);
+  }
+
+  /* UPGRADE CTA */
+  .upgrade {
+    padding: clamp(80px, 10vw, 144px) 0;
+    background: linear-gradient(180deg, var(--ink) 0%, var(--ink-2) 100%);
+    text-align: center;
+  }
+  .upgrade__eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: .32em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 24px;
+  }
+  .upgrade__title {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(48px, 7vw, 112px); line-height: .9;
+    text-transform: uppercase; color: var(--cream); margin: 0 0 32px;
+    letter-spacing: -.012em;
+  }
+  .upgrade__title em { font-family: 'Fraunces', serif; font-style: italic; color: var(--gold); text-transform: none; }
+  .upgrade__sub {
+    font-family: 'Fraunces', serif; font-style: italic; font-size: 19px;
+    color: var(--bone); max-width: 50ch; margin: 0 auto 40px; line-height: 1.5;
+  }
+  .upgrade__primary {
+    display: inline-flex; align-items: center; gap: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px; letter-spacing: .26em; text-transform: uppercase;
+    color: var(--ink); background: var(--gold);
+    padding: 22px 36px; border: 1px solid var(--gold);
+    transition: background .2s ease, transform .2s ease;
+  }
+  .upgrade__primary:hover { background: var(--gold-bright); transform: translateY(-2px); }
+  .upgrade__primary::after { content: "→"; font-family: 'Manrope', sans-serif; letter-spacing: 0; }
+  .upgrade__cross {
+    display: block; margin-top: 26px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: .26em; text-transform: uppercase;
+    color: var(--cream-soft); transition: color .2s ease;
+  }
+  .upgrade__cross:hover { color: var(--gold-bright); }
+  .upgrade__cross::after { content: " →"; }
+
+  @media (max-width: 880px) {
+    .free-hero__inner { grid-template-columns: 1fr; }
+    .free-hero__media { aspect-ratio: 4 / 3; order: -1; }
+    .lives__grid { grid-template-columns: 1fr; }
+    .archive { grid-template-columns: 1fr; text-align: left; }
+  }
+</style>
 </head>
 <body>
+<a class="skip-to-main" href="#main">Skip to main content</a>
 
-  <!-- ============================== -->
-  <!-- HEADER / NAV (shared)          -->
-  <!-- ============================== -->
-  <header class="site-header">
-    <nav class="nav" aria-label="Primary">
-      <a href="/" class="nav__logo" aria-label="Benji's AI Empire — Home">
-        <img src="images/logo.png" alt="Benji's AI Empire logo" />
-        <span class="nav__logo-text">
-          <span>BAE</span>
-          <strong>Benji's AI Empire</strong>
-        </span>
-      </a>
-      <ul class="nav__links">
-        <li><a href="#what-you-get">The Kit</a></li>
-        <li><a href="#about">Who Is Benji</a></li>
-        <li><a href="#faq">FAQ</a></li>
-      </ul>
-      <a href="#opt-in" class="btn btn-primary nav__cta">Get The Kit</a>
+<header class="shell-topbar" data-shell="topbar">
+  <div class="shell-topbar__inner">
+    <a class="shell-topbar__brand" href="/" aria-label="Benji's AI Empire — home">
+      <span class="shell-topbar__brand-name">Benji's AI Empire</span>
+      <span class="shell-topbar__brand-sub">Issue 01 &nbsp;·&nbsp; May 2026 &nbsp;·&nbsp; Advanced Marketing</span>
+    </a>
+    <nav class="shell-topbar__center" aria-label="Pricing tiers">
+      <a class="shell-topbar__pill" href="/#pricing">Free</a>
+      <span class="shell-topbar__pill-divider" aria-hidden="true"></span>
+      <a class="shell-topbar__pill" href="/#pricing">Insider <em>$10</em></a>
+      <span class="shell-topbar__pill-divider" aria-hidden="true"></span>
+      <a class="shell-topbar__pill" href="/#pricing">Wholesale <em>$49</em></a>
     </nav>
-  </header>
+    <div class="shell-topbar__right">
+      <a class="shell-topbar__login" href="/login">Member Login</a>
+      <a class="shell-topbar__cta" href="/insider/">Join Insider</a>
+    </div>
+  </div>
+</header>
 
-  <main>
+<main id="main">
 
-    <!-- ============================== -->
-    <!-- HERO                            -->
-    <!-- ============================== -->
-    <section class="hero hero--with-image" style="--hero-bg-image: url('images/ben-gold-throne-givenchy-chains.jpg');">
-      <div class="container">
-        <div class="hero__inner">
-          <div class="hero__copy">
-            <span class="eyebrow">Free Starter Kit &middot; 60-Second Delivery</span>
-            <h1>
-              The <span class="gold">AI Empire</span> Starter Kit &mdash; 4 Tools I'm Using Right Now to Grow My Agency
-            </h1>
-            <p class="hero__sub">
-              The cold call script I run live every Tuesday. The Claude Code design prompts I use
-              to ship real client websites. The 30-Day Empire Challenge. Your free seat at the live
-              launch event. All four &mdash; totally free, in your inbox in the next 60 seconds.
-            </p>
-            <div class="hero__cta-row">
-              <a href="#opt-in" class="btn btn-primary btn-large btn-arrow">Send Me The Kit</a>
-            </div>
-            <p class="hero__reassure">
-              100% free <span>&middot;</span> No credit card <span>&middot;</span> Unsubscribe anytime
-            </p>
-          </div>
-
-          <div class="hero__visual">
-            <img src="images/ben-gold-throne-givenchy-chains.jpg" alt="Benji Boyce on a gold throne, build-in-public operator portrait" loading="eager" fetchpriority="high" />
-          </div>
-        </div>
+  <!-- 1. HERO -->
+  <section class="free-hero">
+    <div class="page-wrap free-hero__inner">
+      <div class="free-hero__copy">
+        <div class="free-hero__eyebrow">Tier 01 / Free</div>
+        <h1 class="free-hero__headline">Watch me cold-call <em>live.</em> Free.</h1>
+        <p class="free-hero__lede">
+          Tuesday Cold Call Live. Thursday Build Day Live. The full archive. No email opt-in,
+          no PDFs, no scripts — just the videos. Everything else (the Starter Kit PDF, the
+          prompts, the scripts) is $10 Insider.
+        </p>
+        <a class="free-hero__cta" href="https://www.youtube.com/@benjiboyce" target="_blank" rel="noopener">Open the YouTube channel</a>
       </div>
-    </section>
+      <figure class="free-hero__media">
+        <img src="/images/streaming-rig.jpg" alt="The streaming rig where every Tuesday cold call and Thursday build day goes live." loading="eager" />
+        <figcaption class="free-hero__caption">
+          <span>Live Rig — Build Floor</span><span>On Air Tue · Thu</span>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
 
-    <!-- ============================== -->
-    <!-- AUTHORITY BAR                  -->
-    <!-- ============================== -->
-    <section class="authority" aria-label="Track record">
-      <div class="container">
-        <div class="authority__grid">
-          <div class="authority__item">
-            <span class="authority__check">&#10003;</span>
-            <span class="authority__text">15 years in marketing</span>
-          </div>
-          <div class="authority__item">
-            <span class="authority__check">&#10003;</span>
-            <span class="authority__text">$25M+ in e-commerce sales</span>
-          </div>
-          <div class="authority__item">
-            <span class="authority__check">&#10003;</span>
-            <span class="authority__text">2,000+ products launched</span>
-          </div>
-          <div class="authority__item">
-            <span class="authority__check">&#10003;</span>
-            <span class="authority__text">Building a marketing agency in public</span>
-          </div>
-        </div>
+  <!-- 2. THIS WEEK'S LIVES -->
+  <section class="lives">
+    <div class="page-wrap">
+      <div class="lives__head">
+        <h2 class="lives__title">This week's <em>lives.</em></h2>
+        <span class="lives__meta">Auto-updates · YouTube</span>
       </div>
-    </section>
+      <div class="lives__grid">
 
-    <!-- ============================== -->
-    <!-- WHO IS BENJI                   -->
-    <!-- ============================== -->
-    <section class="section" id="about">
-      <div class="container">
-        <div class="bio">
-          <img class="bio__photo" src="images/ben-bookshelf-white-tee-headshot.jpg" alt="Benji Boyce headshot" loading="lazy" />
-          <div class="bio__copy">
-            <span class="eyebrow">Who Is Benji</span>
-            <h2>15 years in marketing. $25M in e&#8209;commerce. Now building an AI agency in public.</h2>
-            <p>
-              I'm Benji Boyce. For the last 15 years I've run direct-response marketing for e-commerce brands
-              I helped build &mdash; <strong>over $25M in lifetime sales, 2,000+ products launched</strong>.
-              That part of the story is done. It paid for the operating system I'm running now.
-            </p>
-            <p>
-              Today I'm building a marketing agency from <strong>$10K MRR to $100K MRR</strong> &mdash; in
-              public, in real time, with all my work shown. Two live streams a week make it impossible to
-              fake: <strong>Tuesday Cold Call Live</strong> (I dial real prospects with real AI prompts)
-              and <strong>Thursday Build Day Live</strong> (I ship a real client website with Claude Code,
-              start to finish, in three hours).
-            </p>
-            <p>
-              I'm not an AI guru who read about cold calling once. I'm an operator who is in the work
-              right now. The Starter Kit is the four pieces of that operating system &mdash; the same
-              ones I'd hand a smart 23-year-old who asked me where to start today.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+        <article class="live-card">
+          <span class="live-card__tag">Tuesday Cold Call Live</span>
+          <h3 class="live-card__title">100 dials in front of you.</h3>
+          <p class="live-card__when">Every Tuesday, 11am MT. The script, the script being broken, the bookings — all of it.</p>
+          <div class="yt-embed-slot" data-yt-channel="benjiboyce" data-show="tuesday" aria-label="Tuesday Cold Call Live YouTube embed slot"></div>
+          <noscript><a href="https://www.youtube.com/@benjiboyce" target="_blank" rel="noopener">Watch on YouTube</a></noscript>
+          <p class="live-card__caption">Embed wires to YouTube live URL. Auto-updates each week.</p>
+        </article>
 
-    <!-- ============================== -->
-    <!-- WHAT'S IN THE KIT               -->
-    <!-- ============================== -->
-    <section class="section section--alt" id="what-you-get">
-      <div class="container">
-        <div class="section__head">
-          <span class="eyebrow">What's actually in the kit</span>
-          <h2>Everything you get the second you opt in:</h2>
-          <hr class="gold-line" />
-          <p>Four assets. Practical. Useful in the next hour. Yours forever, even if you never spend a dollar with me.</p>
-        </div>
+        <article class="live-card">
+          <span class="live-card__tag">Thursday Build Day Live</span>
+          <h3 class="live-card__title">Ship a real client site.</h3>
+          <p class="live-card__when">Every Thursday, 11am MT. Claude Code, GHL plumbing, deploy — open kimono.</p>
+          <div class="yt-embed-slot" data-yt-channel="benjiboyce" data-show="thursday" aria-label="Thursday Build Day Live YouTube embed slot"></div>
+          <noscript><a href="https://www.youtube.com/@benjiboyce" target="_blank" rel="noopener">Watch on YouTube</a></noscript>
+          <p class="live-card__caption">Embed wires to YouTube live URL. Auto-updates each week.</p>
+        </article>
 
-        <div class="kit-grid">
-
-          <article class="kit-card">
-            <div class="kit-card__num">1</div>
-            <h3 class="kit-card__title">The Cold Call Script I'm Running Live</h3>
-            <p class="kit-card__body">
-              The exact <strong>Master Script</strong> &mdash; <strong>30-Second Opener</strong>,
-              <strong>Hook</strong>, <strong>5 Discovery Questions</strong>, 5 objection categories with one
-              answer framework, and the assumed close. Plus the <strong>12 AI prospecting prompts</strong>
-              I paste into Claude to generate a fresh dial list every Tuesday morning before I go live.
-            </p>
-          </article>
-
-          <article class="kit-card">
-            <div class="kit-card__num">2</div>
-            <h3 class="kit-card__title">Claude Code Design Prompts Pack</h3>
-            <p class="kit-card__body">
-              The same prompts I use inside Claude Code on Build Day Live to ship real client websites in
-              three hours flat. The <strong>system prompt</strong>, the <strong>brand-extraction prompt</strong>,
-              the <strong>section-by-section build prompt</strong>, and the <strong>polish pass</strong>
-              I run before handoff. Copy, paste, ship.
-            </p>
-          </article>
-
-          <article class="kit-card">
-            <div class="kit-card__num">3</div>
-            <h3 class="kit-card__title">The 30-Day AI Empire Challenge</h3>
-            <p class="kit-card__body">
-              30 days of daily moves, 5 minutes each. One email a day at 7am your local time. Day 1 you
-              shift the way you think about your business. Day 30 you've shipped at least one thing &mdash;
-              a funnel, a site, a cold-call pipeline, or all three. The same playbook I'm running on the agency.
-            </p>
-          </article>
-
-          <article class="kit-card">
-            <div class="kit-card__num">4</div>
-            <h3 class="kit-card__title">Free Seat At The Live Launch Event</h3>
-            <p class="kit-card__body">
-              Five days. Live with me on Zoom. Free. We open the doors of Benji's AI Empire together &mdash;
-              live Tuesday Cold Call, live Thursday Build Day, live <strong>Friday Builder Q&amp;A</strong>,
-              and the founder-rate doors close at the end of the week. Reserve your seat the same minute
-              you opt in.
-            </p>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================== -->
-    <!-- OPT-IN FORM (top fold target)  -->
-    <!-- ============================== -->
-    <section class="section" id="opt-in">
-      <div class="container-narrow">
-        <div class="form-block">
-          <h2 class="form-block__title">Send me the Starter Kit.</h2>
-          <p class="form-block__sub">
-            First name + email is all I need. The 4 tools and your launch event link land in your inbox
-            in the next 60 seconds.
-          </p>
-
-          <!-- GHL FORM EMBED: replace with iframe from GoHighLevel forms (Form ID: starter-kit-optin) -->
-          <div class="form-embed" id="ghl-form-starter-kit-top">
-            <strong>GHL FORM EMBED #1 &middot; Starter Kit Opt-In (top fold)</strong>
-            Replace this block with the iframe from
-            <code>GoHighLevel &gt; Sites &gt; Forms &gt; Starter Kit Opt-In</code>.<br />
-            Required fields: First Name, Email. Hidden UTM fields: source, medium, campaign.<br />
-            On submit: redirect to <code>/starter-kit/thank-you</code>.
-          </div>
-
-          <p class="hero__reassure text-center mt-3">
-            100% free <span>&middot;</span> No credit card <span>&middot;</span> Unsubscribe in one click
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================== -->
-    <!-- FINAL CTA                      -->
-    <!-- ============================== -->
-    <section class="final-cta section--accent" aria-label="Final call to action">
-      <div class="container-narrow">
-        <span class="eyebrow">Last word</span>
-        <h2>Stop watching the AI conversation from the sidelines. Build alongside me.</h2>
-        <hr class="gold-line" />
-        <p>Free. Useful in the next hour. Yours forever.</p>
-        <a href="#opt-in-bottom" class="btn btn-primary btn-large btn-arrow">Get The Starter Kit</a>
-      </div>
-    </section>
-
-    <!-- ============================== -->
-    <!-- BOTTOM OPT-IN (second target)   -->
-    <!-- ============================== -->
-    <section class="section section--alt" id="opt-in-bottom">
-      <div class="container-narrow">
-        <div class="form-block">
-          <h2 class="form-block__title">One last time &mdash; send me the kit.</h2>
-          <p class="form-block__sub">
-            Same form, second chance. First name + email, kit lands in your inbox in 60 seconds.
-          </p>
-
-          <!-- GHL FORM EMBED: replace with iframe from GoHighLevel forms (Form ID: starter-kit-optin) -->
-          <div class="form-embed" id="ghl-form-starter-kit-bottom">
-            <strong>GHL FORM EMBED #2 &middot; Starter Kit Opt-In (bottom fold)</strong>
-            Replace this block with the iframe from
-            <code>GoHighLevel &gt; Sites &gt; Forms &gt; Starter Kit Opt-In</code>.<br />
-            Same form as #1 &mdash; same iframe code is fine.
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================== -->
-    <!-- FAQ                             -->
-    <!-- ============================== -->
-    <section class="section" id="faq">
-      <div class="container-narrow">
-        <div class="section__head">
-          <span class="eyebrow">FAQ</span>
-          <h2>The honest answers, before you ask.</h2>
-          <hr class="gold-line" />
-        </div>
-
-        <div class="faq">
-
-          <div class="faq__item">
-            <details>
-              <summary>Is this really free?</summary>
-              <div class="faq__answer">
-                <p>Yes. All four pieces of the Starter Kit are free. No credit card. No "unlock the next part for $7."
-                The kit is the kit. If at any point you decide you want what's behind the paid doors &mdash; the
-                Empire Insider community at $10/mo or the founder rate &mdash; that's a separate decision you
-                make after the free stuff is already in your hands.</p>
-              </div>
-            </details>
-          </div>
-
-          <div class="faq__item">
-            <details>
-              <summary>What's the catch?</summary>
-              <div class="faq__answer">
-                <p>I email you. The kit shows up immediately. Then I send you the 30-Day AI Empire Challenge &mdash;
-                one email a day for 30 days, each takes about 5 minutes to read and one move to make. Some of those
-                emails will mention the Insider tier or founder rate. You can unsubscribe at any point with one click.
-                That's the entire mechanism.</p>
-              </div>
-            </details>
-          </div>
-
-          <div class="faq__item">
-            <details>
-              <summary>Will you spam me?</summary>
-              <div class="faq__answer">
-                <p>No. One email a day for 30 days during the Empire Challenge, then about one a week after that.
-                Tuesday Cold Call Live recap, Thursday Build Day recap, the occasional founder-rate update. Every
-                email has an unsubscribe link in the footer that works in one click and removes you for good.</p>
-              </div>
-            </details>
-          </div>
-
-          <div class="faq__item">
-            <details>
-              <summary>Who is this for?</summary>
-              <div class="faq__answer">
-                <p>Operators. Agency owners. Freelancers. B2B service providers whose pipeline is ad-dependent and
-                getting more expensive. People who like the phone, like building things in public, and like seeing
-                the actual work. If "AI" to you means "tools you can use to ship faster" &mdash; not "passive income
-                while you sleep" &mdash; you're in the right place.</p>
-              </div>
-            </details>
-          </div>
-
-          <div class="faq__item">
-            <details>
-              <summary>What if I'm a beginner?</summary>
-              <div class="faq__answer">
-                <p>The Starter Kit is intentionally beginner-friendly. The Master Script is a one-pager you can
-                read in 4 minutes. The Claude Code prompts work even if you've never opened Claude Code. The
-                30-Day Challenge moves are 5 minutes a day. By Day 30 you have something real shipped &mdash; a
-                site, a funnel, or a working cold-call pipeline.</p>
-              </div>
-            </details>
-          </div>
-
-          <div class="faq__item">
-            <details>
-              <summary>Why should I trust you?</summary>
-              <div class="faq__answer">
-                <p>Don't &mdash; not yet. Take the kit. Watch a Tuesday Cold Call Live or a Thursday Build Day on
-                YouTube. Watch me close a real call or ship a real site, end to end, no edits. If after that you
-                still aren't convinced, that's fine &mdash; you got the kit anyway. The whole point of building
-                in public is the work is the proof. I don't need you to take my word for it.</p>
-              </div>
-            </details>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- ============================== -->
-  <!-- FOOTER (shared)                -->
-  <!-- ============================== -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer__grid">
-        <div class="footer__brand">
-          <a href="/" class="nav__logo">
-            <img src="images/logo.png" alt="Benji's AI Empire logo" />
-            <span class="nav__logo-text">
-              <span>BAE</span>
-              <strong>Benji's AI Empire</strong>
-            </span>
-          </a>
-          <p>
-            The AI Operating Manual for Real Operators. Cold calls every Tuesday.
-            Client sites every Thursday. Built in public.
-          </p>
-        </div>
-
-        <div class="footer__col">
-          <h5>Empire</h5>
-          <ul>
-            <li><a href="/starter-kit">Starter Kit</a></li>
-            <li><a href="/insider">Empire Insider &mdash; $10/mo</a></li>
-            <li><a href="/founders">Empire Builder &mdash; Founder Rate</a></li>
-            <li><a href="/partners">Software Partners</a></li>
-          </ul>
-        </div>
-
-        <div class="footer__col">
-          <h5>Legal</h5>
-          <ul>
-            <li><a href="/privacy">Privacy</a></li>
-            <li><a href="/terms">Terms</a></li>
-            <li><a href="mailto:benji@advancedmarketing.co">Contact</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer__bottom">
-        <span>&copy; 2026 Advanced Marketing &middot; Benji's AI Empire. All rights reserved.</span>
-        <span>Built in public from <code>benjisaiempire.com</code></span>
       </div>
     </div>
-  </footer>
+  </section>
+
+  <!-- 3. THE ARCHIVE -->
+  <section class="archive">
+    <div class="page-wrap" style="display:contents;">
+      <div class="page-wrap" style="grid-column: 1 / 2; padding-left: clamp(20px,4vw,56px);">
+        <p class="archive__num">52<span class="archive__sub">Weeks · And Counting</span></p>
+      </div>
+      <div class="archive__copy" style="grid-column: 2 / 3; padding-right: clamp(20px,4vw,56px);">
+        <h2 class="archive__title">The whole <em>archive,</em> in one playlist.</h2>
+        <p class="archive__body">
+          Every Tuesday cold call I've ever streamed. Every Thursday build day. The wins,
+          the no-shows, the technical breakdowns I forgot to edit out. Free, on the channel,
+          no signup wall.
+        </p>
+        <a class="archive__btn" href="https://www.youtube.com/@benjiboyce/playlists" target="_blank" rel="noopener">Browse the archive on YouTube</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. WHAT'S NOT FREE -->
+  <section class="notfree">
+    <div class="page-wrap">
+      <div class="notfree__rail">What's not free</div>
+      <p class="notfree__quote">
+        “The Starter Kit PDF, every prompt, every script, the 30-day challenges — they all
+        moved to the <em>$10 Insider</em> tier. Why? Because I want serious operators, and
+        ten dollars is the smallest filter that keeps tire-kickers out without making it
+        inaccessible.”
+      </p>
+      <p class="notfree__sig">— Benji · Operator's Note</p>
+    </div>
+  </section>
+
+  <!-- 5. UPGRADE CTA -->
+  <section class="upgrade">
+    <div class="page-wrap">
+      <div class="upgrade__eyebrow">When you're ready</div>
+      <h2 class="upgrade__title">Want <em>everything</em> else?</h2>
+      <p class="upgrade__sub">
+        Four courses, every prompt, every script, the Starter Kit PDF, both 30-day
+        challenges, the community, GHL @ $0.04/min — one bucket, one price.
+      </p>
+      <a class="upgrade__primary" href="/insider/">Join Insider — $10/mo</a>
+      <a class="upgrade__cross" href="/founders/">Or grab wholesale GHL for $49/mo</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="shell-footer" data-shell="footer">
+  <div class="shell-footer__inner">
+    <div class="shell-footer__grid">
+      <div class="shell-footer__col shell-footer__col--brand">
+        <h2 class="shell-footer__brand-name">Benji's AI Empire</h2>
+        <p class="shell-footer__brand-meta">Operator's Playbook &nbsp;·&nbsp; Built In Public</p>
+        <p class="shell-footer__brand-tagline">
+          A weekly dispatch from the build floor — every cold call, every
+          launch, every dollar tracked in the open.
+        </p>
+      </div>
+      <div class="shell-footer__col">
+        <h3 class="shell-footer__col-head">Entry Points</h3>
+        <ul class="shell-footer__list">
+          <li><a class="shell-footer__link" href="/starter-kit/">Free Videos Hub</a></li>
+          <li><a class="shell-footer__link" href="/challenge/">Empire Challenge</a></li>
+          <li><a class="shell-footer__link" href="/cold-call-30/">Cold Calling Challenge</a></li>
+          <li><a class="shell-footer__link" href="/partners/">Software Partners</a></li>
+        </ul>
+      </div>
+      <div class="shell-footer__col">
+        <h3 class="shell-footer__col-head">Join</h3>
+        <ul class="shell-footer__list">
+          <li><a class="shell-footer__link" href="/insider/">Insider <span class="shell-footer__link-meta">$10/mo</span></a></li>
+          <li><a class="shell-footer__link" href="/founders/">Wholesale GHL <span class="shell-footer__link-meta">$49/mo</span></a></li>
+          <li><a class="shell-footer__link" href="/login">Member Login</a></li>
+        </ul>
+      </div>
+      <div class="shell-footer__col">
+        <h3 class="shell-footer__col-head">Every Week</h3>
+        <ul class="shell-footer__list">
+          <li><a class="shell-footer__link" href="https://www.youtube.com/@benjiboyce" target="_blank" rel="noopener">Tuesday Cold Call Live <span class="shell-footer__link-meta">YouTube</span></a></li>
+          <li><a class="shell-footer__link" href="https://www.youtube.com/@benjiboyce" target="_blank" rel="noopener">Thursday Build Day <span class="shell-footer__link-meta">YouTube</span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="shell-footer__bottom">
+      <div class="shell-footer__bottom-left">
+        <span class="shell-footer__copy">© 2026 &nbsp;<strong>Advanced Marketing</strong></span>
+        <span class="shell-footer__divider" aria-hidden="true"></span>
+        <span>All Rights Reserved</span>
+      </div>
+      <span class="shell-footer__tag">Built In Public Since 2024</span>
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>

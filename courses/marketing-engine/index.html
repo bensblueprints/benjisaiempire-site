@@ -1,681 +1,359 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="format-detection" content="telephone=no" />
-
-  <title>AI Marketing Engine — The Agency Stack I'm Running At $10K MRR | Benji Boyce</title>
-  <meta name="description" content="Every site, every funnel, every prompt, every workflow. The exact AI marketing engine I'm running for my agency at $10K MRR — the same one I demo live every Thursday on Build Day. 7 modules. 8 hours. Yours forever." />
-  <meta name="author" content="Benji Boyce" />
-  <meta name="theme-color" content="#0a0a0a" />
-  <meta name="robots" content="index, follow" />
-
-  <!-- Canonical -->
-  <link rel="canonical" href="https://benjisaiempire.com/courses/ai-marketing-engine" />
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-  <link rel="icon" type="image/png" href="images/favicon.png" />
-
-  <!-- Open Graph -->
-  <meta property="og:type" content="product" />
-  <meta property="og:url" content="https://benjisaiempire.com/courses/ai-marketing-engine" />
-  <meta property="og:title" content="AI Marketing Engine — The Agency Stack I'm Running At $10K MRR" />
-  <meta property="og:description" content="What I build live every Thursday, as a course. Websites, funnels, ads, automations — all built with Claude Code. 7 modules. 8 hours. $797 standalone, or included in Empire Builder." />
-  <meta property="og:image" content="https://benjisaiempire.com/images/og-ai-marketing-engine.jpg" />
-  <meta property="og:site_name" content="Benji's AI Empire" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="AI Marketing Engine — Built With Claude Code, Run At $10K MRR" />
-  <meta name="twitter:description" content="The exact agency operating manual I'm running. 7 modules. 8 hours. Yours forever." />
-  <meta name="twitter:image" content="https://benjisaiempire.com/images/og-ai-marketing-engine.jpg" />
-
-  <!-- Schema.org Course -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Course",
-    "name": "AI Marketing Engine — Websites, Funnels, Ads & Automations Built With Claude Code",
-    "description": "The marketing operating manual Benji Boyce is running for his own agency. Seven modules covering Claude Code site builds, funnel architecture, the 30-day email engine, build-in-public Facebook ads, the Pillar-to-Derivative Cascade, GoHighLevel automations, and the Software Partner Playbook.",
-    "provider": {
-      "@type": "Organization",
-      "name": "Benji's AI Empire",
-      "sameAs": "https://benjisaiempire.com"
-    },
-    "instructor": {
-      "@type": "Person",
-      "name": "Benji Boyce",
-      "jobTitle": "Marketer & Agency Operator"
-    },
-    "hasCourseInstance": {
-      "@type": "CourseInstance",
-      "courseMode": "online",
-      "courseWorkload": "PT8H"
-    },
-    "offers": [
-      {
-        "@type": "Offer",
-        "name": "Standalone purchase",
-        "price": "797.00",
-        "priceCurrency": "USD",
-        "url": "https://benjisaiempire.com/courses/ai-marketing-engine"
-      },
-      {
-        "@type": "Offer",
-        "name": "Empire Builder Founder",
-        "price": "99.00",
-        "priceCurrency": "USD",
-        "category": "subscription",
-        "url": "https://benjisaiempire.com/founders"
-      }
-    ]
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Marketing Engine — Included with $10 Insider · Benji's AI Empire</title>
+<meta name="description" content="One Tuesday Live → 14 pieces of content. The Pillar-to-Derivative Cascade, the full prompt + automation stack, the engine I run while I sleep. Included with $10 Insider." />
+<link rel="canonical" href="https://benjisaiempire.com/courses/marketing-engine/">
+<link rel="icon" type="image/png" href="/images/favicon.png">
+<meta name="theme-color" content="#0b0b0c">
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://benjisaiempire.com/courses/marketing-engine/" />
+<meta property="og:title" content="AI Marketing Engine — Course 03 / 04" />
+<meta property="og:description" content="One Tuesday Live → 14 pieces of content. Included with $10 Insider." />
+<meta property="og:image" content="https://benjisaiempire.com/images/course-marketing-engine.jpg" />
+<meta property="og:site_name" content="Benji's AI Empire" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="preload" as="image" href="/images/course-marketing-engine.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles/site.css">
+<style>
+  /* ========== MARKETING ENGINE — SCHEMATIC / DIAGRAM TREATMENT ========== */
+  .course-hero{
+    position:relative; background:var(--ink); color:var(--cream);
+    overflow:hidden; isolation:isolate;
+    border-bottom:1px solid var(--line);
+    background-image:
+      linear-gradient(rgba(212,175,55,.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(212,175,55,.05) 1px, transparent 1px);
+    background-size: 56px 56px;
   }
-  </script>
+  .course-hero__inner{
+    position:relative; z-index:1; max-width:var(--container); margin:0 auto;
+    padding:clamp(48px,6vw,96px) clamp(20px,4vw,56px) clamp(60px,7vw,120px);
+  }
+  .course-hero__rail{
+    display:flex; align-items:center; justify-content:space-between;
+    gap:18px; margin-bottom:48px;
+    font-family:'JetBrains Mono',monospace; font-size:11px;
+    letter-spacing:.24em; text-transform:uppercase; color:var(--cream-soft);
+  }
+  .course-hero__rail .num{ color:var(--gold); margin-right:8px; }
+  .course-hero__rail .bar{ flex:1; height:1px; background:var(--line); margin:0 14px; }
+  .course-hero__eyebrow{
+    font-family:'JetBrains Mono',monospace; font-size:11px;
+    letter-spacing:.32em; text-transform:uppercase; color:var(--gold);
+    margin-bottom:24px;
+    display:inline-block; padding:8px 14px; border:1px solid var(--gold);
+  }
+  .course-hero__eyebrow span{ color:var(--cream-soft); margin:0 8px; }
+  .course-hero h1{
+    font-family:'Anton',sans-serif; font-weight:400;
+    font-size:clamp(58px,8.4vw,148px); line-height:.85; letter-spacing:-.018em;
+    text-transform:uppercase; color:var(--cream); margin:0 0 36px;
+    max-width:14ch;
+  }
+  .course-hero h1 em{ font-style:normal; color:var(--gold); }
+  .course-hero h1 .arrow{ color:var(--rust); display:inline-block; transform:translateY(-.06em); }
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet" />
+  .course-hero__split{
+    display:grid; grid-template-columns:1.2fr 1fr; gap:56px;
+    align-items:end;
+  }
+  .course-hero__lede{
+    font-family:'Fraunces',serif; font-style:italic; font-weight:400;
+    font-size:clamp(20px,1.7vw,26px); line-height:1.45;
+    color:var(--bone); margin:0 0 32px; max-width:60ch;
+  }
+  .course-hero__meta{
+    font-family:'JetBrains Mono',monospace; font-size:11px;
+    letter-spacing:.22em; text-transform:uppercase; color:var(--cream-soft);
+    margin-bottom:32px;
+    padding-top:18px; border-top:1px solid var(--line);
+  }
+  .course-hero__meta strong{ color:var(--cream); font-weight:600; }
+  .course-hero__cta{
+    display:inline-flex; align-items:center; gap:12px;
+    background:var(--gold); color:var(--ink);
+    font-family:'JetBrains Mono',monospace; font-size:12px;
+    letter-spacing:.22em; text-transform:uppercase; font-weight:600;
+    padding:18px 28px; border:1px solid var(--gold); transition:background .2s ease;
+  }
+  .course-hero__cta:hover{ background:var(--gold-bright); }
+  .course-hero__cta::after{ content:"→"; transition:transform .2s ease; }
+  .course-hero__cta:hover::after{ transform:translateX(4px); }
+  .course-hero__sublink{ display:block; margin-top:14px; font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:.22em; text-transform:uppercase; color:var(--cream-soft); }
+  .course-hero__sublink:hover{ color:var(--gold-bright); }
 
-  <link rel="stylesheet" href="styles.css" />
+  .course-hero__schematic{
+    position:relative;
+    border:1px solid var(--line); padding:24px;
+    background:rgba(11,11,12,.5); backdrop-filter:blur(6px);
+    aspect-ratio: 5/4;
+    display:flex; flex-direction:column; justify-content:space-between;
+    overflow:hidden;
+  }
+  .course-hero__schematic::before{
+    content:"FIG. 01"; position:absolute; top:14px; right:18px;
+    font-family:'JetBrains Mono',monospace; font-size:9.5px;
+    letter-spacing:.28em; color:var(--gold); opacity:.7;
+  }
+  .schem-pillar{
+    align-self:flex-start;
+    font-family:'Anton',sans-serif; font-size:36px; line-height:1; color:var(--gold);
+    letter-spacing:.005em; text-transform:uppercase;
+  }
+  .schem-pillar small{ display:block; font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--cream-soft); letter-spacing:.24em; margin-top:6px; }
+  .schem-fan{
+    display:grid; grid-template-columns:repeat(7,1fr); gap:6px; align-items:end; margin-top:auto;
+  }
+  .schem-fan span{
+    height:42px; background:linear-gradient(180deg, var(--gold), rgba(212,175,55,.2));
+    display:block; position:relative;
+  }
+  .schem-fan span::after{
+    content:""; position:absolute; left:50%; top:-22px; width:1px; height:18px;
+    background:linear-gradient(180deg, transparent, var(--gold)); transform:translateX(-50%);
+  }
+  .schem-fan span:nth-child(2){ height:30px; }
+  .schem-fan span:nth-child(3){ height:54px; }
+  .schem-fan span:nth-child(4){ height:48px; }
+  .schem-fan span:nth-child(5){ height:36px; }
+  .schem-fan span:nth-child(6){ height:60px; }
+  .schem-fan span:nth-child(7){ height:24px; }
+  .schem-label{
+    margin-top:14px; display:flex; justify-content:space-between;
+    font-family:'JetBrains Mono',monospace; font-size:10px;
+    letter-spacing:.22em; text-transform:uppercase; color:var(--cream-soft);
+  }
+  .schem-label strong{ color:var(--gold); }
 
-  <!-- Pixels -->
-  <!-- META PIXEL: insert fbq init + ViewContent fire -->
-  <!-- GA4: insert gtag config + view_item event for course SKU -->
+  .section{ max-width:var(--container); margin:0 auto; padding:clamp(72px,9vw,140px) clamp(20px,4vw,56px); }
+  .section-head{ display:flex; align-items:baseline; gap:24px; margin-bottom:64px; padding-bottom:24px; border-bottom:1px solid var(--line); flex-wrap:wrap; }
+  .section-head__num{ font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.28em; text-transform:uppercase; color:var(--gold); }
+  .section-head__title{ font-family:'Anton',sans-serif; font-weight:400; font-size:clamp(34px,4.4vw,68px); line-height:.95; letter-spacing:-.005em; text-transform:uppercase; color:var(--cream); margin:0; }
+
+  .outcomes{ display:grid; grid-template-columns:repeat(5,1fr); gap:0; border-left:1px solid var(--line); border-top:1px solid var(--line); }
+  .outcome{ padding:36px 24px; border-right:1px solid var(--line); border-bottom:1px solid var(--line); transition:background .25s ease; display:flex; flex-direction:column; gap:18px; min-height:280px; }
+  .outcome:hover{ background:rgba(212,175,55,.05); }
+  .outcome__num{ font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.18em; color:var(--gold); }
+  .outcome__text{ font-family:'Manrope',sans-serif; font-size:16px; line-height:1.5; color:var(--cream); margin:0; }
+  .outcome__text strong{ color:var(--gold-bright); font-weight:600; }
+
+  /* curriculum: 3-col schematic stack */
+  .curriculum{ background:var(--ink-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .modules{ display:grid; grid-template-columns:repeat(3,1fr); gap:0; border-left:1px solid var(--line); border-top:1px solid var(--line); }
+  .module{ padding:32px 24px; border-right:1px solid var(--line); border-bottom:1px solid var(--line); transition:background .2s ease; position:relative; min-height:220px; display:flex; flex-direction:column; gap:14px; }
+  .module:hover{ background:rgba(212,175,55,.04); }
+  .module::before{ content:""; position:absolute; left:0; top:0; width:100%; height:0; background:var(--gold); transition:height .2s ease; opacity:.6; }
+  .module:hover::before{ height:2px; }
+  .module__head{ display:flex; align-items:baseline; justify-content:space-between; gap:18px; }
+  .module__num{ font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:600; letter-spacing:.18em; color:var(--gold); }
+  .module__chip{ font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:.22em; color:var(--cream-soft); text-transform:uppercase; padding:3px 7px; border:1px solid var(--line); }
+  .module__title{ font-family:'Anton',sans-serif; font-weight:400; font-size:clamp(22px,1.95vw,28px); line-height:1.05; letter-spacing:.005em; text-transform:uppercase; color:var(--cream); margin:0; }
+  .module__desc{ font-family:'Manrope',sans-serif; font-size:14.5px; line-height:1.55; color:var(--cream-soft); margin:0; }
+
+  .pull{
+    position:relative; padding:clamp(80px,10vw,160px) clamp(28px,4vw,56px);
+    text-align:center; max-width:1100px; margin:0 auto;
+    background-image: linear-gradient(180deg, transparent 0, transparent 50%, rgba(212,175,55,.04) 100%);
+  }
+  .pull__text{ font-family:'Fraunces',serif; font-weight:400; font-style:italic; font-size:clamp(26px,3vw,42px); line-height:1.3; color:var(--cream); margin:0 0 32px; }
+  .pull__text em{ font-style:normal; color:var(--gold); }
+  .pull__attr{ font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.32em; text-transform:uppercase; color:var(--gold); }
+  .pull__attr::before{ content:""; display:inline-block; width:36px; height:1px; background:var(--gold); vertical-align:middle; margin-right:14px; }
+
+  .cta-strip{
+    background:var(--ink); border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    padding:clamp(72px,8vw,120px) clamp(28px,4vw,56px); text-align:center;
+    background-image:
+      linear-gradient(rgba(212,175,55,.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(212,175,55,.04) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+  .cta-strip__eyebrow{ font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.32em; text-transform:uppercase; color:var(--gold); margin-bottom:24px; }
+  .cta-strip__head{ font-family:'Anton',sans-serif; font-weight:400; font-size:clamp(38px,5vw,76px); line-height:.95; letter-spacing:-.01em; text-transform:uppercase; color:var(--cream); margin:0 auto 36px; max-width:18ch; }
+  .cta-strip__head em{ font-style:normal; color:var(--gold); }
+  .cta-strip__btn{ display:inline-flex; align-items:center; gap:12px; background:var(--gold); color:var(--ink); font-family:'JetBrains Mono',monospace; font-size:13px; letter-spacing:.22em; text-transform:uppercase; font-weight:600; padding:18px 30px; border:1px solid var(--gold); transition:background .2s ease; }
+  .cta-strip__btn:hover{ background:var(--gold-bright); }
+  .cta-strip__btn::after{ content:"→"; transition:transform .2s ease; }
+  .cta-strip__btn:hover::after{ transform:translateX(4px); }
+  .cta-strip__alt{ display:block; margin-top:32px; font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:var(--cream-soft); }
+  .cta-strip__alt:hover{ color:var(--gold-bright); }
+
+  @media (max-width: 1100px){
+    .outcomes{ grid-template-columns:repeat(2,1fr); }
+    .modules{ grid-template-columns:repeat(2,1fr); }
+  }
+  @media (max-width: 720px){
+    .course-hero__split{ grid-template-columns:1fr; }
+    .outcomes{ grid-template-columns:1fr; }
+    .modules{ grid-template-columns:1fr; }
+  }
+</style>
 </head>
 <body>
+<a class="skip-to-main" href="#main">Skip to main content</a>
 
-  <!-- ============================== -->
-  <!-- HEADER / NAV                   -->
-  <!-- ============================== -->
-  <header class="site-header">
-    <nav class="nav" aria-label="Primary">
-      <a href="/" class="nav__logo" aria-label="Benji's AI Empire — Home">
-        <img src="images/logo.png" alt="Benji's AI Empire logo" />
-        <span class="nav__logo-text">
-          <span>BAE</span>
-          <strong>Benji's AI Empire</strong>
-        </span>
-      </a>
-      <ul class="nav__links">
-        <li><a href="#modules">Modules</a></li>
-        <li><a href="#build-day">Build Day</a></li>
-        <li><a href="#pricing">Pricing</a></li>
-        <li><a href="#faq">FAQ</a></li>
-      </ul>
-      <a href="#pricing" class="btn btn-primary nav__cta">Buy Course</a>
+<header class="shell-topbar" data-shell="topbar">
+  <div class="shell-topbar__inner">
+    <a class="shell-topbar__brand" href="/" aria-label="Benji's AI Empire — home">
+      <span class="shell-topbar__brand-name">Benji's AI Empire</span>
+      <span class="shell-topbar__brand-sub">Issue 01 &nbsp;·&nbsp; May 2026 &nbsp;·&nbsp; Advanced Marketing</span>
+    </a>
+    <nav class="shell-topbar__center" aria-label="Pricing tiers">
+      <a class="shell-topbar__pill" href="/#pricing">Free</a>
+      <span class="shell-topbar__pill-divider" aria-hidden="true"></span>
+      <a class="shell-topbar__pill" href="/insider/">Insider <em>$10</em></a>
+      <span class="shell-topbar__pill-divider" aria-hidden="true"></span>
+      <a class="shell-topbar__pill" href="/founders/">Wholesale <em>$49</em></a>
     </nav>
-  </header>
+    <div class="shell-topbar__right">
+      <a class="shell-topbar__login" href="/login">Member Login</a>
+      <a class="shell-topbar__cta" href="/insider/">Join Insider</a>
+    </div>
+  </div>
+</header>
 
-  <main>
+<main id="main">
 
-    <!-- ============================== -->
-    <!-- HERO                            -->
-    <!-- ============================== -->
-    <section class="hero hero--with-image" style="--hero-bg-image: url('images/ben-claude-code-tshirt-rgb-desk.jpg');">
-      <div class="container">
-        <div class="hero__inner">
-          <div class="hero__copy">
-            <span class="eyebrow">Course 03 &middot; 7 Modules &middot; 8 Hours</span>
-            <h1>
-              The <span class="gold">agency stack</span> I'm running at $10K MRR.
-            </h1>
-            <p class="hero__sub">
-              Every site, every funnel, every prompt, every workflow. <strong>AI Marketing Engine</strong>
-              is the marketing operating manual I'm running for my own agency right now &mdash; the same
-              workflow I demo live every Thursday on <strong>Build Day Live</strong>. By the end you have
-              a complete client-facing engine: opt-in, nurture, sales call, proposal, kickoff, retain.
-            </p>
-            <div class="hero__cta-row">
-              <a href="#pricing" class="btn btn-primary btn-large btn-arrow">Get The Course &mdash; $797</a>
-              <a href="#modules" class="btn btn-secondary btn-arrow">See The 7 Modules</a>
-            </div>
-            <p class="hero__reassure">
-              Modules 1 &amp; 5 free preview <span>&middot;</span> Lifetime access <span>&middot;</span>
-              30-day refund
-            </p>
-          </div>
-
-          <div class="hero__visual">
-            <img src="images/ben-claude-code-tshirt-rgb-desk.jpg" alt="Benji at his dual-monitor dev rig in a Claude Code T-shirt, mid-build" loading="eager" fetchpriority="high" />
-          </div>
-        </div>
+  <section class="course-hero">
+    <div class="course-hero__inner">
+      <div class="course-hero__rail">
+        <span><span class="num">03.</span> Course Series</span>
+        <span class="bar"></span>
+        <span>Pillar → Derivative · 1 in / 14 out</span>
       </div>
-    </section>
 
-    <!-- ============================== -->
-    <!-- AUTHORITY BAR                  -->
-    <!-- ============================== -->
-    <section class="authority" aria-label="Track record">
-      <div class="container">
-        <div class="authority__grid">
-          <div class="authority__item">
-            <span class="authority__check">&#10003;</span>
-            <span class="authority__text">15 years in marketing</span>
-          </div>
-          <div class="authority__item">
-            <span class="authority__check">&#10003;</span>
-            <span class="authority__text">$25M+ in e-commerce sales</span>
-          </div>
-          <div class="authority__item">
-            <span class="authority__check">&#10003;</span>
-            <span class="authority__text">2,000+ products launched</span>
-          </div>
-          <div class="authority__item">
-            <span class="authority__check">&#10003;</span>
-            <span class="authority__text">Building an AI agency in public</span>
-          </div>
-        </div>
-      </div>
-    </section>
+      <div class="course-hero__eyebrow">Included with $10 Insider <span>·</span> Course 03 / 04</div>
+      <h1>AI Marketing<br><em>Engine</em><span class="arrow"> →</span> 14×</h1>
 
-    <!-- ============================== -->
-    <!-- MONEY PROOF / WHY THIS COURSE  -->
-    <!-- ============================== -->
-    <section class="section" id="proof">
-      <div class="container">
-        <div class="section__head section__head--left">
-          <span class="eyebrow">What this engine has produced</span>
-          <h2>$2.8M across all stores. 31,745 orders. 90 days of run rate.</h2>
-          <hr class="gold-line gold-line--left" />
-          <p>
-            That's the cumulative output of the same marketing systems documented inside this course &mdash;
-            applied across the e-commerce brands I helped build. The agency I'm running now uses the exact
-            same engine, just pointed at client sites instead of physical product. Different SKU. Same playbook.
+      <div class="course-hero__split">
+        <div>
+          <p class="course-hero__lede">
+            One Tuesday Live → 14 pieces of content. The Pillar-to-Derivative
+            Cascade, the full prompt + automation stack, the engine I run in
+            the background while I sleep.
           </p>
-        </div>
-
-        <div class="hero__visual" style="margin-top: 40px; max-width: 920px; margin-left: auto; margin-right: auto;">
-          <img src="images/shopify-plus-2.8m-all-stores-master-dashboard.jpg" alt="Shopify Plus master dashboard showing $2.8M in cumulative all-store sales across 31,745 orders" loading="lazy" />
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================== -->
-    <!-- BUILD DAY LIVE CALLOUT         -->
-    <!-- ============================== -->
-    <section class="section section--alt" id="build-day">
-      <div class="container">
-        <div class="callout">
-          <span class="callout__icon">&#9881;</span>
-          <div>
-            <h3>Every Thursday on Build Day Live, I run this course in real time.</h3>
-            <p>
-              Three hours, on YouTube, free. I open Claude Code with a blank canvas, take a real client
-              brief, and ship a real landing page from wireframe to deployed URL by hour three. The
-              course is the codified version &mdash; <strong>the same prompts, same architecture, same
-              deploy stack</strong>, plus the funnel/ads/automation layers that turn one shipped site
-              into recurring agency MRR.
-            </p>
+          <div class="course-hero__meta">
+            <strong>9 modules</strong> &nbsp;·&nbsp; ≈8 hours &nbsp;·&nbsp; Make + Claude + GHL stack &nbsp;·&nbsp; templates included
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================== -->
-    <!-- 7 MODULES                       -->
-    <!-- ============================== -->
-    <section class="section" id="modules">
-      <div class="container">
-        <div class="section__head">
-          <span class="eyebrow">The 7 modules</span>
-          <h2>What you actually learn, module by module.</h2>
-          <hr class="gold-line" />
-          <p>
-            8 hours of recorded video. Working files for every module. The same prompts, scripts, and
-            workflows I'm using in the agency this week. Modules 1 and 5 are free preview &mdash; opt
-            in to the Starter Kit and the first lesson of each lands in your inbox.
-          </p>
+          <a class="course-hero__cta" href="/insider/">Get this + everything else for $10/mo</a>
+          <a class="course-hero__sublink" href="/founders/">Or grab wholesale GHL for $49/mo (no courses) →</a>
         </div>
 
-        <div class="kit-grid">
-
-          <article class="kit-card">
-            <div class="kit-card__num">1</div>
-            <h3 class="kit-card__title">AI Website in 3 Hours (Claude Code Live)</h3>
-            <p class="kit-card__body">
-              The <strong>Claude Code Design Prompts Pack</strong> &mdash; the actual prompts I run on
-              Build Day. Mobile-first wireframe to coded landing page in one session. Deploy on Netlify
-              with a custom domain in 30 minutes. The "video on the left, form on the right" architecture
-              and when to break it. <em>Free preview lesson.</em>
-            </p>
-          </article>
-
-          <article class="kit-card">
-            <div class="kit-card__num">2</div>
-            <h3 class="kit-card__title">The Funnel Stack (Opt-in &rarr; $10 &rarr; $99/$149)</h3>
-            <p class="kit-card__body">
-              The four landing pages: <strong>Starter Kit, Founders, Welcome, Partner</strong>. The
-              25-40% opt-in target, 5-10% Insider conversion, 10-15% Builder upgrade math. Wiring the
-              <strong>founder counter</strong> (custom field, increment workflow, auto-disable at cap).
-              The Pre-50 Transition Rule and how to engineer scarcity without lying.
-            </p>
-          </article>
-
-          <article class="kit-card">
-            <div class="kit-card__num">3</div>
-            <h3 class="kit-card__title">The 30-Day Email Engine</h3>
-            <p class="kit-card__body">
-              The <strong>30-Day AI Empire Challenge</strong> sequence (broad daily-action funnel) and the
-              <strong>30-Day Cold Calling Challenge</strong> sequence (hardcore phone-only funnel). Cross-promotion
-              between the two. The <strong>Hardcore badge</strong> for completers of both. The reply-prompt
-              mechanic &mdash; how to get engagement signal, not just opens.
-            </p>
-          </article>
-
-          <article class="kit-card">
-            <div class="kit-card__num">4</div>
-            <h3 class="kit-card__title">Facebook Ads That Don't Burn (Build-in-Public Creative)</h3>
-            <p class="kit-card__body">
-              The <strong>6-variation creative shoot day</strong> (one shoot, six ads). Why "in the work
-              right now" outperforms "I made $25M" creative. <strong>$30/day testing creative set</strong>
-              with scale rules. Meta Pixel events: OptIn / InitiateCheckout / Purchase &mdash; wired to
-              CAPI for iOS attribution.
-            </p>
-          </article>
-
-          <article class="kit-card">
-            <div class="kit-card__num">5</div>
-            <h3 class="kit-card__title">The Pillar-to-Derivative Cascade (Content Engine)</h3>
-            <p class="kit-card__body">
-              <strong>One Tuesday Cold Call Live &rarr; 14 derivative pieces.</strong> YouTube edited replay,
-              newsletter breakdown, 3 LinkedIn carousels, 5-7 TikTok clips, 12-tweet X thread, PDF lead
-              magnet. The Metricool/Buffer + Opus Clip workflow. Sized for solo + 1 future VA.
-              <em>Free preview lesson.</em>
-            </p>
-          </article>
-
-          <article class="kit-card">
-            <div class="kit-card__num">6</div>
-            <h3 class="kit-card__title">Automations Inside GoHighLevel</h3>
-            <p class="kit-card__body">
-              <strong>Tag taxonomy</strong> (status / behavioral / source / risk tags). New-member
-              onboarding triggers (Insider / Builder / Founder). Engagement triggers (first win, course
-              complete, 14-day inactive). <strong>Churn prevention</strong> (Stripe dunning, pause-instead-of-cancel).
-              Win-back at 30 / 60 / 90 days post-cancel.
-            </p>
-          </article>
-
-          <article class="kit-card">
-            <div class="kit-card__num">7</div>
-            <h3 class="kit-card__title">The Software Partner Playbook</h3>
-            <p class="kit-card__body">
-              The <strong>1-page partner brief</strong> that gets responses. The partner showcase template
-              (Day 4 of Launch Week). Negotiating member-exclusive promo codes. Building partner pages and
-              the <strong>30% recurring affiliate program</strong>. The directory monetization layer.
-            </p>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================== -->
-    <!-- WHO THIS IS FOR                -->
-    <!-- ============================== -->
-    <section class="section section--alt" id="who-its-for">
-      <div class="container">
-        <div class="section__head">
-          <span class="eyebrow">Honest filter</span>
-          <h2>Who this course is for &mdash; and who it's not.</h2>
-          <hr class="gold-line" />
-        </div>
-
-        <div class="compare">
-          <div class="compare__col">
-            <h3 class="compare__title">Built for</h3>
-            <ul class="compare__list">
-              <li>Agency owners ready to ship faster than the team they'd hire</li>
-              <li>Freelancers stuck in $2K-projects who want $5K-retainers</li>
-              <li>B2B service providers whose pipeline is ad-dependent and getting more expensive</li>
-              <li>Operators who like the work and want one stack to run for the next 5 years</li>
-              <li>Anyone tired of "AI gurus" who don't ship</li>
-            </ul>
+        <figure class="course-hero__schematic" aria-label="Pillar to derivative diagram">
+          <div class="schem-pillar">1 Pillar<small>Tuesday Live · 60 min</small></div>
+          <div class="schem-fan" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
           </div>
-
-          <div class="compare__col">
-            <h3 class="compare__title">Not for</h3>
-            <ul class="compare__list">
-              <li class="disabled">"Done-for-you AI agency in a box" buyers</li>
-              <li class="disabled">People who want passive income while they sleep</li>
-              <li class="disabled">Anyone unwilling to open Claude Code</li>
-              <li class="disabled">SEO-only operators who don't want to build sites</li>
-              <li class="disabled">Buyers expecting fluffy theory with no working files</li>
-            </ul>
+          <div class="schem-label">
+            <span><strong>14×</strong> Derivatives</span>
+            <span>YT · X · IG · LI · Email · Ads · Pod</span>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================== -->
-    <!-- INSTRUCTOR / WHO IS BENJI       -->
-    <!-- ============================== -->
-    <section class="section" id="instructor">
-      <div class="container">
-        <div class="bio">
-          <img class="bio__photo" src="images/ben-bookshelf-white-tee-headshot.jpg" alt="Benji Boyce headshot" loading="lazy" />
-          <div class="bio__copy">
-            <span class="eyebrow">Your instructor</span>
-            <h2>15 years in marketing. $25M in e&#8209;commerce. Now building an AI agency in public.</h2>
-            <p>
-              I'm Benji Boyce. For the last 15 years I've run direct-response marketing for e-commerce
-              brands I helped build &mdash; <strong>over $25M in lifetime sales, 2,000+ products launched</strong>.
-              That part of the story is done. It paid for the operating system I'm teaching here.
-            </p>
-            <p>
-              Today I'm building a marketing agency from <strong>$10K MRR to $100K MRR</strong> &mdash;
-              in public, in real time. <strong>Thursday Build Day Live</strong> is where I run this exact
-              course end to end, in front of an audience, no edits. <strong>Tuesday Cold Call Live</strong>
-              is where the prospects come from. The course is the codified version of the work.
-            </p>
-            <p>
-              I'm not an AI guru. I'm an operator who's in the work right now. If you've watched a single
-              Thursday stream, you've already seen the course.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================== -->
-    <!-- PRICING                         -->
-    <!-- ============================== -->
-    <section class="section section--accent" id="pricing">
-      <div class="container">
-        <div class="section__head">
-          <span class="eyebrow">Two ways in</span>
-          <h2>Buy the course. Or get it (and everything else) for less.</h2>
-          <hr class="gold-line" />
-          <p>
-            One course standalone &mdash; or the full Empire Builder tier where this course is included
-            alongside every other course, the Empire Vault, Friday Builder Q&amp;A, and a GoHighLevel
-            sub-account at wholesale calling rates.
-          </p>
-        </div>
-
-        <div class="compare">
-
-          <div class="compare__col">
-            <h3 class="compare__title">Standalone Course</h3>
-            <div class="compare__price">$797 <small>one-time</small></div>
-            <ul class="compare__list">
-              <li>All 7 modules &middot; 8 hours of video</li>
-              <li>Working files: prompts, sequences, ad templates</li>
-              <li>The Claude Code Design Prompts Pack</li>
-              <li>Lifetime access &middot; future updates included</li>
-              <li>30-day refund &mdash; if you don't ship something, money back</li>
-              <li class="disabled">No community access</li>
-              <li class="disabled">No Friday Builder Q&amp;A</li>
-              <li class="disabled">No Empire Vault</li>
-            </ul>
-
-            <!-- GHL CHECKOUT EMBED: replace with iframe from GoHighLevel — Product: AI Marketing Engine $797 -->
-            <div class="form-embed" id="ghl-checkout-marketing-engine">
-              <strong>GHL CHECKOUT EMBED #1 &middot; AI Marketing Engine $797</strong>
-              Replace this block with the iframe from
-              <code>GHL &gt; Payments &gt; Products &gt; AI Marketing Engine ($797 one-time)</code>.<br />
-              Required fields: First Name, Email, Card. Optional: business name.<br />
-              On success: redirect to <code>/courses/ai-marketing-engine/welcome</code>.
-            </div>
-
-            <a href="https://benjisaiempire.com/checkout/ai-marketing-engine-797"
-               class="btn btn-secondary btn-block btn-arrow mt-5">
-              Buy Standalone &mdash; $797
-            </a>
-          </div>
-
-          <div class="compare__col compare__col--accent">
-            <h3 class="compare__title">Empire Builder (Founder)</h3>
-            <div class="compare__price">$99 <small>/mo &middot; locked for life</small></div>
-            <ul class="compare__list">
-              <li><strong>This course included</strong> + every other Empire course</li>
-              <li>Tuesday Cold Call Live + Thursday Build Day Live working files</li>
-              <li>Friday Builder Q&amp;A Zoom (live coaching, hot seats)</li>
-              <li>The Empire Vault (every script, prompt, sequence, contract)</li>
-              <li>GoHighLevel sub-account &middot; calling at $0.015/min wholesale</li>
-              <li>24-hour Q&amp;A guarantee in the private Builder channel</li>
-              <li>Front-row seat to the agency build $10K &rarr; $100K MRR</li>
-              <li>Founder rate locked for life &middot; first 50 only &middot; then $149/mo</li>
-            </ul>
-
-            <a href="https://benjisaiempire.com/founders"
-               class="btn btn-primary btn-block btn-arrow mt-5">
-              Lock $99/mo Founder Rate &rarr;
-            </a>
-
-            <p class="hero__reassure text-center mt-3">
-              Founder counter on /founders &middot; spots fill, doors close
-            </p>
-          </div>
-        </div>
-
-        <div class="callout mt-7">
-          <span class="callout__icon">&#9650;</span>
-          <div>
-            <h3>Already an Empire Insider?</h3>
-            <p>
-              Insiders get <strong>25% off the standalone course</strong> &mdash; auto-applied at checkout
-              when logged in. If you're already paying $10/mo, this course costs you $597.75 &mdash; or you
-              can upgrade to Builder Founder ($99/mo locked for life) and get every course included.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================== -->
-    <!-- WHAT YOU SHIP                  -->
-    <!-- ============================== -->
-    <section class="section" id="outcomes">
-      <div class="container">
-        <div class="section__head">
-          <span class="eyebrow">By the time you finish</span>
-          <h2>You don't "learn marketing." You ship a working engine.</h2>
-          <hr class="gold-line" />
-        </div>
-
-        <ul class="value-bullets">
-          <li>
-            <strong>One deployed landing page</strong>
-            <span>Built in Claude Code, deployed on Netlify, on a custom domain you own.</span>
-          </li>
-          <li>
-            <strong>One four-page funnel wired in GHL</strong>
-            <span>Opt-in &rarr; thank-you &rarr; tripwire &rarr; welcome, with founder counter live.</span>
-          </li>
-          <li>
-            <strong>One 30-email nurture sequence</strong>
-            <span>The Empire Challenge, ported to your offer, scheduled to send 7-9am local.</span>
-          </li>
-          <li>
-            <strong>One 6-variation Facebook ad set</strong>
-            <span>Six creatives from a single shoot day, $30/day test budget rules included.</span>
-          </li>
-          <li>
-            <strong>One Pillar-to-Derivative content engine</strong>
-            <span>14 outputs from one weekly stream, scheduled in Metricool, clipped in Opus.</span>
-          </li>
-          <li>
-            <strong>One automation layer</strong>
-            <span>Tag taxonomy, onboarding triggers, churn prevention, win-back &mdash; all wired.</span>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ============================== -->
-    <!-- FAQ                             -->
-    <!-- ============================== -->
-    <section class="section section--alt" id="faq">
-      <div class="container-narrow">
-        <div class="section__head">
-          <span class="eyebrow">FAQ</span>
-          <h2>Honest answers, before you buy.</h2>
-          <hr class="gold-line" />
-        </div>
-
-        <div class="faq">
-
-          <div class="faq__item">
-            <details>
-              <summary>Do I need to know how to code?</summary>
-              <div class="faq__answer">
-                <p>No. The whole premise of Module 1 is that Claude Code does the coding. You write prompts.
-                If you can describe a section of a page in English ("hero with a video on the left and a
-                form on the right, navy background, gold accent, mobile-first"), Claude Code can build it.
-                The course teaches the prompts, not the syntax.</p>
-              </div>
-            </details>
-          </div>
-
-          <div class="faq__item">
-            <details>
-              <summary>Is this just the Build Day Live replay as a course?</summary>
-              <div class="faq__answer">
-                <p>No. Build Day Live is the public proof loop &mdash; one client site, three hours, on
-                YouTube, free. The course is everything around the build: the funnel architecture, the
-                30-day nurture, the ad system, the content cascade, and the GHL automation layer that
-                turns one shipped site into recurring agency MRR. Build Day shows the build. The course
-                shows the business around the build.</p>
-              </div>
-            </details>
-          </div>
-
-          <div class="faq__item">
-            <details>
-              <summary>What if I'm not running an agency yet?</summary>
-              <div class="faq__answer">
-                <p>This works for solo operators too &mdash; the engine is the same, you just point it at
-                your own offer instead of a client's. Several Builders started here without a single client
-                and used the funnel stack to launch their own thing. Module 7 (the Software Partner Playbook)
-                is the one section you can skip until you've got something to partner around.</p>
-              </div>
-            </details>
-          </div>
-
-          <div class="faq__item">
-            <details>
-              <summary>How long until I ship something?</summary>
-              <div class="faq__answer">
-                <p>If you do Module 1 in one sitting, you can have a deployed landing page in three hours.
-                The full funnel takes a weekend. The nurture sequence takes another. Most students have
-                a complete engine running in 14-21 days from purchase &mdash; the constraint is your time,
-                not the course.</p>
-              </div>
-            </details>
-          </div>
-
-          <div class="faq__item">
-            <details>
-              <summary>What's the refund policy?</summary>
-              <div class="faq__answer">
-                <p>30-day refund. If you've watched the modules, run the prompts, and haven't shipped
-                anything &mdash; or you decide it's not for you &mdash; email me with your purchase receipt
-                and the refund goes back to your card within 5 business days. No interrogation, no win-back call.</p>
-              </div>
-            </details>
-          </div>
-
-          <div class="faq__item">
-            <details>
-              <summary>Should I buy the course or upgrade to Builder?</summary>
-              <div class="faq__answer">
-                <p>If you only want this course and don't care about live coaching, the standalone is
-                cheaper. If you want this course PLUS Cold Calling 2.0 PLUS AI Brand Builder PLUS Empire OS
-                PLUS the Vault PLUS Friday Q&amp;A &mdash; Builder Founder at $99/mo is the better deal
-                inside 8 months and stays the better deal for life (the rate's locked). The honest answer:
-                if you can afford $99/mo and want the community layer, do Builder.</p>
-              </div>
-            </details>
-          </div>
-
-          <div class="faq__item">
-            <details>
-              <summary>What does "free preview" cover?</summary>
-              <div class="faq__answer">
-                <p>Modules 1 and 5 each have a free preview lesson &mdash; the highest-wow demonstrations.
-                Module 1 Lesson 1 is a Claude Code build from blank canvas to deployed page. Module 5
-                Lesson 1 is the Pillar-to-Derivative breakdown of one Tuesday Cold Call Live into 14
-                derivative pieces. Both lessons land in your inbox when you opt in to the
-                <a href="/starter-kit">AI Empire Starter Kit</a>.</p>
-              </div>
-            </details>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================== -->
-    <!-- FINAL CTA                      -->
-    <!-- ============================== -->
-    <section class="final-cta section--accent" aria-label="Final call to action">
-      <div class="container-narrow">
-        <span class="eyebrow">Last word</span>
-        <h2>Stop watching me build it. Build it alongside me.</h2>
-        <hr class="gold-line" />
-        <p>
-          Every Thursday I do this live, free, on YouTube. The course is the same workflow, indexed and
-          searchable, with the working files attached. Buy the course. Or upgrade to Builder. Either way,
-          you ship.
-        </p>
-        <div class="hero__cta-row" style="justify-content: center;">
-          <a href="#pricing" class="btn btn-primary btn-large btn-arrow">Get The Course &mdash; $797</a>
-          <a href="/founders" class="btn btn-secondary btn-arrow">Or Lock Builder Founder &mdash; $99/mo</a>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- ============================== -->
-  <!-- FOOTER                         -->
-  <!-- ============================== -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer__grid">
-        <div class="footer__brand">
-          <a href="/" class="nav__logo">
-            <img src="images/logo.png" alt="Benji's AI Empire logo" />
-            <span class="nav__logo-text">
-              <span>BAE</span>
-              <strong>Benji's AI Empire</strong>
-            </span>
-          </a>
-          <p>
-            The AI Operating Manual for Real Operators. Cold calls every Tuesday.
-            Client sites every Thursday. Built in public.
-          </p>
-        </div>
-
-        <div class="footer__col">
-          <h5>Empire</h5>
-          <ul>
-            <li><a href="/starter-kit">Starter Kit</a></li>
-            <li><a href="/insider">Empire Insider &mdash; $10/mo</a></li>
-            <li><a href="/founders">Empire Builder &mdash; Founder Rate</a></li>
-            <li><a href="/partners">Software Partners</a></li>
-          </ul>
-        </div>
-
-        <div class="footer__col">
-          <h5>Legal</h5>
-          <ul>
-            <li><a href="/privacy">Privacy</a></li>
-            <li><a href="/terms">Terms</a></li>
-            <li><a href="mailto:benji@advancedmarketing.co">Contact</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer__bottom">
-        <span>&copy; 2026 Advanced Marketing &middot; Benji's AI Empire. All rights reserved.</span>
-        <span>Built in public from <code>benjisaiempire.com</code></span>
+        </figure>
       </div>
     </div>
-  </footer>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <span class="section-head__num">§ 02 · What You'll Learn</span>
+      <h2 class="section-head__title">An engine. Not a content calendar.</h2>
+    </div>
+    <div class="outcomes">
+      <div class="outcome"><div class="outcome__num">→ 01</div><p class="outcome__text">The <strong>Pillar-to-Derivative</strong> system — one real conversation per week, fourteen channels filled.</p></div>
+      <div class="outcome"><div class="outcome__num">→ 02</div><p class="outcome__text">A <strong>14-channel content engine</strong> mapped to your voice — not a generic "AI writes everything" template.</p></div>
+      <div class="outcome"><div class="outcome__num">→ 03</div><p class="outcome__text">The <strong>full automation stack</strong> — Make + Claude + GHL — wired together and provably working.</p></div>
+      <div class="outcome"><div class="outcome__num">→ 04</div><p class="outcome__text">A <strong>cost-per-lead</strong> dashboard that exposes which channels are actually paying for themselves.</p></div>
+      <div class="outcome"><div class="outcome__num">→ 05</div><p class="outcome__text">An <strong>engine that runs without you</strong> — survives your vacation, your bad week, your travel schedule.</p></div>
+    </div>
+  </section>
+
+  <section class="curriculum">
+    <div class="section">
+      <div class="section-head">
+        <span class="section-head__num">§ 03 · Curriculum</span>
+        <h2 class="section-head__title">Nine modules. One running engine.</h2>
+      </div>
+      <div class="modules">
+        <div class="module"><div class="module__head"><span class="module__num">01</span><span class="module__chip">System</span></div><h3 class="module__title">The Pillar-to-Derivative Cascade</h3><p class="module__desc">The architecture of the engine. Why one real conversation beats 14 "content ideas" every time.</p></div>
+        <div class="module"><div class="module__head"><span class="module__num">02</span><span class="module__chip">Capture</span></div><h3 class="module__title">Recording the Pillar (Tuesday Live)</h3><p class="module__desc">My exact rig, scenes, lighting, and the 60-minute show format that produces transcribable, derivative-ready content.</p></div>
+        <div class="module"><div class="module__head"><span class="module__num">03</span><span class="module__chip">Map</span></div><h3 class="module__title">The 14-Channel Matrix</h3><p class="module__desc">The grid I fill every Wednesday — what each channel takes, what it leaves behind, how to format without diluting.</p></div>
+        <div class="module"><div class="module__head"><span class="module__num">04</span><span class="module__chip">AI</span></div><h3 class="module__title">The Prompt Library</h3><p class="module__desc">40+ prompts with brand voice, channel constraints, and length controls — all tested, all in plaintext.</p></div>
+        <div class="module"><div class="module__head"><span class="module__num">05</span><span class="module__chip">Automate</span></div><h3 class="module__title">Make Automations</h3><p class="module__desc">The Make scenarios that pipe transcript → prompt → draft → Notion → review → publish, end to end.</p></div>
+        <div class="module"><div class="module__head"><span class="module__num">06</span><span class="module__chip">Stack</span></div><h3 class="module__title">GHL Contact-Event Hooks</h3><p class="module__desc">Wiring content engagement back into the CRM so the engine actually feeds the pipeline.</p></div>
+        <div class="module"><div class="module__head"><span class="module__num">07</span><span class="module__chip">Paid</span></div><h3 class="module__title">Paid Amplification (Meta + YouTube)</h3><p class="module__desc">Which derivatives to boost, the spend ladder, and the creative test framework I run weekly.</p></div>
+        <div class="module"><div class="module__head"><span class="module__num">08</span><span class="module__chip">Measure</span></div><h3 class="module__title">The 3 Metrics That Matter</h3><p class="module__desc">CAC, time-to-meeting, and channel half-life. The dashboard I actually look at.</p></div>
+        <div class="module"><div class="module__head"><span class="module__num">09</span><span class="module__chip">Operate</span></div><h3 class="module__title">Maintenance + Iteration</h3><p class="module__desc">The 30-minute weekly tune-up that keeps the engine compounding instead of decaying.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pull">
+    <p class="pull__text">
+      Most "AI marketing" is just hiring AI to do <em>bad marketing</em> faster.
+      The Engine is different — it starts with one real conversation per week,
+      then turns into 14 pieces of asymmetric leverage.
+    </p>
+    <div class="pull__attr">— Benji Boyce</div>
+  </section>
+
+  <section class="cta-strip">
+    <div class="cta-strip__eyebrow">Included with $10 Insider</div>
+    <h2 class="cta-strip__head">Get this + <em>everything in the bucket</em> for $10/mo.</h2>
+    <a class="cta-strip__btn" href="/insider/">Join Insider</a>
+    <a class="cta-strip__alt" href="/founders/">Or grab wholesale GHL for $49/mo (no courses) →</a>
+  </section>
+
+</main>
+
+<footer class="shell-footer" data-shell="footer">
+  <div class="shell-footer__inner">
+    <div class="shell-footer__grid">
+      <div class="shell-footer__col shell-footer__col--brand">
+        <h2 class="shell-footer__brand-name">Benji's AI Empire</h2>
+        <p class="shell-footer__brand-meta">Operator's Playbook &nbsp;·&nbsp; Built In Public</p>
+        <p class="shell-footer__brand-tagline">A weekly dispatch from the build floor — every cold call, every launch, every dollar tracked in the open.</p>
+      </div>
+      <div class="shell-footer__col">
+        <h3 class="shell-footer__col-head">Entry Points</h3>
+        <ul class="shell-footer__list">
+          <li><a class="shell-footer__link" href="/starter-kit/">Starter Kit</a></li>
+          <li><a class="shell-footer__link" href="/challenge/">Empire Challenge</a></li>
+          <li><a class="shell-footer__link" href="/cold-call-30/">Cold Calling Challenge</a></li>
+          <li><a class="shell-footer__link" href="/partners/">Software Partners</a></li>
+        </ul>
+      </div>
+      <div class="shell-footer__col">
+        <h3 class="shell-footer__col-head">Join</h3>
+        <ul class="shell-footer__list">
+          <li><a class="shell-footer__link" href="/insider/">Insider <span class="shell-footer__link-meta">$10/mo</span></a></li>
+          <li><a class="shell-footer__link" href="/founders/">Wholesale GHL <span class="shell-footer__link-meta">$49/mo</span></a></li>
+          <li><a class="shell-footer__link" href="/login">Member Login</a></li>
+        </ul>
+      </div>
+      <div class="shell-footer__col">
+        <h3 class="shell-footer__col-head">Every Week</h3>
+        <ul class="shell-footer__list">
+          <li><a class="shell-footer__link" href="https://youtube.com" target="_blank" rel="noopener">Tuesday Cold Call Live <span class="shell-footer__link-meta">YouTube</span></a></li>
+          <li><a class="shell-footer__link" href="https://youtube.com" target="_blank" rel="noopener">Thursday Build Day <span class="shell-footer__link-meta">YouTube</span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="shell-footer__bottom">
+      <div class="shell-footer__bottom-left">
+        <span class="shell-footer__copy">© 2026 &nbsp;<strong>Advanced Marketing</strong></span>
+        <span class="shell-footer__divider" aria-hidden="true"></span>
+        <span>All Rights Reserved</span>
+      </div>
+      <span class="shell-footer__tag">Built In Public Since 2024</span>
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>
