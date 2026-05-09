@@ -568,7 +568,7 @@
 /* ===== 02-pricing ===== */
 
   /* ============================================================
-     PRICING — scoped entirely under .pricing-section
+     PRICING â€” scoped entirely under .pricing-section
      ============================================================ */
   .pricing-section{
     /* local fallbacks if globals aren't present */
@@ -945,7 +945,7 @@
   .tier--insider{ --i: 1; }
   .tier--insider .tier-name{ color: var(--ps-cream); }
 
-  /* ---------- TIER 3: WHOLESALE GHL — FEATURED ---------- */
+  /* ---------- TIER 3: WHOLESALE GHL â€” FEATURED ---------- */
   .tier--featured{
     --i: 2;
     background: linear-gradient(180deg, #1a1916 0%, var(--ps-ink-2) 65%);
@@ -1003,7 +1003,7 @@
     100% { background-position: 150% 0; }
   }
 
-  /* RUST RIBBON — ticket-stub */
+  /* RUST RIBBON â€” ticket-stub */
   .tier-ribbon{
     position: absolute;
     top: 0;
@@ -1023,7 +1023,7 @@
   }
   .tier-ribbon::before,
   .tier-ribbon::after{
-    /* perforation dots — ticket stub feel */
+    /* perforation dots â€” ticket stub feel */
     content:"";
     position:absolute;
     bottom: -5px;
@@ -1080,7 +1080,7 @@
   .scarcity-bar::before{
     content:"";
     position:absolute; left:0; top:0; bottom:0;
-    width: 13%; /* 13 of 100 sold; 87 left */
+    width: 87%; /* matches placeholder seats sold */
     background: linear-gradient(90deg, var(--ps-gold) 0%, var(--ps-rust) 100%);
   }
 
@@ -1358,7 +1358,7 @@
     z-index: 1;
   }
 
-  /* aspect ratios per tile (editorial — not uniform) */
+  /* aspect ratios per tile (editorial â€” not uniform) */
   .tile-01 .tile__photo { aspect-ratio: 4 / 5; }     /* portrait */
   .tile-02 .tile__photo { aspect-ratio: 4 / 5; }     /* portrait */
   .tile-03 .tile__photo { aspect-ratio: 21 / 9; }    /* cinematic spread */
@@ -1464,7 +1464,7 @@
     transition: color 260ms ease, gap 260ms ease;
   }
   .tile__cta::after {
-    content: "→";
+    content: "â†’";
     font-family: 'Anton', sans-serif;
     font-size: 16px;
     transform: translateY(-1px);
@@ -1512,7 +1512,7 @@
     }
   }
 
-  /* Tile 05 — copy splits into 2 columns under wide photo */
+  /* Tile 05 â€” copy splits into 2 columns under wide photo */
   @media (min-width: 1000px) {
     .tile-05 .tile__copy {
       display: grid;
@@ -1528,7 +1528,7 @@
     .tile-05 .tile__footer { grid-column: 1 / -1; }
   }
 
-  /* CHALLENGE accent — tiles 05 + 06 get a rust marker */
+  /* CHALLENGE accent â€” tiles 05 + 06 get a rust marker */
   .tile-05 .tile__photo::before,
   .tile-06 .tile__photo::before {
     content: "";
@@ -1690,7 +1690,7 @@
     border-bottom:1px solid var(--line);
   }
 
-  /* corner gold tick marks — magazine register marks */
+  /* corner gold tick marks â€” magazine register marks */
   .proof-section .ps-quote::before,
   .proof-section .ps-quote::after{
     content:"";
@@ -1853,7 +1853,7 @@
   }
   .proof-section .ps-cta:hover .ps-arrow{ transform:translateX(4px); }
 
-  /* anchor portrait — second column */
+  /* anchor portrait â€” second column */
   .proof-section .ps-anchor{
     position:relative;
     align-self:start;
@@ -2014,7 +2014,7 @@
     gap:clamp(14px,1.6vw,22px);
   }
 
-  /* asymmetric placement — magazine collage */
+  /* asymmetric placement â€” magazine collage */
   .proof-section .ps-frame{
     --frame-delay:0ms;
     position:relative;
@@ -2045,7 +2045,7 @@
     filter:contrast(1.08) saturate(1);
   }
 
-  /* caption — sits below frame, hairline above */
+  /* caption â€” sits below frame, hairline above */
   .proof-section .ps-cap{
     margin-top:12px;
     padding-top:10px;
@@ -2069,7 +2069,7 @@
   }
 
   /* asymmetric grid placements */
-  .proof-section .ps-tile.t1 { grid-column: span 7; grid-row: span 5; }   /* shopify — hero proof */
+  .proof-section .ps-tile.t1 { grid-column: span 7; grid-row: span 5; }   /* shopify â€” hero proof */
   .proof-section .ps-tile.t2 { grid-column: span 5; grid-row: span 3; }   /* grant cardone */
   .proof-section .ps-tile.t3 { grid-column: span 5; grid-row: span 2; }   /* meta ads */
   .proof-section .ps-tile.t4 { grid-column: span 4; grid-row: span 4; }   /* petronas */
@@ -2089,7 +2089,7 @@
 
   /* tiny corner badge on the hero proof tile */
   .proof-section .ps-tile.t1 .ps-frame::after{
-    content:"VERIFIED · SHOPIFY EXPORT";
+    content:"VERIFIED Â· SHOPIFY EXPORT";
     position:absolute;
     top:14px; left:14px;
     background:rgba(11,11,12,.78);
@@ -2167,7 +2167,7 @@
 /* ===== 05-shell ===== */
 
   /* ============================================================
-     1) SHELL-TOPBAR — masthead-style sticky nav
+     1) SHELL-TOPBAR â€” masthead-style sticky nav
      ============================================================ */
   .shell-topbar {
     position: sticky;
@@ -2217,7 +2217,7 @@
     gap: clamp(16px, 4vw, 48px);
   }
 
-  /* — Masthead logo block — */
+  /* â€” Masthead logo block â€” */
   .shell-topbar__brand {
     display: flex;
     flex-direction: column;
@@ -2255,7 +2255,7 @@
     pointer-events: none;
   }
 
-  /* — Center inline pricing links — */
+  /* â€” Center inline pricing links â€” */
   .shell-topbar__center {
     display: flex;
     justify-content: center;
@@ -2299,7 +2299,7 @@
     background: var(--line);
   }
 
-  /* — Right side — */
+  /* â€” Right side â€” */
   .shell-topbar__right {
     display: flex;
     align-items: center;
@@ -2337,7 +2337,7 @@
     transition: background .2s ease, color .2s ease, transform .2s ease;
   }
   .shell-topbar__cta::after {
-    content: "→";
+    content: "â†’";
     font-family: 'Manrope', sans-serif;
     letter-spacing: 0;
     transition: transform .2s ease;
@@ -2361,7 +2361,7 @@
 
 
   /* ============================================================
-     2) SHELL-MARQUEE — stock-ticker proof bar
+     2) SHELL-MARQUEE â€” stock-ticker proof bar
      ============================================================ */
   .shell-marquee {
     position: relative;
@@ -2455,7 +2455,7 @@
 
 
   /* ============================================================
-     3) SHELL-FOOTER — editorial colophon
+     3) SHELL-FOOTER â€” editorial colophon
      ============================================================ */
   .shell-footer {
     position: relative;
@@ -2495,7 +2495,7 @@
     padding-bottom: clamp(40px, 6vw, 72px);
   }
 
-  /* — Column 1: brand block — */
+  /* â€” Column 1: brand block â€” */
   .shell-footer__brand-name {
     font-family: 'Anton', sans-serif;
     font-weight: 400;
@@ -2525,7 +2525,7 @@
     margin: 0;
   }
 
-  /* — Column headers + lists — */
+  /* â€” Column headers + lists â€” */
   .shell-footer__col-head {
     font-family: 'JetBrains Mono', monospace;
     font-size: 10.5px;
@@ -2580,7 +2580,7 @@
     margin-left: 6px;
   }
 
-  /* — Bottom row — */
+  /* â€” Bottom row â€” */
   .shell-footer__bottom {
     display: flex;
     justify-content: space-between;
@@ -2646,9 +2646,9 @@
 <a class="skip-to-main" href="#main">Skip to main content</a><header class="shell-topbar" data-shell="topbar">
   <div class="shell-topbar__inner">
 
-    <a class="shell-topbar__brand" href="/" aria-label="Benji's AI Empire — home">
+    <a class="shell-topbar__brand" href="/" aria-label="Benji's AI Empire â€” home">
       <span class="shell-topbar__brand-name">Benji's AI Empire</span>
-      <span class="shell-topbar__brand-sub">Issue 01 &nbsp;·&nbsp; May 2026 &nbsp;·&nbsp; Advanced Marketing</span>
+      <span class="shell-topbar__brand-sub">Issue 01 &nbsp;Â·&nbsp; May 2026 &nbsp;Â·&nbsp; Advanced Marketing</span>
     </a>
 
     <nav class="shell-topbar__center" aria-label="Pricing tiers">
@@ -2667,7 +2667,7 @@
   </div>
 </header>
 <main id="main">
-<section class="hero-section" aria-label="Benji Boyce — The Empire">
+<section class="hero-section" aria-label="Benji Boyce â€” The Empire">
   <div class="hero-grid">
 
     <!-- â”€â”€ LEFT: INK PANEL â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
@@ -2677,11 +2677,11 @@
         <div class="chapter">
           <span class="num">01</span>
           <span class="bar"></span>
-          <span>06 — The Empire</span>
+          <span>06 â€” The Empire</span>
         </div>
         <div class="on-air" aria-label="Live every Tuesday">
           <span class="dot" aria-hidden="true"></span>
-          <span>On Air · Tuesdays</span>
+          <span>On Air Â· Tuesdays</span>
         </div>
       </div>
 
@@ -2700,18 +2700,18 @@
         <p class="hero-lede">
           I'm Benji Boyce. I run a real agency, sell real software, and ship
           real client websites with Claude Code on YouTube every week.
-          <strong>Watch me work — for free.</strong> Or grab the $10 bucket
+          <strong>Watch me work â€” for free.</strong> Or grab the $10 bucket
           and get every course, every prompt, the whole library.
         </p>
 
         <div class="hero-ctas">
           <a class="btn btn-primary" href="#pricing">
             <span>See the 3 tiers</span>
-            <span class="arrow" aria-hidden="true">→</span>
+            <span class="arrow" aria-hidden="true">â†’</span>
           </a>
           <a class="btn btn-ghost" href="/starter-kit/">
             <span>Get free video access</span>
-            <span class="arrow" aria-hidden="true">↗</span>
+            <span class="arrow" aria-hidden="true">â†—</span>
           </a>
         </div>
       </div>
@@ -2719,7 +2719,7 @@
       <div class="hero-ticker" aria-label="Receipts">
         <div class="stat">
           <span class="k">Portfolio</span>
-          <span class="v">8<em>—figure</em></span>
+          <span class="v">8<em>â€”figure</em></span>
         </div>
         <div class="stat">
           <span class="k">Live calls / wk</span>
@@ -2741,11 +2741,11 @@
 
       <div class="issue-tag">
         <span class="big">â„– 01</span>
-        Vol. MMXXVI · Empire Issue
+        Vol. MMXXVI Â· Empire Issue
       </div>
 
       <div class="photo-caption">
-        Shot on location <span>·</span> Receipts in the driveway
+        Shot on location <span>Â·</span> Receipts in the driveway
       </div>
 
       <div class="photo-credit">
@@ -2770,53 +2770,53 @@
     <!-- group 1 -->
     <div class="shell-marquee__group" aria-hidden="false">
       <span class="shell-marquee__item shell-marquee__item--accent">$2.8M All-Stores</span>
-      <span class="shell-marquee__sep">·</span>
+      <span class="shell-marquee__sep">Â·</span>
       <span class="shell-marquee__item shell-marquee__item--accent">110K Reddit AMA</span>
-      <span class="shell-marquee__sep">·</span>
+      <span class="shell-marquee__sep">Â·</span>
       <span class="shell-marquee__item shell-marquee__item--accent">31,745 Orders / 90 Days</span>
-      <span class="shell-marquee__sep">·</span>
+      <span class="shell-marquee__sep">Â·</span>
       <span class="shell-marquee__item shell-marquee__item--brand">Forbes</span>
-      <span class="shell-marquee__sep">·</span>
+      <span class="shell-marquee__sep">Â·</span>
       <span class="shell-marquee__item shell-marquee__item--brand">Yahoo Finance</span>
-      <span class="shell-marquee__sep">·</span>
+      <span class="shell-marquee__sep">Â·</span>
       <span class="shell-marquee__item shell-marquee__item--brand">Nasdaq</span>
-      <span class="shell-marquee__sep">·</span>
+      <span class="shell-marquee__sep">Â·</span>
       <span class="shell-marquee__item shell-marquee__item--brand">LA Weekly</span>
-      <span class="shell-marquee__sep">·</span>
+      <span class="shell-marquee__sep">Â·</span>
       <span class="shell-marquee__item shell-marquee__item--accent">52 Weeks Live</span>
-      <span class="shell-marquee__sep">·</span>
+      <span class="shell-marquee__sep">Â·</span>
       <span class="shell-marquee__item">Tuesday Cold Call Live</span>
-      <span class="shell-marquee__sep">·</span>
+      <span class="shell-marquee__sep">Â·</span>
       <span class="shell-marquee__item">Thursday Build Day</span>
-      <span class="shell-marquee__sep">·</span>
+      <span class="shell-marquee__sep">Â·</span>
       <span class="shell-marquee__item">Built In Public</span>
-      <span class="shell-marquee__sep">·</span>
+      <span class="shell-marquee__sep">Â·</span>
     </div>
 
     <!-- group 2 (duplicate for seamless loop) -->
     <div class="shell-marquee__group" aria-hidden="true">
       <span class="shell-marquee__item shell-marquee__item--accent">$2.8M All-Stores</span>
-      <span class="shell-marquee__sep">·</span>
+      <span class="shell-marquee__sep">Â·</span>
       <span class="shell-marquee__item shell-marquee__item--accent">110K Reddit AMA</span>
-      <span class="shell-marquee__sep">·</span>
+      <span class="shell-marquee__sep">Â·</span>
       <span class="shell-marquee__item shell-marquee__item--accent">31,745 Orders / 90 Days</span>
-      <span class="shell-marquee__sep">·</span>
+      <span class="shell-marquee__sep">Â·</span>
       <span class="shell-marquee__item shell-marquee__item--brand">Forbes</span>
-      <span class="shell-marquee__sep">·</span>
+      <span class="shell-marquee__sep">Â·</span>
       <span class="shell-marquee__item shell-marquee__item--brand">Yahoo Finance</span>
-      <span class="shell-marquee__sep">·</span>
+      <span class="shell-marquee__sep">Â·</span>
       <span class="shell-marquee__item shell-marquee__item--brand">Nasdaq</span>
-      <span class="shell-marquee__sep">·</span>
+      <span class="shell-marquee__sep">Â·</span>
       <span class="shell-marquee__item shell-marquee__item--brand">LA Weekly</span>
-      <span class="shell-marquee__sep">·</span>
+      <span class="shell-marquee__sep">Â·</span>
       <span class="shell-marquee__item shell-marquee__item--accent">52 Weeks Live</span>
-      <span class="shell-marquee__sep">·</span>
+      <span class="shell-marquee__sep">Â·</span>
       <span class="shell-marquee__item">Tuesday Cold Call Live</span>
-      <span class="shell-marquee__sep">·</span>
+      <span class="shell-marquee__sep">Â·</span>
       <span class="shell-marquee__item">Thursday Build Day</span>
-      <span class="shell-marquee__sep">·</span>
+      <span class="shell-marquee__sep">Â·</span>
       <span class="shell-marquee__item">Built In Public</span>
-      <span class="shell-marquee__sep">·</span>
+      <span class="shell-marquee__sep">Â·</span>
     </div>
   </div>
 </div>
@@ -2824,7 +2824,7 @@
   <header class="pricing-masthead">
     <div class="pricing-eyebrow">
       <span>PRICING</span>
-      <span class="pricing-eyebrow-meta">VOL. 02 · ISSUE 03 · OPERATOR EDITION</span>
+      <span class="pricing-eyebrow-meta">VOL. 02 Â· ISSUE 03 Â· OPERATOR EDITION</span>
     </div>
     <h2 class="pricing-headline">
       Three Tiers. <span class="ph-amp">No</span> Secrets.
@@ -2858,7 +2858,7 @@
       <div class="tier-foot">
         <a class="tier-cta" href="/starter-kit/">
           <span>Watch the videos</span>
-          <span class="arrow" aria-hidden="true">→</span>
+          <span class="arrow" aria-hidden="true">â†’</span>
         </a>
       </div>
     </article>
@@ -2874,7 +2874,7 @@
       </div>
       <span class="tier-perminute">
         <span class="dot" aria-hidden="true"></span>
-        GHL · $0.04 / minute
+        GHL Â· $0.04 / minute
       </span>
 
       <p class="tier-tagline">Every course. Every prompt. Every script. The whole bucket.</p>
@@ -2882,7 +2882,7 @@
       <div class="tier-divider"><span>What's included</span></div>
       <ul class="tier-includes">
         <li>All <strong>4 courses</strong> (Cold Calling 2.0, AI Brand Builder, AI Marketing Engine, Empire OS)</li>
-        <li>Every prompt I run — Claude, Cursor, GPT</li>
+        <li>Every prompt I run â€” Claude, Cursor, GPT</li>
         <li>Every script, template, SOP, checklist</li>
         <li>The Starter Kit (PDF + cold-call scripts)</li>
         <li>30-Day Empire Challenge (email sequence)</li>
@@ -2894,15 +2894,15 @@
 
       <div class="tier-foot">
         <a class="tier-cta tier-cta--gold" href="/insider/">
-          <span>Join Insider — $10/mo</span>
-          <span class="arrow" aria-hidden="true">→</span>
+          <span>Join Insider â€” $10/mo</span>
+          <span class="arrow" aria-hidden="true">â†’</span>
         </a>
       </div>
     </article>
 
-    <!-- ============== TIER 03: WHOLESALE GHL — FEATURED ============== -->
+    <!-- ============== TIER 03: WHOLESALE GHL â€” FEATURED ============== -->
     <article class="tier tier--featured" aria-labelledby="tier-wholesale-name">
-      <div class="tier-ribbon">FIRST 100 SEATS · WAS $99</div>
+      <div class="tier-ribbon">FIRST 100 SEATS Â· WAS $99</div>
 
       <div class="tier-eyebrow"><span>TIER 03 / WHOLESALE</span></div>
       <h3 class="tier-name" id="tier-wholesale-name">WHOLESALE GHL</h3>
@@ -2914,10 +2914,10 @@
       </div>
       <span class="tier-perminute">
         <span class="dot" aria-hidden="true"></span>
-        GHL · $0.015 / minute
+        GHL Â· $0.015 / minute
       </span>
 
-      <p class="tier-tagline">Just the software — at my wholesale rate.</p>
+      <p class="tier-tagline">Just the software â€” at my wholesale rate.</p>
 
       <div class="scarcity" role="status" aria-live="polite">
         <span class="scarcity-pulse" aria-hidden="true"></span>
@@ -2928,9 +2928,9 @@
       <div class="tier-divider"><span>What's included</span></div>
       <ul class="tier-includes">
         <li>GoHighLevel reseller sub-account</li>
-        <li>Wholesale per-minute pricing — <strong>$0.015/min</strong> (62% cheaper than Insider tier)</li>
-        <li><strong>Locked at $49/mo for life</strong> — never goes up</li>
-        <li>Pure software access — NO courses, NO prompts</li>
+        <li>Wholesale per-minute pricing â€” <strong>$0.015/min</strong> (62% cheaper than Insider tier)</li>
+        <li><strong>Locked at $49/mo for life</strong> â€” never goes up</li>
+        <li>Pure software access â€” NO courses, NO prompts</li>
         <li>For agencies running real call volume</li>
         <li>Only 100 seats. Then it goes back to $99 forever.</li>
       </ul>
@@ -2938,16 +2938,16 @@
       <div class="tier-foot">
         <a class="tier-cta tier-cta--gold-outline" href="/founders/">
           <span>Lock my $49 seat</span>
-          <span class="arrow" aria-hidden="true">→</span>
+          <span class="arrow" aria-hidden="true">â†’</span>
         </a>
-        <p class="tier-fineprint">Price held for life · 7-day refund · No contracts</p>
+        <p class="tier-fineprint">Price held for life Â· 7-day refund Â· No contracts</p>
       </div>
     </article>
 
   </div>
 
   <div class="pricing-footnote">
-    <span>Filed under <strong>Operator Pricing</strong> · benjisaiempire.com</span>
+    <span>Filed under <strong>Operator Pricing</strong> Â· benjisaiempire.com</span>
     <span>All tiers billed monthly. Cancel anytime.</span>
     <span>GHL minutes billed at-cost on top of subscription.</span>
   </div>
@@ -2980,8 +2980,8 @@
 
     <div class="courses-grid">
 
-      <!-- 01 / COURSE — Cold Calling 2.0 + AI -->
-      <a class="tile tile-01" style="--i:0" href="/courses/cold-calling/" aria-label="Cold Calling 2.0 + AI — course">
+      <!-- 01 / COURSE â€” Cold Calling 2.0 + AI -->
+      <a class="tile tile-01" style="--i:0" href="/courses/cold-calling/" aria-label="Cold Calling 2.0 + AI â€” course">
         <span class="tile__numeral" aria-hidden="true">01</span>
         <div class="tile__photo">
           <img src="/images/course-cold-calling.jpg" alt="Cold Calling 2.0 + AI course" loading="lazy">
@@ -3002,8 +3002,8 @@
         </div>
       </a>
 
-      <!-- 02 / COURSE — AI Brand Builder -->
-      <a class="tile tile-02" style="--i:1" href="/courses/brand-builder/" aria-label="AI Brand Builder — course">
+      <!-- 02 / COURSE â€” AI Brand Builder -->
+      <a class="tile tile-02" style="--i:1" href="/courses/brand-builder/" aria-label="AI Brand Builder â€” course">
         <span class="tile__numeral" aria-hidden="true">02</span>
         <div class="tile__photo">
           <img src="/images/course-brand-builder.jpg" alt="AI Brand Builder course" loading="lazy">
@@ -3024,8 +3024,8 @@
         </div>
       </a>
 
-      <!-- 03 / COURSE — AI Marketing Engine (full-bleed spread) -->
-      <a class="tile tile-03" style="--i:2" href="/courses/marketing-engine/" aria-label="AI Marketing Engine — course">
+      <!-- 03 / COURSE â€” AI Marketing Engine (full-bleed spread) -->
+      <a class="tile tile-03" style="--i:2" href="/courses/marketing-engine/" aria-label="AI Marketing Engine â€” course">
         <span class="tile__numeral" aria-hidden="true">03</span>
         <div class="tile__photo">
           <img src="/images/course-marketing-engine.jpg" alt="AI Marketing Engine course" loading="lazy">
@@ -3046,8 +3046,8 @@
         </div>
       </a>
 
-      <!-- 04 / COURSE — Empire OS -->
-      <a class="tile tile-04" style="--i:3" href="/courses/empire-os/" aria-label="Empire OS — course">
+      <!-- 04 / COURSE â€” Empire OS -->
+      <a class="tile tile-04" style="--i:3" href="/courses/empire-os/" aria-label="Empire OS â€” course">
         <span class="tile__numeral" aria-hidden="true">04</span>
         <div class="tile__photo">
           <img src="/images/course-empire-os.jpg" alt="Empire OS course" loading="lazy">
@@ -3068,7 +3068,7 @@
         </div>
       </a>
 
-      <!-- 05 / CHALLENGE — 30-Day AI Empire -->
+      <!-- 05 / CHALLENGE â€” 30-Day AI Empire -->
       <a class="tile tile-05" style="--i:4" href="/challenge/" aria-label="30-Day AI Empire Challenge">
         <span class="tile__numeral" aria-hidden="true">05</span>
         <div class="tile__photo">
@@ -3090,7 +3090,7 @@
         </div>
       </a>
 
-      <!-- 06 / CHALLENGE — 30-Day Cold Calling (atmospheric finale) -->
+      <!-- 06 / CHALLENGE â€” 30-Day Cold Calling (atmospheric finale) -->
       <a class="tile tile-06" style="--i:5" href="/cold-call-30/" aria-label="30-Day Cold Calling Challenge">
         <span class="tile__numeral" aria-hidden="true">06</span>
         <div class="tile__photo">
@@ -3147,10 +3147,10 @@
 
 <section class="proof-section" id="proof" aria-labelledby="proof-headline">
 
-  <!-- ZONE 1 · MASTHEAD -->
+  <!-- ZONE 1 Â· MASTHEAD -->
   <header class="ps-masthead">
     <div>
-      <div class="ps-eyebrow">File — The Operator</div>
+      <div class="ps-eyebrow">File â€” The Operator</div>
       <h2 class="ps-headline" id="proof-headline">Why Listen <em>To Me.</em></h2>
     </div>
     <div class="ps-folio">
@@ -3159,7 +3159,7 @@
     </div>
   </header>
 
-  <!-- ZONE 2 · PULL QUOTE -->
+  <!-- ZONE 2 Â· PULL QUOTE -->
   <figure class="ps-quote">
     <span class="ps-quote-marker" aria-hidden="true">&ldquo;</span>
     <blockquote class="ps-quote-body">
@@ -3168,10 +3168,10 @@
     <figcaption class="ps-quote-attr">Benji Boyce</figcaption>
   </figure>
 
-  <!-- ZONE 3 · BIO + ANCHOR PORTRAIT -->
+  <!-- ZONE 3 Â· BIO + ANCHOR PORTRAIT -->
   <div class="ps-bio">
     <div class="ps-bio-col">
-      <div class="ps-bio-label">Bio · The Short Version</div>
+      <div class="ps-bio-label">Bio Â· The Short Version</div>
       <p>
         Multiple Shopify stores doing <strong>eight figures combined</strong>. A marketing agency. A published book on losing a million dollars in 364 days &mdash; so I could write the one on how to avoid it. Featured in <strong>Forbes, Yahoo Finance, Nasdaq, and LA Weekly</strong>. None of that matters more than this:
       </p>
@@ -3195,34 +3195,34 @@
     </aside>
   </div>
 
-  <!-- ZONE 4 · STATS REGISTER -->
+  <!-- ZONE 4 Â· STATS REGISTER -->
   <div class="ps-stats" id="ps-stats">
     <div class="ps-stat" data-counter="28">
       <div class="ps-stat-num">
         <span class="ps-prefix">$</span><span class="ps-value">2.8</span><span class="ps-suffix">M</span>
       </div>
-      <div class="ps-stat-label">Shopify <b>·</b> All Stores <b>·</b> 90 Days</div>
+      <div class="ps-stat-label">Shopify <b>Â·</b> All Stores <b>Â·</b> 90 Days</div>
     </div>
     <div class="ps-stat" data-counter="31745">
       <div class="ps-stat-num">
         <span class="ps-value">31,745</span>
       </div>
-      <div class="ps-stat-label">Orders <b>·</b> Same 90 Days</div>
+      <div class="ps-stat-label">Orders <b>Â·</b> Same 90 Days</div>
     </div>
     <div class="ps-stat" data-counter="110">
       <div class="ps-stat-num">
         <span class="ps-value">110</span><span class="ps-suffix">K</span>
       </div>
-      <div class="ps-stat-label">Reddit AMA Views <b>·</b> Top 7 All-Time</div>
+      <div class="ps-stat-label">Reddit AMA Views <b>Â·</b> Top 7 All-Time</div>
     </div>
   </div>
 
-  <!-- ZONE 5 · RECEIPTS GALLERY -->
+  <!-- ZONE 5 Â· RECEIPTS GALLERY -->
   <div class="ps-receipts-head">
     <h3 class="ps-receipts-title">The <em>Receipts.</em></h3>
     <div class="ps-receipts-meta">
-      Field Notes <b>·</b> 2024&ndash;2026<br>
-      Six Frames <b>·</b> Verified
+      Field Notes <b>Â·</b> 2024&ndash;2026<br>
+      Six Frames <b>Â·</b> Verified
     </div>
   </div>
 
@@ -3265,7 +3265,7 @@
 
     <figure class="ps-tile t6">
       <div class="ps-frame">
-        <img src="/images/course-dev-rig.jpg" alt="Live cold-call rig — Tuesdays and Thursdays" loading="lazy">
+        <img src="/images/course-dev-rig.jpg" alt="Live cold-call rig â€” Tuesdays and Thursdays" loading="lazy">
       </div>
       <figcaption class="ps-cap">Tuesdays / Thursdays &middot; Live</figcaption>
     </figure>
@@ -3299,28 +3299,28 @@
 
     <div class="shell-footer__grid">
 
-      <!-- Column 1 — brand / colophon -->
+      <!-- Column 1 â€” brand / colophon -->
       <div class="shell-footer__col shell-footer__col--brand">
         <h2 class="shell-footer__brand-name">Benji's AI Empire</h2>
-        <p class="shell-footer__brand-meta">Operator's Playbook &nbsp;·&nbsp; Built In Public</p>
+        <p class="shell-footer__brand-meta">Operator's Playbook &nbsp;Â·&nbsp; Built In Public</p>
         <p class="shell-footer__brand-tagline">
-          A weekly dispatch from the build floor — every cold call, every
+          A weekly dispatch from the build floor â€” every cold call, every
           launch, every dollar tracked in the open.
         </p>
       </div>
 
-      <!-- Column 2 — Entry Points -->
+      <!-- Column 2 â€” Entry Points -->
       <div class="shell-footer__col">
         <h3 class="shell-footer__col-head">Entry Points</h3>
         <ul class="shell-footer__list">
-          <li><a class="shell-footer__link" href="/starter-kit/">Starter Kit</a></li>
-          <li><a class="shell-footer__link" href="/challenge/">Empire Challenge</a></li>
-          <li><a class="shell-footer__link" href="/cold-call-30/">Cold Calling Challenge</a></li>
-          <li><a class="shell-footer__link" href="/partners/">Software Partners</a></li>
+          <li><a class="shell-footer__link" href="#starter-kit">Starter Kit</a></li>
+          <li><a class="shell-footer__link" href="#empire-challenge">Empire Challenge</a></li>
+          <li><a class="shell-footer__link" href="#cold-calling-challenge">Cold Calling Challenge</a></li>
+          <li><a class="shell-footer__link" href="#software-partners">Software Partners</a></li>
         </ul>
       </div>
 
-      <!-- Column 3 — Join -->
+      <!-- Column 3 â€” Join -->
       <div class="shell-footer__col">
         <h3 class="shell-footer__col-head">Join</h3>
         <ul class="shell-footer__list">
@@ -3330,7 +3330,7 @@
         </ul>
       </div>
 
-      <!-- Column 4 — Every Week -->
+      <!-- Column 4 â€” Every Week -->
       <div class="shell-footer__col">
         <h3 class="shell-footer__col-head">Every Week</h3>
         <ul class="shell-footer__list">
