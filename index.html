@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Benji's AI Empire — The Operator's Playbook for Building With AI</title>
-  <meta name="description" content="The cold-call script. The Claude Code design prompts. The 30-Day Empire Challenge. The community where operators ship. Pick a door." />
+  <title>Benji's AI Empire — Sales Calls, AI Courses, GHL Wholesale</title>
+  <meta name="description" content="Free access to Benji's sales call videos. $10/mo for every course, prompt, and toolkit (GHL at $0.04/min). $49/mo wholesale GHL at $0.015/min — first 100 only." />
   <meta name="theme-color" content="#0a0a0a" />
   <link rel="canonical" href="https://benjisaiempire.com/" />
   <link rel="icon" type="image/png" href="/images/favicon.png" />
@@ -12,10 +12,15 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://benjisaiempire.com/" />
   <meta property="og:title" content="Benji's AI Empire" />
-  <meta property="og:description" content="The operator's playbook for building with AI. Free Starter Kit. 30-day challenges. The Empire community." />
-  <meta property="og:image" content="https://benjisaiempire.com/images/og-home.jpg" />
+  <meta property="og:description" content="Free sales-call videos. $10/mo full library. $49/mo wholesale GHL — first 100." />
+  <meta property="og:image" content="https://benjisaiempire.com/images/hero-throne.jpg" />
   <meta property="og:site_name" content="Benji's AI Empire" />
   <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preload" as="image" href="/images/hero-throne.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -29,7 +34,7 @@
     }
     html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
     body{
-      font-family:'Inter','Helvetica Neue',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+      font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
       background:var(--black); color:var(--white); font-size:16px; line-height:1.55;
       -webkit-font-smoothing:antialiased; min-height:100vh;
     }
@@ -48,127 +53,229 @@
       height:64px; max-width:var(--container); margin:0 auto; padding:0 24px;
     }
     .logo{
-      font-family:'Bebas Neue','Inter',sans-serif; letter-spacing:.05em;
-      font-weight:700; font-size:20px; color:var(--gold);
+      font-family:'Bebas Neue',sans-serif; letter-spacing:.06em;
+      font-weight:400; font-size:22px; color:var(--gold);
     }
     .topbar-cta{
-      font-size:13px; font-weight:600; padding:8px 14px;
+      font-size:13px; font-weight:600; padding:9px 16px;
       border:1px solid var(--gold-line); color:var(--gold);
       border-radius:6px; transition:all .2s var(--ease);
     }
     .topbar-cta:hover{background:var(--gold-soft); border-color:var(--gold)}
 
-    /* Hero */
-    .hero{padding:96px 0 64px; position:relative; overflow:hidden}
-    .hero::before{
-      content:""; position:absolute; inset:0;
-      background:
-        radial-gradient(circle at 20% 30%, rgba(212,175,55,.08), transparent 50%),
-        radial-gradient(circle at 80% 70%, rgba(212,175,55,.05), transparent 50%);
-      pointer-events:none;
+    /* Hero with photo */
+    .hero{
+      position:relative; min-height:78vh;
+      display:flex; align-items:center;
+      overflow:hidden; padding:64px 0;
     }
-    .hero-inner{position:relative; max-width:880px}
+    .hero-bg{
+      position:absolute; inset:0; z-index:0;
+      background-image:linear-gradient(110deg, rgba(10,10,10,.92) 0%, rgba(10,10,10,.7) 45%, rgba(10,10,10,.35) 100%), url('/images/hero-throne.jpg');
+      background-size:cover; background-position:center right;
+    }
+    .hero-bg::after{
+      content:""; position:absolute; inset:0;
+      background:radial-gradient(circle at 80% 50%, rgba(212,175,55,.16), transparent 55%);
+    }
+    .hero-inner{position:relative; z-index:1; max-width:760px}
     .eyebrow{
-      display:inline-block; font-size:12px; letter-spacing:.18em;
-      text-transform:uppercase; color:var(--gold); padding:6px 12px;
+      display:inline-block; font-size:11px; letter-spacing:.2em;
+      text-transform:uppercase; color:var(--gold); padding:6px 14px;
       border:1px solid var(--gold-line); border-radius:999px;
-      margin-bottom:24px; font-weight:600;
+      margin-bottom:24px; font-weight:700;
     }
     .h1{
-      font-family:'Bebas Neue','Inter',sans-serif;
-      font-size:clamp(40px, 7vw, 80px);
-      line-height:1; letter-spacing:-.01em; font-weight:700;
-      margin-bottom:24px;
+      font-family:'Bebas Neue',sans-serif; font-weight:400;
+      font-size:clamp(44px, 7.5vw, 88px);
+      line-height:.98; letter-spacing:0; margin-bottom:24px;
     }
     .h1 .gold{color:var(--gold)}
     .lede{
-      font-size:clamp(17px,1.6vw,20px); color:var(--gray);
-      max-width:680px; line-height:1.5; margin-bottom:36px;
+      font-size:clamp(17px,1.7vw,21px); color:#d4d4d4;
+      max-width:620px; line-height:1.5; margin-bottom:36px;
     }
     .hero-ctas{display:flex; gap:14px; flex-wrap:wrap}
     .btn{
       display:inline-flex; align-items:center; gap:8px;
-      padding:14px 22px; border-radius:8px; font-weight:600;
+      padding:15px 24px; border-radius:8px; font-weight:600;
       font-size:15px; transition:all .2s var(--ease); cursor:pointer;
-      border:1px solid transparent; line-height:1;
+      border:1px solid transparent; line-height:1; text-decoration:none;
     }
     .btn-gold{background:var(--gold); color:var(--black); border-color:var(--gold)}
-    .btn-gold:hover{background:var(--gold-bright); transform:translateY(-1px)}
-    .btn-ghost{border-color:var(--border); color:var(--white)}
+    .btn-gold:hover{background:var(--gold-bright); transform:translateY(-1px); box-shadow:0 12px 28px -10px rgba(212,175,55,.55)}
+    .btn-ghost{border-color:rgba(255,255,255,.25); color:var(--white); backdrop-filter:blur(6px); background:rgba(0,0,0,.3)}
     .btn-ghost:hover{border-color:var(--gold); color:var(--gold)}
 
+    /* Scrolling proof bar */
+    .proof-strip{
+      background:var(--black-2); border-top:1px solid var(--border); border-bottom:1px solid var(--border);
+      padding:18px 0; overflow:hidden;
+    }
+    .proof-row{
+      display:flex; gap:48px; align-items:center;
+      color:var(--gray); font-size:13px; letter-spacing:.06em;
+      font-weight:600; text-transform:uppercase;
+      animation:scroll 30s linear infinite;
+      white-space:nowrap; width:max-content;
+    }
+    .proof-row span{display:flex; align-items:center; gap:48px}
+    .proof-row .gold{color:var(--gold)}
+    @keyframes scroll{
+      from{transform:translateX(0)}
+      to{transform:translateX(-50%)}
+    }
+
     /* Section base */
-    section{padding:80px 0}
+    section{padding:88px 0}
     .section-title{
-      font-family:'Bebas Neue','Inter',sans-serif;
-      font-size:clamp(28px,3.6vw,44px); line-height:1.05;
-      letter-spacing:.005em; margin-bottom:12px;
+      font-family:'Bebas Neue',sans-serif; font-weight:400;
+      font-size:clamp(32px,4.2vw,52px); line-height:1.02;
+      letter-spacing:.005em; margin-bottom:14px;
     }
     .section-sub{color:var(--gray); margin-bottom:48px; max-width:680px; font-size:17px}
 
-    /* Doors grid */
-    .doors{
-      display:grid; gap:18px;
+    /* Pricing — THE three tiers */
+    .pricing{background:var(--black-2); border-top:1px solid var(--border); border-bottom:1px solid var(--border)}
+    .tiers-grid{
+      display:grid; gap:20px;
       grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      align-items:stretch;
+    }
+    .tier{
+      background:var(--black); border:1px solid var(--border);
+      border-radius:16px; padding:32px 28px; position:relative;
+      display:flex; flex-direction:column;
+    }
+    .tier.featured{
+      border-color:var(--gold);
+      box-shadow:0 24px 60px -30px rgba(212,175,55,.45);
+      background:linear-gradient(180deg, rgba(212,175,55,.06), var(--black) 60%);
+    }
+    .tier-badge{
+      position:absolute; top:-13px; left:24px;
+      background:var(--gold); color:var(--black); font-size:10px;
+      font-weight:700; letter-spacing:.18em; padding:5px 11px; border-radius:4px;
+    }
+    .tier-name{
+      font-family:'Bebas Neue',sans-serif; font-weight:400;
+      font-size:24px; letter-spacing:.04em; margin-bottom:6px; color:var(--gold);
+    }
+    .tier-price{font-size:42px; font-weight:700; line-height:1; margin-bottom:6px; letter-spacing:-.02em}
+    .tier-price small{font-size:14px; color:var(--gray); font-weight:400; letter-spacing:0}
+    .tier-was{
+      font-size:18px; color:var(--gray-2); font-weight:500;
+      text-decoration:line-through; margin-right:8px;
+    }
+    .tier-tagline{color:var(--gray); font-size:14px; margin-bottom:22px; min-height:42px}
+    .tier-rate{
+      display:inline-block; background:var(--gold-soft);
+      border:1px solid var(--gold-line); color:var(--gold);
+      padding:5px 11px; border-radius:6px; font-size:12px;
+      font-weight:600; letter-spacing:.04em; margin-bottom:18px;
+    }
+    .tier ul{list-style:none; margin-bottom:24px; flex:1}
+    .tier li{
+      font-size:14px; color:#d4d4d4; padding:7px 0 7px 24px;
+      position:relative; line-height:1.45;
+    }
+    .tier li::before{
+      content:"✓"; position:absolute; left:0; top:7px; color:var(--gold); font-weight:700;
+    }
+    .tier .btn{width:100%; justify-content:center}
+
+    /* Doors grid (courses + free entries) */
+    .doors{
+      display:grid; gap:20px;
+      grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
     }
     .door{
       background:var(--black-2); border:1px solid var(--border);
-      border-radius:14px; padding:28px;
+      border-radius:14px; overflow:hidden;
       transition:all .25s var(--ease); display:flex; flex-direction:column;
-      min-height:240px;
     }
     .door:hover{
       border-color:var(--gold-line); transform:translateY(-3px);
-      box-shadow:0 18px 40px -20px rgba(212,175,55,.18);
+      box-shadow:0 20px 44px -22px rgba(212,175,55,.22);
     }
+    .door-img{
+      aspect-ratio:16/10; overflow:hidden; background:var(--black);
+      position:relative;
+    }
+    .door-img img{
+      width:100%; height:100%; object-fit:cover;
+      transition:transform .5s var(--ease);
+    }
+    .door:hover .door-img img{transform:scale(1.05)}
+    .door-img::after{
+      content:""; position:absolute; inset:0;
+      background:linear-gradient(180deg, transparent 50%, rgba(10,10,10,.65) 100%);
+    }
+    .door-body{padding:22px 24px 24px; flex:1; display:flex; flex-direction:column}
     .door-tag{
-      font-size:11px; font-weight:700; letter-spacing:.14em;
-      text-transform:uppercase; color:var(--gold); margin-bottom:14px;
+      font-size:10px; font-weight:700; letter-spacing:.18em;
+      text-transform:uppercase; color:var(--gold); margin-bottom:10px;
     }
     .door-title{
-      font-family:'Bebas Neue','Inter',sans-serif; font-size:24px;
-      letter-spacing:.01em; margin-bottom:8px; line-height:1.1;
+      font-family:'Bebas Neue',sans-serif; font-weight:400; font-size:24px;
+      letter-spacing:.015em; margin-bottom:8px; line-height:1.05;
     }
-    .door-body{color:var(--gray); font-size:15px; flex:1; margin-bottom:16px}
+    .door-desc{color:var(--gray); font-size:14px; flex:1; margin-bottom:14px}
     .door-cta{
-      color:var(--gold); font-weight:600; font-size:14px;
-      border-top:1px solid var(--border); padding-top:14px;
+      color:var(--gold); font-weight:600; font-size:13px;
+      letter-spacing:.04em; padding-top:14px; border-top:1px solid var(--border);
     }
     .door-cta::after{content:" →"; transition:padding .2s var(--ease)}
     .door:hover .door-cta::after{padding-left:6px}
 
-    /* Tier strip */
-    .tiers{background:var(--black-2); border-top:1px solid var(--border); border-bottom:1px solid var(--border)}
-    .tiers-grid{
-      display:grid; gap:18px;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    /* About strip */
+    .about{padding:88px 0}
+    .about-grid{
+      display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center;
     }
-    .tier{
-      background:var(--black); border:1px solid var(--border);
-      border-radius:14px; padding:32px 28px; position:relative;
+    .about-photo{
+      aspect-ratio:4/5; border-radius:18px; overflow:hidden;
+      border:1px solid var(--border);
+      box-shadow:0 30px 70px -30px rgba(0,0,0,.7);
     }
-    .tier.featured{border-color:var(--gold)}
-    .tier.featured::after{
-      content:"FOUNDER"; position:absolute; top:-12px; left:24px;
-      background:var(--gold); color:var(--black); font-size:10px;
-      font-weight:700; letter-spacing:.16em; padding:4px 10px; border-radius:4px;
+    .about-photo img{width:100%; height:100%; object-fit:cover}
+    .about-h{
+      font-family:'Bebas Neue',sans-serif; font-weight:400;
+      font-size:clamp(32px,4vw,48px); line-height:1.05;
+      margin-bottom:18px;
     }
-    .tier-name{
-      font-family:'Bebas Neue','Inter',sans-serif; font-size:22px;
-      letter-spacing:.02em; margin-bottom:6px;
+    .about p{color:var(--gray); font-size:17px; line-height:1.6; margin-bottom:14px}
+    .about-stats{
+      display:grid; grid-template-columns:repeat(3,1fr); gap:18px;
+      margin:28px 0; padding:22px; border:1px solid var(--border);
+      border-radius:12px; background:var(--black-2);
     }
-    .tier-price{font-size:36px; font-weight:700; margin-bottom:4px}
-    .tier-price small{font-size:14px; color:var(--gray); font-weight:400}
-    .tier-tagline{color:var(--gray); font-size:14px; margin-bottom:20px; min-height:42px}
-    .tier ul{list-style:none; margin-bottom:24px}
-    .tier li{
-      font-size:14px; color:var(--gray); padding:6px 0 6px 22px;
-      position:relative;
+    .stat-num{font-family:'Bebas Neue',sans-serif; font-size:32px; color:var(--gold); line-height:1}
+    .stat-label{font-size:12px; color:var(--gray-2); letter-spacing:.06em; text-transform:uppercase; margin-top:4px}
+    @media (max-width:760px){
+      .about-grid{grid-template-columns:1fr; gap:36px}
     }
-    .tier li::before{
-      content:"✓"; position:absolute; left:0; color:var(--gold); font-weight:700;
+
+    /* Proof gallery */
+    .gallery{background:var(--black-2); border-top:1px solid var(--border); border-bottom:1px solid var(--border)}
+    .gallery-grid{
+      display:grid; gap:14px;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
     }
-    .tier .btn{width:100%; justify-content:center}
+    .gallery-card{
+      aspect-ratio:1/1; overflow:hidden; border-radius:12px;
+      border:1px solid var(--border); position:relative;
+      transition:transform .3s var(--ease);
+    }
+    .gallery-card:hover{transform:translateY(-3px); border-color:var(--gold-line)}
+    .gallery-card img{width:100%; height:100%; object-fit:cover}
+    .gallery-card .label{
+      position:absolute; left:14px; bottom:14px; right:14px;
+      color:#fff; font-size:13px; font-weight:600;
+      text-shadow:0 2px 8px rgba(0,0,0,.85);
+      background:linear-gradient(0deg, rgba(0,0,0,.7), transparent);
+      padding-top:30px;
+    }
 
     /* Footer */
     footer{
@@ -180,9 +287,9 @@
     .foot-row a:hover{color:var(--gold)}
 
     @media (max-width:600px){
-      .hero{padding:64px 0 48px}
-      section{padding:56px 0}
-      .door{padding:22px}
+      .hero{min-height:64vh; padding:48px 0}
+      section{padding:64px 0}
+      .door-body{padding:20px}
     }
   </style>
 </head>
@@ -191,154 +298,259 @@
   <header class="topbar">
     <div class="topbar-inner">
       <a class="logo" href="/">BENJI'S AI EMPIRE</a>
-      <a class="topbar-cta" href="/login">Member Login</a>
+      <a class="topbar-cta" href="#pricing">See Pricing</a>
     </div>
   </header>
 
   <section class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
     <div class="container hero-inner">
       <span class="eyebrow">The Operator's Playbook</span>
-      <h1 class="h1">Build a real business <span class="gold">with AI</span> — not a pile of demos.</h1>
+      <h1 class="h1">I cold-call live every Tuesday. <span class="gold">You can have the videos free.</span></h1>
       <p class="lede">
-        I'm Benji Boyce. I run an agency. Every Tuesday I cold-call live on YouTube. Every Thursday I ship a real client website with Claude Code, on stream, in 90 minutes. Pick the door that fits where you're at — they all lead to the same room eventually.
+        I'm Benji Boyce. I run a real agency, sell real software, and ship real client websites with Claude Code on YouTube every week. Watch me work — for free. Or skip the line and grab the courses, the prompts, and wholesale GHL pricing for less than a dinner out.
       </p>
       <div class="hero-ctas">
-        <a class="btn btn-gold" href="/starter-kit/">Get the free Starter Kit →</a>
-        <a class="btn btn-ghost" href="/founders/">Lock a Founder seat</a>
+        <a class="btn btn-gold" href="#pricing">See the 3 tiers →</a>
+        <a class="btn btn-ghost" href="/starter-kit/">Get the free Starter Kit</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="proof-strip">
+    <div class="proof-row">
+      <span>
+        <strong class="gold">$2.8M</strong> Shopify all-stores
+        <span>·</span>
+        <strong class="gold">110K</strong> Reddit AMA views
+        <span>·</span>
+        <strong class="gold">31,745</strong> orders / 90 days
+        <span>·</span>
+        Featured in <strong>Forbes</strong>
+        <span>·</span>
+        <strong>Yahoo Finance</strong>
+        <span>·</span>
+        <strong>Nasdaq</strong>
+        <span>·</span>
+        <strong>LA Weekly</strong>
+        <span>·</span>
+        Cold-called live <strong class="gold">52 weeks</strong> running
+        <span>·</span>
+      </span>
+      <span aria-hidden="true">
+        <strong class="gold">$2.8M</strong> Shopify all-stores
+        <span>·</span>
+        <strong class="gold">110K</strong> Reddit AMA views
+        <span>·</span>
+        <strong class="gold">31,745</strong> orders / 90 days
+        <span>·</span>
+        Featured in <strong>Forbes</strong>
+        <span>·</span>
+        <strong>Yahoo Finance</strong>
+        <span>·</span>
+        <strong>Nasdaq</strong>
+        <span>·</span>
+        <strong>LA Weekly</strong>
+        <span>·</span>
+        Cold-called live <strong class="gold">52 weeks</strong> running
+        <span>·</span>
+      </span>
+    </div>
+  </div>
+
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <h2 class="section-title">Three tiers. Pick where you're at.</h2>
+      <p class="section-sub">Free gets you the work. Ten gets you the playbook. Forty-nine gets you wholesale software.</p>
+
+      <div class="tiers-grid">
+
+        <div class="tier">
+          <div class="tier-name">FREE</div>
+          <div class="tier-price">$0<small> /forever</small></div>
+          <p class="tier-tagline">Watch me cold-call live every Tuesday. Free.</p>
+          <ul>
+            <li>Full library of my sales call videos</li>
+            <li>Tuesday Cold Call Live (YouTube)</li>
+            <li>Thursday Build Day Live (YouTube)</li>
+            <li>The free Starter Kit (PDF + scripts)</li>
+            <li>30-Day Empire Challenge (email)</li>
+          </ul>
+          <a class="btn btn-ghost" href="/starter-kit/">Get free access</a>
+        </div>
+
+        <div class="tier">
+          <div class="tier-name">INSIDER</div>
+          <div class="tier-price">$10<small> /month</small></div>
+          <p class="tier-tagline">Every course, every prompt, every script — and GHL with us.</p>
+          <span class="tier-rate">GHL · $0.04 / minute</span>
+          <ul>
+            <li>All four courses included (Cold Calling 2.0, Brand Builder, Marketing Engine, Empire OS)</li>
+            <li>Every prompt I run — Claude, Cursor, GPT</li>
+            <li>Every script, template, and SOP</li>
+            <li>GoHighLevel reseller account (your own sub-account)</li>
+            <li>Private Insider community</li>
+            <li>Cancel anytime</li>
+          </ul>
+          <a class="btn btn-gold" href="/insider/">Join Insider — $10/mo</a>
+        </div>
+
+        <div class="tier featured">
+          <span class="tier-badge">FIRST 100 ONLY</span>
+          <div class="tier-name">WHOLESALE GHL</div>
+          <div class="tier-price"><span class="tier-was">$99</span>$49<small> /month</small></div>
+          <p class="tier-tagline">Just GoHighLevel — at my wholesale rate.</p>
+          <span class="tier-rate">GHL · $0.015 / minute</span>
+          <ul>
+            <li>GoHighLevel reseller sub-account</li>
+            <li>Wholesale per-minute pricing — <strong>$0.015/min</strong> (62% cheaper than Insider tier)</li>
+            <li>Locked at $49/mo for life — never goes up</li>
+            <li>Pure software access — no courses, no fluff</li>
+            <li>For agencies running real call volume</li>
+            <li>Only 100 of these. Then it goes to $99.</li>
+          </ul>
+          <a class="btn btn-gold" href="/founders/">Lock my $49 seat →</a>
+        </div>
+
       </div>
     </div>
   </section>
 
   <section>
     <div class="container">
-      <h2 class="section-title">Pick a door.</h2>
-      <p class="section-sub">Free entry points up top, paid programs underneath, courses at the bottom. Everything connects.</p>
-
-      <div class="doors">
-        <a class="door" href="/starter-kit/">
-          <span class="door-tag">Free · Starter Kit</span>
-          <h3 class="door-title">The AI Empire Starter Kit</h3>
-          <p class="door-body">The cold-call script, Claude Code design prompts, AI prospecting prompts, a free seat at the live launch. In your inbox in 60 seconds.</p>
-          <span class="door-cta">Get the Kit</span>
-        </a>
-
-        <a class="door" href="/challenge/">
-          <span class="door-tag">Free · 30 Days</span>
-          <h3 class="door-title">30-Day AI Empire Challenge</h3>
-          <p class="door-body">One email a day for 30 days. Build the foundation of an AI-powered offer — start to finish — with daily prompts, scripts, and accountability.</p>
-          <span class="door-cta">Start the Challenge</span>
-        </a>
-
-        <a class="door" href="/cold-call-30/">
-          <span class="door-tag">Free · 30 Days</span>
-          <h3 class="door-title">30-Day Cold Calling Challenge</h3>
-          <p class="door-body">100 dials. 30 days. The Master Script. The objection map. The Tuesday Live RSVP where I cold-call in front of you so you can copy the cadence.</p>
-          <span class="door-cta">Take the Challenge</span>
-        </a>
-
-        <a class="door" href="/insider/">
-          <span class="door-tag">$10/mo · Insider</span>
-          <h3 class="door-title">Empire Insider</h3>
-          <p class="door-body">Private community, weekly Q&amp;A digest, member-only pricing on every course. The cheapest seat in the room — but you're in the room.</p>
-          <span class="door-cta">Join Insider</span>
-        </a>
-
-        <a class="door" href="/founders/">
-          <span class="door-tag">$99/mo · Founder · 50 seats</span>
-          <h3 class="door-title">Empire Builder — Founder</h3>
-          <p class="door-body">Builder access locked at $99 for life. Every course. The Builder Vault. Friday Q&amp;A Zoom. Gold-crown badge in the community. 50 seats only.</p>
-          <span class="door-cta">Lock a Founder seat</span>
-        </a>
-
-        <a class="door" href="/partners/">
-          <span class="door-tag">Toolkit</span>
-          <h3 class="door-title">Software Partners</h3>
-          <p class="door-body">The 19 tools I actually use. Member-only promo codes, affiliate kickbacks where they exist, brutal honesty where they don't.</p>
-          <span class="door-cta">See the stack</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section style="background:var(--black-2); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
-    <div class="container">
-      <h2 class="section-title">Courses (one-time)</h2>
-      <p class="section-sub">Buy any one outright. Or get every course included with Builder ($99/mo Founder rate while seats remain).</p>
+      <h2 class="section-title">What you actually get inside.</h2>
+      <p class="section-sub">Four full courses, two free 30-day challenges, and the partner toolkit. All included at $10/mo Insider.</p>
 
       <div class="doors">
         <a class="door" href="/courses/cold-calling/">
-          <span class="door-tag">Course</span>
-          <h3 class="door-title">Cold Calling 2.0 + AI</h3>
-          <p class="door-body">The full system. AI-powered prospecting, the Master Script, objection handling, follow-up cadence. The thing I do live every Tuesday — broken down.</p>
-          <span class="door-cta">See the curriculum</span>
+          <div class="door-img"><img src="/images/course-cold-calling.jpg" alt="Cold Calling 2.0 + AI" loading="lazy"></div>
+          <div class="door-body">
+            <span class="door-tag">Course · Included with Insider</span>
+            <h3 class="door-title">Cold Calling 2.0 + AI</h3>
+            <p class="door-desc">The exact system I run live every Tuesday. AI prospecting, the Master Script, objection handling, the follow-up cadence that actually closes.</p>
+            <span class="door-cta">See the curriculum</span>
+          </div>
         </a>
+
         <a class="door" href="/courses/brand-builder/">
-          <span class="door-tag">Course</span>
-          <h3 class="door-title">AI Brand Builder</h3>
-          <p class="door-body">From blank page to a brand that converts. Positioning, voice, identity, content — built with AI as a co-pilot, not a crutch.</p>
-          <span class="door-cta">See the curriculum</span>
+          <div class="door-img"><img src="/images/course-brand-builder.jpg" alt="AI Brand Builder" loading="lazy"></div>
+          <div class="door-body">
+            <span class="door-tag">Course · Included with Insider</span>
+            <h3 class="door-title">AI Brand Builder</h3>
+            <p class="door-desc">Blank page to a brand that converts. Positioning, voice, identity, content. AI as a co-pilot — not a crutch. From the guy who literally wrote the book.</p>
+            <span class="door-cta">See the curriculum</span>
+          </div>
         </a>
+
         <a class="door" href="/courses/marketing-engine/">
-          <span class="door-tag">Course</span>
-          <h3 class="door-title">AI Marketing Engine</h3>
-          <p class="door-body">The Pillar-to-Derivative Cascade. One Tuesday Live → 14 pieces of content. The full automation stack and the prompts that run it.</p>
-          <span class="door-cta">See the curriculum</span>
+          <div class="door-img"><img src="/images/course-marketing-engine.jpg" alt="AI Marketing Engine" loading="lazy"></div>
+          <div class="door-body">
+            <span class="door-tag">Course · Included with Insider</span>
+            <h3 class="door-title">AI Marketing Engine</h3>
+            <p class="door-desc">The Pillar-to-Derivative Cascade. One Tuesday Live → 14 pieces of content. The full prompt + automation stack that runs in the background.</p>
+            <span class="door-cta">See the curriculum</span>
+          </div>
         </a>
+
         <a class="door" href="/courses/empire-os/">
-          <span class="door-tag">Course · Builder-only</span>
-          <h3 class="door-title">Empire OS</h3>
-          <p class="door-body">How I run my agency. Systems, hires, finance, fulfillment. The operating manual behind the YouTube. Builder-only access.</p>
-          <span class="door-cta">See the curriculum</span>
+          <div class="door-img"><img src="/images/course-empire-os.jpg" alt="Empire OS" loading="lazy"></div>
+          <div class="door-body">
+            <span class="door-tag">Course · Included with Insider</span>
+            <h3 class="door-title">Empire OS</h3>
+            <p class="door-desc">How I run the agency. Systems, hires, finance, fulfillment. The operating manual behind the YouTube. The boring stuff that compounds.</p>
+            <span class="door-cta">See the curriculum</span>
+          </div>
+        </a>
+
+        <a class="door" href="/challenge/">
+          <div class="door-img"><img src="/images/streaming-rig.jpg" alt="30-Day AI Empire Challenge" loading="lazy"></div>
+          <div class="door-body">
+            <span class="door-tag">Free · 30 Days</span>
+            <h3 class="door-title">30-Day AI Empire Challenge</h3>
+            <p class="door-desc">One email a day for 30 days. Build the foundation of an AI-powered offer — start to finish — with daily prompts and accountability.</p>
+            <span class="door-cta">Start free</span>
+          </div>
+        </a>
+
+        <a class="door" href="/cold-call-30/">
+          <div class="door-img"><img src="/images/lifestyle-mclaren.jpg" alt="30-Day Cold Calling Challenge" loading="lazy"></div>
+          <div class="door-body">
+            <span class="door-tag">Free · 30 Days</span>
+            <h3 class="door-title">30-Day Cold Calling Challenge</h3>
+            <p class="door-desc">100 dials. 30 days. The Master Script. The objection map. Watch me dial live every Tuesday so you can copy the cadence in real time.</p>
+            <span class="door-cta">Take the challenge</span>
+          </div>
         </a>
       </div>
     </div>
   </section>
 
-  <section class="tiers">
+  <section class="about">
     <div class="container">
-      <h2 class="section-title">Three tiers. Pick where you're at.</h2>
-      <p class="section-sub">Insider gets you in the room. Founder locks the rate forever. Free gets you started.</p>
-
-      <div class="tiers-grid">
-        <div class="tier">
-          <div class="tier-name">FREE</div>
-          <div class="tier-price">$0<small> /forever</small></div>
-          <p class="tier-tagline">The Starter Kit + the 30-day challenges. No card needed.</p>
-          <ul>
-            <li>AI Empire Starter Kit</li>
-            <li>30-Day Empire Challenge</li>
-            <li>30-Day Cold Calling Challenge</li>
-            <li>Tuesday Live + Thursday Build Day</li>
-          </ul>
-          <a class="btn btn-ghost" href="/starter-kit/">Start free</a>
+      <div class="about-grid">
+        <div class="about-photo">
+          <img src="/images/headshot-bookshelf.jpg" alt="Benji Boyce" loading="lazy">
         </div>
+        <div>
+          <h2 class="about-h">Why listen to me.</h2>
+          <p>I'm not a guru. I run real businesses. Multiple Shopify stores doing eight figures combined. A marketing agency. A published book on losing a million dollars in 364 days (so I could write the one on how to avoid it).</p>
+          <p>I cold-call live on YouTube every Tuesday because if I'm going to teach this, I should be doing it in front of you — with my real list, my real script, and my real bad days mixed in with the good ones.</p>
 
-        <div class="tier">
-          <div class="tier-name">INSIDER</div>
-          <div class="tier-price">$10<small> /month</small></div>
-          <p class="tier-tagline">In the community. Member pricing on every course.</p>
-          <ul>
-            <li>Private Insider community</li>
-            <li>Weekly Q&amp;A digest</li>
-            <li>Member discounts on courses</li>
-            <li>Cancel anytime</li>
-          </ul>
-          <a class="btn btn-ghost" href="/insider/">Join Insider</a>
-        </div>
+          <div class="about-stats">
+            <div>
+              <div class="stat-num">$2.8M</div>
+              <div class="stat-label">Shopify all-stores</div>
+            </div>
+            <div>
+              <div class="stat-num">52</div>
+              <div class="stat-label">Weeks live</div>
+            </div>
+            <div>
+              <div class="stat-num">110K</div>
+              <div class="stat-label">Reddit AMA views</div>
+            </div>
+          </div>
 
-        <div class="tier featured">
-          <div class="tier-name">BUILDER (FOUNDER)</div>
-          <div class="tier-price">$99<small> /month · locked for life</small></div>
-          <p class="tier-tagline">Every course. The Vault. Friday Q&amp;A Zoom. Gold-crown badge. 50 seats.</p>
-          <ul>
-            <li>All four courses included</li>
-            <li>The Empire Vault (templates + scripts)</li>
-            <li>Friday Builder Q&amp;A Zoom (live)</li>
-            <li>Gold-crown community badge</li>
-            <li>Locked at $99 — never goes up</li>
-          </ul>
-          <a class="btn btn-gold" href="/founders/">Lock my Founder seat</a>
+          <a class="btn btn-gold" href="#pricing">See pricing →</a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery">
+    <div class="container">
+      <h2 class="section-title">Receipts.</h2>
+      <p class="section-sub">Money proof. Press hits. Rooms I'm in. The whole bag.</p>
+
+      <div class="gallery-grid">
+        <div class="gallery-card">
+          <img src="/images/proof-shopify-2-8m.jpg" alt="$2.8M Shopify dashboard" loading="lazy">
+          <div class="label">$2.8M · 31,745 orders / 90 days</div>
+        </div>
+        <div class="gallery-card">
+          <img src="/images/proof-grant-cardone.jpg" alt="With Grant Cardone" loading="lazy">
+          <div class="label">With Grant Cardone</div>
+        </div>
+        <div class="gallery-card">
+          <img src="/images/hero-petronas.jpg" alt="Build from anywhere" loading="lazy">
+          <div class="label">Build from anywhere · KL</div>
+        </div>
+        <div class="gallery-card">
+          <img src="/images/streaming-rig.jpg" alt="Streaming rig" loading="lazy">
+          <div class="label">Tuesday + Thursday · Live</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--black); text-align:center; padding:80px 0">
+    <div class="container">
+      <h2 class="section-title" style="margin-bottom:18px">Pick a tier. Skip the guru tax.</h2>
+      <p class="section-sub" style="margin:0 auto 36px; text-align:left">Free works. $10 is everything. $49 is wholesale software for the first 100 operators who want it.</p>
+      <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap">
+        <a class="btn btn-ghost" href="/starter-kit/">Get free access</a>
+        <a class="btn btn-gold" href="/insider/">Join Insider $10/mo</a>
+        <a class="btn btn-gold" href="/founders/" style="background:#fff; border-color:#fff">Wholesale GHL $49/mo →</a>
       </div>
     </div>
   </section>
@@ -350,8 +562,8 @@
           <a href="/starter-kit/">Starter Kit</a>
           <a href="/challenge/">Empire Challenge</a>
           <a href="/cold-call-30/">Cold Call Challenge</a>
-          <a href="/insider/">Insider</a>
-          <a href="/founders/">Founder</a>
+          <a href="/insider/">$10 Insider</a>
+          <a href="/founders/">$49 Wholesale</a>
           <a href="/partners/">Partners</a>
         </div>
         <div>© <span id="y"></span> Benji's AI Empire · Advanced Marketing</div>
