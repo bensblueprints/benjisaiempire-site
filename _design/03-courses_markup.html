@@ -1,0 +1,224 @@
+﻿<!--
+  SECTION: "The $10 Bucket" â€” editorial magazine spread
+  INTENT: NYT Magazine table-of-contents-as-art. Six tiles (4 courses + 2 challenges)
+          arranged on a 12-col asymmetric grid with alternating wide/narrow rhythm
+          and enormous outline Anton numerals (01-06) functioning as graphic anchors.
+          Tile 03 (Marketing Engine, 308KB) and Tile 06 (Bangkok b-roll, 737KB) are
+          given the wide "spread" treatment because they're the highest-fidelity art.
+          Tiles 01, 02, 04 use the standard "tall portrait + numeral" treatment.
+          Tile 05 is wide because the streaming-rig photo also reads at scale.
+
+  PHOTOS USED (all from /images/):
+    01 course-cold-calling.jpg   (~11KB    â€” small, kept thumbnail-sized)
+    02 course-brand-builder.jpg  (small    â€” book cover, kept thumbnail-sized)
+    03 course-marketing-engine.jpg (308KB  â€” wide hero treatment)
+    04 course-empire-os.jpg      (small    â€” banyan, kept portrait-sized)
+    05 streaming-rig.jpg         (308KB    â€” wide treatment)
+    06 broll-bangkok.jpg         (737KB    â€” full-bleed atmospheric finale)
+
+  MOTION:
+    - IntersectionObserver triggers .is-in on each .tile when 25% visible
+    - Stagger via --i custom prop (80ms Ã— index)
+    - Photo zoom 1.04 on hover, 800ms cubic-bezier(.22,1,.36,1)
+    - Tile lifts -6px on hover; numerals shift 8px on hover
+
+  TOKENS: Uses --ink, --ink-2, --ink-3, --cream, --cream-soft, --gold, --gold-bright,
+          --rust, --bone, --line. All fonts: Anton, Fraunces, Manrope, JetBrains Mono.
+
+  JS NOTE: Inline script at the bottom of the section sets up the IntersectionObserver.
+           Safe to run multiple times (guards on dataset flag).
+-->
+
+
+
+<section class="courses-section" id="the-bucket">
+  <div class="courses-section__inner">
+
+    <header class="courses-header">
+      <div>
+        <p class="courses-eyebrow">Included with $10 Insider</p>
+        <h2 class="courses-display">
+          Everything<br>
+          <span class="outline">in the</span> <span class="accent">Bucket</span>
+        </h2>
+      </div>
+      <div>
+        <p class="courses-lede">
+          Four courses. Two 30-day challenges. Every prompt and script I run.
+          <em>All for ten dollars a month</em> &mdash; or free up to the videos.
+        </p>
+        <div class="courses-meta-row">
+          <span><strong>04</strong>Courses</span>
+          <span><strong>02</strong>Challenges</span>
+          <span><strong>â‰ˆ18.5h</strong>Of footage</span>
+          <span><strong>$10</strong>/mo</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="courses-grid">
+
+      <!-- 01 / COURSE â€” Cold Calling 2.0 + AI -->
+      <a class="tile tile-01" style="--i:0" href="/courses/cold-calling/" aria-label="Cold Calling 2.0 + AI â€” course">
+        <span class="tile__numeral" aria-hidden="true">01</span>
+        <div class="tile__photo">
+          <img src="/images/course-cold-calling.jpg" alt="Cold Calling 2.0 + AI course" loading="lazy">
+        </div>
+        <div class="tile__copy">
+          <div class="tile__kicker">
+            <span class="index">N&deg; 01</span>
+            <span class="rule"></span>
+            <span class="type">Course</span>
+          </div>
+          <h3 class="tile__title">Cold Calling 2.0 + AI</h3>
+          <p class="tile__tagline">&ldquo;The exact system I run live every Tuesday.&rdquo;</p>
+          <p class="tile__body">AI prospecting, the Master Script, objection handling, follow-up cadence that actually closes.</p>
+          <div class="tile__footer">
+            <span class="tile__meta">8 modules &middot; &asymp;4 hours</span>
+            <span class="tile__cta">Open course</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 02 / COURSE â€” AI Brand Builder -->
+      <a class="tile tile-02" style="--i:1" href="/courses/brand-builder/" aria-label="AI Brand Builder â€” course">
+        <span class="tile__numeral" aria-hidden="true">02</span>
+        <div class="tile__photo">
+          <img src="/images/course-brand-builder.jpg" alt="AI Brand Builder course" loading="lazy">
+        </div>
+        <div class="tile__copy">
+          <div class="tile__kicker">
+            <span class="index">N&deg; 02</span>
+            <span class="rule"></span>
+            <span class="type">Course</span>
+          </div>
+          <h3 class="tile__title">AI Brand Builder</h3>
+          <p class="tile__tagline">&ldquo;Blank page to a brand that converts.&rdquo;</p>
+          <p class="tile__body">Positioning, voice, identity, content. AI as a co-pilot &mdash; not a crutch. From the guy who literally wrote the book on what NOT to do.</p>
+          <div class="tile__footer">
+            <span class="tile__meta">7 modules &middot; &asymp;3.5 hours</span>
+            <span class="tile__cta">Open course</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 03 / COURSE â€” AI Marketing Engine (full-bleed spread) -->
+      <a class="tile tile-03" style="--i:2" href="/courses/marketing-engine/" aria-label="AI Marketing Engine â€” course">
+        <span class="tile__numeral" aria-hidden="true">03</span>
+        <div class="tile__photo">
+          <img src="/images/course-marketing-engine.jpg" alt="AI Marketing Engine course" loading="lazy">
+        </div>
+        <div class="tile__copy">
+          <div class="tile__kicker" style="grid-column:1/-1;">
+            <span class="index">N&deg; 03</span>
+            <span class="rule"></span>
+            <span class="type">Course &middot; Cover Story</span>
+          </div>
+          <h3 class="tile__title">AI Marketing Engine</h3>
+          <p class="tile__tagline">&ldquo;One Tuesday Live &rarr; 14 pieces of content.&rdquo;</p>
+          <p class="tile__body">The Pillar-to-Derivative Cascade. Full prompt + automation stack. The thing I actually run in the background while I sleep.</p>
+          <div class="tile__footer">
+            <span class="tile__meta">9 modules &middot; &asymp;5 hours</span>
+            <span class="tile__cta">Open course</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 04 / COURSE â€” Empire OS -->
+      <a class="tile tile-04" style="--i:3" href="/courses/empire-os/" aria-label="Empire OS â€” course">
+        <span class="tile__numeral" aria-hidden="true">04</span>
+        <div class="tile__photo">
+          <img src="/images/course-empire-os.jpg" alt="Empire OS course" loading="lazy">
+        </div>
+        <div class="tile__copy">
+          <div class="tile__kicker">
+            <span class="index">N&deg; 04</span>
+            <span class="rule"></span>
+            <span class="type">Course</span>
+          </div>
+          <h3 class="tile__title">Empire OS</h3>
+          <p class="tile__tagline">&ldquo;How I run the agency.&rdquo;</p>
+          <p class="tile__body">Systems, hires, finance, fulfillment. The boring stuff that compounds. The operating manual behind the YouTube.</p>
+          <div class="tile__footer">
+            <span class="tile__meta">10 modules &middot; &asymp;6 hours</span>
+            <span class="tile__cta">Open course</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 05 / CHALLENGE â€” 30-Day AI Empire -->
+      <a class="tile tile-05" style="--i:4" href="/challenge/" aria-label="30-Day AI Empire Challenge">
+        <span class="tile__numeral" aria-hidden="true">05</span>
+        <div class="tile__photo">
+          <img src="/images/streaming-rig.jpg" alt="30-Day AI Empire Challenge" loading="lazy">
+        </div>
+        <div class="tile__copy">
+          <div class="tile__kicker">
+            <span class="index">N&deg; 05</span>
+            <span class="rule"></span>
+            <span class="type">Challenge</span>
+          </div>
+          <h3 class="tile__title">30-Day AI Empire Challenge</h3>
+          <p class="tile__tagline">&ldquo;30 emails. 30 days. One AI-powered offer.&rdquo;</p>
+          <p class="tile__body">Daily prompt + accountability nudge. Build an offer end-to-end with AI as the co-pilot.</p>
+          <div class="tile__footer">
+            <span class="tile__meta">30 days &middot; daily email</span>
+            <span class="tile__cta">Enroll free</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 06 / CHALLENGE â€” 30-Day Cold Calling (atmospheric finale) -->
+      <a class="tile tile-06" style="--i:5" href="/cold-call-30/" aria-label="30-Day Cold Calling Challenge">
+        <span class="tile__numeral" aria-hidden="true">06</span>
+        <div class="tile__photo">
+          <img src="/images/broll-bangkok.jpg" alt="30-Day Cold Calling Challenge" loading="lazy">
+        </div>
+        <div class="tile__copy">
+          <div class="tile__kicker" style="grid-column:1/-1;">
+            <span class="index">N&deg; 06</span>
+            <span class="rule"></span>
+            <span class="type">Challenge &middot; Closing Spread</span>
+          </div>
+          <h3 class="tile__title">30-Day Cold Calling Challenge</h3>
+          <p class="tile__tagline">&ldquo;100 dials. 30 days. The Master Script.&rdquo;</p>
+          <p class="tile__body">Watch me dial live every Tuesday. Copy the cadence in real time.</p>
+          <div class="tile__footer">
+            <span class="tile__meta">30 days &middot; 100 dials</span>
+            <span class="tile__cta">Enroll free</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+
+    <div class="courses-footstrip">
+      <span class="courses-footstrip__price">$10/mo</span>
+      <span class="courses-footstrip__rule"></span>
+      <a href="/insider/">Become an Insider &rarr;</a>
+    </div>
+
+  </div>
+
+  <script>
+    (function () {
+      var section = document.currentScript && document.currentScript.closest('.courses-section');
+      if (!section || section.dataset.observed === '1') return;
+      section.dataset.observed = '1';
+      var tiles = section.querySelectorAll('.tile');
+      if (!('IntersectionObserver' in window)) {
+        tiles.forEach(function (t) { t.classList.add('is-in'); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            e.target.classList.add('is-in');
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.25, rootMargin: '0px 0px -8% 0px' });
+      tiles.forEach(function (t) { io.observe(t); });
+    })();
+  </script>
+</section>

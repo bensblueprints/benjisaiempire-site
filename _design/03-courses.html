@@ -1,0 +1,705 @@
+<!--
+  SECTION: "The $10 Bucket" — editorial magazine spread
+  INTENT: NYT Magazine table-of-contents-as-art. Six tiles (4 courses + 2 challenges)
+          arranged on a 12-col asymmetric grid with alternating wide/narrow rhythm
+          and enormous outline Anton numerals (01-06) functioning as graphic anchors.
+          Tile 03 (Marketing Engine, 308KB) and Tile 06 (Bangkok b-roll, 737KB) are
+          given the wide "spread" treatment because they're the highest-fidelity art.
+          Tiles 01, 02, 04 use the standard "tall portrait + numeral" treatment.
+          Tile 05 is wide because the streaming-rig photo also reads at scale.
+
+  PHOTOS USED (all from /images/):
+    01 course-cold-calling.jpg   (~11KB    — small, kept thumbnail-sized)
+    02 course-brand-builder.jpg  (small    — book cover, kept thumbnail-sized)
+    03 course-marketing-engine.jpg (308KB  — wide hero treatment)
+    04 course-empire-os.jpg      (small    — banyan, kept portrait-sized)
+    05 streaming-rig.jpg         (308KB    — wide treatment)
+    06 broll-bangkok.jpg         (737KB    — full-bleed atmospheric finale)
+
+  MOTION:
+    - IntersectionObserver triggers .is-in on each .tile when 25% visible
+    - Stagger via --i custom prop (80ms × index)
+    - Photo zoom 1.04 on hover, 800ms cubic-bezier(.22,1,.36,1)
+    - Tile lifts -6px on hover; numerals shift 8px on hover
+
+  TOKENS: Uses --ink, --ink-2, --ink-3, --cream, --cream-soft, --gold, --gold-bright,
+          --rust, --bone, --line. All fonts: Anton, Fraunces, Manrope, JetBrains Mono.
+
+  JS NOTE: Inline script at the bottom of the section sets up the IntersectionObserver.
+           Safe to run multiple times (guards on dataset flag).
+-->
+
+<style>
+  .courses-section {
+    --tile-radius: 2px;
+    --row-gap: clamp(48px, 6vw, 96px);
+    --col-gap: clamp(20px, 2.4vw, 40px);
+
+    position: relative;
+    background: var(--ink);
+    color: var(--cream);
+    padding: clamp(80px, 10vw, 160px) clamp(20px, 4vw, 64px) clamp(96px, 12vw, 200px);
+    overflow: hidden;
+    font-family: 'Manrope', sans-serif;
+  }
+
+  /* hairline grid texture in background */
+  .courses-section::before {
+    content: "";
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(to right, var(--line) 1px, transparent 1px);
+    background-size: calc(100% / 12) 100%;
+    opacity: .35;
+    pointer-events: none;
+    mask-image: linear-gradient(to bottom, transparent 0, #000 12%, #000 88%, transparent 100%);
+  }
+
+  .courses-section__inner {
+    position: relative;
+    max-width: 1480px;
+    margin: 0 auto;
+  }
+
+  /* ─────────────────────── HEADER ─────────────────────── */
+  .courses-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+    margin-bottom: clamp(64px, 7vw, 112px);
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--line);
+  }
+  @media (min-width: 900px) {
+    .courses-header {
+      grid-template-columns: 1fr 1.1fr;
+      align-items: end;
+      gap: 56px;
+    }
+  }
+
+  .courses-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--cream);
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    margin: 0;
+  }
+  .courses-eyebrow::after {
+    content: "";
+    flex: 0 0 56px;
+    height: 2px;
+    background: var(--gold);
+    transform: translateY(1px);
+  }
+
+  .courses-display {
+    font-family: 'Anton', sans-serif;
+    font-weight: 400;
+    font-size: clamp(56px, 11vw, 188px);
+    line-height: 0.86;
+    letter-spacing: -0.012em;
+    text-transform: uppercase;
+    margin: 18px 0 0;
+    color: var(--cream);
+  }
+  .courses-display .accent {
+    color: var(--gold);
+    font-style: normal;
+    -webkit-text-stroke: 0;
+  }
+  .courses-display .outline {
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--cream);
+    text-stroke: 1.5px var(--cream);
+  }
+
+  .courses-lede {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(18px, 1.5vw, 24px);
+    line-height: 1.45;
+    color: var(--cream-soft);
+    max-width: 52ch;
+    margin: 0;
+  }
+  .courses-lede em {
+    font-style: normal;
+    color: var(--gold-bright);
+    font-weight: 400;
+  }
+
+  .courses-meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px 56px;
+    margin-top: 36px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--cream-soft);
+  }
+  .courses-meta-row span strong {
+    color: var(--cream);
+    font-weight: 600;
+    margin-right: 8px;
+  }
+
+  /* ─────────────────────── GRID ─────────────────────── */
+  .courses-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--row-gap) var(--col-gap);
+  }
+
+  /* default mobile: every tile full width */
+  .tile { grid-column: 1 / -1; }
+
+  /* desktop asymmetric editorial layout */
+  @media (min-width: 1000px) {
+    .tile-01 { grid-column: 1 / span 5; }
+    .tile-02 { grid-column: 7 / span 5; }       /* tile-02 sits to the right of 01 */
+    .tile-03 { grid-column: 1 / span 12; }      /* full-width spread */
+    .tile-04 { grid-column: 2 / span 4; }
+    .tile-05 { grid-column: 7 / span 6; }       /* wide */
+    .tile-06 { grid-column: 1 / span 12; }      /* atmospheric finale */
+  }
+
+  /* shifted vertical alignment for editorial rhythm */
+  @media (min-width: 1000px) {
+    .tile-02 { transform: translateY(64px); }
+    .tile-04 { transform: translateY(40px); }
+    .tile-05 { transform: translateY(-32px); }
+  }
+
+  /* ─────────────────────── TILE BASE ─────────────────────── */
+  .tile {
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+      opacity 800ms cubic-bezier(.22,1,.36,1) calc(var(--i, 0) * 80ms),
+      transform 800ms cubic-bezier(.22,1,.36,1) calc(var(--i, 0) * 80ms);
+  }
+  .tile.is-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* preserve the editorial offsets after enter animation */
+  @media (min-width: 1000px) {
+    .tile-02.is-in { transform: translateY(64px); }
+    .tile-04.is-in { transform: translateY(40px); }
+    .tile-05.is-in { transform: translateY(-32px); }
+    .tile-02 { transform: translateY(calc(64px + 28px)); }
+    .tile-04 { transform: translateY(calc(40px + 28px)); }
+    .tile-05 { transform: translateY(calc(-32px + 28px)); }
+  }
+
+  /* ─────────────────────── NUMERAL ─────────────────────── */
+  .tile__numeral {
+    position: absolute;
+    font-family: 'Anton', sans-serif;
+    font-weight: 400;
+    font-size: clamp(120px, 16vw, 220px);
+    line-height: 0.78;
+    letter-spacing: -0.02em;
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--cream);
+    text-stroke: 1.5px var(--cream);
+    opacity: 0.55;
+    pointer-events: none;
+    user-select: none;
+    transition: transform 800ms cubic-bezier(.22,1,.36,1), opacity 400ms ease;
+    z-index: 2;
+  }
+  .tile:hover .tile__numeral {
+    transform: translate(8px, -4px);
+    opacity: 0.95;
+    -webkit-text-stroke-color: var(--gold);
+    text-stroke-color: var(--gold);
+  }
+
+  /* numeral positioning per tile */
+  .tile-01 .tile__numeral { top: -42px; left: -18px; }
+  .tile-02 .tile__numeral { top: -42px; right: -18px; left: auto; }
+  .tile-03 .tile__numeral { top: -64px; left: 2%; font-size: clamp(160px, 22vw, 320px); }
+  .tile-04 .tile__numeral { top: -42px; left: -18px; }
+  .tile-05 .tile__numeral { top: -42px; right: -18px; left: auto; }
+  .tile-06 .tile__numeral { top: -88px; left: 2%; font-size: clamp(180px, 26vw, 380px); }
+
+  /* ─────────────────────── PHOTO ─────────────────────── */
+  .tile__photo {
+    position: relative;
+    overflow: hidden;
+    background: var(--ink-2);
+    border-radius: var(--tile-radius);
+    isolation: isolate;
+  }
+  .tile__photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 800ms cubic-bezier(.22,1,.36,1), filter 600ms ease;
+    filter: saturate(0.92) contrast(1.04);
+  }
+  .tile:hover .tile__photo img {
+    transform: scale(1.04);
+    filter: saturate(1.08) contrast(1.08);
+  }
+  .tile__photo::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 50%, rgba(11,11,12,.45) 100%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* aspect ratios per tile (editorial — not uniform) */
+  .tile-01 .tile__photo { aspect-ratio: 4 / 5; }     /* portrait */
+  .tile-02 .tile__photo { aspect-ratio: 4 / 5; }     /* portrait */
+  .tile-03 .tile__photo { aspect-ratio: 21 / 9; }    /* cinematic spread */
+  .tile-04 .tile__photo { aspect-ratio: 3 / 4; }     /* tall portrait */
+  .tile-05 .tile__photo { aspect-ratio: 16 / 9; }    /* wide */
+  .tile-06 .tile__photo { aspect-ratio: 21 / 9; }    /* atmospheric finale */
+
+  /* ─────────────────────── KICKER ROW (above title) ─────────────────────── */
+  .tile__kicker {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 24px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--cream-soft);
+  }
+  .tile__kicker .index {
+    color: var(--gold);
+    font-weight: 600;
+  }
+  .tile__kicker .rule {
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+  .tile__kicker .type {
+    color: var(--cream);
+  }
+  .tile-05 .tile__kicker .type,
+  .tile-06 .tile__kicker .type {
+    color: var(--rust);
+  }
+
+  /* ─────────────────────── TITLE + COPY ─────────────────────── */
+  .tile__title {
+    font-family: 'Anton', sans-serif;
+    font-weight: 400;
+    font-size: clamp(32px, 3.4vw, 56px);
+    line-height: 0.94;
+    letter-spacing: -0.005em;
+    text-transform: uppercase;
+    margin: 14px 0 0;
+    color: var(--cream);
+    transition: color 320ms ease;
+  }
+  .tile-03 .tile__title,
+  .tile-06 .tile__title {
+    font-size: clamp(40px, 5vw, 84px);
+  }
+  .tile:hover .tile__title { color: var(--gold-bright); }
+
+  .tile__tagline {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(17px, 1.35vw, 22px);
+    line-height: 1.4;
+    color: var(--bone);
+    margin: 14px 0 0;
+    max-width: 38ch;
+  }
+
+  .tile__body {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--cream-soft);
+    margin: 18px 0 0;
+    max-width: 52ch;
+  }
+
+  .tile__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin-top: 22px;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+  }
+
+  .tile__meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--cream-soft);
+  }
+
+  .tile__cta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--cream);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: color 260ms ease, gap 260ms ease;
+  }
+  .tile__cta::after {
+    content: "→";
+    font-family: 'Anton', sans-serif;
+    font-size: 16px;
+    transform: translateY(-1px);
+    transition: transform 320ms cubic-bezier(.22,1,.36,1);
+  }
+  .tile:hover .tile__cta {
+    color: var(--gold-bright);
+    gap: 16px;
+  }
+  .tile:hover .tile__cta::after { transform: translate(4px, -1px); }
+
+  /* ─────────────────────── SPREAD-STYLE TILES (03, 06) ─────────────────────── */
+  /* On wide tiles, copy sits in a 5-col grid below the photo, magazine-style */
+  @media (min-width: 1000px) {
+    .tile-03 .tile__copy,
+    .tile-06 .tile__copy {
+      display: grid;
+      grid-template-columns: 5fr 4fr 3fr;
+      gap: 56px;
+      align-items: start;
+      margin-top: 28px;
+    }
+    .tile-03 .tile__copy > *,
+    .tile-06 .tile__copy > * {
+      max-width: none;
+      margin: 0;
+    }
+    .tile-03 .tile__title,
+    .tile-06 .tile__title {
+      grid-column: 1;
+    }
+    .tile-03 .tile__tagline,
+    .tile-06 .tile__tagline {
+      grid-column: 2;
+      font-size: clamp(18px, 1.5vw, 24px);
+    }
+    .tile-03 .tile__body,
+    .tile-06 .tile__body {
+      grid-column: 3;
+    }
+    .tile-03 .tile__footer,
+    .tile-06 .tile__footer {
+      grid-column: 1 / -1;
+      margin-top: 32px;
+    }
+  }
+
+  /* Tile 05 — copy splits into 2 columns under wide photo */
+  @media (min-width: 1000px) {
+    .tile-05 .tile__copy {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 40px;
+      align-items: start;
+      margin-top: 22px;
+    }
+    .tile-05 .tile__copy > * { margin: 0; max-width: none; }
+    .tile-05 .tile__title { grid-column: 1; grid-row: 1; }
+    .tile-05 .tile__tagline { grid-column: 1; grid-row: 2; margin-top: 12px; }
+    .tile-05 .tile__body { grid-column: 2; grid-row: 1 / span 2; }
+    .tile-05 .tile__footer { grid-column: 1 / -1; }
+  }
+
+  /* CHALLENGE accent — tiles 05 + 06 get a rust marker */
+  .tile-05 .tile__photo::before,
+  .tile-06 .tile__photo::before {
+    content: "";
+    position: absolute;
+    top: 16px; left: 16px;
+    width: 8px; height: 8px;
+    background: var(--rust);
+    border-radius: 50%;
+    z-index: 2;
+    box-shadow: 0 0 0 4px rgba(196,41,46,.18);
+  }
+
+  /* tile lift on hover */
+  @media (hover: hover) {
+    .tile { transition-property: opacity, transform, filter; }
+    .tile:not(.tile-03):not(.tile-06):hover { filter: brightness(1.02); }
+  }
+
+  /* ─────────────────────── FOOTER STRIP ─────────────────────── */
+  .courses-footstrip {
+    margin-top: clamp(96px, 10vw, 160px);
+    padding-top: 32px;
+    border-top: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--cream-soft);
+  }
+  @media (min-width: 800px) {
+    .courses-footstrip {
+      grid-template-columns: auto 1fr auto;
+      gap: 32px;
+    }
+  }
+  .courses-footstrip__price {
+    font-family: 'Anton', sans-serif;
+    font-size: 28px;
+    letter-spacing: 0;
+    color: var(--gold);
+    text-transform: none;
+  }
+  .courses-footstrip__rule { height: 1px; background: var(--line); }
+  .courses-footstrip a {
+    color: var(--cream);
+    text-decoration: none;
+    border: 1px solid var(--line);
+    padding: 14px 22px;
+    transition: background 220ms ease, color 220ms ease, border-color 220ms ease;
+  }
+  .courses-footstrip a:hover {
+    background: var(--gold);
+    color: var(--ink);
+    border-color: var(--gold);
+  }
+
+  /* reduced-motion */
+  @media (prefers-reduced-motion: reduce) {
+    .tile,
+    .tile__photo img,
+    .tile__numeral,
+    .tile__cta,
+    .tile__cta::after { transition: none !important; }
+    .tile { opacity: 1 !important; transform: none !important; }
+    @media (min-width: 1000px) {
+      .tile-02, .tile-04, .tile-05 { transform: none !important; }
+    }
+  }
+</style>
+
+<section class="courses-section" id="the-bucket">
+  <div class="courses-section__inner">
+
+    <header class="courses-header">
+      <div>
+        <p class="courses-eyebrow">Included with $10 Insider</p>
+        <h2 class="courses-display">
+          Everything<br>
+          <span class="outline">in the</span> <span class="accent">Bucket</span>
+        </h2>
+      </div>
+      <div>
+        <p class="courses-lede">
+          Four courses. Two 30-day challenges. Every prompt and script I run.
+          <em>All for ten dollars a month</em> &mdash; or free up to the videos.
+        </p>
+        <div class="courses-meta-row">
+          <span><strong>04</strong>Courses</span>
+          <span><strong>02</strong>Challenges</span>
+          <span><strong>≈18.5h</strong>Of footage</span>
+          <span><strong>$10</strong>/mo</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="courses-grid">
+
+      <!-- 01 / COURSE — Cold Calling 2.0 + AI -->
+      <a class="tile tile-01" style="--i:0" href="/courses/cold-calling/" aria-label="Cold Calling 2.0 + AI — course">
+        <span class="tile__numeral" aria-hidden="true">01</span>
+        <div class="tile__photo">
+          <img src="/images/course-cold-calling.jpg" alt="Cold Calling 2.0 + AI course" loading="lazy">
+        </div>
+        <div class="tile__copy">
+          <div class="tile__kicker">
+            <span class="index">N&deg; 01</span>
+            <span class="rule"></span>
+            <span class="type">Course</span>
+          </div>
+          <h3 class="tile__title">Cold Calling 2.0 + AI</h3>
+          <p class="tile__tagline">&ldquo;The exact system I run live every Tuesday.&rdquo;</p>
+          <p class="tile__body">AI prospecting, the Master Script, objection handling, follow-up cadence that actually closes.</p>
+          <div class="tile__footer">
+            <span class="tile__meta">8 modules &middot; &asymp;4 hours</span>
+            <span class="tile__cta">Open course</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 02 / COURSE — AI Brand Builder -->
+      <a class="tile tile-02" style="--i:1" href="/courses/brand-builder/" aria-label="AI Brand Builder — course">
+        <span class="tile__numeral" aria-hidden="true">02</span>
+        <div class="tile__photo">
+          <img src="/images/course-brand-builder.jpg" alt="AI Brand Builder course" loading="lazy">
+        </div>
+        <div class="tile__copy">
+          <div class="tile__kicker">
+            <span class="index">N&deg; 02</span>
+            <span class="rule"></span>
+            <span class="type">Course</span>
+          </div>
+          <h3 class="tile__title">AI Brand Builder</h3>
+          <p class="tile__tagline">&ldquo;Blank page to a brand that converts.&rdquo;</p>
+          <p class="tile__body">Positioning, voice, identity, content. AI as a co-pilot &mdash; not a crutch. From the guy who literally wrote the book on what NOT to do.</p>
+          <div class="tile__footer">
+            <span class="tile__meta">7 modules &middot; &asymp;3.5 hours</span>
+            <span class="tile__cta">Open course</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 03 / COURSE — AI Marketing Engine (full-bleed spread) -->
+      <a class="tile tile-03" style="--i:2" href="/courses/marketing-engine/" aria-label="AI Marketing Engine — course">
+        <span class="tile__numeral" aria-hidden="true">03</span>
+        <div class="tile__photo">
+          <img src="/images/course-marketing-engine.jpg" alt="AI Marketing Engine course" loading="lazy">
+        </div>
+        <div class="tile__copy">
+          <div class="tile__kicker" style="grid-column:1/-1;">
+            <span class="index">N&deg; 03</span>
+            <span class="rule"></span>
+            <span class="type">Course &middot; Cover Story</span>
+          </div>
+          <h3 class="tile__title">AI Marketing Engine</h3>
+          <p class="tile__tagline">&ldquo;One Tuesday Live &rarr; 14 pieces of content.&rdquo;</p>
+          <p class="tile__body">The Pillar-to-Derivative Cascade. Full prompt + automation stack. The thing I actually run in the background while I sleep.</p>
+          <div class="tile__footer">
+            <span class="tile__meta">9 modules &middot; &asymp;5 hours</span>
+            <span class="tile__cta">Open course</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 04 / COURSE — Empire OS -->
+      <a class="tile tile-04" style="--i:3" href="/courses/empire-os/" aria-label="Empire OS — course">
+        <span class="tile__numeral" aria-hidden="true">04</span>
+        <div class="tile__photo">
+          <img src="/images/course-empire-os.jpg" alt="Empire OS course" loading="lazy">
+        </div>
+        <div class="tile__copy">
+          <div class="tile__kicker">
+            <span class="index">N&deg; 04</span>
+            <span class="rule"></span>
+            <span class="type">Course</span>
+          </div>
+          <h3 class="tile__title">Empire OS</h3>
+          <p class="tile__tagline">&ldquo;How I run the agency.&rdquo;</p>
+          <p class="tile__body">Systems, hires, finance, fulfillment. The boring stuff that compounds. The operating manual behind the YouTube.</p>
+          <div class="tile__footer">
+            <span class="tile__meta">10 modules &middot; &asymp;6 hours</span>
+            <span class="tile__cta">Open course</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 05 / CHALLENGE — 30-Day AI Empire -->
+      <a class="tile tile-05" style="--i:4" href="/challenge/" aria-label="30-Day AI Empire Challenge">
+        <span class="tile__numeral" aria-hidden="true">05</span>
+        <div class="tile__photo">
+          <img src="/images/streaming-rig.jpg" alt="30-Day AI Empire Challenge" loading="lazy">
+        </div>
+        <div class="tile__copy">
+          <div class="tile__kicker">
+            <span class="index">N&deg; 05</span>
+            <span class="rule"></span>
+            <span class="type">Challenge</span>
+          </div>
+          <h3 class="tile__title">30-Day AI Empire Challenge</h3>
+          <p class="tile__tagline">&ldquo;30 emails. 30 days. One AI-powered offer.&rdquo;</p>
+          <p class="tile__body">Daily prompt + accountability nudge. Build an offer end-to-end with AI as the co-pilot.</p>
+          <div class="tile__footer">
+            <span class="tile__meta">30 days &middot; daily email</span>
+            <span class="tile__cta">Enroll free</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 06 / CHALLENGE — 30-Day Cold Calling (atmospheric finale) -->
+      <a class="tile tile-06" style="--i:5" href="/cold-call-30/" aria-label="30-Day Cold Calling Challenge">
+        <span class="tile__numeral" aria-hidden="true">06</span>
+        <div class="tile__photo">
+          <img src="/images/broll-bangkok.jpg" alt="30-Day Cold Calling Challenge" loading="lazy">
+        </div>
+        <div class="tile__copy">
+          <div class="tile__kicker" style="grid-column:1/-1;">
+            <span class="index">N&deg; 06</span>
+            <span class="rule"></span>
+            <span class="type">Challenge &middot; Closing Spread</span>
+          </div>
+          <h3 class="tile__title">30-Day Cold Calling Challenge</h3>
+          <p class="tile__tagline">&ldquo;100 dials. 30 days. The Master Script.&rdquo;</p>
+          <p class="tile__body">Watch me dial live every Tuesday. Copy the cadence in real time.</p>
+          <div class="tile__footer">
+            <span class="tile__meta">30 days &middot; 100 dials</span>
+            <span class="tile__cta">Enroll free</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+
+    <div class="courses-footstrip">
+      <span class="courses-footstrip__price">$10/mo</span>
+      <span class="courses-footstrip__rule"></span>
+      <a href="/insider/">Become an Insider &rarr;</a>
+    </div>
+
+  </div>
+
+  <script>
+    (function () {
+      var section = document.currentScript && document.currentScript.closest('.courses-section');
+      if (!section || section.dataset.observed === '1') return;
+      section.dataset.observed = '1';
+      var tiles = section.querySelectorAll('.tile');
+      if (!('IntersectionObserver' in window)) {
+        tiles.forEach(function (t) { t.classList.add('is-in'); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            e.target.classList.add('is-in');
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.25, rootMargin: '0px 0px -8% 0px' });
+      tiles.forEach(function (t) { io.observe(t); });
+    })();
+  </script>
+</section>

@@ -1,0 +1,177 @@
+﻿<!--
+  ============================================================
+  05-SHELL.HTML â€” Page chrome for benjisaiempire.com
+  ============================================================
+  Three components, one file. Magazine masthead aesthetic.
+
+  PAGE ORDER (where these go in the assembled site):
+    1. <header class="shell-topbar">     â†’ very top, BEFORE .hero-section
+    2. <div    class="shell-marquee">    â†’ DIRECTLY AFTER .hero-section
+    3. <footer class="shell-footer">     â†’ very bottom of page
+
+  NOTES
+    - All CSS scoped to .shell-topbar / .shell-marquee / .shell-footer.
+    - No html/body rules. :root tokens are declared globally elsewhere.
+    - Topbar is sticky and micro-shrinks on scroll via .is-scrolled (height 80â†’64).
+      The class is toggled by the global site script â€” no JS lives in this file.
+    - Marquee duplicates its content twice in markup for a seamless infinite loop.
+    - Footer hairlines fade in via prefers-reduced-motion-aware transitions.
+    - Fonts assumed loaded globally: Anton, Fraunces, Manrope, JetBrains Mono.
+  ============================================================
+-->
+
+
+
+
+<!-- ============================================================
+     1) TOPBAR â€” sticky masthead nav (place at very top of page)
+     ============================================================ -->
+<header class="shell-topbar" data-shell="topbar">
+  <div class="shell-topbar__inner">
+
+    <a class="shell-topbar__brand" href="/" aria-label="Benji's AI Empire â€” home">
+      <span class="shell-topbar__brand-name">Benji's AI Empire</span>
+      <span class="shell-topbar__brand-sub">Issue 01 &nbsp;Â·&nbsp; May 2026 &nbsp;Â·&nbsp; Advanced Marketing</span>
+    </a>
+
+    <nav class="shell-topbar__center" aria-label="Pricing tiers">
+      <a class="shell-topbar__pill" href="#pricing">Free</a>
+      <span class="shell-topbar__pill-divider" aria-hidden="true"></span>
+      <a class="shell-topbar__pill" href="#pricing">Insider <em>$10</em></a>
+      <span class="shell-topbar__pill-divider" aria-hidden="true"></span>
+      <a class="shell-topbar__pill" href="#pricing">Wholesale <em>$49</em></a>
+    </nav>
+
+    <div class="shell-topbar__right">
+      <a class="shell-topbar__login" href="/login">Member Login</a>
+      <a class="shell-topbar__cta" href="#pricing">See Pricing</a>
+    </div>
+
+  </div>
+</header>
+
+
+<!-- ============================================================
+     2) MARQUEE â€” proof ticker (place DIRECTLY AFTER .hero-section)
+     ============================================================ -->
+<div class="shell-marquee" role="marquee" aria-label="Proof ticker">
+  <span class="shell-marquee__fade shell-marquee__fade--left" aria-hidden="true"></span>
+  <span class="shell-marquee__fade shell-marquee__fade--right" aria-hidden="true"></span>
+
+  <div class="shell-marquee__track">
+    <!-- group 1 -->
+    <div class="shell-marquee__group" aria-hidden="false">
+      <span class="shell-marquee__item shell-marquee__item--accent">$2.8M All-Stores</span>
+      <span class="shell-marquee__sep">Â·</span>
+      <span class="shell-marquee__item shell-marquee__item--accent">110K Reddit AMA</span>
+      <span class="shell-marquee__sep">Â·</span>
+      <span class="shell-marquee__item shell-marquee__item--accent">31,745 Orders / 90 Days</span>
+      <span class="shell-marquee__sep">Â·</span>
+      <span class="shell-marquee__item shell-marquee__item--brand">Forbes</span>
+      <span class="shell-marquee__sep">Â·</span>
+      <span class="shell-marquee__item shell-marquee__item--brand">Yahoo Finance</span>
+      <span class="shell-marquee__sep">Â·</span>
+      <span class="shell-marquee__item shell-marquee__item--brand">Nasdaq</span>
+      <span class="shell-marquee__sep">Â·</span>
+      <span class="shell-marquee__item shell-marquee__item--brand">LA Weekly</span>
+      <span class="shell-marquee__sep">Â·</span>
+      <span class="shell-marquee__item shell-marquee__item--accent">52 Weeks Live</span>
+      <span class="shell-marquee__sep">Â·</span>
+      <span class="shell-marquee__item">Tuesday Cold Call Live</span>
+      <span class="shell-marquee__sep">Â·</span>
+      <span class="shell-marquee__item">Thursday Build Day</span>
+      <span class="shell-marquee__sep">Â·</span>
+      <span class="shell-marquee__item">Built In Public</span>
+      <span class="shell-marquee__sep">Â·</span>
+    </div>
+
+    <!-- group 2 (duplicate for seamless loop) -->
+    <div class="shell-marquee__group" aria-hidden="true">
+      <span class="shell-marquee__item shell-marquee__item--accent">$2.8M All-Stores</span>
+      <span class="shell-marquee__sep">Â·</span>
+      <span class="shell-marquee__item shell-marquee__item--accent">110K Reddit AMA</span>
+      <span class="shell-marquee__sep">Â·</span>
+      <span class="shell-marquee__item shell-marquee__item--accent">31,745 Orders / 90 Days</span>
+      <span class="shell-marquee__sep">Â·</span>
+      <span class="shell-marquee__item shell-marquee__item--brand">Forbes</span>
+      <span class="shell-marquee__sep">Â·</span>
+      <span class="shell-marquee__item shell-marquee__item--brand">Yahoo Finance</span>
+      <span class="shell-marquee__sep">Â·</span>
+      <span class="shell-marquee__item shell-marquee__item--brand">Nasdaq</span>
+      <span class="shell-marquee__sep">Â·</span>
+      <span class="shell-marquee__item shell-marquee__item--brand">LA Weekly</span>
+      <span class="shell-marquee__sep">Â·</span>
+      <span class="shell-marquee__item shell-marquee__item--accent">52 Weeks Live</span>
+      <span class="shell-marquee__sep">Â·</span>
+      <span class="shell-marquee__item">Tuesday Cold Call Live</span>
+      <span class="shell-marquee__sep">Â·</span>
+      <span class="shell-marquee__item">Thursday Build Day</span>
+      <span class="shell-marquee__sep">Â·</span>
+      <span class="shell-marquee__item">Built In Public</span>
+      <span class="shell-marquee__sep">Â·</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ============================================================
+     3) FOOTER â€” editorial colophon (place at very bottom)
+     ============================================================ -->
+<footer class="shell-footer" data-shell="footer">
+  <div class="shell-footer__inner">
+
+    <div class="shell-footer__grid">
+
+      <!-- Column 1 â€” brand / colophon -->
+      <div class="shell-footer__col shell-footer__col--brand">
+        <h2 class="shell-footer__brand-name">Benji's AI Empire</h2>
+        <p class="shell-footer__brand-meta">Operator's Playbook &nbsp;Â·&nbsp; Built In Public</p>
+        <p class="shell-footer__brand-tagline">
+          A weekly dispatch from the build floor â€” every cold call, every
+          launch, every dollar tracked in the open.
+        </p>
+      </div>
+
+      <!-- Column 2 â€” Entry Points -->
+      <div class="shell-footer__col">
+        <h3 class="shell-footer__col-head">Entry Points</h3>
+        <ul class="shell-footer__list">
+          <li><a class="shell-footer__link" href="#starter-kit">Starter Kit</a></li>
+          <li><a class="shell-footer__link" href="#empire-challenge">Empire Challenge</a></li>
+          <li><a class="shell-footer__link" href="#cold-calling-challenge">Cold Calling Challenge</a></li>
+          <li><a class="shell-footer__link" href="#software-partners">Software Partners</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3 â€” Join -->
+      <div class="shell-footer__col">
+        <h3 class="shell-footer__col-head">Join</h3>
+        <ul class="shell-footer__list">
+          <li><a class="shell-footer__link" href="#pricing">Insider <span class="shell-footer__link-meta">$10/mo</span></a></li>
+          <li><a class="shell-footer__link" href="#pricing">Wholesale GHL <span class="shell-footer__link-meta">$49/mo</span></a></li>
+          <li><a class="shell-footer__link" href="/login">Member Login</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4 â€” Every Week -->
+      <div class="shell-footer__col">
+        <h3 class="shell-footer__col-head">Every Week</h3>
+        <ul class="shell-footer__list">
+          <li><a class="shell-footer__link" href="https://youtube.com" target="_blank" rel="noopener">Tuesday Cold Call Live <span class="shell-footer__link-meta">YouTube</span></a></li>
+          <li><a class="shell-footer__link" href="https://youtube.com" target="_blank" rel="noopener">Thursday Build Day <span class="shell-footer__link-meta">YouTube</span></a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="shell-footer__bottom">
+      <div class="shell-footer__bottom-left">
+        <span class="shell-footer__copy">Â© 2026 &nbsp;<strong>Advanced Marketing</strong></span>
+        <span class="shell-footer__divider" aria-hidden="true"></span>
+        <span>All Rights Reserved</span>
+      </div>
+      <span class="shell-footer__tag">Built In Public Since 2024</span>
+    </div>
+
+  </div>
+</footer>

@@ -1,0 +1,650 @@
+<!--
+  ============================================================
+  05-SHELL.HTML — Page chrome for benjisaiempire.com
+  ============================================================
+  Three components, one file. Magazine masthead aesthetic.
+
+  PAGE ORDER (where these go in the assembled site):
+    1. <header class="shell-topbar">     → very top, BEFORE .hero-section
+    2. <div    class="shell-marquee">    → DIRECTLY AFTER .hero-section
+    3. <footer class="shell-footer">     → very bottom of page
+
+  NOTES
+    - All CSS scoped to .shell-topbar / .shell-marquee / .shell-footer.
+    - No html/body rules. :root tokens are declared globally elsewhere.
+    - Topbar is sticky and micro-shrinks on scroll via .is-scrolled (height 80→64).
+      The class is toggled by the global site script — no JS lives in this file.
+    - Marquee duplicates its content twice in markup for a seamless infinite loop.
+    - Footer hairlines fade in via prefers-reduced-motion-aware transitions.
+    - Fonts assumed loaded globally: Anton, Fraunces, Manrope, JetBrains Mono.
+  ============================================================
+-->
+
+<style>
+  /* ============================================================
+     1) SHELL-TOPBAR — masthead-style sticky nav
+     ============================================================ */
+  .shell-topbar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 80;
+    width: 100%;
+    height: 80px;
+    background: color-mix(in srgb, var(--ink) 88%, transparent);
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    border-bottom: 1px solid var(--line);
+    transition: height .35s cubic-bezier(.2,.7,.2,1),
+                background .35s ease,
+                border-color .35s ease;
+    font-family: 'Manrope', sans-serif;
+    color: var(--cream);
+  }
+  .shell-topbar::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: -1px;
+    height: 1px;
+    background: linear-gradient(90deg,
+      transparent 0%,
+      var(--gold) 18%,
+      var(--gold-bright) 50%,
+      var(--gold) 82%,
+      transparent 100%);
+    opacity: .55;
+    pointer-events: none;
+  }
+  .shell-topbar.is-scrolled {
+    height: 64px;
+    background: color-mix(in srgb, var(--ink) 94%, transparent);
+  }
+
+  .shell-topbar__inner {
+    height: 100%;
+    max-width: 1480px;
+    margin: 0 auto;
+    padding: 0 clamp(20px, 4vw, 56px);
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: clamp(16px, 4vw, 48px);
+  }
+
+  /* — Masthead logo block — */
+  .shell-topbar__brand {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 1;
+    text-decoration: none;
+  }
+  .shell-topbar__brand-name {
+    font-family: 'Anton', sans-serif;
+    font-weight: 400;
+    font-size: clamp(22px, 2.1vw, 28px);
+    letter-spacing: .015em;
+    color: var(--gold);
+    text-transform: uppercase;
+    line-height: .95;
+    transition: font-size .35s cubic-bezier(.2,.7,.2,1), color .25s ease;
+  }
+  .shell-topbar.is-scrolled .shell-topbar__brand-name {
+    font-size: clamp(18px, 1.6vw, 22px);
+  }
+  .shell-topbar__brand-name:hover {
+    color: var(--gold-bright);
+  }
+  .shell-topbar__brand-sub {
+    margin-top: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--cream-soft);
+    transition: opacity .25s ease;
+  }
+  .shell-topbar.is-scrolled .shell-topbar__brand-sub {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  /* — Center inline pricing links — */
+  .shell-topbar__center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(18px, 2.4vw, 32px);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+  }
+  .shell-topbar__pill {
+    color: var(--cream-soft);
+    text-decoration: none;
+    padding: 6px 0;
+    position: relative;
+    transition: color .2s ease;
+  }
+  .shell-topbar__pill::after {
+    content: "";
+    position: absolute;
+    left: 0; bottom: 0;
+    height: 1px;
+    width: 0;
+    background: var(--gold);
+    transition: width .25s ease;
+  }
+  .shell-topbar__pill:hover {
+    color: var(--gold-bright);
+  }
+  .shell-topbar__pill:hover::after {
+    width: 100%;
+  }
+  .shell-topbar__pill em {
+    font-style: normal;
+    color: var(--gold);
+    margin-left: 6px;
+  }
+  .shell-topbar__pill-divider {
+    width: 1px;
+    height: 14px;
+    background: var(--line);
+  }
+
+  /* — Right side — */
+  .shell-topbar__right {
+    display: flex;
+    align-items: center;
+    gap: clamp(14px, 1.8vw, 22px);
+  }
+  .shell-topbar__login {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--cream-soft);
+    text-decoration: none;
+    padding: 8px 2px;
+    border-bottom: 1px solid transparent;
+    transition: color .2s ease, border-color .2s ease;
+  }
+  .shell-topbar__login:hover {
+    color: var(--cream);
+    border-bottom-color: var(--gold);
+  }
+  .shell-topbar__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--ink);
+    background: var(--gold);
+    text-decoration: none;
+    padding: 10px 16px;
+    border: 1px solid var(--gold);
+    border-radius: 1px;
+    transition: background .2s ease, color .2s ease, transform .2s ease;
+  }
+  .shell-topbar__cta::after {
+    content: "→";
+    font-family: 'Manrope', sans-serif;
+    letter-spacing: 0;
+    transition: transform .2s ease;
+  }
+  .shell-topbar__cta:hover {
+    background: var(--gold-bright);
+  }
+  .shell-topbar__cta:hover::after {
+    transform: translateX(3px);
+  }
+
+  @media (max-width: 900px) {
+    .shell-topbar__center { display: none; }
+    .shell-topbar__inner { grid-template-columns: auto 1fr auto; }
+  }
+  @media (max-width: 560px) {
+    .shell-topbar__login { display: none; }
+    .shell-topbar__brand-sub { display: none; }
+    .shell-topbar__cta { padding: 9px 12px; font-size: 10px; }
+  }
+
+
+  /* ============================================================
+     2) SHELL-MARQUEE — stock-ticker proof bar
+     ============================================================ */
+  .shell-marquee {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    background: var(--ink-2);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    isolation: isolate;
+  }
+  /* hairline gold rules over the ink-2 lines */
+  .shell-marquee::before,
+  .shell-marquee::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg,
+      transparent, var(--gold) 20%, var(--gold) 80%, transparent);
+    opacity: .35;
+    pointer-events: none;
+    z-index: 2;
+  }
+  .shell-marquee::before { top: 0; }
+  .shell-marquee::after  { bottom: 0; }
+
+  /* edge fade so text doesn't cut hard at viewport edges */
+  .shell-marquee__fade {
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 80px;
+    z-index: 3;
+    pointer-events: none;
+  }
+  .shell-marquee__fade--left {
+    left: 0;
+    background: linear-gradient(90deg, var(--ink-2), transparent);
+  }
+  .shell-marquee__fade--right {
+    right: 0;
+    background: linear-gradient(270deg, var(--ink-2), transparent);
+  }
+
+  .shell-marquee__track {
+    display: flex;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    width: max-content;
+    animation: shell-marquee-scroll 30s linear infinite;
+    will-change: transform;
+  }
+  .shell-marquee:hover .shell-marquee__track {
+    animation-play-state: paused;
+  }
+  .shell-marquee__group {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    padding-right: 0;
+  }
+  .shell-marquee__item {
+    display: inline-flex;
+    align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: .28em;
+    text-transform: uppercase;
+    color: var(--cream-soft);
+    padding: 0 26px;
+  }
+  .shell-marquee__item--accent { color: var(--gold); }
+  .shell-marquee__item--brand  { color: var(--cream); }
+  .shell-marquee__sep {
+    color: var(--cream-soft);
+    opacity: .55;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    user-select: none;
+  }
+
+  @keyframes shell-marquee-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .shell-marquee__track { animation-duration: 120s; }
+  }
+
+
+  /* ============================================================
+     3) SHELL-FOOTER — editorial colophon
+     ============================================================ */
+  .shell-footer {
+    position: relative;
+    width: 100%;
+    background: var(--ink);
+    color: var(--cream-soft);
+    font-family: 'Manrope', sans-serif;
+    padding: clamp(56px, 7vw, 96px) 0 32px;
+    border-top: 1px solid var(--line);
+    overflow: hidden;
+  }
+  .shell-footer::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg,
+      transparent, var(--gold) 30%, var(--gold) 70%, transparent);
+    opacity: .35;
+    animation: shell-footer-hairline 1.2s ease-out both;
+  }
+  @keyframes shell-footer-hairline {
+    from { opacity: 0; transform: scaleX(.6); }
+    to   { opacity: .35; transform: scaleX(1); }
+  }
+
+  .shell-footer__inner {
+    max-width: 1480px;
+    margin: 0 auto;
+    padding: 0 clamp(20px, 4vw, 56px);
+  }
+
+  .shell-footer__grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: clamp(28px, 4vw, 64px);
+    padding-bottom: clamp(40px, 6vw, 72px);
+  }
+
+  /* — Column 1: brand block — */
+  .shell-footer__brand-name {
+    font-family: 'Anton', sans-serif;
+    font-weight: 400;
+    font-size: clamp(34px, 3.6vw, 52px);
+    letter-spacing: .01em;
+    line-height: .9;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin: 0 0 18px;
+  }
+  .shell-footer__brand-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: .26em;
+    text-transform: uppercase;
+    color: var(--cream-soft);
+    margin: 0 0 22px;
+  }
+  .shell-footer__brand-tagline {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--bone);
+    max-width: 320px;
+    margin: 0;
+  }
+
+  /* — Column headers + lists — */
+  .shell-footer__col-head {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: .28em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 0 0 22px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--line);
+  }
+  .shell-footer__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .shell-footer__link {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 8px;
+    font-family: 'Manrope', sans-serif;
+    font-size: 14px;
+    color: var(--cream-soft);
+    text-decoration: none;
+    transition: color .2s ease, transform .2s ease;
+  }
+  .shell-footer__link::before {
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 1px;
+    background: var(--gold);
+    opacity: 0;
+    transform: translateX(-4px);
+    transition: opacity .2s ease, transform .2s ease;
+  }
+  .shell-footer__link:hover {
+    color: var(--gold-bright);
+  }
+  .shell-footer__link:hover::before {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .shell-footer__link-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-left: 6px;
+  }
+
+  /* — Bottom row — */
+  .shell-footer__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    padding-top: 28px;
+    border-top: 1px solid var(--line);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: .24em;
+    text-transform: uppercase;
+    color: var(--cream-soft);
+  }
+  .shell-footer__bottom-left {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .shell-footer__copy strong {
+    color: var(--cream);
+    font-weight: 500;
+    letter-spacing: .26em;
+  }
+  .shell-footer__divider {
+    display: inline-block;
+    width: 18px;
+    height: 1px;
+    background: var(--line);
+  }
+  .shell-footer__tag {
+    color: var(--gold);
+    border: 1px solid var(--line);
+    padding: 6px 10px;
+    border-radius: 1px;
+    transition: border-color .2s ease, color .2s ease;
+  }
+  .shell-footer__tag:hover {
+    border-color: var(--gold);
+    color: var(--gold-bright);
+  }
+
+  @media (max-width: 1024px) {
+    .shell-footer__grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  @media (max-width: 600px) {
+    .shell-footer__grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .shell-footer__bottom {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 14px;
+    }
+  }
+</style>
+
+
+<!-- ============================================================
+     1) TOPBAR — sticky masthead nav (place at very top of page)
+     ============================================================ -->
+<header class="shell-topbar" data-shell="topbar">
+  <div class="shell-topbar__inner">
+
+    <a class="shell-topbar__brand" href="/" aria-label="Benji's AI Empire — home">
+      <span class="shell-topbar__brand-name">Benji's AI Empire</span>
+      <span class="shell-topbar__brand-sub">Issue 01 &nbsp;·&nbsp; May 2026 &nbsp;·&nbsp; Advanced Marketing</span>
+    </a>
+
+    <nav class="shell-topbar__center" aria-label="Pricing tiers">
+      <a class="shell-topbar__pill" href="#pricing">Free</a>
+      <span class="shell-topbar__pill-divider" aria-hidden="true"></span>
+      <a class="shell-topbar__pill" href="#pricing">Insider <em>$10</em></a>
+      <span class="shell-topbar__pill-divider" aria-hidden="true"></span>
+      <a class="shell-topbar__pill" href="#pricing">Wholesale <em>$49</em></a>
+    </nav>
+
+    <div class="shell-topbar__right">
+      <a class="shell-topbar__login" href="/login">Member Login</a>
+      <a class="shell-topbar__cta" href="#pricing">See Pricing</a>
+    </div>
+
+  </div>
+</header>
+
+
+<!-- ============================================================
+     2) MARQUEE — proof ticker (place DIRECTLY AFTER .hero-section)
+     ============================================================ -->
+<div class="shell-marquee" role="marquee" aria-label="Proof ticker">
+  <span class="shell-marquee__fade shell-marquee__fade--left" aria-hidden="true"></span>
+  <span class="shell-marquee__fade shell-marquee__fade--right" aria-hidden="true"></span>
+
+  <div class="shell-marquee__track">
+    <!-- group 1 -->
+    <div class="shell-marquee__group" aria-hidden="false">
+      <span class="shell-marquee__item shell-marquee__item--accent">$2.8M All-Stores</span>
+      <span class="shell-marquee__sep">·</span>
+      <span class="shell-marquee__item shell-marquee__item--accent">110K Reddit AMA</span>
+      <span class="shell-marquee__sep">·</span>
+      <span class="shell-marquee__item shell-marquee__item--accent">31,745 Orders / 90 Days</span>
+      <span class="shell-marquee__sep">·</span>
+      <span class="shell-marquee__item shell-marquee__item--brand">Forbes</span>
+      <span class="shell-marquee__sep">·</span>
+      <span class="shell-marquee__item shell-marquee__item--brand">Yahoo Finance</span>
+      <span class="shell-marquee__sep">·</span>
+      <span class="shell-marquee__item shell-marquee__item--brand">Nasdaq</span>
+      <span class="shell-marquee__sep">·</span>
+      <span class="shell-marquee__item shell-marquee__item--brand">LA Weekly</span>
+      <span class="shell-marquee__sep">·</span>
+      <span class="shell-marquee__item shell-marquee__item--accent">52 Weeks Live</span>
+      <span class="shell-marquee__sep">·</span>
+      <span class="shell-marquee__item">Tuesday Cold Call Live</span>
+      <span class="shell-marquee__sep">·</span>
+      <span class="shell-marquee__item">Thursday Build Day</span>
+      <span class="shell-marquee__sep">·</span>
+      <span class="shell-marquee__item">Built In Public</span>
+      <span class="shell-marquee__sep">·</span>
+    </div>
+
+    <!-- group 2 (duplicate for seamless loop) -->
+    <div class="shell-marquee__group" aria-hidden="true">
+      <span class="shell-marquee__item shell-marquee__item--accent">$2.8M All-Stores</span>
+      <span class="shell-marquee__sep">·</span>
+      <span class="shell-marquee__item shell-marquee__item--accent">110K Reddit AMA</span>
+      <span class="shell-marquee__sep">·</span>
+      <span class="shell-marquee__item shell-marquee__item--accent">31,745 Orders / 90 Days</span>
+      <span class="shell-marquee__sep">·</span>
+      <span class="shell-marquee__item shell-marquee__item--brand">Forbes</span>
+      <span class="shell-marquee__sep">·</span>
+      <span class="shell-marquee__item shell-marquee__item--brand">Yahoo Finance</span>
+      <span class="shell-marquee__sep">·</span>
+      <span class="shell-marquee__item shell-marquee__item--brand">Nasdaq</span>
+      <span class="shell-marquee__sep">·</span>
+      <span class="shell-marquee__item shell-marquee__item--brand">LA Weekly</span>
+      <span class="shell-marquee__sep">·</span>
+      <span class="shell-marquee__item shell-marquee__item--accent">52 Weeks Live</span>
+      <span class="shell-marquee__sep">·</span>
+      <span class="shell-marquee__item">Tuesday Cold Call Live</span>
+      <span class="shell-marquee__sep">·</span>
+      <span class="shell-marquee__item">Thursday Build Day</span>
+      <span class="shell-marquee__sep">·</span>
+      <span class="shell-marquee__item">Built In Public</span>
+      <span class="shell-marquee__sep">·</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ============================================================
+     3) FOOTER — editorial colophon (place at very bottom)
+     ============================================================ -->
+<footer class="shell-footer" data-shell="footer">
+  <div class="shell-footer__inner">
+
+    <div class="shell-footer__grid">
+
+      <!-- Column 1 — brand / colophon -->
+      <div class="shell-footer__col shell-footer__col--brand">
+        <h2 class="shell-footer__brand-name">Benji's AI Empire</h2>
+        <p class="shell-footer__brand-meta">Operator's Playbook &nbsp;·&nbsp; Built In Public</p>
+        <p class="shell-footer__brand-tagline">
+          A weekly dispatch from the build floor — every cold call, every
+          launch, every dollar tracked in the open.
+        </p>
+      </div>
+
+      <!-- Column 2 — Entry Points -->
+      <div class="shell-footer__col">
+        <h3 class="shell-footer__col-head">Entry Points</h3>
+        <ul class="shell-footer__list">
+          <li><a class="shell-footer__link" href="#starter-kit">Starter Kit</a></li>
+          <li><a class="shell-footer__link" href="#empire-challenge">Empire Challenge</a></li>
+          <li><a class="shell-footer__link" href="#cold-calling-challenge">Cold Calling Challenge</a></li>
+          <li><a class="shell-footer__link" href="#software-partners">Software Partners</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3 — Join -->
+      <div class="shell-footer__col">
+        <h3 class="shell-footer__col-head">Join</h3>
+        <ul class="shell-footer__list">
+          <li><a class="shell-footer__link" href="#pricing">Insider <span class="shell-footer__link-meta">$10/mo</span></a></li>
+          <li><a class="shell-footer__link" href="#pricing">Wholesale GHL <span class="shell-footer__link-meta">$49/mo</span></a></li>
+          <li><a class="shell-footer__link" href="/login">Member Login</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4 — Every Week -->
+      <div class="shell-footer__col">
+        <h3 class="shell-footer__col-head">Every Week</h3>
+        <ul class="shell-footer__list">
+          <li><a class="shell-footer__link" href="https://youtube.com" target="_blank" rel="noopener">Tuesday Cold Call Live <span class="shell-footer__link-meta">YouTube</span></a></li>
+          <li><a class="shell-footer__link" href="https://youtube.com" target="_blank" rel="noopener">Thursday Build Day <span class="shell-footer__link-meta">YouTube</span></a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="shell-footer__bottom">
+      <div class="shell-footer__bottom-left">
+        <span class="shell-footer__copy">© 2026 &nbsp;<strong>Advanced Marketing</strong></span>
+        <span class="shell-footer__divider" aria-hidden="true"></span>
+        <span>All Rights Reserved</span>
+      </div>
+      <span class="shell-footer__tag">Built In Public Since 2024</span>
+    </div>
+
+  </div>
+</footer>

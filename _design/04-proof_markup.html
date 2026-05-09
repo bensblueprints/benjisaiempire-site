@@ -1,0 +1,194 @@
+﻿<!--
+  PROOF â€” benjisaiempire.com  Â·  "ABOUT BEN + RECEIPTS"
+  â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  Direction: NYT Magazine feature spread. The pull quote is the
+  visual anchor â€” Fraunces italic at display size with a
+  hand-set drop-cap opener and a JetBrains Mono small-caps
+  byline. Bio columns sit underneath like body copy in a
+  printed magazine. Stats march across a hairline-ruled band.
+  The receipts are an asymmetric editorial collage â€” three
+  large pictures, three smaller ones â€” framed with a 1px
+  gold rule and a paper-shadow offset.
+
+  Layout (composite of A + C):
+    ZONE 1 â€” Masthead band: eyebrow file-marker + display headline
+             "WHY LISTEN TO ME." with a hairline gold rule and
+             folio number "NÂº 04 / RECEIPTS"
+    ZONE 2 â€” Pull quote spread, full bleed within the column.
+             Drop-cap opening quote, body in Fraunces italic,
+             attribution as a hairline-prefixed byline.
+    ZONE 3 â€” Two-column body: bio paragraphs left, anchor
+             portrait + caption right, ghost CTA at end of
+             left column.
+    ZONE 4 â€” Stats register: three Anton numerals with mono
+             small-caps labels, separated by vertical hairlines.
+    ZONE 5 â€” Receipts gallery: 12-column asymmetric collage,
+             6 photos, varied row spans, 60ms fade-stagger.
+
+  Photos used:
+    /images/proof-shopify-2-8m.jpg
+    /images/proof-grant-cardone.jpg
+    /images/proof-meta-ads.jpg
+    /images/hero-petronas.jpg
+    /images/headshot-mural.jpg
+    /images/course-dev-rig.jpg
+
+  Motion:
+    - Pull quote: opacity 0 â†’ 1, letter-spacing .02em â†’ 0,
+      cubic-bezier(.22,1,.36,1), 1100ms.
+    - Stats: count-up via CSS @property + animation timing,
+      triggered when the section's stats-row enters viewport
+      via a single IntersectionObserver inline script.
+    - Photos: opacity 0 + translateY(8px) â†’ 0, 60ms stagger.
+    - prefers-reduced-motion: all collapse to plain fade.
+-->
+
+
+
+<section class="proof-section" id="proof" aria-labelledby="proof-headline">
+
+  <!-- ZONE 1 Â· MASTHEAD -->
+  <header class="ps-masthead">
+    <div>
+      <div class="ps-eyebrow">File â€” The Operator</div>
+      <h2 class="ps-headline" id="proof-headline">Why Listen <em>To Me.</em></h2>
+    </div>
+    <div class="ps-folio">
+      NÂº <span>04</span><br>
+      Receipts &amp; Bio
+    </div>
+  </header>
+
+  <!-- ZONE 2 Â· PULL QUOTE -->
+  <figure class="ps-quote">
+    <span class="ps-quote-marker" aria-hidden="true">&ldquo;</span>
+    <blockquote class="ps-quote-body">
+      I&rsquo;m not a guru. I run real businesses. I cold-call live on YouTube every Tuesday because if I&rsquo;m going to teach this, I should be doing it in front of you &mdash; with my real list, my real script, and my real bad days mixed in with the good ones.
+    </blockquote>
+    <figcaption class="ps-quote-attr">Benji Boyce</figcaption>
+  </figure>
+
+  <!-- ZONE 3 Â· BIO + ANCHOR PORTRAIT -->
+  <div class="ps-bio">
+    <div class="ps-bio-col">
+      <div class="ps-bio-label">Bio Â· The Short Version</div>
+      <p>
+        Multiple Shopify stores doing <strong>eight figures combined</strong>. A marketing agency. A published book on losing a million dollars in 364 days &mdash; so I could write the one on how to avoid it. Featured in <strong>Forbes, Yahoo Finance, Nasdaq, and LA Weekly</strong>. None of that matters more than this:
+      </p>
+      <p>
+        I cold-call <strong>live, every Tuesday</strong>, in front of strangers, with a list nobody has scrubbed for me. If the script doesn&rsquo;t work, you&rsquo;ll hear it. If it works, you&rsquo;ll see why.
+      </p>
+      <a class="ps-cta" href="#pricing">
+        <span>See pricing</span>
+        <span class="ps-arrow" aria-hidden="true">&rarr;</span>
+      </a>
+    </div>
+
+    <aside class="ps-anchor">
+      <div class="ps-anchor-frame">
+        <img src="/images/headshot-mural.jpg" alt="Ben in front of a street-art mural in Bangkok" loading="lazy">
+      </div>
+      <div class="ps-anchor-cap">
+        Bangkok &middot; Street Lab
+        <small>Field Office &middot; 2025</small>
+      </div>
+    </aside>
+  </div>
+
+  <!-- ZONE 4 Â· STATS REGISTER -->
+  <div class="ps-stats" id="ps-stats">
+    <div class="ps-stat" data-counter="28">
+      <div class="ps-stat-num">
+        <span class="ps-prefix">$</span><span class="ps-value">2.8</span><span class="ps-suffix">M</span>
+      </div>
+      <div class="ps-stat-label">Shopify <b>Â·</b> All Stores <b>Â·</b> 90 Days</div>
+    </div>
+    <div class="ps-stat" data-counter="31745">
+      <div class="ps-stat-num">
+        <span class="ps-value">31,745</span>
+      </div>
+      <div class="ps-stat-label">Orders <b>Â·</b> Same 90 Days</div>
+    </div>
+    <div class="ps-stat" data-counter="110">
+      <div class="ps-stat-num">
+        <span class="ps-value">110</span><span class="ps-suffix">K</span>
+      </div>
+      <div class="ps-stat-label">Reddit AMA Views <b>Â·</b> Top 7 All-Time</div>
+    </div>
+  </div>
+
+  <!-- ZONE 5 Â· RECEIPTS GALLERY -->
+  <div class="ps-receipts-head">
+    <h3 class="ps-receipts-title">The <em>Receipts.</em></h3>
+    <div class="ps-receipts-meta">
+      Field Notes <b>Â·</b> 2024&ndash;2026<br>
+      Six Frames <b>Â·</b> Verified
+    </div>
+  </div>
+
+  <div class="ps-grid">
+
+    <figure class="ps-tile t1">
+      <div class="ps-frame">
+        <img src="/images/proof-shopify-2-8m.jpg" alt="Shopify dashboard showing $2.8M in 90 days across 31,745 orders" loading="lazy">
+      </div>
+      <figcaption class="ps-cap">$2.8M &middot; 31,745 Orders &middot; 90 Days</figcaption>
+    </figure>
+
+    <figure class="ps-tile t2">
+      <div class="ps-frame">
+        <img src="/images/proof-grant-cardone.jpg" alt="Ben standing with Grant Cardone" loading="lazy">
+      </div>
+      <figcaption class="ps-cap">With Grant Cardone &middot; 2024</figcaption>
+    </figure>
+
+    <figure class="ps-tile t3">
+      <div class="ps-frame">
+        <img src="/images/proof-meta-ads.jpg" alt="Meta Ads Manager showing four active campaigns" loading="lazy">
+      </div>
+      <figcaption class="ps-cap">Meta Ads &middot; 4 Active Campaigns</figcaption>
+    </figure>
+
+    <figure class="ps-tile t4">
+      <div class="ps-frame">
+        <img src="/images/hero-petronas.jpg" alt="Petronas Towers, Kuala Lumpur" loading="lazy">
+      </div>
+      <figcaption class="ps-cap">Build From Anywhere &middot; KL</figcaption>
+    </figure>
+
+    <figure class="ps-tile t5">
+      <div class="ps-frame">
+        <img src="/images/headshot-mural.jpg" alt="Bangkok street mural session" loading="lazy">
+      </div>
+      <figcaption class="ps-cap">Bangkok &middot; Street Lab</figcaption>
+    </figure>
+
+    <figure class="ps-tile t6">
+      <div class="ps-frame">
+        <img src="/images/course-dev-rig.jpg" alt="Live cold-call rig â€” Tuesdays and Thursdays" loading="lazy">
+      </div>
+      <figcaption class="ps-cap">Tuesdays / Thursdays &middot; Live</figcaption>
+    </figure>
+
+  </div>
+
+  <script>
+    (function(){
+      var stats = document.getElementById('ps-stats');
+      if(!stats || !('IntersectionObserver' in window)){
+        if(stats) stats.classList.add('is-inview');
+        return;
+      }
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting){
+            stats.classList.add('is-inview');
+            io.disconnect();
+          }
+        });
+      }, { threshold: 0.35 });
+      io.observe(stats);
+    })();
+  </script>
+
+</section>

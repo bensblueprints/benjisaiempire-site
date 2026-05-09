@@ -1,0 +1,159 @@
+﻿<!--
+  PRICING SECTION â€” benjisaiempire.com
+  ------------------------------------------------------------
+  INTENT
+  - Editorial luxury x streetwear drop. Reads like a WSJ pricing
+    table crossed with a concert-poster ticket stub.
+  - Three tiers, $49 WHOLESALE GHL is the featured/hero card:
+    rust ribbon, gold border, slight elevation, shimmer on hover.
+  - Big mono numerals for prices. Hairline gold rules everywhere.
+    Small-caps mono for labels. No SaaS-card cliche.
+  - All fonts (Anton, Fraunces, Manrope, JetBrains Mono) are loaded
+    globally elsewhere â€” do NOT @import here.
+
+  JS HOOKS NEEDED (wire later, not in this file)
+  - .scarcity-count[data-seats-left] â€” replace innerText with live
+    seat count from GHL ("87 of 100 left").
+  - .tier--featured can pulse/lock when seats hit 0 (add .is-soldout).
+  - IntersectionObserver hook: when .pricing-grid enters viewport,
+    add .is-visible â€” CSS handles the 60ms staggered fade-in via
+    --i custom property already on each card.
+
+  ACCESSIBILITY
+  - Cards are <article>, prices live in <data value=""> with mono
+    presentation. Scarcity counter is aria-live=polite for updates.
+-->
+
+
+<section class="pricing-section" id="pricing">
+  <header class="pricing-masthead">
+    <div class="pricing-eyebrow">
+      <span>PRICING</span>
+      <span class="pricing-eyebrow-meta">VOL. 02 Â· ISSUE 03 Â· OPERATOR EDITION</span>
+    </div>
+    <h2 class="pricing-headline">
+      Three Tiers. <span class="ph-amp">No</span> Secrets.
+    </h2>
+    <p class="pricing-lede">
+      Free is just the videos. Ten gets you the playbook. Forty-nine is wholesale software for the first hundred operators who want it.
+    </p>
+  </header>
+
+  <div class="pricing-grid">
+
+    <!-- ============== TIER 01: FREE ============== -->
+    <article class="tier tier--free" aria-labelledby="tier-free-name">
+      <div class="tier-eyebrow"><span>TIER 01 / FREE</span></div>
+      <h3 class="tier-name" id="tier-free-name">FREE</h3>
+
+      <div class="tier-price-row">
+        <span class="tier-price"><span class="currency">$</span>0</span>
+        <span class="tier-price-cadence">/ forever</span>
+      </div>
+
+      <p class="tier-tagline">Watch me cold-call live every Tuesday. Free.</p>
+
+      <div class="tier-divider"><span>What's included</span></div>
+      <ul class="tier-includes">
+        <li>Full library of my sales call videos</li>
+        <li>Tuesday Cold Call Live (YouTube)</li>
+        <li>Thursday Build Day Live (YouTube)</li>
+      </ul>
+
+      <div class="tier-foot">
+        <a class="tier-cta" href="/starter-kit/">
+          <span>Watch the videos</span>
+          <span class="arrow" aria-hidden="true">â†’</span>
+        </a>
+      </div>
+    </article>
+
+    <!-- ============== TIER 02: INSIDER ============== -->
+    <article class="tier tier--insider" aria-labelledby="tier-insider-name">
+      <div class="tier-eyebrow"><span>TIER 02 / EVERYTHING</span></div>
+      <h3 class="tier-name" id="tier-insider-name">INSIDER</h3>
+
+      <div class="tier-price-row">
+        <span class="tier-price"><span class="currency">$</span>10</span>
+        <span class="tier-price-cadence">/ month</span>
+      </div>
+      <span class="tier-perminute">
+        <span class="dot" aria-hidden="true"></span>
+        GHL Â· $0.04 / minute
+      </span>
+
+      <p class="tier-tagline">Every course. Every prompt. Every script. The whole bucket.</p>
+
+      <div class="tier-divider"><span>What's included</span></div>
+      <ul class="tier-includes">
+        <li>All <strong>4 courses</strong> (Cold Calling 2.0, AI Brand Builder, AI Marketing Engine, Empire OS)</li>
+        <li>Every prompt I run â€” Claude, Cursor, GPT</li>
+        <li>Every script, template, SOP, checklist</li>
+        <li>The Starter Kit (PDF + cold-call scripts)</li>
+        <li>30-Day Empire Challenge (email sequence)</li>
+        <li>30-Day Cold Calling Challenge (email sequence)</li>
+        <li>GoHighLevel reseller sub-account</li>
+        <li>Private Insider community</li>
+        <li>Cancel anytime</li>
+      </ul>
+
+      <div class="tier-foot">
+        <a class="tier-cta tier-cta--gold" href="/insider/">
+          <span>Join Insider â€” $10/mo</span>
+          <span class="arrow" aria-hidden="true">â†’</span>
+        </a>
+      </div>
+    </article>
+
+    <!-- ============== TIER 03: WHOLESALE GHL â€” FEATURED ============== -->
+    <article class="tier tier--featured" aria-labelledby="tier-wholesale-name">
+      <div class="tier-ribbon">FIRST 100 SEATS Â· WAS $99</div>
+
+      <div class="tier-eyebrow"><span>TIER 03 / WHOLESALE</span></div>
+      <h3 class="tier-name" id="tier-wholesale-name">WHOLESALE GHL</h3>
+
+      <div class="tier-price-row">
+        <span class="tier-price-strike" aria-label="Original price 99 dollars">$99</span>
+        <span class="tier-price"><span class="currency">$</span>49</span>
+        <span class="tier-price-cadence">/ month, locked</span>
+      </div>
+      <span class="tier-perminute">
+        <span class="dot" aria-hidden="true"></span>
+        GHL Â· $0.015 / minute
+      </span>
+
+      <p class="tier-tagline">Just the software â€” at my wholesale rate.</p>
+
+      <div class="scarcity" role="status" aria-live="polite">
+        <span class="scarcity-pulse" aria-hidden="true"></span>
+        <span><span class="scarcity-count" data-seats-left>87</span> of 100 left</span>
+        <span class="scarcity-bar" aria-hidden="true"></span>
+      </div>
+
+      <div class="tier-divider"><span>What's included</span></div>
+      <ul class="tier-includes">
+        <li>GoHighLevel reseller sub-account</li>
+        <li>Wholesale per-minute pricing â€” <strong>$0.015/min</strong> (62% cheaper than Insider tier)</li>
+        <li><strong>Locked at $49/mo for life</strong> â€” never goes up</li>
+        <li>Pure software access â€” NO courses, NO prompts</li>
+        <li>For agencies running real call volume</li>
+        <li>Only 100 seats. Then it goes back to $99 forever.</li>
+      </ul>
+
+      <div class="tier-foot">
+        <a class="tier-cta tier-cta--gold-outline" href="/founders/">
+          <span>Lock my $49 seat</span>
+          <span class="arrow" aria-hidden="true">â†’</span>
+        </a>
+        <p class="tier-fineprint">Price held for life Â· 7-day refund Â· No contracts</p>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="pricing-footnote">
+    <span>Filed under <strong>Operator Pricing</strong> Â· benjisaiempire.com</span>
+    <span>All tiers billed monthly. Cancel anytime.</span>
+    <span>GHL minutes billed at-cost on top of subscription.</span>
+  </div>
+</section>

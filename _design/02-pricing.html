@@ -1,0 +1,710 @@
+<!--
+  PRICING SECTION — benjisaiempire.com
+  ------------------------------------------------------------
+  INTENT
+  - Editorial luxury x streetwear drop. Reads like a WSJ pricing
+    table crossed with a concert-poster ticket stub.
+  - Three tiers, $49 WHOLESALE GHL is the featured/hero card:
+    rust ribbon, gold border, slight elevation, shimmer on hover.
+  - Big mono numerals for prices. Hairline gold rules everywhere.
+    Small-caps mono for labels. No SaaS-card cliche.
+  - All fonts (Anton, Fraunces, Manrope, JetBrains Mono) are loaded
+    globally elsewhere — do NOT @import here.
+
+  JS HOOKS NEEDED (wire later, not in this file)
+  - .scarcity-count[data-seats-left] — replace innerText with live
+    seat count from GHL ("87 of 100 left").
+  - .tier--featured can pulse/lock when seats hit 0 (add .is-soldout).
+  - IntersectionObserver hook: when .pricing-grid enters viewport,
+    add .is-visible — CSS handles the 60ms staggered fade-in via
+    --i custom property already on each card.
+
+  ACCESSIBILITY
+  - Cards are <article>, prices live in <data value=""> with mono
+    presentation. Scarcity counter is aria-live=polite for updates.
+-->
+<style>
+  /* ============================================================
+     PRICING — scoped entirely under .pricing-section
+     ============================================================ */
+  .pricing-section{
+    /* local fallbacks if globals aren't present */
+    --ps-ink:        var(--ink, #0b0b0c);
+    --ps-ink-2:      var(--ink-2, #15161a);
+    --ps-ink-3:      var(--ink-3, #1d1f25);
+    --ps-cream:      var(--cream, #f4ecd8);
+    --ps-cream-soft: var(--cream-soft, rgba(244,236,216,.65));
+    --ps-gold:       var(--gold, #d4af37);
+    --ps-gold-bright:var(--gold-bright, #f5d061);
+    --ps-rust:       var(--rust, #c4292e);
+    --ps-bone:       var(--bone, #d8d2bf);
+    --ps-line:       var(--line, rgba(244,236,216,.14));
+
+    position: relative;
+    padding: clamp(72px, 9vw, 140px) clamp(20px, 5vw, 72px) clamp(96px, 11vw, 160px);
+    background:
+      radial-gradient(1200px 600px at 80% -10%, rgba(212,175,55,.06), transparent 60%),
+      radial-gradient(900px 500px at 5% 110%, rgba(196,41,46,.05), transparent 65%),
+      var(--ps-ink);
+    color: var(--ps-cream);
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  /* Faint print-like horizontal rule grid in the background */
+  .pricing-section::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image: repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 47px,
+      rgba(244,236,216,.025) 47px,
+      rgba(244,236,216,.025) 48px
+    );
+    pointer-events:none; z-index:0;
+  }
+
+  .pricing-section > *{ position: relative; z-index: 1; }
+
+  /* ---------- HEADER / EDITORIAL MASTHEAD ---------- */
+  .pricing-masthead{
+    display:grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    max-width: 1280px;
+    margin: 0 auto clamp(48px, 6vw, 88px);
+    border-top: 1px solid var(--ps-line);
+    padding-top: clamp(24px, 3vw, 44px);
+    position: relative;
+  }
+  .pricing-masthead::after{
+    content:""; position:absolute; left:0; right:0; top:-1px; height:1px;
+    background: linear-gradient(90deg, var(--ps-gold) 0, var(--ps-gold) 80px, transparent 80px);
+  }
+
+  .pricing-eyebrow{
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: .28em;
+    text-transform: uppercase;
+    color: var(--ps-gold);
+    display:flex; align-items:center; gap: 14px;
+  }
+  .pricing-eyebrow::before{
+    content:""; width: 28px; height:1px; background: var(--ps-gold);
+  }
+  .pricing-eyebrow .pricing-eyebrow-meta{
+    color: var(--ps-cream-soft);
+    margin-left: auto;
+    font-size: 10px;
+  }
+
+  .pricing-headline{
+    font-family: 'Anton', 'Bebas Neue', Impact, sans-serif;
+    font-weight: 400;
+    font-size: clamp(54px, 8.4vw, 132px);
+    line-height: .92;
+    letter-spacing: -.01em;
+    margin: 6px 0 0;
+    text-transform: uppercase;
+    color: var(--ps-cream);
+  }
+  .pricing-headline .ph-amp{
+    color: var(--ps-gold);
+    font-style: normal;
+    -webkit-text-stroke: 1px var(--ps-gold);
+    color: transparent;
+    margin: 0 .08em;
+  }
+  .pricing-lede{
+    font-family: 'Fraunces', 'Times New Roman', Georgia, serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(17px, 1.5vw, 22px);
+    line-height: 1.45;
+    color: var(--ps-cream-soft);
+    max-width: 720px;
+    margin: 18px 0 0;
+  }
+
+  /* ---------- TIER GRID ---------- */
+  .pricing-grid{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(20px, 2.4vw, 28px);
+    max-width: 1280px;
+    margin: 0 auto;
+    align-items: stretch;
+  }
+  @media (min-width: 900px){
+    .pricing-grid{
+      grid-template-columns: 1fr 1fr 1.18fr;
+      gap: clamp(18px, 2vw, 28px);
+    }
+  }
+
+  /* ---------- TIER CARD (base) ---------- */
+  .tier{
+    --i: 0;
+    position: relative;
+    background: var(--ps-ink-2);
+    border: 1px solid var(--ps-line);
+    padding: clamp(28px, 2.6vw, 40px) clamp(24px, 2.2vw, 36px) clamp(28px, 2.6vw, 40px);
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    color: var(--ps-cream);
+    transition: transform .35s cubic-bezier(.2,.7,.2,1),
+                box-shadow .35s ease,
+                border-color .35s ease,
+                background .35s ease;
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  .tier::before{
+    /* hairline gold rule across the top of every card */
+    content:""; position:absolute; left:0; right:0; top:-1px; height:1px;
+    background: linear-gradient(90deg, transparent 0, var(--ps-gold) 18%, var(--ps-gold) 82%, transparent 100%);
+    opacity: .35;
+  }
+  .pricing-grid.is-visible .tier{
+    opacity: 1; transform: translateY(0);
+    transition-delay: calc(var(--i) * 60ms);
+  }
+  /* Fallback: animate without JS by default after small delay */
+  @media (prefers-reduced-motion: no-preference){
+    .pricing-grid:not(.is-visible) .tier{
+      animation: tierFadeIn .7s cubic-bezier(.2,.7,.2,1) forwards;
+      animation-delay: calc(var(--i) * 60ms + 120ms);
+    }
+  }
+  @keyframes tierFadeIn{ to{ opacity:1; transform: translateY(0);} }
+
+  .tier:hover{
+    transform: translateY(-3px);
+    box-shadow:
+      0 1px 0 var(--ps-line) inset,
+      0 28px 60px -28px rgba(0,0,0,.7),
+      0 8px 22px -10px rgba(212,175,55,.12);
+    border-color: rgba(244,236,216,.22);
+  }
+
+  .tier-eyebrow{
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 10.5px;
+    letter-spacing: .26em;
+    text-transform: uppercase;
+    color: var(--ps-cream-soft);
+    display:flex; align-items:center; gap:10px;
+  }
+  .tier-eyebrow::before{
+    content:""; width:18px; height:1px; background: var(--ps-gold); opacity:.7;
+  }
+
+  .tier-name{
+    font-family: 'Anton', 'Bebas Neue', Impact, sans-serif;
+    font-weight: 400;
+    font-size: clamp(34px, 3.6vw, 54px);
+    line-height: 1;
+    letter-spacing: -.005em;
+    margin: 14px 0 22px;
+    text-transform: uppercase;
+    color: var(--ps-cream);
+  }
+
+  .tier-price-row{
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 0 0 6px;
+    border-top: 1px solid var(--ps-line);
+    padding-top: 18px;
+  }
+  .tier-price{
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-weight: 700;
+    font-size: clamp(56px, 6vw, 88px);
+    line-height: .95;
+    letter-spacing: -.02em;
+    color: var(--ps-cream);
+  }
+  .tier-price .currency{
+    font-size: .55em;
+    vertical-align: top;
+    margin-right: 2px;
+    color: var(--ps-gold);
+    font-weight: 500;
+  }
+  .tier-price-strike{
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-weight: 500;
+    font-size: clamp(20px, 2vw, 28px);
+    color: var(--ps-rust);
+    text-decoration: line-through;
+    text-decoration-thickness: 2px;
+    margin-right: 4px;
+    align-self: center;
+    transform: translateY(-6px);
+  }
+  .tier-price-cadence{
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 12px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--ps-cream-soft);
+    align-self: flex-end;
+    padding-bottom: 8px;
+  }
+
+  .tier-perminute{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--ps-gold);
+    border: 1px solid rgba(212,175,55,.45);
+    padding: 7px 11px 6px;
+    margin: 12px 0 0;
+    align-self: flex-start;
+    background: rgba(212,175,55,.05);
+  }
+  .tier-perminute .dot{
+    width:5px; height:5px; border-radius:50%;
+    background: var(--ps-gold); display:inline-block;
+  }
+
+  .tier-tagline{
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(16px, 1.25vw, 19px);
+    line-height: 1.45;
+    color: var(--ps-cream);
+    margin: 22px 0 22px;
+    padding-left: 14px;
+    border-left: 2px solid var(--ps-gold);
+  }
+
+  /* hairline section divider before the includes list */
+  .tier-divider{
+    display:flex; align-items:center; gap: 12px;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 10px;
+    letter-spacing: .28em;
+    text-transform: uppercase;
+    color: var(--ps-cream-soft);
+    margin: 6px 0 14px;
+  }
+  .tier-divider::after{
+    content:""; flex:1; height:1px; background: var(--ps-line);
+  }
+
+  .tier-includes{
+    list-style: none;
+    margin: 0 0 28px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .tier-includes li{
+    font-family: 'Manrope', system-ui, sans-serif;
+    font-size: 14.5px;
+    line-height: 1.55;
+    color: var(--ps-cream);
+    padding-left: 22px;
+    position: relative;
+  }
+  .tier-includes li::before{
+    content:""; position:absolute; left:0; top:.65em;
+    width: 12px; height: 1px;
+    background: var(--ps-gold);
+  }
+  .tier-includes li strong{
+    color: var(--ps-gold-bright);
+    font-weight: 600;
+  }
+
+  /* push the CTA to the bottom of every card so they line up */
+  .tier-foot{ margin-top: auto; }
+
+  .tier-cta{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    padding: 16px 20px;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid var(--ps-cream);
+    color: var(--ps-cream);
+    background: transparent;
+    transition: background .25s ease, color .25s ease, border-color .25s ease, transform .25s ease;
+  }
+  .tier-cta:hover{
+    background: var(--ps-cream);
+    color: var(--ps-ink);
+    transform: translateY(-1px);
+  }
+  .tier-cta--gold{
+    background: var(--ps-gold);
+    border-color: var(--ps-gold);
+    color: var(--ps-ink);
+  }
+  .tier-cta--gold:hover{
+    background: var(--ps-gold-bright);
+    border-color: var(--ps-gold-bright);
+    color: var(--ps-ink);
+  }
+  .tier-cta--gold-outline{
+    background: var(--ps-gold);
+    color: var(--ps-ink);
+    border: 1px solid var(--ps-gold);
+    box-shadow: 0 0 0 4px rgba(212,175,55,.12);
+  }
+  .tier-cta--gold-outline:hover{
+    background: var(--ps-gold-bright);
+    border-color: var(--ps-gold-bright);
+    box-shadow: 0 0 0 6px rgba(212,175,55,.18);
+  }
+  .tier-cta .arrow{
+    transition: transform .25s ease;
+  }
+  .tier-cta:hover .arrow{
+    transform: translateX(4px);
+  }
+
+  .tier-fineprint{
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 10px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--ps-cream-soft);
+    text-align: center;
+    margin: 12px 0 0;
+  }
+
+  /* ---------- TIER 1: FREE ---------- */
+  .tier--free{ --i: 0; }
+  .tier--free .tier-name{ color: var(--ps-bone); }
+
+  /* ---------- TIER 2: INSIDER ---------- */
+  .tier--insider{ --i: 1; }
+  .tier--insider .tier-name{ color: var(--ps-cream); }
+
+  /* ---------- TIER 3: WHOLESALE GHL — FEATURED ---------- */
+  .tier--featured{
+    --i: 2;
+    background: linear-gradient(180deg, #1a1916 0%, var(--ps-ink-2) 65%);
+    border: 1px solid var(--ps-gold);
+    box-shadow:
+      0 0 0 1px rgba(212,175,55,.25),
+      0 30px 60px -30px rgba(0,0,0,.8),
+      0 12px 30px -16px rgba(212,175,55,.18);
+    padding-top: clamp(40px, 3.4vw, 56px);
+  }
+  @media (min-width: 900px){
+    .tier--featured{
+      transform: translateY(-12px);
+      margin-top: -12px;
+    }
+    .tier--featured:hover{
+      transform: translateY(-16px);
+    }
+  }
+  .tier--featured::before{
+    background: linear-gradient(90deg, transparent 0, var(--ps-gold) 8%, var(--ps-gold-bright) 50%, var(--ps-gold) 92%, transparent 100%);
+    opacity: .9;
+  }
+
+  /* shimmer that slowly travels across the gold edge on hover */
+  .tier--featured::after{
+    content:"";
+    position: absolute;
+    inset: -1px;
+    border: 1px solid transparent;
+    background:
+      linear-gradient(115deg,
+        transparent 0%,
+        transparent 38%,
+        rgba(245,208,97,.55) 50%,
+        transparent 62%,
+        transparent 100%) border-box;
+    -webkit-mask:
+      linear-gradient(#000 0 0) padding-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    background-size: 250% 250%;
+    background-position: -50% 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity .4s ease;
+  }
+  .tier--featured:hover::after{
+    opacity: 1;
+    animation: shimmerEdge 2.6s linear infinite;
+  }
+  @keyframes shimmerEdge{
+    0%   { background-position: -50% 0; }
+    100% { background-position: 150% 0; }
+  }
+
+  /* RUST RIBBON — ticket-stub */
+  .tier-ribbon{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: var(--ps-rust);
+    color: var(--ps-cream);
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: .32em;
+    text-transform: uppercase;
+    padding: 9px 18px 8px;
+    text-align: center;
+    border-bottom: 1px solid rgba(0,0,0,.35);
+    box-shadow: 0 1px 0 rgba(245,208,97,.25);
+  }
+  .tier-ribbon::before,
+  .tier-ribbon::after{
+    /* perforation dots — ticket stub feel */
+    content:"";
+    position:absolute;
+    bottom: -5px;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--ps-ink);
+    border: 1px solid var(--ps-gold);
+  }
+  .tier-ribbon::before{ left: -5px; }
+  .tier-ribbon::after { right: -5px; }
+
+  .tier--featured .tier-eyebrow{ color: var(--ps-gold); margin-top: 8px; }
+  .tier--featured .tier-name{
+    color: var(--ps-cream);
+    text-shadow: 0 1px 0 rgba(0,0,0,.3);
+  }
+
+  /* SCARCITY COUNTER */
+  .scarcity{
+    display:flex; align-items:center; gap: 12px;
+    margin: 0 0 18px;
+    padding: 12px 14px;
+    background: rgba(196,41,46,.08);
+    border: 1px dashed rgba(196,41,46,.5);
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 12px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--ps-cream);
+  }
+  .scarcity .scarcity-pulse{
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--ps-rust);
+    box-shadow: 0 0 0 0 rgba(196,41,46,.6);
+    animation: pulse 2s infinite;
+    flex: none;
+  }
+  @keyframes pulse{
+    0%   { box-shadow: 0 0 0 0 rgba(196,41,46,.55); }
+    70%  { box-shadow: 0 0 0 10px rgba(196,41,46,0); }
+    100% { box-shadow: 0 0 0 0 rgba(196,41,46,0); }
+  }
+  .scarcity-count{
+    color: var(--ps-gold-bright);
+    font-weight: 700;
+  }
+  .scarcity-bar{
+    flex: 1;
+    height: 3px;
+    background: rgba(244,236,216,.1);
+    position: relative;
+    overflow: hidden;
+  }
+  .scarcity-bar::before{
+    content:"";
+    position:absolute; left:0; top:0; bottom:0;
+    width: 87%; /* matches placeholder seats sold */
+    background: linear-gradient(90deg, var(--ps-gold) 0%, var(--ps-rust) 100%);
+  }
+
+  /* ---------- FOOT NOTE BAR (under grid) ---------- */
+  .pricing-footnote{
+    max-width: 1280px;
+    margin: clamp(48px, 6vw, 80px) auto 0;
+    padding-top: 26px;
+    border-top: 1px solid var(--ps-line);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px 36px;
+    justify-content: space-between;
+    align-items: baseline;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 10.5px;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--ps-cream-soft);
+  }
+  .pricing-footnote span strong{
+    color: var(--ps-gold);
+    font-weight: 600;
+  }
+
+  /* ---------- RESPONSIVE TIDY ---------- */
+  @media (max-width: 899px){
+    .tier--featured{ order: -1; }
+    .pricing-headline{ font-size: clamp(48px, 12vw, 72px); }
+  }
+  @media (max-width: 520px){
+    .tier{ padding: 26px 22px; }
+    .tier-name{ font-size: 38px; }
+    .tier-price{ font-size: 56px; }
+    .tier-eyebrow .pricing-eyebrow-meta{ display:none; }
+  }
+</style>
+
+<section class="pricing-section" id="pricing">
+  <header class="pricing-masthead">
+    <div class="pricing-eyebrow">
+      <span>PRICING</span>
+      <span class="pricing-eyebrow-meta">VOL. 02 · ISSUE 03 · OPERATOR EDITION</span>
+    </div>
+    <h2 class="pricing-headline">
+      Three Tiers. <span class="ph-amp">No</span> Secrets.
+    </h2>
+    <p class="pricing-lede">
+      Free is just the videos. Ten gets you the playbook. Forty-nine is wholesale software for the first hundred operators who want it.
+    </p>
+  </header>
+
+  <div class="pricing-grid">
+
+    <!-- ============== TIER 01: FREE ============== -->
+    <article class="tier tier--free" aria-labelledby="tier-free-name">
+      <div class="tier-eyebrow"><span>TIER 01 / FREE</span></div>
+      <h3 class="tier-name" id="tier-free-name">FREE</h3>
+
+      <div class="tier-price-row">
+        <span class="tier-price"><span class="currency">$</span>0</span>
+        <span class="tier-price-cadence">/ forever</span>
+      </div>
+
+      <p class="tier-tagline">Watch me cold-call live every Tuesday. Free.</p>
+
+      <div class="tier-divider"><span>What's included</span></div>
+      <ul class="tier-includes">
+        <li>Full library of my sales call videos</li>
+        <li>Tuesday Cold Call Live (YouTube)</li>
+        <li>Thursday Build Day Live (YouTube)</li>
+      </ul>
+
+      <div class="tier-foot">
+        <a class="tier-cta" href="/starter-kit/">
+          <span>Watch the videos</span>
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </article>
+
+    <!-- ============== TIER 02: INSIDER ============== -->
+    <article class="tier tier--insider" aria-labelledby="tier-insider-name">
+      <div class="tier-eyebrow"><span>TIER 02 / EVERYTHING</span></div>
+      <h3 class="tier-name" id="tier-insider-name">INSIDER</h3>
+
+      <div class="tier-price-row">
+        <span class="tier-price"><span class="currency">$</span>10</span>
+        <span class="tier-price-cadence">/ month</span>
+      </div>
+      <span class="tier-perminute">
+        <span class="dot" aria-hidden="true"></span>
+        GHL · $0.04 / minute
+      </span>
+
+      <p class="tier-tagline">Every course. Every prompt. Every script. The whole bucket.</p>
+
+      <div class="tier-divider"><span>What's included</span></div>
+      <ul class="tier-includes">
+        <li>All <strong>4 courses</strong> (Cold Calling 2.0, AI Brand Builder, AI Marketing Engine, Empire OS)</li>
+        <li>Every prompt I run — Claude, Cursor, GPT</li>
+        <li>Every script, template, SOP, checklist</li>
+        <li>The Starter Kit (PDF + cold-call scripts)</li>
+        <li>30-Day Empire Challenge (email sequence)</li>
+        <li>30-Day Cold Calling Challenge (email sequence)</li>
+        <li>GoHighLevel reseller sub-account</li>
+        <li>Private Insider community</li>
+        <li>Cancel anytime</li>
+      </ul>
+
+      <div class="tier-foot">
+        <a class="tier-cta tier-cta--gold" href="/insider/">
+          <span>Join Insider — $10/mo</span>
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </article>
+
+    <!-- ============== TIER 03: WHOLESALE GHL — FEATURED ============== -->
+    <article class="tier tier--featured" aria-labelledby="tier-wholesale-name">
+      <div class="tier-ribbon">FIRST 100 SEATS · WAS $99</div>
+
+      <div class="tier-eyebrow"><span>TIER 03 / WHOLESALE</span></div>
+      <h3 class="tier-name" id="tier-wholesale-name">WHOLESALE GHL</h3>
+
+      <div class="tier-price-row">
+        <span class="tier-price-strike" aria-label="Original price 99 dollars">$99</span>
+        <span class="tier-price"><span class="currency">$</span>49</span>
+        <span class="tier-price-cadence">/ month, locked</span>
+      </div>
+      <span class="tier-perminute">
+        <span class="dot" aria-hidden="true"></span>
+        GHL · $0.015 / minute
+      </span>
+
+      <p class="tier-tagline">Just the software — at my wholesale rate.</p>
+
+      <div class="scarcity" role="status" aria-live="polite">
+        <span class="scarcity-pulse" aria-hidden="true"></span>
+        <span><span class="scarcity-count" data-seats-left>87</span> of 100 left</span>
+        <span class="scarcity-bar" aria-hidden="true"></span>
+      </div>
+
+      <div class="tier-divider"><span>What's included</span></div>
+      <ul class="tier-includes">
+        <li>GoHighLevel reseller sub-account</li>
+        <li>Wholesale per-minute pricing — <strong>$0.015/min</strong> (62% cheaper than Insider tier)</li>
+        <li><strong>Locked at $49/mo for life</strong> — never goes up</li>
+        <li>Pure software access — NO courses, NO prompts</li>
+        <li>For agencies running real call volume</li>
+        <li>Only 100 seats. Then it goes back to $99 forever.</li>
+      </ul>
+
+      <div class="tier-foot">
+        <a class="tier-cta tier-cta--gold-outline" href="/founders/">
+          <span>Lock my $49 seat</span>
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <p class="tier-fineprint">Price held for life · 7-day refund · No contracts</p>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="pricing-footnote">
+    <span>Filed under <strong>Operator Pricing</strong> · benjisaiempire.com</span>
+    <span>All tiers billed monthly. Cancel anytime.</span>
+    <span>GHL minutes billed at-cost on top of subscription.</span>
+  </div>
+</section>

@@ -1,0 +1,121 @@
+﻿<!--
+  HERO â€” benjisaiempire.com
+  â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  Direction: Asymmetric editorial spread. Magazine-cover energy.
+  Left:  Ink panel. Chapter marker, ON AIR pulse, Anton headline
+         with gold breakout line, Fraunces lede, dual CTAs,
+         bottom stat ticker in JetBrains Mono.
+  Right: Full-bleed hero-empire.jpg with subtle duotone (ink + cream
+         multiply at low opacity), slow ken-burns, film-grain overlay,
+         vertical mono caption rail, issue tag in corner.
+  Seam:  headshot-pointing.jpg as a tilted polaroid breaking the grid.
+
+  Photos used:
+    /images/hero-empire.jpg        (primary, right column, ken-burns)
+    /images/headshot-pointing.jpg  (secondary, polaroid on seam)
+
+  Motion:
+    - Single orchestrated entrance, staggered 60â€“100ms,
+      cubic-bezier(.22,1,.36,1).
+    - ON AIR pulse: 1.6s ease-in-out infinite.
+    - Ken-burns: 18s linear alternate.
+    - No JS required. Pure CSS @keyframes + animation-delay.
+    - prefers-reduced-motion respected: animations collapse to fade.
+-->
+
+
+
+<section class="hero-section" aria-label="Benji Boyce â€” The Empire">
+  <div class="hero-grid">
+
+    <!-- â”€â”€ LEFT: INK PANEL â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+    <div class="hero-left">
+
+      <div class="hero-rail">
+        <div class="chapter">
+          <span class="num">01</span>
+          <span class="bar"></span>
+          <span>06 â€” The Empire</span>
+        </div>
+        <div class="on-air" aria-label="Live every Tuesday">
+          <span class="dot" aria-hidden="true"></span>
+          <span>On Air Â· Tuesdays</span>
+        </div>
+      </div>
+
+      <div class="hero-main">
+        <div class="eyebrow">
+          Benji Boyce <span>/</span> Operator, Founder, Caller-In-Chief
+        </div>
+
+        <h1 class="hero-headline">
+          <span class="line l1"><span>I cold-call</span></span>
+          <span class="line l2"><span>live every Tuesday<span class="amp">.</span></span></span>
+          <span class="line l3"><span>You can have</span></span>
+          <span class="line l4"><span>the videos free.</span></span>
+        </h1>
+
+        <p class="hero-lede">
+          I'm Benji Boyce. I run a real agency, sell real software, and ship
+          real client websites with Claude Code on YouTube every week.
+          <strong>Watch me work â€” for free.</strong> Or grab the $10 bucket
+          and get every course, every prompt, the whole library.
+        </p>
+
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#pricing">
+            <span>See the 3 tiers</span>
+            <span class="arrow" aria-hidden="true">â†’</span>
+          </a>
+          <a class="btn btn-ghost" href="/starter-kit/">
+            <span>Get free video access</span>
+            <span class="arrow" aria-hidden="true">â†—</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-ticker" aria-label="Receipts">
+        <div class="stat">
+          <span class="k">Portfolio</span>
+          <span class="v">8<em>â€”figure</em></span>
+        </div>
+        <div class="stat">
+          <span class="k">Live calls / wk</span>
+          <span class="v">40<em>+</em></span>
+        </div>
+        <div class="stat">
+          <span class="k">Bucket</span>
+          <span class="v">$10<em>/mo</em></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- â”€â”€ RIGHT: PHOTO PANEL â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+    <div class="hero-right">
+      <div class="hero-photo" role="img" aria-label="Benji in Boss hoodie with Rolls Royce and Lamborghini Urus at night"></div>
+
+      <div class="bracket tr" aria-hidden="true"></div>
+      <div class="bracket bl" aria-hidden="true"></div>
+
+      <div class="issue-tag">
+        <span class="big">â„– 01</span>
+        Vol. MMXXVI Â· Empire Issue
+      </div>
+
+      <div class="photo-caption">
+        Shot on location <span>Â·</span> Receipts in the driveway
+      </div>
+
+      <div class="photo-credit">
+        <b>Benji Boyce</b> &nbsp;//&nbsp; The Operator, unedited
+      </div>
+    </div>
+
+    <!-- â”€â”€ POLAROID on seam â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+    <figure class="polaroid" aria-hidden="true">
+      <img src="/images/headshot-pointing.jpg" alt="">
+      <figcaption class="pcap">"yeah, you."</figcaption>
+    </figure>
+
+  </div>
+</section>

@@ -1,0 +1,752 @@
+<!--
+  PROOF — benjisaiempire.com  ·  "ABOUT BEN + RECEIPTS"
+  ─────────────────────────────────────────────────────────────
+  Direction: NYT Magazine feature spread. The pull quote is the
+  visual anchor — Fraunces italic at display size with a
+  hand-set drop-cap opener and a JetBrains Mono small-caps
+  byline. Bio columns sit underneath like body copy in a
+  printed magazine. Stats march across a hairline-ruled band.
+  The receipts are an asymmetric editorial collage — three
+  large pictures, three smaller ones — framed with a 1px
+  gold rule and a paper-shadow offset.
+
+  Layout (composite of A + C):
+    ZONE 1 — Masthead band: eyebrow file-marker + display headline
+             "WHY LISTEN TO ME." with a hairline gold rule and
+             folio number "Nº 04 / RECEIPTS"
+    ZONE 2 — Pull quote spread, full bleed within the column.
+             Drop-cap opening quote, body in Fraunces italic,
+             attribution as a hairline-prefixed byline.
+    ZONE 3 — Two-column body: bio paragraphs left, anchor
+             portrait + caption right, ghost CTA at end of
+             left column.
+    ZONE 4 — Stats register: three Anton numerals with mono
+             small-caps labels, separated by vertical hairlines.
+    ZONE 5 — Receipts gallery: 12-column asymmetric collage,
+             6 photos, varied row spans, 60ms fade-stagger.
+
+  Photos used:
+    /images/proof-shopify-2-8m.jpg
+    /images/proof-grant-cardone.jpg
+    /images/proof-meta-ads.jpg
+    /images/hero-petronas.jpg
+    /images/headshot-mural.jpg
+    /images/course-dev-rig.jpg
+
+  Motion:
+    - Pull quote: opacity 0 → 1, letter-spacing .02em → 0,
+      cubic-bezier(.22,1,.36,1), 1100ms.
+    - Stats: count-up via CSS @property + animation timing,
+      triggered when the section's stats-row enters viewport
+      via a single IntersectionObserver inline script.
+    - Photos: opacity 0 + translateY(8px) → 0, 60ms stagger.
+    - prefers-reduced-motion: all collapse to plain fade.
+-->
+
+<style>
+  /* ── PROOF SECTION ────────────────────────────────────────── */
+  .proof-section{
+    position:relative;
+    background:var(--ink);
+    color:var(--cream);
+    font-family:'Manrope',sans-serif;
+    padding:clamp(80px,10vw,160px) clamp(24px,5vw,96px) clamp(96px,12vw,180px);
+    overflow:hidden;
+    isolation:isolate;
+  }
+
+  /* faint paper-grain wash so the ink doesn't read flat */
+  .proof-section::before{
+    content:"";
+    position:absolute; inset:0;
+    background:
+      radial-gradient(1200px 800px at 12% -10%, rgba(212,175,55,.05), transparent 60%),
+      radial-gradient(1000px 700px at 110% 110%, rgba(196,41,46,.045), transparent 55%);
+    pointer-events:none;
+    z-index:0;
+  }
+
+  .proof-section > *{ position:relative; z-index:1; }
+
+  /* ── MASTHEAD BAND ────────────────────────────────────────── */
+  .proof-section .ps-masthead{
+    display:grid;
+    grid-template-columns: 1fr auto;
+    align-items:end;
+    gap:32px;
+    padding-bottom:28px;
+    border-bottom:1px solid var(--line);
+    margin-bottom:clamp(48px,6vw,88px);
+  }
+
+  .proof-section .ps-eyebrow{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:.28em;
+    text-transform:uppercase;
+    color:var(--gold);
+    display:flex; align-items:center; gap:14px;
+    margin-bottom:18px;
+  }
+  .proof-section .ps-eyebrow::before{
+    content:""; width:32px; height:1px; background:var(--gold);
+  }
+
+  .proof-section .ps-headline{
+    font-family:'Anton',sans-serif;
+    font-weight:400;
+    font-size:clamp(64px,11vw,168px);
+    line-height:.86;
+    letter-spacing:-.02em;
+    margin:0;
+    color:var(--cream);
+    text-transform:uppercase;
+  }
+  .proof-section .ps-headline em{
+    font-style:normal;
+    color:var(--gold);
+  }
+
+  .proof-section .ps-folio{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:.24em;
+    text-transform:uppercase;
+    color:var(--cream-soft);
+    text-align:right;
+    line-height:1.6;
+    white-space:nowrap;
+  }
+  .proof-section .ps-folio span{ color:var(--gold); }
+
+  /* ── PULL QUOTE SPREAD ────────────────────────────────────── */
+  .proof-section .ps-quote{
+    max-width:min(1180px, 100%);
+    margin:0 auto clamp(64px,8vw,120px);
+    padding:clamp(36px,5vw,72px) clamp(24px,4vw,56px);
+    position:relative;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+
+  /* corner gold tick marks — magazine register marks */
+  .proof-section .ps-quote::before,
+  .proof-section .ps-quote::after{
+    content:"";
+    position:absolute;
+    width:18px; height:18px;
+    border:1px solid var(--gold);
+    opacity:.7;
+  }
+  .proof-section .ps-quote::before{
+    top:-1px; left:-1px;
+    border-right:0; border-bottom:0;
+  }
+  .proof-section .ps-quote::after{
+    bottom:-1px; right:-1px;
+    border-left:0; border-top:0;
+  }
+
+  .proof-section .ps-quote-marker{
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-weight:300;
+    font-size:clamp(120px,16vw,220px);
+    line-height:.7;
+    color:var(--gold);
+    opacity:.55;
+    position:absolute;
+    top:clamp(-8px,-1vw,-4px);
+    left:clamp(8px,2vw,28px);
+    user-select:none;
+    pointer-events:none;
+  }
+
+  .proof-section .ps-quote-body{
+    font-family:'Fraunces',serif;
+    font-variation-settings:"opsz" 144;
+    font-style:italic;
+    font-weight:300;
+    font-size:clamp(28px,3.6vw,56px);
+    line-height:1.18;
+    letter-spacing:-.005em;
+    color:var(--cream);
+    margin:0 0 36px;
+    max-width:24ch;
+    margin-inline:auto;
+    text-align:left;
+    text-wrap:balance;
+    /* entrance */
+    opacity:0;
+    letter-spacing:.02em;
+    animation: ps-quote-in 1100ms cubic-bezier(.22,1,.36,1) forwards;
+    animation-delay:120ms;
+  }
+
+  .proof-section .ps-quote-body::first-letter{
+    font-weight:400;
+    color:var(--gold);
+  }
+
+  .proof-section .ps-quote-attr{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;
+    letter-spacing:.32em;
+    text-transform:uppercase;
+    color:var(--gold);
+    display:flex; align-items:center; gap:14px;
+    max-width:24ch;
+    margin-inline:auto;
+  }
+  .proof-section .ps-quote-attr::before{
+    content:""; width:48px; height:1px; background:var(--gold); flex:none;
+  }
+
+  @keyframes ps-quote-in{
+    from{ opacity:0; letter-spacing:.02em; }
+    to  { opacity:1; letter-spacing:-.005em; }
+  }
+
+  /* ── BIO + ANCHOR PORTRAIT ────────────────────────────────── */
+  .proof-section .ps-bio{
+    display:grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr);
+    gap:clamp(40px,6vw,96px);
+    align-items:start;
+    max-width:1320px;
+    margin:0 auto clamp(64px,7vw,112px);
+    padding-bottom:clamp(56px,7vw,96px);
+    border-bottom:1px solid var(--line);
+  }
+
+  .proof-section .ps-bio-col{
+    display:flex; flex-direction:column; gap:22px;
+  }
+
+  .proof-section .ps-bio-label{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:.28em;
+    text-transform:uppercase;
+    color:var(--cream-soft);
+    display:flex; align-items:center; gap:12px;
+    margin-bottom:6px;
+  }
+  .proof-section .ps-bio-label::before{
+    content:""; width:24px; height:1px; background:var(--gold);
+  }
+
+  .proof-section .ps-bio p{
+    font-family:'Manrope',sans-serif;
+    font-size:clamp(16px,1.15vw,18px);
+    line-height:1.65;
+    color:var(--cream);
+    margin:0;
+    max-width:62ch;
+  }
+  .proof-section .ps-bio p:first-of-type{
+    font-size:clamp(17px,1.25vw,20px);
+    color:var(--cream);
+  }
+  .proof-section .ps-bio p:first-of-type::first-letter{
+    font-family:'Fraunces',serif;
+    font-style:normal;
+    font-weight:400;
+    font-size:5.2em;
+    line-height:.85;
+    float:left;
+    padding:6px 12px 0 0;
+    color:var(--gold);
+  }
+  .proof-section .ps-bio p strong{
+    font-weight:600;
+    color:var(--cream);
+    background:linear-gradient(transparent 65%, rgba(212,175,55,.22) 65%);
+    padding:0 2px;
+  }
+
+  .proof-section .ps-cta{
+    align-self:flex-start;
+    margin-top:14px;
+    display:inline-flex;
+    align-items:center;
+    gap:14px;
+    padding:14px 24px;
+    border:1px solid var(--gold);
+    background:transparent;
+    color:var(--cream);
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;
+    letter-spacing:.24em;
+    text-transform:uppercase;
+    text-decoration:none;
+    transition:background 280ms ease, color 280ms ease, letter-spacing 280ms ease;
+  }
+  .proof-section .ps-cta:hover{
+    background:var(--gold);
+    color:var(--ink);
+    letter-spacing:.28em;
+  }
+  .proof-section .ps-cta .ps-arrow{
+    transition:transform 280ms cubic-bezier(.22,1,.36,1);
+  }
+  .proof-section .ps-cta:hover .ps-arrow{ transform:translateX(4px); }
+
+  /* anchor portrait — second column */
+  .proof-section .ps-anchor{
+    position:relative;
+    align-self:start;
+    margin-top:8px;
+  }
+  .proof-section .ps-anchor-frame{
+    position:relative;
+    aspect-ratio: 4 / 5;
+    border:1px solid rgba(212,175,55,.45);
+    box-shadow:
+      14px 14px 0 -1px rgba(212,175,55,.10),
+      28px 28px 60px rgba(0,0,0,.5);
+    overflow:hidden;
+    background:var(--ink-2);
+  }
+  .proof-section .ps-anchor-frame img{
+    width:100%; height:100%;
+    object-fit:cover;
+    display:block;
+    filter:contrast(1.04) saturate(.92);
+  }
+  .proof-section .ps-anchor-cap{
+    margin-top:14px;
+    padding-top:12px;
+    border-top:1px solid var(--gold);
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--gold);
+    line-height:1.5;
+  }
+  .proof-section .ps-anchor-cap small{
+    display:block;
+    color:var(--cream-soft);
+    font-size:10px;
+    letter-spacing:.28em;
+    margin-top:4px;
+  }
+
+  /* ── STATS REGISTER ───────────────────────────────────────── */
+  .proof-section .ps-stats{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:0;
+    max-width:1320px;
+    margin:0 auto clamp(72px,8vw,128px);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    padding:clamp(36px,4vw,56px) 0;
+  }
+  .proof-section .ps-stat{
+    padding:0 clamp(20px,3vw,48px);
+    border-right:1px solid var(--line);
+    display:flex; flex-direction:column; gap:14px;
+  }
+  .proof-section .ps-stat:last-child{ border-right:0; }
+
+  .proof-section .ps-stat-num{
+    font-family:'Anton',sans-serif;
+    font-weight:400;
+    font-size:clamp(56px,7vw,108px);
+    line-height:.9;
+    letter-spacing:-.015em;
+    color:var(--cream);
+    display:flex;
+    align-items:baseline;
+    gap:4px;
+  }
+  .proof-section .ps-stat-num .ps-prefix,
+  .proof-section .ps-stat-num .ps-suffix{
+    color:var(--gold);
+    font-size:.55em;
+    line-height:1;
+    letter-spacing:0;
+  }
+  .proof-section .ps-stat-num .ps-prefix{ margin-right:2px; }
+
+  .proof-section .ps-stat-label{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:.24em;
+    text-transform:uppercase;
+    color:var(--cream-soft);
+    line-height:1.55;
+    max-width:24ch;
+  }
+  .proof-section .ps-stat-label b{
+    color:var(--gold); font-weight:400;
+  }
+
+  /* count-up animation via CSS @property */
+  @property --pscount{
+    syntax:'<integer>';
+    inherits:false;
+    initial-value:0;
+  }
+  .proof-section .ps-stat[data-counter] .ps-stat-num .ps-value{
+    counter-reset: ps-c var(--pscount);
+  }
+  .proof-section .ps-stat[data-counter] .ps-stat-num .ps-value::after{
+    content: counter(ps-c);
+  }
+  .proof-section .ps-stats.is-inview .ps-stat[data-counter='28'] .ps-stat-num .ps-value{
+    animation: ps-up-28 1800ms cubic-bezier(.22,1,.36,1) forwards;
+  }
+  .proof-section .ps-stats.is-inview .ps-stat[data-counter='31745'] .ps-stat-num .ps-value{
+    animation: ps-up-31745 1800ms cubic-bezier(.22,1,.36,1) forwards;
+  }
+  .proof-section .ps-stats.is-inview .ps-stat[data-counter='110'] .ps-stat-num .ps-value{
+    animation: ps-up-110 1800ms cubic-bezier(.22,1,.36,1) forwards;
+  }
+  @keyframes ps-up-28 { from{--pscount:0;} to{--pscount:28;} }
+  @keyframes ps-up-31745 { from{--pscount:0;} to{--pscount:31745;} }
+  @keyframes ps-up-110 { from{--pscount:0;} to{--pscount:110;} }
+
+  /* ── RECEIPTS GALLERY ─────────────────────────────────────── */
+  .proof-section .ps-receipts-head{
+    max-width:1320px;
+    margin:0 auto 36px;
+    display:grid;
+    grid-template-columns: 1fr auto;
+    align-items:end;
+    gap:24px;
+    padding-bottom:18px;
+    border-bottom:1px solid var(--line);
+  }
+  .proof-section .ps-receipts-title{
+    font-family:'Anton',sans-serif;
+    font-weight:400;
+    font-size:clamp(36px,4.5vw,64px);
+    line-height:1;
+    letter-spacing:-.015em;
+    color:var(--cream);
+    text-transform:uppercase;
+    margin:0;
+  }
+  .proof-section .ps-receipts-title em{
+    font-style:normal; color:var(--gold);
+  }
+  .proof-section .ps-receipts-meta{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:.24em;
+    text-transform:uppercase;
+    color:var(--cream-soft);
+    text-align:right;
+    line-height:1.6;
+  }
+  .proof-section .ps-receipts-meta b{ color:var(--gold); font-weight:400; }
+
+  .proof-section .ps-grid{
+    max-width:1320px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: 84px;
+    gap:clamp(14px,1.6vw,22px);
+  }
+
+  /* asymmetric placement — magazine collage */
+  .proof-section .ps-frame{
+    --frame-delay:0ms;
+    position:relative;
+    background:var(--ink-2);
+    border:1px solid rgba(212,175,55,.35);
+    box-shadow:
+      10px 10px 0 -1px rgba(212,175,55,.08),
+      22px 22px 50px rgba(0,0,0,.5);
+    overflow:hidden;
+    opacity:0;
+    transform:translateY(8px);
+    animation: ps-frame-in 800ms cubic-bezier(.22,1,.36,1) forwards;
+    animation-delay: var(--frame-delay);
+  }
+  @keyframes ps-frame-in{
+    to{ opacity:1; transform:none; }
+  }
+
+  .proof-section .ps-frame img{
+    width:100%; height:100%;
+    object-fit:cover;
+    display:block;
+    filter:contrast(1.05) saturate(.94);
+    transition:transform 900ms cubic-bezier(.22,1,.36,1), filter 600ms ease;
+  }
+  .proof-section .ps-frame:hover img{
+    transform:scale(1.035);
+    filter:contrast(1.08) saturate(1);
+  }
+
+  /* caption — sits below frame, hairline above */
+  .proof-section .ps-cap{
+    margin-top:12px;
+    padding-top:10px;
+    border-top:1px solid var(--gold);
+    font-family:'JetBrains Mono',monospace;
+    font-size:10.5px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--gold);
+    line-height:1.5;
+  }
+
+  /* tile = frame + caption wrapper */
+  .proof-section .ps-tile{
+    display:flex;
+    flex-direction:column;
+    min-width:0;
+  }
+  .proof-section .ps-tile .ps-frame{
+    flex:1 1 auto;
+  }
+
+  /* asymmetric grid placements */
+  .proof-section .ps-tile.t1 { grid-column: span 7; grid-row: span 5; }   /* shopify — hero proof */
+  .proof-section .ps-tile.t2 { grid-column: span 5; grid-row: span 3; }   /* grant cardone */
+  .proof-section .ps-tile.t3 { grid-column: span 5; grid-row: span 2; }   /* meta ads */
+  .proof-section .ps-tile.t4 { grid-column: span 4; grid-row: span 4; }   /* petronas */
+  .proof-section .ps-tile.t5 { grid-column: span 4; grid-row: span 4; }   /* bangkok mural */
+  .proof-section .ps-tile.t6 { grid-column: span 4; grid-row: span 4; }   /* dev rig */
+
+  .proof-section .ps-tile.t1 .ps-frame{ aspect-ratio:auto; }
+  .proof-section .ps-tile.t2 .ps-frame{ aspect-ratio:auto; }
+
+  /* fade stagger */
+  .proof-section .ps-tile.t1 .ps-frame{ --frame-delay:0ms; }
+  .proof-section .ps-tile.t2 .ps-frame{ --frame-delay:60ms; }
+  .proof-section .ps-tile.t3 .ps-frame{ --frame-delay:120ms; }
+  .proof-section .ps-tile.t4 .ps-frame{ --frame-delay:180ms; }
+  .proof-section .ps-tile.t5 .ps-frame{ --frame-delay:240ms; }
+  .proof-section .ps-tile.t6 .ps-frame{ --frame-delay:300ms; }
+
+  /* tiny corner badge on the hero proof tile */
+  .proof-section .ps-tile.t1 .ps-frame::after{
+    content:"VERIFIED · SHOPIFY EXPORT";
+    position:absolute;
+    top:14px; left:14px;
+    background:rgba(11,11,12,.78);
+    backdrop-filter:blur(6px);
+    color:var(--gold);
+    font-family:'JetBrains Mono',monospace;
+    font-size:10px;
+    letter-spacing:.22em;
+    padding:6px 10px;
+    border:1px solid rgba(212,175,55,.45);
+    z-index:2;
+  }
+
+  /* ── RESPONSIVE ───────────────────────────────────────────── */
+  @media (max-width: 1024px){
+    .proof-section .ps-bio{
+      grid-template-columns: 1fr;
+      gap:48px;
+    }
+    .proof-section .ps-anchor{ max-width:480px; }
+    .proof-section .ps-grid{ grid-auto-rows: 72px; }
+    .proof-section .ps-tile.t1{ grid-column: span 12; grid-row: span 5; }
+    .proof-section .ps-tile.t2{ grid-column: span 7; grid-row: span 4; }
+    .proof-section .ps-tile.t3{ grid-column: span 5; grid-row: span 4; }
+    .proof-section .ps-tile.t4{ grid-column: span 6; grid-row: span 4; }
+    .proof-section .ps-tile.t5{ grid-column: span 6; grid-row: span 4; }
+    .proof-section .ps-tile.t6{ grid-column: span 12; grid-row: span 4; }
+  }
+
+  @media (max-width: 720px){
+    .proof-section{
+      padding:72px 20px 96px;
+    }
+    .proof-section .ps-masthead{
+      grid-template-columns: 1fr;
+      align-items:start;
+    }
+    .proof-section .ps-folio{ text-align:left; }
+    .proof-section .ps-quote-body{ font-size:clamp(22px,6vw,32px); max-width:100%; }
+    .proof-section .ps-quote-attr{ max-width:100%; }
+    .proof-section .ps-stats{ grid-template-columns:1fr; gap:28px; padding:28px 0; }
+    .proof-section .ps-stat{ border-right:0; border-bottom:1px solid var(--line); padding:0 0 28px; }
+    .proof-section .ps-stat:last-child{ border-bottom:0; padding-bottom:0; }
+    .proof-section .ps-grid{ grid-template-columns: 1fr; grid-auto-rows: auto; }
+    .proof-section .ps-tile.t1,
+    .proof-section .ps-tile.t2,
+    .proof-section .ps-tile.t3,
+    .proof-section .ps-tile.t4,
+    .proof-section .ps-tile.t5,
+    .proof-section .ps-tile.t6{
+      grid-column: span 1; grid-row: auto;
+    }
+    .proof-section .ps-tile .ps-frame{ aspect-ratio: 4/3; }
+    .proof-section .ps-tile.t1 .ps-frame{ aspect-ratio: 16/10; }
+  }
+
+  /* ── REDUCED MOTION ───────────────────────────────────────── */
+  @media (prefers-reduced-motion: reduce){
+    .proof-section .ps-quote-body,
+    .proof-section .ps-frame{
+      animation:none !important;
+      opacity:1 !important;
+      letter-spacing:normal !important;
+      transform:none !important;
+    }
+    .proof-section .ps-stats.is-inview .ps-stat .ps-stat-num .ps-value{
+      animation:none !important;
+    }
+    .proof-section .ps-stat[data-counter='28'] .ps-value::after{ content:"2.8"; }
+    .proof-section .ps-stat[data-counter='31745'] .ps-value::after{ content:"31,745"; }
+    .proof-section .ps-stat[data-counter='110'] .ps-value::after{ content:"110"; }
+  }
+</style>
+
+<section class="proof-section" id="proof" aria-labelledby="proof-headline">
+
+  <!-- ZONE 1 · MASTHEAD -->
+  <header class="ps-masthead">
+    <div>
+      <div class="ps-eyebrow">File — The Operator</div>
+      <h2 class="ps-headline" id="proof-headline">Why Listen <em>To Me.</em></h2>
+    </div>
+    <div class="ps-folio">
+      Nº <span>04</span><br>
+      Receipts &amp; Bio
+    </div>
+  </header>
+
+  <!-- ZONE 2 · PULL QUOTE -->
+  <figure class="ps-quote">
+    <span class="ps-quote-marker" aria-hidden="true">&ldquo;</span>
+    <blockquote class="ps-quote-body">
+      I&rsquo;m not a guru. I run real businesses. I cold-call live on YouTube every Tuesday because if I&rsquo;m going to teach this, I should be doing it in front of you &mdash; with my real list, my real script, and my real bad days mixed in with the good ones.
+    </blockquote>
+    <figcaption class="ps-quote-attr">Benji Boyce</figcaption>
+  </figure>
+
+  <!-- ZONE 3 · BIO + ANCHOR PORTRAIT -->
+  <div class="ps-bio">
+    <div class="ps-bio-col">
+      <div class="ps-bio-label">Bio · The Short Version</div>
+      <p>
+        Multiple Shopify stores doing <strong>eight figures combined</strong>. A marketing agency. A published book on losing a million dollars in 364 days &mdash; so I could write the one on how to avoid it. Featured in <strong>Forbes, Yahoo Finance, Nasdaq, and LA Weekly</strong>. None of that matters more than this:
+      </p>
+      <p>
+        I cold-call <strong>live, every Tuesday</strong>, in front of strangers, with a list nobody has scrubbed for me. If the script doesn&rsquo;t work, you&rsquo;ll hear it. If it works, you&rsquo;ll see why.
+      </p>
+      <a class="ps-cta" href="#pricing">
+        <span>See pricing</span>
+        <span class="ps-arrow" aria-hidden="true">&rarr;</span>
+      </a>
+    </div>
+
+    <aside class="ps-anchor">
+      <div class="ps-anchor-frame">
+        <img src="/images/headshot-mural.jpg" alt="Ben in front of a street-art mural in Bangkok" loading="lazy">
+      </div>
+      <div class="ps-anchor-cap">
+        Bangkok &middot; Street Lab
+        <small>Field Office &middot; 2025</small>
+      </div>
+    </aside>
+  </div>
+
+  <!-- ZONE 4 · STATS REGISTER -->
+  <div class="ps-stats" id="ps-stats">
+    <div class="ps-stat" data-counter="28">
+      <div class="ps-stat-num">
+        <span class="ps-prefix">$</span><span class="ps-value">2.8</span><span class="ps-suffix">M</span>
+      </div>
+      <div class="ps-stat-label">Shopify <b>·</b> All Stores <b>·</b> 90 Days</div>
+    </div>
+    <div class="ps-stat" data-counter="31745">
+      <div class="ps-stat-num">
+        <span class="ps-value">31,745</span>
+      </div>
+      <div class="ps-stat-label">Orders <b>·</b> Same 90 Days</div>
+    </div>
+    <div class="ps-stat" data-counter="110">
+      <div class="ps-stat-num">
+        <span class="ps-value">110</span><span class="ps-suffix">K</span>
+      </div>
+      <div class="ps-stat-label">Reddit AMA Views <b>·</b> Top 7 All-Time</div>
+    </div>
+  </div>
+
+  <!-- ZONE 5 · RECEIPTS GALLERY -->
+  <div class="ps-receipts-head">
+    <h3 class="ps-receipts-title">The <em>Receipts.</em></h3>
+    <div class="ps-receipts-meta">
+      Field Notes <b>·</b> 2024&ndash;2026<br>
+      Six Frames <b>·</b> Verified
+    </div>
+  </div>
+
+  <div class="ps-grid">
+
+    <figure class="ps-tile t1">
+      <div class="ps-frame">
+        <img src="/images/proof-shopify-2-8m.jpg" alt="Shopify dashboard showing $2.8M in 90 days across 31,745 orders" loading="lazy">
+      </div>
+      <figcaption class="ps-cap">$2.8M &middot; 31,745 Orders &middot; 90 Days</figcaption>
+    </figure>
+
+    <figure class="ps-tile t2">
+      <div class="ps-frame">
+        <img src="/images/proof-grant-cardone.jpg" alt="Ben standing with Grant Cardone" loading="lazy">
+      </div>
+      <figcaption class="ps-cap">With Grant Cardone &middot; 2024</figcaption>
+    </figure>
+
+    <figure class="ps-tile t3">
+      <div class="ps-frame">
+        <img src="/images/proof-meta-ads.jpg" alt="Meta Ads Manager showing four active campaigns" loading="lazy">
+      </div>
+      <figcaption class="ps-cap">Meta Ads &middot; 4 Active Campaigns</figcaption>
+    </figure>
+
+    <figure class="ps-tile t4">
+      <div class="ps-frame">
+        <img src="/images/hero-petronas.jpg" alt="Petronas Towers, Kuala Lumpur" loading="lazy">
+      </div>
+      <figcaption class="ps-cap">Build From Anywhere &middot; KL</figcaption>
+    </figure>
+
+    <figure class="ps-tile t5">
+      <div class="ps-frame">
+        <img src="/images/headshot-mural.jpg" alt="Bangkok street mural session" loading="lazy">
+      </div>
+      <figcaption class="ps-cap">Bangkok &middot; Street Lab</figcaption>
+    </figure>
+
+    <figure class="ps-tile t6">
+      <div class="ps-frame">
+        <img src="/images/course-dev-rig.jpg" alt="Live cold-call rig — Tuesdays and Thursdays" loading="lazy">
+      </div>
+      <figcaption class="ps-cap">Tuesdays / Thursdays &middot; Live</figcaption>
+    </figure>
+
+  </div>
+
+  <script>
+    (function(){
+      var stats = document.getElementById('ps-stats');
+      if(!stats || !('IntersectionObserver' in window)){
+        if(stats) stats.classList.add('is-inview');
+        return;
+      }
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting){
+            stats.classList.add('is-inview');
+            io.disconnect();
+          }
+        });
+      }, { threshold: 0.35 });
+      io.observe(stats);
+    })();
+  </script>
+
+</section>
