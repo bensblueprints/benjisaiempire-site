@@ -1129,7 +1129,7 @@
     position: relative;
     background: var(--ink);
     color: var(--cream);
-    padding: clamp(80px, 10vw, 160px) clamp(20px, 4vw, 64px) clamp(96px, 12vw, 200px);
+    padding: clamp(80px, 10vw, 160px) clamp(20px, 4vw, 64px) clamp(40px, 4vw, 64px);
     overflow: hidden;
     font-family: 'Manrope', sans-serif;
   }
@@ -2640,6 +2640,217 @@
   }
 
 
+/* ===== 05-portfolio ===== */
+
+  .portfolio-section {
+    position: relative;
+    background: var(--ink);
+    color: var(--cream);
+    font-family: 'Manrope', sans-serif;
+    padding: clamp(72px,8vw,120px) clamp(20px,4vw,64px);
+    overflow: hidden;
+  }
+
+  .portfolio-section::before {
+    content: "";
+    position: absolute; inset: 0;
+    background-image: linear-gradient(to right, var(--line) 1px, transparent 1px);
+    background-size: calc(100% / 12) 100%;
+    opacity: .2;
+    pointer-events: none;
+  }
+
+  .portfolio-inner {
+    position: relative;
+    max-width: 1480px;
+    margin: 0 auto;
+  }
+
+  .portfolio-masthead {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 32px;
+    padding-bottom: clamp(36px,4vw,56px);
+    border-bottom: 1px solid var(--line);
+    margin-bottom: clamp(40px,5vw,64px);
+  }
+
+  .portfolio-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: .28em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  .portfolio-headline {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: "opsz" 72;
+    font-weight: 500;
+    font-size: clamp(38px,4.5vw,68px);
+    line-height: 1.05;
+    color: var(--cream);
+    margin: 0;
+  }
+
+  .portfolio-headline em {
+    font-style: italic;
+    color: var(--gold-bright);
+  }
+
+  .portfolio-lede {
+    max-width: 40ch;
+    font-size: clamp(13px,1vw,15px);
+    color: var(--cream-soft);
+    line-height: 1.6;
+    margin-top: 12px;
+  }
+
+  .portfolio-folio {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--cream-soft);
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  .portfolio-folio span {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 22px;
+    display: block;
+    color: var(--cream);
+    letter-spacing: 0;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .portfolio-group {
+    margin-bottom: clamp(48px,6vw,80px);
+  }
+
+  .pgroup-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+
+  .pgroup-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: .24em;
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+
+  .pgroup-rule {
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  .pgroup-title {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(15px,1.6vw,20px);
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--cream);
+    flex-shrink: 0;
+  }
+
+  .pgroup-count {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: .2em;
+    color: var(--cream-soft);
+    border: 1px solid var(--line);
+    padding: 3px 8px;
+    flex-shrink: 0;
+  }
+
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+  }
+
+  .pcard {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid var(--line);
+    padding: 24px;
+    background: var(--ink-2);
+    transition: border-color .25s ease, background .25s ease,
+                transform .3s cubic-bezier(.22,1,.36,1);
+  }
+
+  .pcard:hover {
+    border-color: var(--gold);
+    background: var(--ink-3);
+    transform: translateY(-2px);
+  }
+
+  .pcard-kicker {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: .24em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+
+  .pcard-name {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: "opsz" 36;
+    font-weight: 500;
+    font-size: clamp(17px,1.4vw,21px);
+    line-height: 1.2;
+    color: var(--cream);
+    margin-bottom: 8px;
+  }
+
+  .pcard-desc {
+    font-size: 13px;
+    color: var(--cream-soft);
+    line-height: 1.5;
+    margin-bottom: 20px;
+    min-height: 38px;
+  }
+
+  .pcard-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--line);
+    padding-top: 14px;
+  }
+
+  .pcard-url {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: .1em;
+    color: var(--cream-soft);
+  }
+
+  .pcard-arrow {
+    color: var(--gold);
+    font-size: 16px;
+    transition: transform .25s cubic-bezier(.22,1,.36,1);
+  }
+
+  .pcard:hover .pcard-arrow { transform: translateX(4px); }
+
+  @media (max-width: 600px) {
+    .portfolio-masthead { flex-direction: column; }
+    .portfolio-folio { display: none; }
+  }
+
 </style>
 </head>
 <body>
@@ -3143,6 +3354,137 @@
       tiles.forEach(function (t) { io.observe(t); });
     })();
   </script>
+</section>
+
+<section class="portfolio-section" id="portfolio" aria-labelledby="portfolio-headline">
+  <div class="portfolio-inner">
+
+    <header class="portfolio-masthead">
+      <div>
+        <div class="portfolio-eyebrow">The Work &nbsp;&middot;&nbsp; Built Live On YouTube</div>
+        <h2 class="portfolio-headline" id="portfolio-headline">Sites I've <em>Built.</em></h2>
+        <p class="portfolio-lede">Real clients. Real software. All shipped with Claude Code — on camera.</p>
+      </div>
+      <div class="portfolio-folio">N&ordm;&nbsp;<span>05</span>Portfolio</div>
+    </header>
+
+    <!-- GROUP 01 — CLIENT WEBSITES -->
+    <div class="portfolio-group">
+      <div class="pgroup-header">
+        <span class="pgroup-num">01</span>
+        <span class="pgroup-rule"></span>
+        <span class="pgroup-title">Client Websites</span>
+        <span class="pgroup-count">6 projects</span>
+      </div>
+      <div class="portfolio-grid">
+
+        <a class="pcard" href="https://ashokanoutdoors.com" target="_blank" rel="noopener">
+          <div class="pcard-kicker">Client &middot; Outdoor</div>
+          <h3 class="pcard-name">Ashokan Outdoors</h3>
+          <p class="pcard-desc">Outdoor guide service &amp; tackle shop &mdash; full redesign.</p>
+          <div class="pcard-footer">
+            <span class="pcard-url">ashokanoutdoors.com</span>
+            <span class="pcard-arrow">&rarr;</span>
+          </div>
+        </a>
+
+        <a class="pcard" href="https://coldcallacademy.com" target="_blank" rel="noopener">
+          <div class="pcard-kicker">Client &middot; Sales Training</div>
+          <h3 class="pcard-name">Cold Call Academy</h3>
+          <p class="pcard-desc">Sales training community &amp; course platform.</p>
+          <div class="pcard-footer">
+            <span class="pcard-url">coldcallacademy.com</span>
+            <span class="pcard-arrow">&rarr;</span>
+          </div>
+        </a>
+
+        <a class="pcard" href="https://leesferryonthefly.com" target="_blank" rel="noopener">
+          <div class="pcard-kicker">Client &middot; Fly Fishing</div>
+          <h3 class="pcard-name">Lees Ferry On The Fly</h3>
+          <p class="pcard-desc">Guide service booking &amp; content site for a top-rated fly fishing outfitter.</p>
+          <div class="pcard-footer">
+            <span class="pcard-url">leesferryonthefly.com</span>
+            <span class="pcard-arrow">&rarr;</span>
+          </div>
+        </a>
+
+        <a class="pcard" href="https://smlwickedstriper.com" target="_blank" rel="noopener">
+          <div class="pcard-kicker">Client &middot; Fishing</div>
+          <h3 class="pcard-name">SML Wicked Striper</h3>
+          <p class="pcard-desc">Striper fishing charter guide &mdash; bookings &amp; brand site.</p>
+          <div class="pcard-footer">
+            <span class="pcard-url">smlwickedstriper.com</span>
+            <span class="pcard-arrow">&rarr;</span>
+          </div>
+        </a>
+
+        <a class="pcard" href="https://fdh-installations.com" target="_blank" rel="noopener">
+          <div class="pcard-kicker">Client &middot; Trades</div>
+          <h3 class="pcard-name">FDH Installations</h3>
+          <p class="pcard-desc">Commercial &amp; residential installation services.</p>
+          <div class="pcard-footer">
+            <span class="pcard-url">fdh-installations.com</span>
+            <span class="pcard-arrow">&rarr;</span>
+          </div>
+        </a>
+
+        <a class="pcard" href="https://kandygirl.com" target="_blank" rel="noopener">
+          <div class="pcard-kicker">Client &middot; E-Commerce</div>
+          <h3 class="pcard-name">Kandy Girl</h3>
+          <p class="pcard-desc">Candy &amp; lifestyle e-commerce brand site.</p>
+          <div class="pcard-footer">
+            <span class="pcard-url">kandygirl.com</span>
+            <span class="pcard-arrow">&rarr;</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- GROUP 02 — SAAS SOFTWARE -->
+    <div class="portfolio-group">
+      <div class="pgroup-header">
+        <span class="pgroup-num">02</span>
+        <span class="pgroup-rule"></span>
+        <span class="pgroup-title">SaaS Software</span>
+        <span class="pgroup-count">3 projects</span>
+      </div>
+      <div class="portfolio-grid">
+
+        <a class="pcard" href="https://leadripper.com" target="_blank" rel="noopener">
+          <div class="pcard-kicker">SaaS &middot; AI Leads</div>
+          <h3 class="pcard-name">LeadRipper</h3>
+          <p class="pcard-desc">AI-powered B2B lead generation &amp; enrichment platform.</p>
+          <div class="pcard-footer">
+            <span class="pcard-url">leadripper.com</span>
+            <span class="pcard-arrow">&rarr;</span>
+          </div>
+        </a>
+
+        <a class="pcard" href="https://gotbeef.us" target="_blank" rel="noopener">
+          <div class="pcard-kicker">SaaS &middot; Dispute Resolution</div>
+          <h3 class="pcard-name">Got Beef</h3>
+          <p class="pcard-desc">Peer-to-peer conflict resolution &amp; mediation platform.</p>
+          <div class="pcard-footer">
+            <span class="pcard-url">gotbeef.us</span>
+            <span class="pcard-arrow">&rarr;</span>
+          </div>
+        </a>
+
+        <a class="pcard" href="https://calireporter.com" target="_blank" rel="noopener">
+          <div class="pcard-kicker">SaaS &middot; AI News</div>
+          <h3 class="pcard-name">Cali Reporter</h3>
+          <p class="pcard-desc">AI-powered California news aggregator &amp; publisher.</p>
+          <div class="pcard-footer">
+            <span class="pcard-url">calireporter.com</span>
+            <span class="pcard-arrow">&rarr;</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+  </div>
 </section>
 
 <section class="proof-section" id="proof" aria-labelledby="proof-headline">
