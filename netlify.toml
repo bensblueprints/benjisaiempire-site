@@ -1,0 +1,37 @@
+[build]
+  publish = "."
+  command = ""
+
+[[redirects]]
+  from = "/courses"
+  to = "https://app.benjisaiempire.com/courses"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/courses/*"
+  to = "https://app.benjisaiempire.com/courses/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/landing"
+  to = "https://app.benjisaiempire.com/"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/insider"
+  to = "/insider/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/insider/*"
+  to = "/insider/:splat"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
