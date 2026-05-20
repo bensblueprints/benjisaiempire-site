@@ -4,19 +4,19 @@
 
 [[redirects]]
   from = "/courses"
-  to = "https://app.benjisaiempire.com/courses"
+  to = "https://benjisaiempire.com/courses"
   status = 200
   force = true
 
 [[redirects]]
   from = "/courses/*"
-  to = "https://app.benjisaiempire.com/courses/:splat"
+  to = "https://benjisaiempire.com/courses/:splat"
   status = 200
   force = true
 
 [[redirects]]
   from = "/landing"
-  to = "https://app.benjisaiempire.com/"
+  to = "https://benjisaiempire.com/"
   status = 200
   force = true
 
