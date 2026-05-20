@@ -1,6 +1,10 @@
+# Static HTML — use www or preview; apex should be benjisaiempire-app on Netlify.
 [build]
   publish = "."
   command = ""
+
+[build.environment]
+  NODE_VERSION = "20"
 
 [[redirects]]
   from = "/courses"
